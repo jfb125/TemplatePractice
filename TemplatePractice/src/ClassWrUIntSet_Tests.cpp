@@ -1,12 +1,13 @@
 #include "ClassWrUIntSet_Tests.h"
-#include "WrappedUnsignedSet.h"
+
+#include "MyOrderedSet.h"
 
 using namespace std;
 
 using WrUInt = WrappedUnsigned;
-using WrUIntNode = LinkedListNode;
+using WrUIntNode = MyLinkedListNode;
 using WrUIntList = WrappedUnsignedLinkedList;
-using WrUIntSet = WrappedUnsignedSet;
+using WrUIntSet = MyOrderedSet;
 
 #undef SET_OPERATION
 #define SET_OPERATIONS\

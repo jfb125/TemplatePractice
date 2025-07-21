@@ -6,7 +6,7 @@
 #include <string>
 #include <cstring>
 
-#include "WrappedUnsignedSet.h"
+#include "MyOrderedSet.h"
 #include "SetTestBench.h"
 
 // the test itself

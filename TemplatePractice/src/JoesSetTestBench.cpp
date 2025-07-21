@@ -8,9 +8,9 @@ using namespace std;
 #include "ClassWrUIntSet_Tests.h"
 
 using WrUInt = WrappedUnsigned;
-using WrUIntNode = LinkedListNode;
-using WrUIntList = LinkedList;
-using WrUIntSet = WrappedUnsignedSet;
+using WrUIntNode = MyLinkedListNode;
+using WrUIntList = MyLinkedList;
+using WrUIntSet = MyOrderedSet;
 //using msglvl = Message_Level;
 
 bool isMsgLvlNone(Message_Level level) 		{	return level == None;	}
