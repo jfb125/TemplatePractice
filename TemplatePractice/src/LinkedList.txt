@@ -4,13 +4,13 @@
  *  Created on: Mar 24, 2025
  *      Author: joe
  */
-
-#include "WrappedUnsignedLinkedList.h"
+#if 0
+#include "LinkedList.h"
 
 using namespace std;
 
 using WrUInt = WrappedUnsigned;
-using WrUIntNode = WrappedUnsignedLinkedListNode;
+using WrUIntNode = LinkedListNode;
 using WrUIntList = WrappedUnsignedLinkedList;
 
 WrappedUnsignedLinkedList& insIntoList(WrappedUnsignedLinkedList *plist, const WrappedUnsigned &value_to_add);
@@ -116,7 +116,7 @@ std::ostream& operator<<(std::ostream& out, const WrappedUnsignedLinkedList& lis
 		out << std::endl;
 
 	if (list.head) {
-		WrappedUnsignedLinkedListNode *p = list.head;
+		LinkedListNode *p = list.head;
 		// print all node before the last node, which has no 'endl'
 		while (p->next) {
 			out << p << " : " << p->data << " : " << p->next << std::endl;
@@ -563,3 +563,4 @@ int listSize(const WrappedUnsignedLinkedList &list) {
 
 	return retval;
 }
+#endif

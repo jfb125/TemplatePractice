@@ -4,7 +4,7 @@
 using namespace std;
 
 using WrUInt = WrappedUnsigned;
-using WrUIntNode = WrappedUnsignedLinkedListNode;
+using WrUIntNode = LinkedListNode;
 using WrUIntList = WrappedUnsignedLinkedList;
 using WrUIntSet = WrappedUnsignedSet;
 

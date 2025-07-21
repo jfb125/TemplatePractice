@@ -40,7 +40,7 @@ bool verifyResults(	const char *before,
 
 void echoTestName(const char *);
 void echoTestPhase(const char *);
-void echoWrUInt(const char* before, WrappedUnsigned&, const char* after);
-void echoLinkedList(const char* before, WrappedUnsignedLinkedList&, const char* after);
+//void echoWrUInt(const char* before, WrappedUnsigned&, const char* after);
+//void echoLinkedList(const char* before, WrappedUnsignedLinkedList&, const char* after);
 
 #endif

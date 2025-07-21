@@ -8,8 +8,8 @@ using namespace std;
 #include "ClassWrUIntSet_Tests.h"
 
 using WrUInt = WrappedUnsigned;
-using WrUIntNode = WrappedUnsignedLinkedListNode;
-using WrUIntList = WrappedUnsignedLinkedList;
+using WrUIntNode = LinkedListNode;
+using WrUIntList = LinkedList;
 using WrUIntSet = WrappedUnsignedSet;
 //using msglvl = Message_Level;
 

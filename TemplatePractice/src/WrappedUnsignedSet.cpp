@@ -4,13 +4,13 @@
  *  Created on: Mar 25, 2025
  *      Author: joe
  */
-
+#if 0
 #include "WrappedUnsignedSet.h"
 
 using namespace std;
 
 using WrUInt = WrappedUnsigned;
-using WrUIntNode = WrappedUnsignedLinkedListNode;
+using WrUIntNode = LinkedListNode;
 using WrUIntList = WrappedUnsignedLinkedList;
 using WrUIntSet = WrappedUnsignedSet;
 
@@ -393,3 +393,4 @@ WrUIntSet& uniqueSet(WrUIntSet *dst, const WrUIntSet& other) {
 
 	return *dst;
 }
+#endif

@@ -11,7 +11,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include "WrappedUnsignedLinkedList.h"
+#include "LinkedList.h"
 
 class WrappedUnsignedSet {
 

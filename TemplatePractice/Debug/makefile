@@ -47,7 +47,7 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Template Class
+BUILD_ARTIFACT_NAME := TemplatePractice
 BUILD_ARTIFACT_EXTENSION :=
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
@@ -58,19 +58,19 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 all: main-build
 
 # Main-build Target
-main-build: Template\ Class
+main-build: TemplatePractice
 
 # Tool invocations
-Template\ Class: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
+TemplatePractice: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "Template Class" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++  -o "TemplatePractice" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Template\\ Class
+	-$(RM) TemplatePractice
 	-@echo ' '
 
 .PHONY: all clean dependents main-build
