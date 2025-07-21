@@ -1,0 +1,565 @@
+/*
+ * JoesWrappedUnsignedLinkedList.cpp
+ *
+ *  Created on: Mar 24, 2025
+ *      Author: joe
+ */
+
+#include "WrappedUnsignedLinkedList.h"
+
+using namespace std;
+
+using WrUInt = WrappedUnsigned;
+using WrUIntNode = WrappedUnsignedLinkedListNode;
+using WrUIntList = WrappedUnsignedLinkedList;
+
+WrappedUnsignedLinkedList& insIntoList(WrappedUnsignedLinkedList *plist, const WrappedUnsigned &value_to_add);
+WrappedUnsignedLinkedList& delFromList(WrappedUnsignedLinkedList *plist, const WrappedUnsigned &value_to_sub);
+
+/* ************************************************************************ */
+/* ************************************************************************ */
+/*								accessors									*/
+/* ************************************************************************ */
+/* ************************************************************************ */
+
+bool WrappedUnsignedLinkedList::isMember(const WrappedUnsigned& test_value) const {
+
+	WrUIntNode *node = head;
+
+	while(node != nullptr) {
+		if (node->data == test_value) {
+			return true;
+		}
+		node = node->next;
+	}
+
+	return false;
+}
+
+// does not return the final 'endl'
+std::string WrappedUnsignedLinkedList::toString() const {
+
+	stringstream ret_str;
+	ret_str << "list contains " << size << " elements " << endl
+			<< " head @" << &head << " : " << head;
+
+	if (head == nullptr)
+		// if the list is empty, return
+		return ret_str.str();
+	else
+		// need to print a list of nodes
+		ret_str << endl;
+
+	// print out each node with an endl
+	//	except for last node which has no endl
+	WrUIntNode *p = head;
+	while (p->next != nullptr) {
+		ret_str << p->toString() << endl;
+		p = p->next;
+	}
+
+	// no endl after the final node
+	ret_str << p->toString();
+
+	return ret_str.str();
+}
+
+int WrappedUnsignedLinkedList::getValues(unsigned **dst) const {
+
+	unsigned *retvals = new unsigned[size];
+
+	int ret_count = 0;
+	WrUIntNode *p = this->head;
+	while (p) {
+		retvals[ret_count++] = p->data.get_x();
+		// this should never happen, but ...
+		if (ret_count == size)
+			break;
+		p = p->next;
+	}
+
+	*dst = retvals;
+	return ret_count;
+}
+
+std::string WrappedUnsignedLinkedList::valuesString(int uwidth) const {
+
+	std::stringstream retval;
+
+	retval << "{";
+
+	if (size == 0) {
+		retval << " empty }";
+	} else {
+		WrUIntNode *p = head;
+		// print all but the last, which has no ',' after it
+		while (p->next) {
+			retval << std::setw(uwidth) << p->data.get_x() << ", ";
+			p = p->next;
+		}
+		// print last element
+		retval << std::setw(uwidth) << p->data.get_x();
+		// this makes the } seem correctly spaced from the last value
+		for (int i = uwidth-1; i != 0; i--)
+			retval << " ";
+		retval << "}";
+	}
+
+	return retval.str();
+}
+
+std::ostream& operator<<(std::ostream& out, const WrappedUnsignedLinkedList& list) {
+
+	out << "head @" << &list.head << " " << list.head << " contains " << list.size << " elements: ";
+
+	if (list.size != 0)		// if there are more elements, go on to a new line
+		out << std::endl;
+
+	if (list.head) {
+		WrappedUnsignedLinkedListNode *p = list.head;
+		// print all node before the last node, which has no 'endl'
+		while (p->next) {
+			out << p << " : " << p->data << " : " << p->next << std::endl;
+			p = p->next;
+		}
+
+		// last node does not have an 'endl' after it
+		out << p << " : " << p->data << " : " << p->next;
+	}
+
+	return out;
+}
+
+
+/* ************************************************************************ */
+/* ************************************************************************ */
+/*							relational operators							*/
+/* ************************************************************************ */
+/* ************************************************************************ */
+
+bool WrappedUnsignedLinkedList::operator==(const WrappedUnsignedLinkedList& other) const {
+
+	if (size != other.size)
+		return false;
+
+	if (head == nullptr && other.head == nullptr)
+		return true;
+
+	WrUIntNode *px = head;
+	WrUIntNode *py = other.head;
+
+	// at this point it is known that the lists are of the same size
+	while (px != nullptr && py != nullptr) {
+		if (px->data != py->data)
+			return false;
+		px = px->next;
+		py = py->next;
+	}
+
+	return true;
+}
+
+bool WrappedUnsignedLinkedList::operator!=(const WrappedUnsignedLinkedList& other) const {
+	return !(*this == other);
+}
+
+
+/* ************************************************************************ */
+/* ************************************************************************ */
+/*							arithmetic operators							*/
+/* ************************************************************************ */
+/* ************************************************************************ */
+
+WrUIntList WrappedUnsignedLinkedList::operator+(const WrUInt &value_to_add) {
+
+	WrUIntList retval(*this);			// create a copy
+	insIntoList(&retval, value_to_add);		// add value to copy
+	return retval;						// return the copy
+}
+
+WrUIntList WrappedUnsignedLinkedList::operator-(const WrUInt& value_to_delete) {
+
+	WrUIntList retval(*this);			// create a copy
+	delFromList(&retval, value_to_delete);	// remove value from copy
+	return retval;						// return the copy
+}
+
+WrUIntList WrappedUnsignedLinkedList::operator+(const WrappedUnsignedLinkedList& other) {
+
+	WrUIntList retval(*this);			// create a copy
+
+	// insert every unique element from other into copy
+	WrUIntNode *src = other.head;
+	while (src != nullptr) {
+		insIntoList(&retval, src->data);	// insIntoList handles duplicate values
+		src = src->next;
+	}
+	return retval;						// return the copy
+}
+
+WrUIntList WrappedUnsignedLinkedList::operator-(const WrappedUnsignedLinkedList& other) {
+
+	WrUIntList retval(*this);			// create a copy
+
+	// remove any common elements for other from the copy
+	WrUIntNode *src = other.head;
+	while (src != nullptr) {
+		delFromList(&retval, src->data);
+		src = src->next;
+	}
+	return retval;						// return the copy
+}
+
+
+/* ************************************************************************ */
+/* ************************************************************************ */
+/*							assignment operators							*/
+/*			including: .clear()												*/
+/* ************************************************************************ */
+/* ************************************************************************ */
+
+/*	**************************************************	*/
+/*	operator+=(WrUInt& v) inserts val in order in list	*/
+/*	verifies that value_to_add is not already in list	*/
+/*	**************************************************	*/
+
+WrUIntList& WrappedUnsignedLinkedList::operator +=(const WrUInt &value_to_add) {
+
+	return insIntoList(this, value_to_add);
+}
+
+/*	**************************************************	*/
+/*	operator-=(WrUInt& v) removes val from list			*/
+/*	verifies that value_to_add is not already in list	*/
+/*	**************************************************	*/
+
+WrUIntList&	WrappedUnsignedLinkedList::operator -=(const WrUInt& value_to_remove) {
+
+	return delFromList(this, value_to_remove);
+}
+
+/*	**************************************************	*/
+/*	operator+=(WrUInt& v) inserts all values in other	*/
+/*	  that are not already in this						*/
+/*	**************************************************	*/
+
+WrUIntList& WrappedUnsignedLinkedList::operator +=(const WrUIntList &other) {
+
+	WrUIntNode *p = other.head;
+	while(p) {
+		insIntoList(this, p->data);
+		p = p->next;
+	}
+
+	return *this;
+}
+
+/*	**************************************************	*/
+/*	operator-=(WrUInt& v) removes all values in other	*/
+/*	  that are in this									*/
+/*	**************************************************	*/
+
+WrUIntList&	WrappedUnsignedLinkedList::operator -=(const WrUIntList& other) {
+
+	WrUIntNode *p = other.head;
+	while(p) {
+		delFromList(this, p->data);
+		p = p->next;
+	}
+
+	return *this;
+}
+
+/* ***************************************************	*/
+/*			copy assignment operator=(WrUIntList&)		*/
+/* ***************************************************	*/
+
+WrUIntList& WrappedUnsignedLinkedList::operator= (const WrUIntList &other) {
+
+//	cout << "Linked List copy assignment operator other @" << &other << " this @" << this << endl;
+	if (this == &other)
+		return *this;
+
+	clear();	// delete this list
+
+	// if the other is an empty list, leave
+	if (other.head == nullptr)
+		return *this;
+
+	// this list will copy the src->next into dst->next
+
+	// the head is not a ->next of any other node,
+	//	so it has to be copied separately
+
+	head = new WrUIntNode(other.head->data);
+	size++;
+
+	WrUIntNode *dst = head;
+	WrUIntNode *src = other.head;
+
+	while(src->next) {
+		dst->next = new WrUIntNode(src->next->data);
+		size++;
+		dst = dst->next;
+		src = src->next;
+	}
+
+	return *this;
+}
+
+/* ***************************************************	*/
+/*			move assignment operator=(WrUIntList&)		*/
+/* ***************************************************	*/
+
+WrappedUnsignedLinkedList& WrappedUnsignedLinkedList::operator= (WrappedUnsignedLinkedList &&other) noexcept {
+
+//	cout << "Linked List move assignment operator other @" << &other << " this @" << this << endl;
+	if (this == &other)
+		return *this;
+
+	head = other.head;
+	size = listSize(*this);
+
+	other.head = nullptr;
+	other.size = 0;
+	return *this;
+}
+
+void WrappedUnsignedLinkedList::clear(void) {
+
+	WrUIntNode *p = head;
+	WrUIntNode *was_next;
+
+	while (p) {
+		was_next = p->next;
+		p->next = nullptr;
+		delete p;
+		p = was_next;
+	}
+
+	head = nullptr;
+	size = 0;
+}
+
+
+/* ************************************************************************ */
+/* ************************************************************************ */
+/*						private helper functions							*/
+/* ************************************************************************ */
+/* ************************************************************************ */
+
+WrappedUnsignedLinkedList& insIntoList(WrappedUnsignedLinkedList *plist, const WrappedUnsigned &value_to_add) {
+
+	// works by inserting value_to_add before the first node that is > value_to_add
+	// the insert position is the previous node's ->next
+
+	// head does not have a node before it with a ->next == head
+
+	// if the list is empty, insert node as head
+	if (plist->head == nullptr) {
+		plist->head = new WrUIntNode(value_to_add);
+		plist->size = 1;
+		return *plist;
+	}
+
+	// if value_to_add is already in list, done
+	if (plist->head->data == value_to_add) {
+		return *plist;
+	}
+
+	WrUIntNode *p = plist->head;
+	bool pending_insertion = true;
+
+	// if value_to_add comes before head->data,
+	//  value_to_add is new head
+	if (plist->head->data > value_to_add) {
+		// create a new node
+		p = new WrUIntNode(value_to_add);
+		// head will come after new node
+		p->next = plist->head;
+		// head is now the new node
+		plist->head = p;
+		plist->size++;
+		return *plist;
+	}
+
+	// p == head and value_to_add comes somewhere after (p == head)->data
+	while (p->next) {
+
+		// if value_to_add is already in list, done
+		if (p->next->data == value_to_add) {
+			pending_insertion = false;
+			break;
+		}
+
+		// if the ->next node comes after data, insert value_to_add before ->next
+		if (p->next->data > value_to_add) {
+			WrUIntNode *new_node = new WrUIntNode(value_to_add);
+			// point the new node to the larger node
+			new_node->next = p->next;
+			// point the previous node to the new node
+			p->next = new_node;
+			plist->size++;
+			pending_insertion = false;
+			break;
+		}
+
+		p = p->next;
+	}
+
+	// at this point, p points to the last node in the list
+	// it is possible that the while(p->next) terminated
+	//   without finding the value already extant in the list
+	//   or without finding a node > value_to_add
+	//  in which case add value_to_add to end of list
+
+	if (pending_insertion) {
+		p->next = new WrUIntNode(value_to_add);
+		plist->size++;
+	}
+
+	return *plist;
+}
+
+WrappedUnsignedLinkedList& delFromList(WrappedUnsignedLinkedList *plist, const WrappedUnsigned &value_to_delete) {
+
+	// if the list is empty, no values to delete
+	if (plist->head == nullptr) {
+		return *plist;
+	}
+
+	WrUIntNode *node_to_delete;
+
+	// if need to delete head ...
+	if (plist->head->data == value_to_delete) {
+		node_to_delete = plist->head;
+		plist->head = plist->head->next;
+		plist->size--;
+		delete node_to_delete;
+		return *plist;
+	}
+
+	WrUIntNode *node = plist->head;
+
+	while (node->next) {
+		// if the next node needs to be deleted
+		if (node->next->data == value_to_delete) {
+			// point to the node for the delete operator
+			node_to_delete = node->next;
+			// point to the node beyond the node to delete
+			node->next = node->next->next;
+			plist->size--;
+			delete node_to_delete;
+			break;
+		}
+		node = node->next;
+	}
+
+	return *plist;
+}
+
+
+/* ************************************************************************ */
+/* ************************************************************************ */
+/*						constructors / destructors							*/
+/* ************************************************************************ */
+/* ************************************************************************ */
+
+WrappedUnsignedLinkedList::WrappedUnsignedLinkedList() {
+
+//	cout << "Linked List default constructor" << endl;
+	size = 0;
+	head = nullptr;
+}
+
+
+//	these are necessary for derived classes that can themselves be copied
+WrappedUnsignedLinkedList::WrappedUnsignedLinkedList(const WrappedUnsignedLinkedList &other) {
+
+//	cout << "Linked List copy constructor other @" << &other << " this @" << this << endl;
+	if (&other == this)
+		return;
+
+	size = 0;
+	head = nullptr;
+
+	// if the other is an empty list, leave
+	if (other.head == nullptr)
+		return;
+
+	// the other has at least one element
+	// copy the other's head->data into the this list
+	head = new WrUIntNode(other.head->data);
+	size++;
+
+	WrUIntNode *dst_node = head;
+	WrUIntNode *src_node = other.head;
+
+	// dst_node now points to the first node in the this list
+	// src_node points one past the first node in the other list
+	while(src_node->next != nullptr) {
+		// move src_node to the next node to copy
+		src_node = src_node->next;
+		// copy src_node->data into dst->node->next
+		dst_node->next = new WrUIntNode(src_node->data);
+		size++;
+		dst_node = dst_node->next;	// move dst to the next node
+	}
+}
+
+/*	*********************************************************************	*/
+/*							move constructor								*/
+/*	*********************************************************************	*/
+
+WrappedUnsignedLinkedList::WrappedUnsignedLinkedList(WrappedUnsignedLinkedList&& other) noexcept {
+
+//	cout << "Linked List move constructor other @" << &other << " this @" << this << endl;
+	if (this == &other)
+		return;
+
+	head = other.head;
+	size = listSize(*this);
+
+	other.head = nullptr;
+	other.size = 0;
+}
+
+/*	*********************************************************************	*/
+/*								destructor									*/
+/*	*********************************************************************	*/
+
+WrappedUnsignedLinkedList::~WrappedUnsignedLinkedList() {
+
+	WrUIntNode *node = head;
+	WrUIntNode *next;
+
+	while (node) {
+		// make a record of where the next node is
+		next = node->next;
+		node->next = nullptr;
+		delete node;
+		node = next;
+	}
+
+	size = 0;
+	head = nullptr;
+}
+
+
+/*	*********************************************************************	*/
+/*							non-member functions							*/
+/*	*********************************************************************	*/
+
+int listSize(const WrappedUnsignedLinkedList &list) {
+
+	int retval = 0;
+
+	WrUIntNode *p = list.head;
+
+	while (p) {
+		retval++;
+		p = p->next;
+	}
+
+	return retval;
+}
