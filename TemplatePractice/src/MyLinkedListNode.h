@@ -59,7 +59,7 @@ public:
 			m_data = other.m_data;
 			m_next = other.m_next;
 		}
-		return *this;
+		return this;
 	}
 
 	MyLinkedListNode(MyLinkedListNode &&other) {

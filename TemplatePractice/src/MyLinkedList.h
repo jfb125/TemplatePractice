@@ -127,7 +127,7 @@ public:
 	}
 
 	/*	******************************************************************	*/
-	/*							merging and culling sets					*/
+	/*						merging and culling lists						*/
 	/*	******************************************************************	*/
 
 	MyLinkedList operator+(const MyLinkedList &other) {
@@ -151,9 +151,7 @@ public:
 		} else {
 			MyLinkedListNode *p = other.m_head;
 			while (p) {
-				if (result.isMember(p->m_data)) {
-					result.remove(p->m_data);
-				}
+				result.remove(p->m_data);
 				p = p->m_next;
 			}
 		}
@@ -179,9 +177,7 @@ public:
 		} else {
 			MyLinkedListNode *p = other.m_head;
 			while (p) {
-				if (isMember(p->m_data)) {
-					remove(p->m_data);
-				}
+				remove(p->m_data);
 				p = p->m_next;
 			}
 		}
@@ -199,10 +195,11 @@ public:
 		if (m_size != other.m_size)
 			return false;
 
-		MyLinkedListNode *p_node = other.m_head;
+		MyLinkedListNode *p_node;
 
 		//	check every member of other to ensure
 		//	  that every member of other is in this
+		p_node = other.m_head;
 		while(p_node) {
 			if (!isMember(p_node->m_data)) {
 				return false;
@@ -213,7 +210,7 @@ public:
 		//	check every member of this to ensure
 		//	  that every member of this is in other
 		p_node = m_head;
-		while (v) {
+		while (p_node) {
 			if (!other.isMember(p_node->m_data)) {
 				return false;
 			}
@@ -229,10 +226,11 @@ public:
 		if (m_size != other.m_size)
 			return true;
 
-		MyLinkedListNode *p_node = other.m_head;
+		MyLinkedListNode *p_node;
 
 		// go through every member of 'other' to see
 		//	if there is an element in 'other' that is not in 'this'
+		p_node = other.m_head;
 		while (p_node) {
 			if (!isMember(p_node->m_data)) {
 				return true;
@@ -263,6 +261,8 @@ public:
 
 	MyLinkedList(const MyLinkedList &other) {
 		if (this != &other) {
+			m_head = nullptr;
+			m_size = 0;
 			MyLinkedListNode *src = other.m_head;
 			while (src) {
 				insert(src->m_data);
@@ -348,6 +348,7 @@ public:
 			MyLinkedListNode *p = m_head;
 			while (p->m_next) {
 				result << p->m_data << ", ";
+				p = p->m_next;
 			}
 			result << p->m_data;
 		} else {
