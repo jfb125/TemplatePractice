@@ -59,7 +59,7 @@ public:
 			m_data = other.m_data;
 			m_next = other.m_next;
 		}
-		return this;
+		return *this;
 	}
 
 	MyLinkedListNode(MyLinkedListNode &&other) {
@@ -87,8 +87,8 @@ public:
 		return ret_str.str();
 	}
 
-	std::ostream& operator<<(std::ostream &out, const MyLinkedListNode &node) {
-		out << node.toString();
+	friend std::ostream& operator<<(std::ostream &out, const MyLinkedListNode &object) {
+		out << object.toString();
 		return out;
 	}
 };

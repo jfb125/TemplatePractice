@@ -7,9 +7,9 @@
 #include <cstring>
 
 #include "MyOrderedSet.h"
-#include "SetTestBench.h"
+#include "MyOrderedSetTestBench.h"
 
 // the test itself
-bool testWrappedUnsignedSet();
+bool testMyOrderedSet();
 
 #endif

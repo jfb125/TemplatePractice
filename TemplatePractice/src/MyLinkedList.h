@@ -37,16 +37,6 @@ private:
 		m_size++;
 	}
 
-	void clear(void) {
-		MyLinkedListNode *node_to_delete;
-		while (m_head) {
-			node_to_delete = m_head;
-			m_head = m_head->m_next;
-			delete node_to_delete;
-		}
-		m_size = 0;
-	}
-
 	void copy(const MyLinkedList &other) {
 		if (this != &other) {
 			clear();
@@ -82,11 +72,23 @@ private:
 		}
 	}
 
-protected:
+//protected:
+public:
 	MyLinkedListNode *m_head;
 	int m_size;
 
 public:
+
+	void clear(void) {
+		MyLinkedListNode *node_to_delete;
+		while (m_head) {
+			node_to_delete = m_head;
+			m_head = m_head->m_next;
+			delete node_to_delete;
+		}
+		m_size = 0;
+	}
+
 	bool isMember(const T &value) const {
 
 		MyLinkedListNode *p = m_head;
@@ -112,18 +114,18 @@ public:
 	MyLinkedList operator-(const T &value) {
 		MyLinkedList result(*this);
 		result.remove(value);
-		return this;
+		return result;
 	}
 
 	MyLinkedList& operator+=(const T &value) {
 		if (!isMember(value))
 			insert(value);
-		return this;
+		return *this;
 	}
 
 	MyLinkedList& operator-=(const T &value) {
 		remove(value);
-		return this;
+		return *this;
 	}
 
 	/*	******************************************************************	*/
@@ -168,7 +170,7 @@ public:
 				p = p->m_next;
 			}
 		}
-		return this;
+		return *this;
 	}
 
 	MyLinkedList& operator-=(const MyLinkedList &other) {
@@ -181,7 +183,7 @@ public:
 				p = p->m_next;
 			}
 		}
-		return this;
+		return *this;
 	}
 
 	/*	******************************************************************	*/
@@ -280,7 +282,7 @@ public:
 				src = src->m_next;
 			}
 		}
-		return this;
+		return *this;
 	}
 
 	//	move constructor / assignment operator take ownership of the object's linked list
@@ -300,7 +302,7 @@ public:
 			other.m_head = nullptr;
 			other.m_size = 0;
 		}
-		return this;
+		return *this;
 	}
 
 	~MyLinkedList() {
@@ -334,7 +336,7 @@ public:
 		MyLinkedListNode *src = m_head;
 		T *dst = *p_result;
 		while (src) {
-			dst = src->m_data;
+			*dst = src->m_data;
 			dst++;
 			src = src->m_next;
 		}
@@ -347,7 +349,7 @@ public:
 		if (m_head) {
 			MyLinkedListNode *p = m_head;
 			while (p->m_next) {
-				result << p->m_data << ", ";
+				result << std::setw(width) << p->m_data << ", ";
 				p = p->m_next;
 			}
 			result << p->m_data;
@@ -358,15 +360,16 @@ public:
 		return result.str();
 	}
 
-	std::ostream& operator<<(std::ostream& out, const MyLinkedList& list) {
-		out << list.toString();
-		return out;
-	}
-
 	int listSize() const {
 		return m_size;
 	}
+
+	friend std::ostream& operator<<(std::ostream& out, const MyLinkedList& object) {
+		out << object.toString();
+		return out;
+	}
 };
+
 #pragma pop_macro("default_values_width")
 
 #endif /* MYLINKEDLIST_H_ */

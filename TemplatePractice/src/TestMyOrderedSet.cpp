@@ -1,13 +1,13 @@
-#include "ClassWrUIntSet_Tests.h"
+#include "WrappedUnsigned.h"
+#include "TestMyOrderedSet.h"
 
 #include "MyOrderedSet.h"
+#include "MyOrderedSetTestBench.h"
 
 using namespace std;
+using T = int;
 
-using WrUInt = WrappedUnsigned;
-using WrUIntNode = MyLinkedListNode;
-using WrUIntList = WrappedUnsignedLinkedList;
-using WrUIntSet = MyOrderedSet;
+//using T = WrappedUnsigned;
 
 #undef SET_OPERATION
 #define SET_OPERATIONS\
@@ -65,10 +65,10 @@ class Node_Contents {
 public:
 
 	Node_Contents() { address = nullptr; data = 0; next = nullptr; }
-	Node_Contents(const WrUIntNode *node) {
+	Node_Contents(const MyLinkedListNode *node) {
 		address = node;
-		data = node->data;
-		next = node->next;
+		data = node->m_data;
+		next = node->m_next;
 	}
 
 	friend std::ostream& operator<<(std::ostream &out, const Node_Contents &obj) {
@@ -77,9 +77,9 @@ public:
 		return out;
 	}
 
-	const WrUIntNode   *address;
-	WrUInt				data;
-	const WrUIntNode   *next;
+	const MyLinkedListNode   *address;
+	T				data;
+	const MyLinkedListNode   *next;
 };
 
 class Set_Contents {
@@ -107,24 +107,24 @@ public:
 			}
 		}
 	}
-	Set_Contents(const WrUIntSet &set) {
+	Set_Contents(const MyOrderedSet &set) {
 
 		size = set.size();
 		set_address = &set;
-		list_address = &set.list;
-		head = set.list.head;
+		list_address = &set.m_list;
+		head = set.m_list.m_head;
 		list_of_nodes = nullptr;
 		if (size) {
 			list_of_nodes = new Node_Contents*[size];
 			Node_Contents **dst = list_of_nodes;
-			*dst++ = new Node_Contents(set.list.head);
-			WrUIntNode *src = set.list.head;
-			while (src->next) {
+			*dst++ = new Node_Contents(set.m_list.m_head);
+			MyLinkedListNode *src = set.m_list.m_head;
+			while (src->m_next) {
 				// deep copy the existing node because
 				//	it may get recycled during the operation
-				*dst = new Node_Contents(src->next);
+				*dst = new Node_Contents(src->m_next);
 				dst++;
-				src = src->next;
+				src = src->m_next;
 			}
 		}
 	}
@@ -153,26 +153,26 @@ public:
 			<< " an array of nodes is stored at " << obj.list_of_nodes << ": " << endl;
 		for (int i = 0; i != obj.size; i++) {
 			out << " [" << i << "] = " << obj.list_of_nodes[i]
-				<< ": " << *obj.list_of_nodes[i] << endl; //obj.list_of_nodes[i])->data << " -> " << (obj.list_of_nodes[i])->next << endl;
+				<< ": " << *obj.list_of_nodes[i] << endl; //obj.list_of_nodes[i])->data << " -> " << (obj.list_of_nodes[i])->m_next << endl;
 		}
 
 		return out;
 	}
 
 	int size;
-	const WrUIntSet  *set_address;
-	const WrUIntList *list_address;
-	const WrUIntNode *head;
+	const MyOrderedSet  *set_address;
+	const MyLinkedList *list_address;
+	const MyLinkedListNode *head;
 	Node_Contents **list_of_nodes;
 };
 
-const WrUIntNode *findNode(const WrUIntSet&, const WrUInt value_to_find);
-bool setElementsAreStoredAtSameLocation(const Set_Contents* contents_before, const WrUIntSet& after_set, Message_Level);
-bool setElementsAreNotStoredAtSameLocation(const Set_Contents* contents_before, const WrUIntSet& after_set, Message_Level);
-bool setsStorageLocationsDontCare(const Set_Contents* contents_before, const WrUIntSet& after_Set, Message_Level);
-bool setContentsAreEqual(const WrUIntSet&, const WrUIntSet&);
+const MyLinkedListNode *findNode(const MyOrderedSet&, const T value_to_find);
+bool setElementsAreStoredAtSameLocation(const Set_Contents* contents_before, const MyOrderedSet& after_set, Message_Level);
+bool setElementsAreNotStoredAtSameLocation(const Set_Contents* contents_before, const MyOrderedSet& after_set, Message_Level);
+bool setsStorageLocationsDontCare(const Set_Contents* contents_before, const MyOrderedSet& after_Set, Message_Level);
+bool setContentsAreEqual(const MyOrderedSet&, const MyOrderedSet&);
 
-typedef bool (*Set_Relation_Function)(const Set_Contents* contents_before, const WrUIntSet& after_set, Message_Level);
+typedef bool (*Set_Relation_Function)(const Set_Contents* contents_before, const MyOrderedSet& after_set, Message_Level);
 
 class Test_Arguments {
 public:
@@ -183,9 +183,9 @@ public:
 		rel_tst = nullptr;
 		msg_lvl = None;
 	}
-	Test_Arguments(	unsigned *_in_a, int _in_a_sz,
-					unsigned *_in_b, int _in_b_sz,
-					unsigned *_exp, int _exp_sz,
+	Test_Arguments(	T *_in_a, int _in_a_sz,
+					T *_in_b, int _in_b_sz,
+					T *_exp, int _exp_sz,
 					Set_Operations _op,
 					Set_Relation_Function _rel_tst,
 					Message_Level _msg_lvl) :
@@ -195,9 +195,9 @@ public:
 						op(_op), rel_tst(_rel_tst),
 						msg_lvl(_msg_lvl) { }
 
-	unsigned 	*in_a; 	int in_a_sz;
-	unsigned	*in_b;	int in_b_sz;
-	unsigned 	*exp; 	int exp_sz;
+	T 	*in_a; 	int in_a_sz;
+	T	*in_b;	int in_b_sz;
+	T 	*exp; 	int exp_sz;
 	Set_Operations op;
 	Set_Relation_Function rel_tst;
 	Message_Level msg_lvl;
@@ -305,10 +305,10 @@ public:
 #define delete_results(ptr)	delete_object((ptr))
 
 bool announceResults(int passed_test_count, int test_count);
-void buildSet(WrUIntSet& dst, unsigned *values, int num_values, Message_Level message_level);
-bool isElement(unsigned *p, int sz, unsigned val);
-void echoSet(const char* before, WrUIntSet& set, const char *after, Message_Level message_level);
-void echoSetUnsignedOperationResult(WrUIntSet &set, Set_Operations op, unsigned operand, Message_Level message_level);
+void buildSet(MyOrderedSet& dst, T *values, int num_values, Message_Level message_level);
+bool isElement(T *p, int sz, T val);
+void echoSet(const char* before, MyOrderedSet& set, const char *after, Message_Level message_level);
+void echoSetUnsignedOperationResult(MyOrderedSet &set, Set_Operations op, T operand, Message_Level message_level);
 Test_Results* runTest(Test_Arguments*);
 Test_Results* runUnsignedOperationTest(Test_Arguments *pa);
 Test_Results* runSetArithmeticOperationTest(Test_Arguments *pa);
@@ -316,8 +316,8 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments *pa);
 Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& test_count, int& passed_test_count);
 
 bool verifySetResults(	const char *before,
-						WrUIntSet& set_to_verify,
-						unsigned *expected, int expected_count,
+						MyOrderedSet& set_to_verify,
+						T *expected, int expected_count,
 						char *after, Message_Level level);
 
 
@@ -336,28 +336,28 @@ bool verifySetResults(	const char *before,
 #define TEST_SET_OPERATOR_ARITHMETIC_SET
 #define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
 
-bool testWrappedUnsignedSet() {
+bool testMyOrderedSet() {
 
 #if defined(TEST_SET_OPERATOR_ADD_SUB_UNSIGNED)\
  or	defined(TEST_SET_BUILDING_SET)\
  or defined(TEST_SET_IS_MEMBER_UNSIGNED)
 
-	unsigned stressing_inputs[] = { 5, 3, 7, 4, 6, 8, 2, 1 };
-	unsigned stressing_result[]	= { 1, 2, 3, 4, 5, 6, 7, 8 };
-	int stressing_inputs_sz = sizeof(stressing_inputs) / sizeof(unsigned);
-	int stressing_result_sz = sizeof(stressing_result) / sizeof(unsigned);
+	T stressing_inputs[] = { 5, 3, 7, 4, 6, 8, 2, 1 };
+	T stressing_result[]	= { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int stressing_inputs_sz = sizeof(stressing_inputs) / sizeof(T);
+	int stressing_result_sz = sizeof(stressing_result) / sizeof(T);
 
-	unsigned repeating_inputs[]		= { 1, 2, 3, 4, 4, 4, 3, 1 };
-	unsigned repeating_result[]		= { 1, 2, 3, 4 };
-	int repeating_inputs_sz = sizeof(repeating_inputs) / sizeof(unsigned);
-	int repeating_result_sz = sizeof(repeating_result) / sizeof(unsigned);
+	T repeating_inputs[]		= { 1, 2, 3, 4, 4, 4, 3, 1 };
+	T repeating_result[]		= { 1, 2, 3, 4 };
+	int repeating_inputs_sz = sizeof(repeating_inputs) / sizeof(T);
+	int repeating_result_sz = sizeof(repeating_result) / sizeof(T);
 #endif
 
-	unsigned* in_a = nullptr;
+	T* in_a = nullptr;
 	int in_a_sz = 0;
-	unsigned* in_b = nullptr;
+	T* in_b = nullptr;
 	int in_b_sz = 0;
-	unsigned* xpctd = nullptr;
+	T* xpctd = nullptr;
 	int xpctd_sz = 0;
 
 	Message_Level message_level = Verbose;
@@ -372,9 +372,9 @@ bool testWrappedUnsignedSet() {
 
     echoTestName("Default Constructor");
     test_count++;
-    WrUIntSet set;
+    MyOrderedSet set;
 
-    if (set.size() != 0 || set.list.head != nullptr) {
+    if (set.size() != 0 || set.m_list.m_head != nullptr) {
     	cout << abort_str << "default constructor did not produce empty set &" << &set << ": " << set << endl;
     	return announceResults(passed_test_count, test_count);
     } else {
@@ -388,7 +388,7 @@ bool testWrappedUnsignedSet() {
     // test the operator that 'buildSet' uses
 
 	// this test has to be very verbose b/c no other test will work until this one passes
-    echoTestName("operator+=(unsigned)");
+    echoTestName("operator+=(T)");
     test_count++;
     contents_before = new Set_Contents(set);
     in_a = stressing_inputs;
@@ -456,7 +456,7 @@ bool testWrappedUnsignedSet() {
 
     echoTestName("set.reset()"); test_count++;
     buildSet(set, stressing_inputs, stressing_inputs_sz, message_level);
-    set.reset();
+    set.clear();
     if (set.size() != 0) {
     	if (isMsgLvlResults(message_level)) {
     		cout << error_str << "set.reset() returns " << set.size() << " != 0 " << " set is @" << &set << ": " << endl << set << endl << endl;
@@ -475,7 +475,7 @@ bool testWrappedUnsignedSet() {
     test_count++;
     buildSet(set, stressing_inputs, stressing_inputs_sz, None);
     contents_before = new Set_Contents(set);
-    WrUIntSet copy_set(set);
+    MyOrderedSet copy_set(set);
     if (setElementsAreStoredAtSameLocation(contents_before, copy_set, None)) {
     	cout << error_str << " copy constructor did not copy set:" << endl
     		 << " original set was stored " << *contents_before << endl << endl
@@ -496,14 +496,14 @@ bool testWrappedUnsignedSet() {
     cout_count();
 
 
-    echoTestName("operator=(WrUIntSet");
+    echoTestName("operator=(MyOrderedSet");
     test_count++;
     buildSet(set, stressing_inputs, stressing_inputs_sz, None);
     contents_before = new Set_Contents(set);
-    WrUIntSet assigned_set;
+    MyOrderedSet assigned_set;
     assigned_set = set;
     if (setElementsAreStoredAtSameLocation(contents_before, assigned_set, None)) {
-    	cout << error_str << " assignment operator=(WrUIntSet&) did not copy set:" << endl
+    	cout << error_str << " assignment operator=(MyOrderedSet&) did not copy set:" << endl
     		 << " original set was stored " << *contents_before << endl << endl
 			 << " assigned set is stored &" << &assigned_set << " " << assigned_set << endl;
     } else {
@@ -524,11 +524,11 @@ bool testWrappedUnsignedSet() {
 
 #ifdef TEST_SET_OPERATOR_ADD_SUB_UNSIGNED
 
-    echoTestName("operator+(unsigned)");
+    echoTestName("operator+(T)");
     set.clear();
     test_count++;
 
-    in_a = new unsigned[] { };
+    in_a = new T[] { };
     in_a_sz = 0;
     in_b = stressing_inputs;
     in_b_sz = stressing_inputs_sz;
@@ -551,11 +551,11 @@ bool testWrappedUnsignedSet() {
     delete_args(test_arguments);
     delete_results(test_results);
 
-    echoTestName("operator+(unsigned)");
+    echoTestName("operator+(T)");
     set.clear();
     test_count++;
 
-    in_a = new unsigned[] { };
+    in_a = new T[] { };
     in_a_sz = 0;
     in_b = repeating_inputs;
     in_b_sz = repeating_inputs_sz;
@@ -579,15 +579,15 @@ bool testWrappedUnsignedSet() {
     delete_results(test_results);
     cout_count();
 
-    echoTestName("operator-(unsigned)");
+    echoTestName("operator-(T)");
     set.clear();
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     in_a_sz = 8;
-    in_b = new unsigned[] { 1, 2,    4, 5,    7, 8 };
+    in_b = new T[] { 1, 2,    4, 5,    7, 8 };
     in_b_sz = 6;
-    xpctd = new unsigned[] { 3, 6 };
+    xpctd = new T[] { 3, 6 };
     xpctd_sz = 2;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -609,11 +609,11 @@ bool testWrappedUnsignedSet() {
     delete_results(test_results);
     cout_count();
 
-    echoTestName("operator+=(unsigned)");
+    echoTestName("operator+=(T)");
     set.clear();
     test_count++;
 
-    in_a = new unsigned[] { };
+    in_a = new T[] { };
     in_a_sz = 0;
     in_b = stressing_inputs;
     in_b_sz = stressing_inputs_sz;
@@ -637,11 +637,11 @@ bool testWrappedUnsignedSet() {
     delete_results(test_results);
     cout_count();
 
-    echoTestName("operator+=(unsigned)");
+    echoTestName("operator+=(T)");
     set.clear();
     test_count++;
 
-    in_a = new unsigned[] { };
+    in_a = new T[] { };
     in_a_sz = 0;
     in_b = repeating_inputs;
     in_b_sz = repeating_inputs_sz;
@@ -665,15 +665,15 @@ bool testWrappedUnsignedSet() {
     delete_results(test_results);
     cout_count();
 
-    echoTestName("operator-=(unsigned)");
+    echoTestName("operator-=(T)");
     set.clear();
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     in_a_sz = 8;
-    in_b = new unsigned[] { 1, 2,    4, 5,    7, 8 };
+    in_b = new T[] { 1, 2,    4, 5,    7, 8 };
     in_b_sz = 6;
-    xpctd = new unsigned[] { 3, 6 };
+    xpctd = new T[] { 3, 6 };
     xpctd_sz = 2;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -697,10 +697,10 @@ bool testWrappedUnsignedSet() {
 #endif
 
 #ifdef TEST_SET_IS_MEMBER_UNSIGNED
-    echoTestName(".isMember(unsigned)");
-    in_a = new unsigned[] { 1, 2, 3, 4 };
+    echoTestName(".isMember(T)");
+    in_a = new T[] { 1, 2, 3, 4 };
     in_a_sz = 4;
-    in_b = new unsigned[] { 1, 2, 3, 4, 5, 6 };
+    in_b = new T[] { 1, 2, 3, 4, 5, 6 };
     in_b_sz = 6;
     bool is_member_error = false;
     buildSet(set, in_a, in_a_sz, None);
@@ -769,16 +769,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator+(WrUIntSet)");
-    echoTestPhase("operator+(WrUIntSet) { 1-3, 5-8 } + { empty }");
+    echoTestName("operator+(MyOrderedSet)");
+    echoTestPhase("operator+(MyOrderedSet) { 1-3, 5-8 } + { empty }");
     op = SET_UNION_PLUS;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -800,15 +800,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator+(WrUIntSet) { empty } + { 1-3, 5-8 }");
+    echoTestPhase("operator+(MyOrderedSet) { empty } + { 1-3, 5-8 }");
     op = SET_UNION_PLUS;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -831,15 +831,15 @@ bool testWrappedUnsignedSet() {
     cout_count();
 
 
-    echoTestPhase("operator+(WrUIntSet) { 1-3, 5-8 } + { 3-5 }");
+    echoTestPhase("operator+(MyOrderedSet) { 1-3, 5-8 } + { 3-5 }");
     op = SET_UNION_PLUS;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     xpctd_sz = 8;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -867,16 +867,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator|(WrUIntSet)");
-    echoTestPhase("operator|(WrUIntSet) { 1-3, 5-8 } | { empty }");
+    echoTestName("operator|(MyOrderedSet)");
+    echoTestPhase("operator|(MyOrderedSet) { 1-3, 5-8 } | { empty }");
     op = SET_UNION_OR;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -898,15 +898,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator|(WrUIntSet) { empty } | { 1-3, 5-8 }");
+    echoTestPhase("operator|(MyOrderedSet) { empty } | { 1-3, 5-8 }");
     op = SET_UNION_OR;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -928,15 +928,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator|(WrUIntSet) { 1-3, 5-8 } | { 3-5 }");
+    echoTestPhase("operator|(MyOrderedSet) { 1-3, 5-8 } | { 3-5 }");
     op = SET_UNION_OR;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     xpctd_sz = 8;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -964,16 +964,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator^(WrUIntSet)");
-    echoTestPhase("operator^(WrUIntSet) { 1-3, 5-8 } ^ { empty }");
+    echoTestName("operator^(MyOrderedSet)");
+    echoTestPhase("operator^(MyOrderedSet) { 1-3, 5-8 } ^ { empty }");
     op = SET_UNIQUE;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -995,15 +995,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator^(WrUIntSet) { empty } ^ { 1-3, 5-8 }");
+    echoTestPhase("operator^(MyOrderedSet) { empty } ^ { 1-3, 5-8 }");
     op = SET_UNIQUE;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1025,15 +1025,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator^(WrUIntSet) { 1-3, 5-8 } ^ { 3-5 }");
+    echoTestPhase("operator^(MyOrderedSet) { 1-3, 5-8 } ^ { 3-5 }");
     op = SET_UNIQUE;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 1, 2, 4, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 4, 6, 7, 8 };
     xpctd_sz = 6;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1061,16 +1061,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator&(WrUIntSet)");
-    echoTestPhase("operator&(WrUIntSet) { 1-3, 5-8 } & { empty }");
+    echoTestName("operator&(MyOrderedSet)");
+    echoTestPhase("operator&(MyOrderedSet) { 1-3, 5-8 } & { empty }");
     op = SET_INTERSECTION;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] {};
+    xpctd = new T[] {};
     xpctd_sz = 0;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1092,15 +1092,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator&(WrUIntSet) { empty } & { 1-3, 5-8 }");
+    echoTestPhase("operator&(MyOrderedSet) { empty } & { 1-3, 5-8 }");
     op = SET_INTERSECTION;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] {};
+    xpctd = new T[] {};
     xpctd_sz = 0;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1122,15 +1122,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator&(WrUIntSet) { 1-3, 5-8 } & { 3-5 }");
+    echoTestPhase("operator&(MyOrderedSet) { 1-3, 5-8 } & { 3-5 }");
     op = SET_INTERSECTION;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 3, 5 };
+    xpctd = new T[] { 3, 5 };
     xpctd_sz = 2;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1158,16 +1158,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator-(WrUIntSet)");
-    echoTestPhase("operator-(WrUIntSet) { 1-3, 5-8 } - { empty }");
+    echoTestName("operator-(MyOrderedSet)");
+    echoTestPhase("operator-(MyOrderedSet) { 1-3, 5-8 } - { empty }");
     op = SET_DIFFERENCE;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] { 1, 2, 3,    5, 6, 7 , 8 };
+    xpctd = new T[] { 1, 2, 3,    5, 6, 7 , 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1189,15 +1189,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator-(WrUIntSet) { empty } - { 1-3, 5-8 }");
+    echoTestPhase("operator-(MyOrderedSet) { empty } - { 1-3, 5-8 }");
     op = SET_DIFFERENCE;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] {};
+    xpctd = new T[] {};
     xpctd_sz = 0;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1219,15 +1219,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator-(WrUIntSet) { 1-3, 5-8 } - { 3-5 }");
+    echoTestPhase("operator-(MyOrderedSet) { 1-3, 5-8 } - { 3-5 }");
     op = SET_DIFFERENCE;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 1, 2, 6, 7 , 8 };
+    xpctd = new T[] { 1, 2, 6, 7 , 8 };
     xpctd_sz = 5;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1258,16 +1258,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator+=(WrUIntSet)");
-    echoTestPhase("operator+=(WrUIntSet) { 1-3, 5-8 } + { empty }");
+    echoTestName("operator+=(MyOrderedSet)");
+    echoTestPhase("operator+=(MyOrderedSet) { 1-3, 5-8 } + { empty }");
     op = SET_ASSIGN_UNION_PLUS;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1289,15 +1289,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator+=(WrUIntSet) { empty } + { 1-3, 5-8 }");
+    echoTestPhase("operator+=(MyOrderedSet) { empty } + { 1-3, 5-8 }");
     op = SET_ASSIGN_UNION_PLUS;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1320,15 +1320,15 @@ bool testWrappedUnsignedSet() {
     cout_count();
 
 
-    echoTestPhase("operator+=(WrUIntSet) { 1-3, 5-8 } + { 3-5 }");
+    echoTestPhase("operator+=(MyOrderedSet) { 1-3, 5-8 } + { 3-5 }");
     op = SET_ASSIGN_UNION_PLUS;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     xpctd_sz = 8;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1356,16 +1356,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator|=(WrUIntSet)");
-    echoTestPhase("operator|=(WrUIntSet) { 1-3, 5-8 } | { empty }");
+    echoTestName("operator|=(MyOrderedSet)");
+    echoTestPhase("operator|=(MyOrderedSet) { 1-3, 5-8 } | { empty }");
     op = SET_ASSIGN_UNION_OR;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1387,15 +1387,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator|=(WrUIntSet) { empty } | { 1-3, 5-8 }");
+    echoTestPhase("operator|=(MyOrderedSet) { empty } | { 1-3, 5-8 }");
     op = SET_ASSIGN_UNION_OR;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1417,15 +1417,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator|=(WrUIntSet) { 1-3, 5-8 } | { 3-5 }");
+    echoTestPhase("operator|=(MyOrderedSet) { 1-3, 5-8 } | { 3-5 }");
     op = SET_ASSIGN_UNION_OR;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     xpctd_sz = 8;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1454,16 +1454,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator^=(WrUIntSet)");
-    echoTestPhase("operator^=(WrUIntSet) { 1-3, 5-8 } ^ { empty }");
+    echoTestName("operator^=(MyOrderedSet)");
+    echoTestPhase("operator^=(MyOrderedSet) { 1-3, 5-8 } ^ { empty }");
     op = SET_ASSIGN_UNIQUE;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1485,15 +1485,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator^=(WrUIntSet) { empty } ^ { 1-3, 5-8 }");
+    echoTestPhase("operator^=(MyOrderedSet) { empty } ^ { 1-3, 5-8 }");
     op = SET_ASSIGN_UNIQUE;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1515,15 +1515,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator^=(WrUIntSet) { 1-3, 5-8 } ^ { 3-5 }");
+    echoTestPhase("operator^=(MyOrderedSet) { 1-3, 5-8 } ^ { 3-5 }");
     op = SET_ASSIGN_UNIQUE;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 1, 2, 4, 6, 7, 8 };
+    xpctd = new T[] { 1, 2, 4, 6, 7, 8 };
     xpctd_sz = 6;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1551,16 +1551,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator&=(WrUIntSet)");
-    echoTestPhase("operator&=(WrUIntSet) { 1-3, 5-8 } & { empty }");
+    echoTestName("operator&=(MyOrderedSet)");
+    echoTestPhase("operator&=(MyOrderedSet) { 1-3, 5-8 } & { empty }");
     op = SET_ASSIGN_INTERSECTION;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] {};
+    xpctd = new T[] {};
     xpctd_sz = 0;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1582,15 +1582,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator&=(WrUIntSet) { empty } & { 1-3, 5-8 }");
+    echoTestPhase("operator&=(MyOrderedSet) { empty } & { 1-3, 5-8 }");
     op = SET_ASSIGN_INTERSECTION;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] {};
+    xpctd = new T[] {};
     xpctd_sz = 0;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1612,15 +1612,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator&=(WrUIntSet) { 1-3, 5-8 } & { 3-5 }");
+    echoTestPhase("operator&=(MyOrderedSet) { 1-3, 5-8 } & { 3-5 }");
     op = SET_ASSIGN_INTERSECTION;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 3, 5 };
+    xpctd = new T[] { 3, 5 };
     xpctd_sz = 2;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1648,16 +1648,16 @@ bool testWrappedUnsignedSet() {
     /* ****************************************************	*/
     /* ****************************************************	*/
 
-    echoTestName("operator-=(WrUIntSet)");
-    echoTestPhase("operator-=(WrUIntSet) { 1-3, 5-8 } - { empty }");
+    echoTestName("operator-=(MyOrderedSet)");
+    echoTestPhase("operator-=(MyOrderedSet) { 1-3, 5-8 } - { empty }");
     op = SET_ASSIGN_DIFFERENCE;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {};
+    in_b = new T[] {};
     in_b_sz = 0;
-    xpctd = new unsigned[] { 1, 2, 3,    5, 6, 7 , 8 };
+    xpctd = new T[] { 1, 2, 3,    5, 6, 7 , 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1679,15 +1679,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator-=(WrUIntSet) { empty } - { 1-3, 5-8 }");
+    echoTestPhase("operator-=(MyOrderedSet) { empty } - { 1-3, 5-8 }");
     op = SET_ASSIGN_DIFFERENCE;
     test_count++;
 
-    in_a = new unsigned[] {};
+    in_a = new T[] {};
     in_a_sz = 0;
-    in_b = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new unsigned[] {};
+    xpctd = new T[] {};
     xpctd_sz = 0;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1709,15 +1709,15 @@ bool testWrappedUnsignedSet() {
     delete_array(xpctd);
     cout_count();
 
-    echoTestPhase("operator-=(WrUIntSet) { 1-3, 5-8 } - { 3-5 }");
+    echoTestPhase("operator-=(MyOrderedSet) { 1-3, 5-8 } - { 3-5 }");
     op = SET_ASSIGN_DIFFERENCE;
     test_count++;
 
-    in_a = new unsigned[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new unsigned[] {       3, 4, 5  };
+    in_b = new T[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new unsigned[] { 1, 2, 6, 7 , 8 };
+    xpctd = new T[] { 1, 2, 6, 7 , 8 };
     xpctd_sz = 5;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1759,7 +1759,7 @@ bool announceResults(int passed_test_count, int test_count) {
 	return passed_test_count == test_count;
 }
 
-void buildSet(WrUIntSet& dst, unsigned *values, int num_values, Message_Level message_level) {
+void buildSet(MyOrderedSet& dst, T *values, int num_values, Message_Level message_level) {
 
 	dst.clear();
 
@@ -1771,7 +1771,7 @@ void buildSet(WrUIntSet& dst, unsigned *values, int num_values, Message_Level me
 		cout << "buildSet @" << &dst << endl << dst << endl;
 }
 
-bool isElement(unsigned *p, int sz, unsigned val) {
+bool isElement(T *p, int sz, T val) {
 	for (int i = 0; i != sz; i++) {
 		if (p[i] == val) return true;
 	}
@@ -1783,14 +1783,14 @@ bool isElement(unsigned *p, int sz, unsigned val) {
 	/*	determine if one set is the result of an assignment operator	*/
 	/* ****************************************************************	*/
 
-const WrUIntNode *findNode(const WrUIntSet& set, const WrUInt value_to_find) {
+const MyLinkedListNode *findNode(const MyOrderedSet& set, const T value_to_find) {
 
-	WrUIntNode* src = set.list.head;
+	MyLinkedListNode* src = set.m_list.m_head;
 	while (src) {
-		if (src->data == value_to_find) {
+		if (src->m_data == value_to_find) {
 			return src;
 		}
-		src = src->next;
+		src = src->m_next;
 	}
 
 	return nullptr;
@@ -1799,9 +1799,9 @@ const WrUIntNode *findNode(const WrUIntSet& set, const WrUInt value_to_find) {
 
 //	determine if the storage location of the two sets are the same:
 //	  set address is identical before & after
-//	  set list is stored at the same address
+//	  set.m_list is stored at the same address
 //	  any values that are in both sets are stored in the same nodes
-bool setElementsAreStoredAtSameLocation(const Set_Contents* before_set, const WrUIntSet& after_set, Message_Level message_level) {
+bool setElementsAreStoredAtSameLocation(const Set_Contents* before_set, const MyOrderedSet& after_set, Message_Level message_level) {
 
 	if (isMsgLvlVerbose(message_level)) {
 		cout << __FUNCTION__ << endl;
@@ -1837,7 +1837,7 @@ bool setElementsAreStoredAtSameLocation(const Set_Contents* before_set, const Wr
 
 	for (int i = 0; i != before_set->size; i++) {
 		// attempt to find values the after set that were in before set
-		const WrUIntNode *after_node = findNode(after_set, before_set->list_of_nodes[i]->data);
+		const MyLinkedListNode *after_node = findNode(after_set, before_set->list_of_nodes[i]->data);
 		// if the value that was in the before set is in the after set
 		if (after_node != nullptr) {
 			// if the node containing the value is different that it was before
@@ -1862,7 +1862,7 @@ bool setElementsAreStoredAtSameLocation(const Set_Contents* before_set, const Wr
 /* ************************************************************	*/
 
 bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
-									const WrUIntSet& after_set,
+									const MyOrderedSet& after_set,
 									Message_Level message_level) {
 
 	if (isMsgLvlVerbose(message_level)) {
@@ -1890,9 +1890,9 @@ bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
 	}
 
 	// if after->head is now null, nothing to check
-	if (after_set.list.head == nullptr) {
+	if (after_set.m_list.m_head == nullptr) {
 		if (isMsgLvlVerbose(message_level)) {
-			cout << " returns true b/c after_set.list.head == nullptr" << endl << endl;
+			cout << " returns true b/c after_set.m_list.m_head == nullptr" << endl << endl;
 		}
 		return true;
 	}
@@ -1903,7 +1903,7 @@ bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
 	for (int i = 0; i != before_set->size; i++)
 	{
 		// determine if a value in the before_set is in the after_set
-		const WrUIntNode *after_node = findNode(after_set, before_set->list_of_nodes[i]->data);
+		const MyLinkedListNode *after_node = findNode(after_set, before_set->list_of_nodes[i]->data);
 		// if a value in the before set was found in the after set
 		if (after_node != nullptr)
 		{
@@ -1950,28 +1950,28 @@ bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
 	return true;
 }
 
-bool setsStorageLocationsDontCare(const Set_Contents* contents_before __attribute__((unused)), const WrUIntSet& after_Set __attribute__((unused)), Message_Level message_level) {
+bool setsStorageLocationsDontCare(const Set_Contents* contents_before __attribute__((unused)), const MyOrderedSet& after_Set __attribute__((unused)), Message_Level message_level) {
 	if (isMsgLvlVerbose(message_level)) {
 		cout << __FUNCTION__ << " returns true " << endl;
 	}
 	return true;
 }
 
-bool setContentsAreEqual(const WrUIntSet &seta, const WrUIntSet &setb) {
+bool setContentsAreEqual(const MyOrderedSet &seta, const MyOrderedSet &setb) {
 
 	if (seta.size() != setb.size())
 		return false;
 
-	WrUIntNode *pa = seta.list.head;
-	WrUIntNode *pb = setb.list.head;
+	MyLinkedListNode *pa = seta.m_list.m_head;
+	MyLinkedListNode *pb = setb.m_list.m_head;
 
 	while (pa != nullptr && pb != nullptr) {
 
-		if (pa->data != pb->data) {
+		if (pa->m_data != pb->m_data) {
 			return false;
 		}
-		pa = pa->next;
-		pb = pb->next;
+		pa = pa->m_next;
+		pb = pb->m_next;
 	}
 
 	// if one list terminated before the other,
@@ -2003,13 +2003,13 @@ Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& te
     const char* returns_false_str = " returns false";
     const char* returns_true_str = " returns false";
 
-    WrUIntSet seta;
-    WrUIntSet setb;
+    MyOrderedSet seta;
+    MyOrderedSet setb;
 
-    unsigned unsigneds_1_4[] = { 1, 2, 3, 4 };
-    unsigned unsigneds_5_8[] = { 5, 6, 7, 8 };
-    int num_unsigneds_1_4 = sizeof(unsigneds_1_4)/sizeof(unsigned);
-    int num_unsigneds_5_8 = sizeof(unsigneds_5_8)/sizeof(unsigned);
+    T Ts_1_4[] = { 1, 2, 3, 4 };
+    T Ts_5_8[] = { 5, 6, 7, 8 };
+    int num_Ts_1_4 = sizeof(Ts_1_4)/sizeof(T);
+    int num_Ts_5_8 = sizeof(Ts_5_8)/sizeof(T);
 
     echoTestPhase("{ empty }.operator==({ empty })");
     test_count++;
@@ -2047,7 +2047,7 @@ Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& te
     }
 
     echoTestPhase("{ 1-4 }.operator==({ empty })");
-    buildSet(seta, unsigneds_1_4, num_unsigneds_1_4, None);
+    buildSet(seta, Ts_1_4, num_Ts_1_4, None);
     test_count++;
     if (seta == setb) {
     	if (isMsgLvlVerbose(message_level)) {
@@ -2116,7 +2116,7 @@ Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& te
     }
 
     echoTestPhase("{ 1-4 }.operator==({ 1-4 })");
-    buildSet(setb, unsigneds_1_4, num_unsigneds_1_4, None);
+    buildSet(setb, Ts_1_4, num_Ts_1_4, None);
     test_count++;
     if (!(seta == setb)) {
     	if (isMsgLvlVerbose(message_level)) {
@@ -2185,7 +2185,7 @@ Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& te
     }
 
     echoTestPhase("{ 1-4 }.operator==({ 5-8 })");
-    buildSet(setb, unsigneds_5_8, num_unsigneds_5_8, None);
+    buildSet(setb, Ts_5_8, num_Ts_5_8, None);
     test_count++;
     if (seta == setb) {
     	if (isMsgLvlVerbose(message_level)) {
@@ -2270,7 +2270,7 @@ Test_Results* runUnsignedOperationTest(struct Test_Arguments *pa) {
 
 	cout << __PRETTY_FUNCTION__ << " operator " << op_str << endl;
 
-	WrUIntSet set_result;
+	MyOrderedSet set_result;
 	buildSet(set_result, pa->in_a, pa->in_a_sz, pa->msg_lvl);
 
 	for (int i = 0; i !=pa->in_b_sz; i++) {
@@ -2294,7 +2294,7 @@ Test_Results* runUnsignedOperationTest(struct Test_Arguments *pa) {
 			return test_results;
 		}	// switch (op)
 		echoSetUnsignedOperationResult(set_result, pa->op, pa->in_b[i], pa->msg_lvl);
-	}	// for (each unsigned
+	}	// for (each T
 
 	if (!verifySetResults(empty_str, set_result, pa->exp, pa->exp_sz, newline, pa->msg_lvl)) {
 		test_results->outcome = failed;
@@ -2340,12 +2340,12 @@ Test_Results* runSetArithmeticOperationTest(struct Test_Arguments *pa) {
 	test_results->outcome = passed;
 	test_results->set_strings(passed_str, op_str, values_passed, storage_passed, __FUNCTION__);
 
-	WrUIntSet operand_1;
+	MyOrderedSet operand_1;
 	buildSet(operand_1, pa->in_a, pa->in_a_sz, pa->msg_lvl);
-	WrUIntSet operand_2;
+	MyOrderedSet operand_2;
 	buildSet(operand_2, pa->in_b, pa->in_b_sz, pa->msg_lvl);
 	//	place a value in result{} that will get overwritten
-	WrUIntSet result;
+	MyOrderedSet result;
 
 	Set_Contents *operand_1_before = new Set_Contents(operand_1);
 	Set_Contents *operand_2_before = new Set_Contents(operand_2);
@@ -2456,12 +2456,12 @@ Test_Results* runSetAssignmentOperationTest(struct Test_Arguments *pa) {
 	test_results->outcome = passed;
 	test_results->set_strings(passed_str, op_str, values_passed, storage_passed, __FUNCTION__);
 
-	WrUIntSet operand_1;
+	MyOrderedSet operand_1;
 	buildSet(operand_1, pa->in_a, pa->in_a_sz, pa->msg_lvl);
-	WrUIntSet operand_2;
+	MyOrderedSet operand_2;
 	buildSet(operand_2, pa->in_b, pa->in_b_sz, pa->msg_lvl);
 	//	place a value in result{} that will get overwritten
-	WrUIntSet result(operand_1);
+	MyOrderedSet result(operand_1);
 
 	Set_Contents *contents_before = new Set_Contents(result);
 
@@ -2576,11 +2576,11 @@ Test_Results* runTest(struct Test_Arguments *args)
 }
 
 bool verifySetResults(	const char *before,
-						WrUIntSet& set_to_verify,
-						unsigned *expected, int expected_count,
+						MyOrderedSet& set_to_verify,
+						T *expected, int expected_count,
 						char *after, Message_Level level) {
 
-	unsigned *outputs;
+	T *outputs;
 	int outputs_size = set_to_verify.getValues(&outputs);
 	bool retval = verifyResults(before, expected, expected_count, outputs, outputs_size, after, level);
 	delete[] outputs;
@@ -2591,7 +2591,7 @@ bool verifySetResults(	const char *before,
 /* 						echo objects									*/
 /* ********************************************************************	*/
 
-void echoSetUnsignedOperationResult(WrUIntSet &set, Set_Operations op, unsigned operand, Message_Level message_level)
+void echoSetUnsignedOperationResult(MyOrderedSet &set, Set_Operations op, T operand, Message_Level message_level)
 {
 	if (isMsgLvlVerbose(message_level)) {
 		cout 	<< "set " << set_operation_strings[op] << " " << operand
@@ -2600,7 +2600,7 @@ void echoSetUnsignedOperationResult(WrUIntSet &set, Set_Operations op, unsigned 
 	}
 }
 
-void echoSet(const char* before, WrUIntSet& set, const char *after, Message_Level message_level) {
+void echoSet(const char* before, MyOrderedSet& set, const char *after, Message_Level message_level) {
 
 	if (isMsgLvlNone(message_level))
 		return;
@@ -2609,23 +2609,23 @@ void echoSet(const char* before, WrUIntSet& set, const char *after, Message_Leve
 		// echo the addresses of each variable in the set
 		cout 	<< before << "set:  @" << &set << ": " <<set.toString();
 		if (isMsgLvlValues(message_level)) {
-			cout << "\nlist: " << set.list << endl;
+			cout << "\nlist: " << set.m_list << endl;
 		}
 		cout 	<< setw(0) << after;
 	} else {
 		// create (eg): { 0, 1, 2 }
-		WrUIntNode *p = set.list.head;
+		MyLinkedListNode *p = set.m_list.m_head;
 		cout << before << "{ ";
 		if (p == nullptr) {
 			cout << "empty }" << after;
 		}
 		else {
-			WrUIntNode *p = set.list.head;
-			while (p->next != nullptr) {
-				cout << setw(0) << p->data.get_x() << ", ";
-				p = p->next;
+			MyLinkedListNode *p = set.m_list.m_head;
+			while (p->m_next != nullptr) {
+				cout << setw(0) << p->m_data << ", ";
+				p = p->m_next;
 			}
-			cout << setw(0) << p->data.get_x() << " }" << after;
+			cout << setw(0) << p->m_data << " }" << after;
 		}
 	}
 }

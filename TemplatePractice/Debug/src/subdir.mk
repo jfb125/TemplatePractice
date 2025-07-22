@@ -4,28 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/ClassWrUIntSet_Tests.cpp \
-../src/JoesSetTestBench.cpp \
-../src/WrappedUnsigned.cpp \
-../src/WrappedUnsignedLinkedList.cpp \
-../src/WrappedUnsignedLinkedListNode.cpp \
-../src/WrappedUnsignedSet.cpp 
+../src/MyOrderedSetTestBench.cpp \
+../src/TestMyOrderedSet.cpp \
+../src/WrappedUnsigned.cpp 
 
 CPP_DEPS += \
-./src/ClassWrUIntSet_Tests.d \
-./src/JoesSetTestBench.d \
-./src/WrappedUnsigned.d \
-./src/WrappedUnsignedLinkedList.d \
-./src/WrappedUnsignedLinkedListNode.d \
-./src/WrappedUnsignedSet.d 
+./src/MyOrderedSetTestBench.d \
+./src/TestMyOrderedSet.d \
+./src/WrappedUnsigned.d 
 
 OBJS += \
-./src/ClassWrUIntSet_Tests.o \
-./src/JoesSetTestBench.o \
-./src/WrappedUnsigned.o \
-./src/WrappedUnsignedLinkedList.o \
-./src/WrappedUnsignedLinkedListNode.o \
-./src/WrappedUnsignedSet.o 
+./src/MyOrderedSetTestBench.o \
+./src/TestMyOrderedSet.o \
+./src/WrappedUnsigned.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -40,7 +31,7 @@ src/%.o: ../src/%.cpp src/subdir.mk
 clean: clean-src
 
 clean-src:
-	-$(RM) ./src/ClassWrUIntSet_Tests.d ./src/ClassWrUIntSet_Tests.o ./src/JoesSetTestBench.d ./src/JoesSetTestBench.o ./src/WrappedUnsigned.d ./src/WrappedUnsigned.o ./src/WrappedUnsignedLinkedList.d ./src/WrappedUnsignedLinkedList.o ./src/WrappedUnsignedLinkedListNode.d ./src/WrappedUnsignedLinkedListNode.o ./src/WrappedUnsignedSet.d ./src/WrappedUnsignedSet.o
+	-$(RM) ./src/MyOrderedSetTestBench.d ./src/MyOrderedSetTestBench.o ./src/TestMyOrderedSet.d ./src/TestMyOrderedSet.o ./src/WrappedUnsigned.d ./src/WrappedUnsigned.o
 
 .PHONY: clean-src
 

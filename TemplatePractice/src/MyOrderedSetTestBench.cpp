@@ -1,16 +1,18 @@
+#include "MyOrderedSetTestBench.h"
+
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <cstring>
 
+#include "WrappedUnsigned.h"
+#include "MyOrderedSet.h"
+#include "TestMyOrderedSet.h"
+
+using T = int;
 using namespace std;
 
-#include "ClassWrUIntSet_Tests.h"
-
-using WrUInt = WrappedUnsigned;
-using WrUIntNode = MyLinkedListNode;
-using WrUIntList = MyLinkedList;
-using WrUIntSet = MyOrderedSet;
+//using  = WrappedUnsigned;
 //using msglvl = Message_Level;
 
 bool isMsgLvlNone(Message_Level level) 		{	return level == None;	}
@@ -30,21 +32,20 @@ static char testPhaseIndent[] = "    ";
 static char	error_string[]		= "ERROR! ";
 static char pass_string[]		= "Passed ";
 
-void testWrappedUnsigned();
-void testWrappedUnsignedLinkedListNode();
+void testMyLinkedListNode();
 
 bool verifyResults(	const char *text_before,
-					unsigned *expected, int expected_count,
-					unsigned *results, int result_count,
+					T *expected, int expected_count,
+					T *results, int result_count,
 					const char *text_after, Message_Level lvl);
 
-void buildList(WrUIntList& dst, unsigned *values, int num_values, Message_Level message_level);
-bool isUIntArrayMember(unsigned *array, int num, unsigned key);
+void buildList(MyLinkedList& dst, T *values, int num_values, Message_Level message_level);
+bool isUIntArrayMember(T *array, int num, T key);
 
 void echoTestName(const char *);
 void echoTestPhase(const char *);
-void echoWrUInt(const char* before, WrUInt &, const char* after);
-void echoLinkedList(const char* before, WrUIntList &, const char* after);
+void echoSet(const char* prefix,  MyOrderedSet&, const char* suffix);
+void echoLinkedList(const char* before, MyLinkedList &, const char* after);
 
 
 /* ********************************************************************	*/
@@ -66,7 +67,7 @@ int main(int argc, char **argv) {
 //    testWrappedUnsigned();
 //    testWrappedUnsignedLinkedListNode();
 //    testWrappedUnsignedLinkedList();
-    testWrappedUnsignedSet();
+    testMyOrderedSet();
 
     cout << endl << "JoesSetTestBench.cpp done" << endl;
     return EXIT_SUCCESS;
@@ -85,9 +86,9 @@ int main(int argc, char **argv) {
 
 #pragma push_macro("returnResult")
 #undef returnResult
-#define returnResult()	return announceWrUIntListTest(num_tests_passed, num_tests)
+#define returnResult()	return announceMyLinkedListTest(num_tests_passed, num_tests)
 
-bool announceWrUIntListTest(int num_passed, int num_total) {
+bool announceMyLinkedListTest(int num_passed, int num_total) {
 
 	if (num_passed == num_total) {
     	cout << "All tests passed: " << num_passed << " out of " << num_total << " run" << endl;
@@ -98,37 +99,35 @@ bool announceWrUIntListTest(int num_passed, int num_total) {
     }
 }
 
-#define TEST_LIST_ADDITION_SUBTRACTION_WRUINT
-//#define TEST_LIST_ADDITION_SUBTRACTION_UNSIGNED
-//#define TEST_LIST_ADDITION_SUBTRACTION_LIST
-//#define TEST_LIST_IS_MEMBER
-//#define TEST_LIST_CONSTRUCTORS
-//#define TEST_LIST_ASSIGNMENT_OPERATORS
-//#define TEST_LIST_ADD_SUB_ASSIGMENT_LIST
-//#define TEST_LIST_RELATIONAL_OPERATORS
+#define TEST_LIST_INSERTION_DELETION_OBJECT
+#define TEST_LIST_ADDITION_SUBTRACTION_LIST
+#define TEST_LIST_IS_MEMBER
+#define TEST_LIST_CONSTRUCTORS
+#define TEST_LIST_ASSIGNMENT_OPERATORS
+#define TEST_LIST_ADD_SUB_ASSIGMENT_LIST
+#define TEST_LIST_RELATIONAL_OPERATORS
 
 bool testWrappedUnsignedLinkedList() {
 
 	Message_Level level = Verbose;
 
-#if defined(TEST_LIST_ADDITION_SUBTRACTION_WRUINT) or \
-	defined(TEST_LIST_ADDITION_SUBTRACTION_UNSIGNED) or \
+#if defined(TEST_LIST_INSERTION_DELETION_OBJECT) or \
 	defined(TEST_LIST_IS_MEMBER) or \
 	defined(TEST_LIST_CONSTRUCTORS) or \
 	defined(TEST_LIST_ASSIGNMENT_OPERATORS)
 
-	unsigned stressing_inputs[] 	= { 5, 3, 7, 4, 6, 8, 2, 1 };
-	unsigned stressing_result[]		= { 1, 2, 3, 4, 5, 6, 7, 8 };
-	int stressing_inputs_size = sizeof(stressing_inputs) / sizeof(unsigned);
-	int stressing_result_size = sizeof(stressing_result) / sizeof(unsigned);
+	T stressing_inputs[] 	= { 5, 3, 7, 4, 6, 8, 2, 1 };
+	T stressing_result[]		= { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int stressing_inputs_size = sizeof(stressing_inputs) / sizeof(T);
+	int stressing_result_size = sizeof(stressing_result) / sizeof(T);
 
-	unsigned repeating_inputs[]		= { 1, 2, 3, 4, 4, 4, 3, 1 };
-	unsigned repeating_result[]		= { 1, 2, 3, 4 };
-	int repeating_inputs_size = sizeof(repeating_inputs) / sizeof(unsigned);
-	int repeating_result_size = sizeof(repeating_result) / sizeof(unsigned);
+	T repeating_inputs[]		= { 1, 2, 3, 4, 4, 4, 3, 1 };
+	T repeating_result[]		= { 1, 2, 3, 4 };
+	int repeating_inputs_size = sizeof(repeating_inputs) / sizeof(T);
+	int repeating_result_size = sizeof(repeating_result) / sizeof(T);
 
-	unsigned *inputs;
-	unsigned *outputs;
+	T *inputs;
+	T *outputs;
 	int num_outputs;
 #endif
 
@@ -140,111 +139,13 @@ bool testWrappedUnsignedLinkedList() {
 	// this test is verified by looking at the log file
     echoTestName("default constructor");
     num_tests++;
-    WrUIntList list;
-    if (list.size != 0 || list.head != nullptr) {
+    MyLinkedList list;
+    if (list.m_size != 0 || list.m_head != nullptr) {
     	cout << error_string << "default ctor did not create empty list @" << &list << ": " << list << endl << endl;
     } else {
     	num_tests_passed++;
 		cout << pass_string  << "default ctor created @" << &list << ": " << list << endl << endl;
     }
-
-#ifdef TEST_LIST_ADDITION_SUBTRACTION_WRUINT
-    // insert values into the list in order of before head, after tail, 2nd, 2nd from last, middle
-    echoTestName("operator+(const WrUInt&) with stressing sequence");
-    inputs = stressing_inputs;
-    for (int i = 0; i != stressing_inputs_size; i++) {
-    	list = list + WrUInt(inputs[i]);
-    	if (isMsgLvlVerbose(level)) {
-    		cout << "list + WrUInt(" << inputs[i] << ") to list @" << &list << " list is now" << endl;
-    		cout << list << endl << endl;
-    	}
-    }
-    num_outputs = list.getValues(&outputs);
-   	verifyResults("after inserting WrUInt& ", stressing_result, stressing_result_size, outputs, num_outputs, newline, level);
-    delete[] outputs;
-
-    echoTestName("operator+(const WrUInt&) with repeated sequence");
-    list.clear();
-    inputs = repeating_inputs;
-    for (int i = 0; i != repeating_inputs_size; i++) {
-    	list = list + WrUInt(inputs[i]);
-    	if (isMsgLvlValuesAndAddresses(level)) {
-    		cout << "list + WrUInt(" << inputs[i] << ") to list @" << &list << " list is now" << endl;
-    		cout << list << endl << endl;
-    	}
-    }
-    num_outputs = list.getValues(&outputs);
-   	verifyResults("after inserting WrUInt& ", repeating_result, repeating_result_size, outputs, num_outputs, newline, level);
-    delete outputs;
-
-    // delete values from the list in order of before head, after tail, 2nd, 2nd from last, middle
-    echoTestName("operator-(const WrUInt&)");
-    cout << "building " << uiarray_toString(repeating_result, repeating_result_size) << endl;
-    buildList(list, repeating_result, repeating_result_size, Verbose);
-    cout << endl;
-    inputs = stressing_inputs;
-    for (int i = 0; i != stressing_inputs_size; i++) {
-    	list = list - WrUInt(inputs[i]);
-    	if (isMsgLvlVerbose(level)) {
-    		cout << "list - WrUInt(" << inputs[i] << ") from list @" << &list << " list is now" << endl;
-    		cout << list << endl << endl;
-    	}
-    }
-    if (list.size != 0) {
-    	cout << "removing all elements of list failed, list not empty: " << &list << " " << list << endl;
-    } else {
-    	cout << "removed all elements of list, list is now empty: " << &list << " " << list << endl;
-    }
-#endif
-
-#ifdef TEST_LIST_ADDITION_SUBTRACTION_UNSIGNED
-    // insert values into the list in order
-    echoTestName("operator+(unsigned) with stressing sequence");
-    inputs = stressing_inputs;
-    for (int i = 0; i != stressing_inputs_size; i++) {
-    	list = list + inputs[i];
-    	if (isMsgLvlVerbose(level)) {
-    		cout << "list + unsigned " << inputs[i] << " to list @" << &list << " list is now" << endl;
-    		cout << list << endl << endl;
-    	}
-    }
-    num_outputs = list.getValues(&outputs);
-   	verifyResults("after inserting unsigned ", stressing_result, stressing_result_size, outputs, num_outputs, newline, level);
-    delete outputs;
-
-    echoTestName("operator+(unsigned) with repeated sequence");
-    list.clear();
-    inputs = repeating_inputs;
-    for (int i = 0; i != repeating_inputs_size; i++) {
-    	list = list + inputs[i];
-    	if (isMsgLvlValuesAndAddresses(level)) {
-    		cout << "list + unsigned " << inputs[i] << " to list @" << &list << " list is now" << endl;
-    		cout << list << endl << endl;
-    	}
-    }
-    num_outputs = list.getValues(&outputs);
-   	verifyResults("after inserting unsigned ", repeating_result, repeating_result_size, outputs, num_outputs, newline, level);
-    delete outputs;
-
-    // insert values into the list in order
-    echoTestName("operator-(unsigned)");
-    cout << "building " << uiarray_toString(repeating_result, repeating_result_size) << endl;
-    buildList(list, repeating_result, repeating_result_size, Verbose);
-    cout << endl;
-    inputs = stressing_inputs;
-    for (int i = 0; i != stressing_inputs_size; i++) {
-    	list = list - inputs[i];
-    	if (isMsgLvlVerbose(level)) {
-    		cout << "list - unsigned " << inputs[i] << " from list @" << &list << " list is now" << endl;
-    		cout << list << endl << endl;
-    	}
-    }
-    if (list.size != 0) {
-    	cout << "removing all elements of list failed, list not empty: " << &list << " " << list << endl;
-    } else {
-    	cout << "removed all elements of list, list is now empty: " << &list << " " << list << endl;
-    }
-#endif
 
     // assignment operators test needs 'copied_list' to exist
 #if defined(TEST_LIST_CONSTRUCTORS) or defined(TEST_LIST_ASSIGNMENT_OPERATORS)
@@ -253,8 +154,8 @@ bool testWrappedUnsignedLinkedList() {
     echoTestName("copy constructor");
     num_tests++;
     buildList(list, repeating_inputs, repeating_inputs_size, Verbose);
-    WrUIntList copied_list(list);
-    cout 	<< " after 'WrUIntList copied_list(list);'" << endl
+    MyLinkedList copied_list(list);
+    cout 	<< " after 'MyLinkedList copied_list(list);'" << endl
     		<< " with list   " << &list << ":" << endl << list << endl << endl
 			<< " copied_list " << &copied_list << ":" << endl << copied_list << endl << endl;
 
@@ -266,8 +167,8 @@ bool testWrappedUnsignedLinkedList() {
     echoTestName("move constructor");
     num_tests++;
     buildList(list, repeating_inputs, repeating_inputs_size, Verbose);
-    WrUIntList moved_list(move(list));
-    cout 	<< " after 'WrUIntList moved_list(list);'" << endl
+    MyLinkedList moved_list(move(list));
+    cout 	<< " after 'MyLinkedList moved_list(list);'" << endl
     		<< " with list   " << &list << ":" << endl << list << endl << endl
 			<< " moved_list  " << &moved_list << ":" << endl << moved_list << endl << endl;
 
@@ -278,11 +179,11 @@ bool testWrappedUnsignedLinkedList() {
 
     //	verify that assigned set is different that copied set
     //	this verification is necessary because both copy constructor & assignment operator
-    //	  use the same helper function in the class defintion file.cpp for WrUIntList
-    echoTestName("operator=(const WrUIntList&)");
+    //	  use the same helper function in the class defintion file.cpp for MyLinkedList
+    echoTestName("operator=(const MyLinkedList&)");
     num_tests++;
     buildList(list, repeating_inputs, repeating_inputs_size, Verbose);
-    WrUIntList assigned_list;
+    MyLinkedList assigned_list;
     cout << "created empty list: " << &assigned_list << ":" << endl << assigned_list << endl;
     assigned_list = list;
     cout << "copy assigned " << &list << ":" << endl << list << endl << endl
@@ -292,7 +193,7 @@ bool testWrappedUnsignedLinkedList() {
 		 << endl << endl;
     num_tests_passed++;
 
-    echoTestName("operator=(const WrUIntList&&)");
+    echoTestName("operator=(const MyLinkedList&&)");
     num_tests++;
     assigned_list.clear();
     cout << "created empty list: " << &assigned_list << ":" << endl << assigned_list << endl;
@@ -307,43 +208,43 @@ bool testWrappedUnsignedLinkedList() {
 #endif
 
 #ifdef TEST_LIST_ASSIGNMENT_OPERATORS
-    echoTestName("operator+=(WrUInt&) with stressing sequence");
+    echoTestName("operator+=(&) with stressing sequence");
     num_tests++;
     // insert values into the list in order of before head, after tail, 2nd, 2nd from last, middle
     list.clear();
     inputs = stressing_inputs;
     for (int i = 0; i != stressing_inputs_size; i++) {
-    	list += WrUInt(inputs[i]);
+    	list += inputs[i];
     	if (isMsgLvlVerbose(level)) {
-    		cout << "+= WrUInt(" << inputs[i] << ") to list @" << &list << " list is now" << endl;
+    		cout << "+= (" << inputs[i] << ") to list @" << &list << " list is now" << endl;
     		cout << list << endl << endl;
     	}
     }
     num_outputs = list.getValues(&outputs);
-   	if (!verifyResults("after inserting WrUInt& ", stressing_result, stressing_result_size, outputs, num_outputs, newline, level)) {
-   		cout << error_string << uiarray_toString(stressing_result, stressing_result_size) << " vs " << uiarray_toString(outputs, num_outputs) << endl;
+   	if (!verifyResults("after inserting & ", stressing_result, stressing_result_size, outputs, num_outputs, newline, level)) {
+   		cout << error_string << array_toString(stressing_result, stressing_result_size) << " vs " << array_toString(outputs, num_outputs) << endl;
    	} else {
    		num_tests_passed++;
    	}
     delete outputs;
     cout << endl;
 
-    echoTestName("operator+=(const WrUInt&) with repeated sequence");
+    echoTestName("operator+=(const &) with repeated sequence");
     list.clear();
     inputs = repeating_inputs;
     for (int i = 0; i != repeating_inputs_size; i++) {
-    	list += WrUInt(inputs[i]);
+    	list += (inputs[i]);
     	if (isMsgLvlValuesAndAddresses(level)) {
-    		cout << "+= WrUInt(" << inputs[i] << ") to list @" << &list << " list is now" << endl;
+    		cout << "+= (" << inputs[i] << ") to list @" << &list << " list is now" << endl;
     		cout << list << endl << endl;
     	}
     }
     num_outputs = list.getValues(&outputs);
-   	verifyResults("after += WrUInt& ", repeating_result, repeating_result_size, outputs, num_outputs, newline, level);
+   	verifyResults("after += & ", repeating_result, repeating_result_size, outputs, num_outputs, newline, level);
     delete outputs;
     cout << endl;
 
-    echoTestName("operator+=(unsigned) with stressing sequence");
+    echoTestName("operator+=(T) with stressing sequence");
     // insert values into the list in order of before head, after tail, 2nd, 2nd from last, middle
     list.clear();
     inputs = stressing_inputs;
@@ -355,11 +256,11 @@ bool testWrappedUnsignedLinkedList() {
     	}
     }
     num_outputs = list.getValues(&outputs);
-   	verifyResults("after inserting unsigneds ", stressing_result, stressing_result_size, outputs, num_outputs, newline, level);
+   	verifyResults("after inserting Ts ", stressing_result, stressing_result_size, outputs, num_outputs, newline, level);
     delete outputs;
     cout << endl;
 
-    echoTestName("operator+=(unsigned) with repeated sequence");
+    echoTestName("operator+=(T) with repeated sequence");
     list.clear();
     inputs = repeating_inputs;
     for (int i = 0; i != repeating_inputs_size; i++) {
@@ -370,24 +271,24 @@ bool testWrappedUnsignedLinkedList() {
     	}
     }
     num_outputs = list.getValues(&outputs);
-   	verifyResults("after inserting unsigneds ", repeating_result, repeating_result_size, outputs, num_outputs, newline, level);
+   	verifyResults("after inserting Ts ", repeating_result, repeating_result_size, outputs, num_outputs, newline, level);
     delete outputs;
     cout << endl;
 
     // delete values from the list in order of before head, after tail, 2nd, 2nd from last, middle
-    echoTestName("operator-=(const WrUInt&)");
-    cout << "building " << uiarray_toString(repeating_result, repeating_result_size) << endl;
+    echoTestName("operator-=(const &)");
+    cout << "building " << array_toString(repeating_result, repeating_result_size) << endl;
     buildList(list, repeating_result, repeating_result_size, Verbose);
     cout << endl;
     inputs = stressing_inputs;
     for (int i = 0; i != stressing_inputs_size; i++) {
-    	list -= WrUInt(inputs[i]);
+    	list -= (inputs[i]);
     	if (isMsgLvlVerbose(level)) {
-    		cout << "removed WrUInt(" << inputs[i] << ") from list @" << &list << " list is now" << endl;
+    		cout << "removed (" << inputs[i] << ") from list @" << &list << " list is now" << endl;
     		cout << list << endl;
     	}
     }
-    if (list.size != 0) {
+    if (list.m_size != 0) {
     	cout << "removing all elements of list failed, list not empty: " << &list << " " << list << endl;
     } else {
     	cout << "removed all elements of list, list is now empty: " << &list << " " << list << endl;
@@ -395,8 +296,8 @@ bool testWrappedUnsignedLinkedList() {
     cout << endl;
 
     // delete values from the list in order of before head, after tail, 2nd, 2nd from last, middle
-    echoTestName("operator-=(unsigned)");
-    cout << "building " << uiarray_toString(repeating_result, repeating_result_size) << endl;
+    echoTestName("operator-=(T)");
+    cout << "building " << array_toString(repeating_result, repeating_result_size) << endl;
     buildList(list, repeating_result, repeating_result_size, Verbose);
     cout << endl;
     inputs = stressing_inputs;
@@ -407,7 +308,7 @@ bool testWrappedUnsignedLinkedList() {
     		cout << list << endl;
     	}
     }
-    if (list.size != 0) {
+    if (list.m_size != 0) {
     	cout << "removing all elements of list failed, list not empty: " << &list << " " << list << endl;
     } else {
     	cout << "removed all elements of list, list is now empty: " << &list << " " << list << endl;
@@ -416,7 +317,7 @@ bool testWrappedUnsignedLinkedList() {
 #endif
 
 #ifdef TEST_LIST_IS_MEMBER
-    echoTestName("isMember(unsigned)");
+    echoTestName("isMember(T)");
     list.clear();
     buildList(list, stressing_inputs, stressing_inputs_size, None);
     cout << "built list for isMember() test: " << &list << " " << list.valuesString() << endl;
@@ -434,31 +335,31 @@ bool testWrappedUnsignedLinkedList() {
    	}
     cout << endl;
 
-    echoTestName("isMember(WrUInt&)");
+    echoTestName("isMember(&)");
     list.clear();
     buildList(list, repeating_inputs, repeating_inputs_size, None);
     cout << "built list for isMember() test: " << &list << " " << list.valuesString() << endl;
     for (int i = 0; i != stressing_inputs_size; i++) {
     	if (isUIntArrayMember(repeating_inputs, repeating_inputs_size, stressing_inputs[i])) {
     		// values is in repeating_inputs[], result should return true
-    		if (list.isMember(WrUInt(stressing_inputs[i]))) {
-    			cout << "       list.isMember(WrUInt(" << stressing_inputs[i] << ")) returns true" << endl;
+    		if (list.isMember((stressing_inputs[i]))) {
+    			cout << "       list.isMember((" << stressing_inputs[i] << ")) returns true" << endl;
     		} else {
-    			cout << "ERROR: list.isMember(WrUInt(" << stressing_inputs[i] << ")) returns false" << endl;
+    			cout << "ERROR: list.isMember((" << stressing_inputs[i] << ")) returns false" << endl;
     		}
     	} else {
     		// values is not in repeating_inputs[], result should return false
-        	if (list.isMember(WrUInt(stressing_inputs[i]))) {
-        		cout << "ERROR: list.isMember(WrUInt(" << stressing_inputs[i] << ")) returns true" << endl;
+        	if (list.isMember((stressing_inputs[i]))) {
+        		cout << "ERROR: list.isMember((" << stressing_inputs[i] << ")) returns true" << endl;
         	} else {
-        		cout << "       list.isMember(WrUInt(" << stressing_inputs[i] << ")) returns false" << endl;
+        		cout << "       list.isMember((" << stressing_inputs[i] << ")) returns false" << endl;
         	}
     	}
     }
-    if (!list.isMember(WrUInt(0))) {
-   		cout << "       list.isMember(WrUInt(0)) returns false" << endl;
+    if (!list.isMember((0))) {
+   		cout << "       list.isMember((0)) returns false" << endl;
    	} else {
-   		cout << "ERROR: list.isMember(WrUInt(0)) returns true" << endl;
+   		cout << "ERROR: list.isMember((0)) returns true" << endl;
    	}
     cout << endl;
 #endif
@@ -466,15 +367,15 @@ bool testWrappedUnsignedLinkedList() {
 #if defined(TEST_LIST_ADDITION_SUBTRACTION_LIST)\
 	or defined(TEST_LIST_ADD_SUB_ASSIGMENT_LIST)\
 	or defined(TEST_LIST_RELATIONAL_OPERATORS)
-    unsigned lower_list[] = { 1, 2, 3, 4, 5, 6 };
-    unsigned upper_list[] = { 4, 5, 6, 7, 8, 9 };
-    unsigned total_list[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    T lower_list[] = { 1, 2, 3, 4, 5, 6 };
+    T upper_list[] = { 4, 5, 6, 7, 8, 9 };
+    T total_list[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     int lower_list_size = 6;
     int upper_list_size = 6;
     int total_list_size = 9;
-    WrUIntList list1;
-    WrUIntList list2;
-    WrUIntList list3;
+    MyLinkedList list1;
+    MyLinkedList list2;
+    MyLinkedList list3;
 #endif
 
 #ifdef TEST_LIST_ADDITION_SUBTRACTION_LIST
@@ -724,7 +625,6 @@ bool testWrappedUnsignedLinkedList() {
     list1 -= list2;
     cout	<< "list1 @" << &list1 << ": " << endl
     		<< list1 << endl << endl;
-
 #endif
 
 #ifdef TEST_LIST_RELATIONAL_OPERATORS
@@ -789,439 +689,28 @@ bool testWrappedUnsignedLinkedList() {
 /*			test class WrappedUnsignedLinkedListNode				*/
 /* ****************************************************************	*/
 
-void testWrappedUnsignedLinkedListNode() {
+void testMyLinkedListNode() {
 
-	echoTestName(" WrUIntNode Constructors");
-	WrUIntNode node1;
+	echoTestName(" MyLinkedListNode Constructors");
+	MyLinkedListNode node1;
 	cout << "default constructor: created node1 @" << node1.toString() << endl;
-	WrUIntNode node2(WrUInt(2));
-	cout << "c'tor(WrUInt(2)):    created node2 @" << node2.toString() << endl;
-	WrUIntNode node3(node2);
+	MyLinkedListNode node2((2));
+	cout << "c'tor((2)):    created node2 @" << node2.toString() << endl;
+	MyLinkedListNode node3(node2);
 	cout << "c'tor(node2):        created node3 @" << node3.toString() << endl;
 
-	WrUIntNode node4;
-	node4.data = node3.data;
-	node4.next = &node1;
-	cout 	<< "node4 contains data = node3.data " << node3.data
+	MyLinkedListNode node4;
+	node4.m_data = node3.m_data;
+	node4.m_next = &node1;
+	cout 	<< "node4 contains.m_data = node3.m_data " << node3.m_data
 			<< " and points to node1 " << &node1 << endl
 			<< " node4: " << node4.toString() << endl;
-	WrUIntNode node5(node2.data = 10, &node3);
-	cout 	<< "node 5 contains data from node2 " << node2.data
+	MyLinkedListNode node5(node2.m_data = 10, &node3);
+	cout 	<< "node 5 contains.m_data from node2 " << node2.m_data
 			<< " and points to node 3: " << &node3 << endl
 			<< " which results in node5: " << node5.toString() << endl;
 	cout 	<< "after assignment node3(" << node3 << ") = node 5(" << node5 << ") " << endl
 			<< (node3 = node5) << node3.toString() << endl;
-}
-
-
-/* ****************************************************************	*/
-/*					test class WrappedUnsigned						*/
-/* ****************************************************************	*/
-
-//#define TEST_WRUINT_DEFAULT_CONSTRUCTOR
-//#define TEST_WRUINT_COPY_CONSTRUCTOR
-//#define TEST_WRUINT_ASSIGNMENT_OPERATORS
-//#define TEST_WRUINT_UNARY_OPERATORS
-//#define TEST_WRUINT_COMPOUND_ASSIGNMENT_OPERATORS
-//#define TEST_WRUINT_ARITHMETIC_OPERATORS
-#define TEST_WRUINT_COMPARE_FUNCTIONS
-#define TEST_WRUINT_COMPARE_OPERATORS
-
-void testWrappedUnsigned() {
-
-	echoTestName("test WrappedUnsigned");
-
-#ifdef TEST_WRUINT_DEFAULT_CONSTRUCTOR
-	echoTestName("default constructor");
-	cout << "creating default x" << endl;
-	WrUInt x;
-	echoWrUInt("x: ", x, newline);
-	cout << endl;
-#endif
-
-#ifdef TEST_WRUINT_ASSIGNMENT_OPERATORS
-	echoTestName("operator=(unsigned)");
-	echoWrUInt("x: ", x, newline);
-	cout << "x = 1 returns " << (x = 1).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << endl;
-#endif
-
-#ifdef TEST_WRUINT_COPY_CONSTRUCTOR
-	echoTestName("copy constructor");
-	echoWrUInt("x: ", x, newline);
-	cout << "WrUInt y(x);" << endl;
-	WrUInt y(x);
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << endl;
-#else
-	cout << "creating default y" << endl;
-	WrUInt y;
-	echoWrUInt("y: ", y, newline);
-	cout << endl;
-#endif
-
-#ifdef TEST_WRUINT_ASSIGNMENT_OPERATORS
-	echoTestName("operator=(WrUInt&)");
-	WrUInt z;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	echoWrUInt("z: ", z, newline);
-	cout << "z = x returns " << (z = x).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	echoWrUInt("z: ", z, newline);
-	cout << endl;
-#else
-	cout << "creating default z" << endl;
-	WrUInt z;
-	echoWrUInt("z: ", z, newline);
-	cout << endl;
-#endif
-
-#ifdef TEST_WRUINT_UNARY_OPERATORS
-	echoTestName("unary operators ++ --");
-	x = 1;
-	y = 5;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << "y = ++x returns " << (y = ++x).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << endl;
-
-	x = 1;
-	y = 5;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << "y = x++ returns " << (y = x++).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << endl;
-
-	x = 1;
-	y = 5;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << "y = --x returns " << (y = --x).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << endl;
-
-	x = 1;
-	y = 5;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << "y = x-- returns " << (y = x--).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << endl;
-
-	x = 1;
-	y = 5;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << "y = ++x--" << newline;
-	y = ++x--;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << endl;
-
-	x = 1;
-	y = 5;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << "y = --x++" << newline;
-	y = --x++;
-	echoWrUInt("x: ", x, newline);
-	echoWrUInt("y: ", y, newline);
-	cout << endl;
-#endif
-
-
-#ifdef TEST_WRUINT_COMPOUND_ASSIGNMENT_OPERATORS
-	echoTestName("*** COMPOUND ASSIGNMENT OPERATORS *** ");
-	y = 3;
-	cout << "x = " << x << " y = " << y << endl;
-
-	// +=
-
-	echoTestName("operator+=(unsigned)");
-	x = 10;
-	cout << "x += 3 returns " << (x += 3).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	echoTestName("operator+=(WrUInt&)");
-	x = 10;
-	cout << "x += y returns " << (x += y).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	// -=
-
-	echoTestName("operator-=(unsigned)");
-	x = 10;
-	cout << "x -= 3 returns " << (x -= 3).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	echoTestName("operator-=(WrUInt&)");
-	x = 10;
-	cout << "x -= y returns " << (x -= y).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	// *=
-
-	echoTestName("operator*=(unsigned)");
-	x = 10;
-	cout << "x *= 3 returns " << (x *= 3).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	echoTestName("operator*=(WrUInt&)");
-	x = 10;
-	cout << "x *= y returns " << (x *= y).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	// /=
-
-	echoTestName("operator/=(unsigned)");
-	x = 10;
-	cout << "x /= 3 returns " << (x /= 3).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	echoTestName("operator/=(WrUInt&)");
-	x = 10;
-	cout << "x /= y returns " << (x /= y).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	// %=
-
-	echoTestName("operator%=(unsigned)");
-	x = 10;
-	cout << "x %= 3 returns " << (x %= 3).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-
-	echoTestName("operator%=(WrUInt&)");
-	x = 10;
-	cout << "x %= y returns " << (x %= y).toString() << endl;
-	echoWrUInt("x: ", x, newline);
-	cout << newline;
-#endif
-
-#ifdef TEST_WRUINT_ARITHMETIC_OPERATORS
-	echoTestName(" ARITHMETIC OPERATORS");
-
-	//	+
-
-	echoTestName("operator+(unsigned)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x + 2 returns " << (z = x + 2).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	echoTestName("operator+(WrUInt&)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x + y returns " << (z = x + y).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	//	-
-
-	echoTestName("operator-(unsigned)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x - 2 returns " << (z = x - 2).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	echoTestName("operator-(WrUInt&)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x - y returns " << (z = x - y).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	// *
-
-	echoTestName("operator*(unsigned)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x * 2 returns " << (z = x * 2).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	echoTestName("operator*(WrUInt&)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x * y returns " << (z = x * y).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	// /
-
-	echoTestName("operator/(unsigned)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x / 2 returns " << (z = x / 2).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	echoTestName("operator/(WrUInt&)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x / y returns " << (z = x / y).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	// %
-
-	echoTestName("operator+(unsigned)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x % 2 returns " << (z = x % 2).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-
-	echoTestName("operator+(WrUInt&)");
-	x = 9; y = 2; z = 0;
-	cout << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << "z = x % y returns " << (z = x % y).toString() << endl;
-	echoWrUInt("x = ", x, newline);
-	echoWrUInt("y = ", y, newline);
-	echoWrUInt("z = ", z, newline);
-	cout << endl;
-#endif
-
-#ifdef TEST_WRUINT_COMPARE_FUNCTIONS
-{
-	WrUInt x(2);
-	WrUInt y(4);
-	WrUInt z(2);
-	echoTestName("compare(WrUInt())");
-	cout << "x(" << x << ").compare(y(" << y << ")) returns: " << x.compare(y) << endl;
-	cout << "y(" << y << ").compare(x(" << x << ")) returns: " << y.compare(x) << endl;
-	cout << "x(" << x << ").compare(x(" << x << ")) returns: " << x.compare(x) << endl;
-	cout << "x(" << x << ").compare(z(" << z << ")) returns: " << x.compare(z) << endl;
-	cout << endl;
-
-	echoTestName("compare(unsigned)");
-	cout << "(x: " << x << ").compare(unsigned 1) returns: " << x.compare(1) << endl;
-	cout << "(x: " << x << ").compare(unsigned 2) returns: " << x.compare(2) << endl;
-	cout << "(x: " << x << ").compare(unsigned 3) returns: " << x.compare(3) << endl;
-	cout << endl;
-}
-#endif
-
-#ifdef TEST_WRUINT_COMPARE_OPERATORS
-{
-	echoTestName("comparison operators(unsigned)");
-	WrUInt x(2);
-	cout << "x(" << x << ") >  1 returns: " << (x >  1 ? "true" : "false") << endl;
-	cout << "x(" << x << ") >  2 returns: " << (x >  2 ? "true" : "false") << endl;
-	cout << "x(" << x << ") >  3 returns: " << (x >  3 ? "true" : "false") << endl;
-	cout << "x(" << x << ") >= 1 returns: " << (x >= 1 ? "true" : "false") << endl;
-	cout << "x(" << x << ") >= 2 returns: " << (x >= 2 ? "true" : "false") << endl;
-	cout << "x(" << x << ") >= 3 returns: " << (x >= 3 ? "true" : "false") << endl;
-	cout << "x(" << x << ") <  1 returns: " << (x <  1 ? "true" : "false") << endl;
-	cout << "x(" << x << ") <  2 returns: " << (x <  2 ? "true" : "false") << endl;
-	cout << "x(" << x << ") <  3 returns: " << (x <  3 ? "true" : "false") << endl;
-	cout << "x(" << x << ") <= 1 returns: " << (x <= 1 ? "true" : "false") << endl;
-	cout << "x(" << x << ") <= 2 returns: " << (x <= 2 ? "true" : "false") << endl;
-	cout << "x(" << x << ") <= 3 returns: " << (x <= 3 ? "true" : "false") << endl;
-	cout << "x(" << x << ") == 1 returns: " << (x == 1 ? "true" : "false") << endl;
-	cout << "x(" << x << ") == 2 returns: " << (x == 2 ? "true" : "false") << endl;
-	cout << "x(" << x << ") != 1 returns: " << (x != 1 ? "true" : "false") << endl;
-	cout << "x(" << x << ") != 2 returns: " << (x != 2 ? "true" : "false") << endl;
-	cout << endl;
-
-	echoTestName("comparison operators(WrUInt())");
-	x = 2;
-	WrUInt y(2);
-	WrUInt z(1);
-	WrUInt w(3);
-	cout << "x(" << x << ") >  z(" << z << ") returns: " << (x >  z ? "true" : "false") << endl;
-	cout << "x(" << x << ") >  y(" << y << ") returns: " << (x >  y ? "true" : "false") << endl;
-	cout << "x(" << x << ") >  x(" << x << ") returns: " << (x >  x ? "true" : "false") << endl;
-	cout << "x(" << x << ") >  w(" << w << ") returns: " << (x >  w ? "true" : "false") << endl;
-	cout << "x(" << x << ") >= z(" << z << ") returns: " << (x >= z ? "true" : "false") << endl;
-	cout << "x(" << x << ") >= y(" << y << ") returns: " << (x >= y ? "true" : "false") << endl;
-	cout << "x(" << x << ") >= x(" << x << ") returns: " << (x >= x ? "true" : "false") << endl;
-	cout << "x(" << x << ") >= w(" << w << ") returns: " << (x >= w ? "true" : "false") << endl;
-	cout << "x(" << x << ") <  z(" << z << ") returns: " << (x <  z ? "true" : "false") << endl;
-	cout << "x(" << x << ") <  y(" << y << ") returns: " << (x <  y ? "true" : "false") << endl;
-	cout << "x(" << x << ") <  x(" << x << ") returns: " << (x <  x ? "true" : "false") << endl;
-	cout << "x(" << x << ") <  w(" << w << ") returns: " << (x <  w ? "true" : "false") << endl;
-	cout << "x(" << x << ") <= z(" << z << ") returns: " << (x <= z ? "true" : "false") << endl;
-	cout << "x(" << x << ") <= y(" << y << ") returns: " << (x <= y ? "true" : "false") << endl;
-	cout << "x(" << x << ") <= x(" << x << ") returns: " << (x <= x ? "true" : "false") << endl;
-	cout << "x(" << x << ") <= w(" << w << ") returns: " << (x <= w ? "true" : "false") << endl;
-	cout << "x(" << x << ") == z(" << z << ") returns: " << (x == z ? "true" : "false") << endl;
-	cout << "x(" << x << ") == y(" << y << ") returns: " << (x == y ? "true" : "false") << endl;
-	cout << "x(" << x << ") == x(" << x << ") returns: " << (x == x ? "true" : "false") << endl;
-	cout << "x(" << x << ") != z(" << z << ") returns: " << (x != z ? "true" : "false") << endl;
-	cout << "x(" << x << ") != y(" << y << ") returns: " << (x != y ? "true" : "false") << endl;
-	cout << "x(" << x << ") != x(" << x << ") returns: " << (x != x ? "true" : "false") << endl;
-	cout << endl;
-}
-#endif
 }
 
 
@@ -1231,11 +720,11 @@ void testWrappedUnsigned() {
 /* ****************************************************************	*/
 /* ****************************************************************	*/
 
-void buildList(WrUIntList& dst, unsigned *values, int num_values, Message_Level level) {
+void buildList(MyLinkedList& dst, T *values, int num_values, Message_Level level) {
 
 	dst.clear();
 	for (int i = 0; i != num_values; i++) {
-		dst += WrUInt(values[i]);
+		dst += (values[i]);
 	}
 
 	if (isMsgLvlVerbose(level)) {
@@ -1244,7 +733,7 @@ void buildList(WrUIntList& dst, unsigned *values, int num_values, Message_Level 
 	}
 }
 
-bool isUIntArrayMember(unsigned *array, int num, unsigned key) {
+bool isUIntArrayMember(T *array, int num, T key) {
 
 	for (int i = 0; i != num; i++) {
 		if (array[i] == key)
@@ -1256,8 +745,8 @@ bool isUIntArrayMember(unsigned *array, int num, unsigned key) {
 
 
 bool verifyResults(	const char *before,
-					unsigned *expected, int expected_count,
-					unsigned *results, int results_count,
+					T *expected, int expected_count,
+					T *results, int results_count,
 					char *after, Message_Level lvl)
 {
 	bool passed = true;
@@ -1265,8 +754,8 @@ bool verifyResults(	const char *before,
 	cout << before;
 
 	if (isMsgLvlVerbose(lvl)) {
-		cout << " expecting: " << uiarray_toString(expected, expected_count);
-		cout << " against received: " << uiarray_toString(results, results_count) << endl;
+		cout << " expecting: " << array_toString(expected, expected_count);
+		cout << " against received: " << array_toString(results, results_count) << endl;
 	}
 
 	if (expected_count != results_count) {
@@ -1332,16 +821,16 @@ void echoTestPhase(const char *text) {
 	cout << testPhaseIndent << testPhaseHeader << endl << endl;
 }
 
-void echoLinkedList(const char* before, WrUIntList &list, const char *after) {
+void echoLinkedList(const char* before, MyLinkedList &list, const char *after) {
 	cout << before << "@" << &list << ": " << list.toString() << after;
 }
 
 
-void echoWrUInt(const char* before, WrUInt & value, const char* after) {
-	cout << before << value.toString() << after;
+void echoSet(const char* prefix,  MyOrderedSet &value, const char* suffix) {
+	cout << prefix << value.toString() << suffix;
 }
 
-std::string uiarray_toString(const unsigned *values, int count) {
+std::string array_toString(const T *values, int count) {
 
 	std::stringstream retval;
 

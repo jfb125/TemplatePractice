@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <cstring>
 
-#include "SetTestBench.h"
+using T = int;
 
 enum Message_Level {
 	None = 0,
@@ -29,13 +29,13 @@ bool isMsgLvlVerbose(Message_Level level);
 
 bool testWrappedUnsignedLinkedList();
 void testWrappedUnsigned();
-void testWrappedUnsignedLinkedListNode();
+void testMyLinkedListNode();
 
-std::string uiarray_toString(const unsigned *values, int count);
+std::string array_toString(const T *values, int count);
 
 bool verifyResults(	const char *before,
-					unsigned *expected, int expected_count,
-					unsigned *results, int result_count,
+					T *expected, int expected_count,
+					T *results, int result_count,
 					char *after, Message_Level lvl);
 
 void echoTestName(const char *);

@@ -68,22 +68,24 @@ private:
 			m_list.m_head = new MyLinkedListNode(value);
 			m_list.m_size++;
 			return;
-		}
+		} else
 		if (m_list.m_head->m_data > value) {
 			m_list.m_head = new MyLinkedListNode(value, m_list.m_head);
 			m_list.m_size++;
 			return;
-		}
-		MyLinkedListNode *p = m_list.m_head;
-		while (p->m_next) {
-			if (p->m_next->m_data > value) {
-				p->m_next = new MyLinkedListNode(value, p->m_next->m_next);
-				m_list.m_size++;
-				return;
+		} else {
+			MyLinkedListNode *p = m_list.m_head;
+			while (p->m_next) {
+				if (p->m_next->m_data > value) {
+					p->m_next = new MyLinkedListNode(value, p->m_next->m_next);
+					m_list.m_size++;
+					break;
+				}
 			}
+			if (p->m_next == nullptr)
+				p->m_next = new MyLinkedListNode(value);
+			m_list.m_size++;
 		}
-		p->m_next = new MyLinkedListNode(value);
-		m_list.m_size++;
 	}
 
 	void remove(const T &value) {
@@ -112,16 +114,16 @@ private:
 	}
 
 protected:
-	MyLinkedList m_list;
 
 public:
+	MyLinkedList m_list;
+
 	/*	******************************************************	*/
 	/*					basic operations						*/
 	/*	******************************************************	*/
 
-	MyOrderedSet& clear(void) {
+	void clear(void) {
 		m_list.clear();
-		return this;
 	}
 
 	bool isMember(const T &value) const {
@@ -151,7 +153,7 @@ public:
 		return m_list.getValues(result);
 	}
 
-	std::ostream& operator<<(std::ostream& out, const MyOrderedSet &set) {
+	friend std::ostream& operator<<(std::ostream& out, const MyOrderedSet &set) {
 		out << set.toString();
 		return out;
 	}
@@ -169,7 +171,7 @@ public:
 	MyOrderedSet  operator-(const T &value) {
 		MyOrderedSet result(*this);
 		result.remove(value);
-		return *this;
+		return result;
 	}
 
 	MyOrderedSet& operator+= (const T &value) {
@@ -206,7 +208,7 @@ public:
 				p = p->m_next;
 			}
 		}
-		return this;
+		return *this;
 	}
 
 	MyOrderedSet  operator|(const MyOrderedSet &other) const {
@@ -215,7 +217,7 @@ public:
 			MyLinkedListNode *p = other.m_list.m_head;
 			while (p) {
 				result.insertInOrder(p->m_data);
-				p = p->m_data;
+				p = p->m_next;
 			}
 		}
 		return result;
@@ -226,10 +228,10 @@ public:
 			MyLinkedListNode *p = other.m_list.m_head;
 			while (p) {
 				insertInOrder(p->m_data);
-				p = p->m_data;
+				p = p->m_next;
 			}
 		}
-		return this;
+		return *this;
 	}
 
 	/*	******************************************************	*/
@@ -260,7 +262,7 @@ public:
 				p = p->m_next;
 			}
 		}
-		return this;
+		return *this;
 	}
 
 	/*	******************************************************	*/
@@ -292,7 +294,7 @@ public:
 				p = p->m_next;
 			}
 		}
-		return this;
+		return *this;
 	}
 
 	/*	******************************************************	*/
@@ -332,7 +334,7 @@ public:
 				p = p->m_next;
 			}
 		}
-		return this;
+		return *this;
 	}
 
 	/*	******************************************************	*/
@@ -361,7 +363,7 @@ public:
 		if (this != &other) {
 			m_list = other.m_list;
 		}
-		return this;
+		return *this;
 	}
 
 	MyOrderedSet(MyOrderedSet &&other) noexcept {
@@ -380,9 +382,10 @@ public:
 			other.m_list.m_head = nullptr;
 			other.m_list.m_size = 0;
 		}
-		return this;
+		return *this;
 	}
 };
+
 
 #pragma pop_macro("default_values_width")
 
