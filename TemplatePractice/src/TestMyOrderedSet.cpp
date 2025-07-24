@@ -73,7 +73,7 @@ public:
 
 	friend std::ostream& operator<<(std::ostream &out, const Node_Contents &obj) {
 
-		out << "@" << obj.address << " .data " << obj.data << " .next " << obj.next;
+		out << obj.address << ": data " << setw(4) << obj.data << " next: " << obj.next;
 		return out;
 	}
 
@@ -149,13 +149,12 @@ public:
 	friend std::ostream& operator<<(std::ostream &out, const Set_Contents &obj) {
 
 		out << "set was at " << obj.set_address << " and contained " << obj.size << " objects " << endl
-			<< " list was at address " << obj.list_address << " head: " << obj.head << endl
-			<< " an array of nodes is stored at " << obj.list_of_nodes << ": " << endl;
+			<< " list was at address " << obj.list_address << " m_head points to " << obj.head << endl;
+//			<< " an array of nodes is stored at " << obj.list_of_nodes << ": " << endl;
 		for (int i = 0; i != obj.size; i++) {
-			out << " [" << i << "] = " << obj.list_of_nodes[i]
-				<< ": " << *obj.list_of_nodes[i] << endl; //obj.list_of_nodes[i])->data << " -> " << (obj.list_of_nodes[i])->m_next << endl;
+//			out << " [" << i << "] = " << obj.list_of_nodes[i];
+			out	<< "  at " << *obj.list_of_nodes[i] << endl; //obj.list_of_nodes[i])->data << " -> " << (obj.list_of_nodes[i])->m_next << endl;
 		}
-
 		return out;
 	}
 
@@ -310,7 +309,7 @@ bool isElement(T *p, int sz, T val);
 void echoSet(const char* before, MyOrderedSet& set, const char *after, Message_Level message_level);
 void echoSetUnsignedOperationResult(MyOrderedSet &set, Set_Operations op, T operand, Message_Level message_level);
 Test_Results* runTest(Test_Arguments*);
-Test_Results* runUnsignedOperationTest(Test_Arguments *pa);
+Test_Results* runObjectOperationTest(Test_Arguments *pa);
 Test_Results* runSetArithmeticOperationTest(Test_Arguments *pa);
 Test_Results* runSetAssignmentOperationTest(Test_Arguments *pa);
 Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& test_count, int& passed_test_count);
@@ -331,10 +330,10 @@ bool verifySetResults(	const char *before,
 #define TEST_SET_CLEAR
 #define TEST_SET_COPY_CONSTRUCTOR_AND_ASSIGNMENT
 #define TEST_SET_OPERATOR_ADD_SUB_OBJECT
-//#define TEST_SET_IS_MEMBER_UNSIGNED
-//#define TEST_SET_RELATIONAL_OPERATORS
-//#define TEST_SET_OPERATOR_ARITHMETIC_SET
-//#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
+#define TEST_SET_IS_MEMBER_UNSIGNED
+#define TEST_SET_RELATIONAL_OPERATORS
+#define TEST_SET_OPERATOR_ARITHMETIC_SET
+#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
 
 bool testMyOrderedSet() {
 
@@ -585,7 +584,7 @@ bool testMyOrderedSet() {
 
     in_a = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     in_a_sz = 8;
-    in_b = new T[] { 1, 2,    4, 5,    7, 8 };
+    in_b = new T[] { 4, 5, 1, 8, 2, 7 };
     in_b_sz = 6;
     xpctd = new T[] { 3, 6 };
     xpctd_sz = 2;
@@ -671,7 +670,7 @@ bool testMyOrderedSet() {
 
     in_a = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     in_a_sz = 8;
-    in_b = new T[] { 1, 2,    4, 5,    7, 8 };
+    in_b = new T[] { 1, 2,    8, 5,    4, 7 };
     in_b_sz = 6;
     xpctd = new T[] { 3, 6 };
     xpctd_sz = 2;
@@ -1289,6 +1288,7 @@ bool testMyOrderedSet() {
     delete_array(xpctd);
     cout_count();
 
+
     echoTestPhase("operator+=(MyOrderedSet) { empty } + { 1-3, 5-8 }");
     op = SET_ASSIGN_UNION_PLUS;
     test_count++;
@@ -1804,7 +1804,7 @@ const MyLinkedListNode *findNode(const MyOrderedSet& set, const T value_to_find)
 bool setElementsAreStoredAtSameLocation(const Set_Contents* before_set, const MyOrderedSet& after_set, Message_Level message_level) {
 
 	if (isMsgLvlVerbose(message_level)) {
-		cout << __FUNCTION__ << endl;
+		cout << "Verifying memory relationship: \"" << __FUNCTION__ << "\"" << endl;
 	}
 	// trap an error by the caller
 	if (before_set == nullptr) {
@@ -1866,7 +1866,7 @@ bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
 									Message_Level message_level) {
 
 	if (isMsgLvlVerbose(message_level)) {
-		cout << __FUNCTION__ << endl;
+		cout << "Verifying memory relationship: \"" << __FUNCTION__ << "\"" << endl;
 	}
 	// trap an error by the caller
 	if (before_set == nullptr) {
@@ -1952,7 +1952,7 @@ bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
 
 bool setsStorageLocationsDontCare(const Set_Contents* contents_before __attribute__((unused)), const MyOrderedSet& after_Set __attribute__((unused)), Message_Level message_level) {
 	if (isMsgLvlVerbose(message_level)) {
-		cout << __FUNCTION__ << " returns true " << endl;
+		cout << "No memory relationship evaluated: " << __FUNCTION__ << " returns true " << endl;
 	}
 	return true;
 }
@@ -2260,7 +2260,7 @@ Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& te
 }
 
 
-Test_Results* runUnsignedOperationTest(struct Test_Arguments *pa) {
+Test_Results* runObjectOperationTest(struct Test_Arguments *pa) {
 
 	const char *op_str = set_operation_strings[pa->op]; // improves readability
 	Set_Contents *contents_before = nullptr;
@@ -2341,9 +2341,9 @@ Test_Results* runSetArithmeticOperationTest(struct Test_Arguments *pa) {
 	test_results->set_strings(passed_str, op_str, values_passed, storage_passed, __FUNCTION__);
 
 	MyOrderedSet operand_1;
-	buildSet(operand_1, pa->in_a, pa->in_a_sz, pa->msg_lvl);
+	buildSet(operand_1, pa->in_a, pa->in_a_sz, Message_Level::None /*pa->msg_lvl*/);
 	MyOrderedSet operand_2;
-	buildSet(operand_2, pa->in_b, pa->in_b_sz, pa->msg_lvl);
+	buildSet(operand_2, pa->in_b, pa->in_b_sz, Message_Level::None /*pa->msg_lvl*/);
 	//	place a value in result{} that will get overwritten
 	MyOrderedSet result;
 
@@ -2457,35 +2457,40 @@ Test_Results* runSetAssignmentOperationTest(struct Test_Arguments *pa) {
 	test_results->set_strings(passed_str, op_str, values_passed, storage_passed, __FUNCTION__);
 
 	MyOrderedSet operand_1;
-	buildSet(operand_1, pa->in_a, pa->in_a_sz, pa->msg_lvl);
+	buildSet(operand_1, pa->in_a, pa->in_a_sz, Message_Level::None /*pa->msg_lvl*/);
 	MyOrderedSet operand_2;
-	buildSet(operand_2, pa->in_b, pa->in_b_sz, pa->msg_lvl);
+	buildSet(operand_2, pa->in_b, pa->in_b_sz, Message_Level::None /*pa->msg_lvl*/);
 	//	place a value in result{} that will get overwritten
-	MyOrderedSet result(operand_1);
 
-	Set_Contents *contents_before = new Set_Contents(result);
+	Set_Contents *contents_before = new Set_Contents(operand_1);
 
 	cout << endl << endl;
+
+	// print out operand 1 before it gets overwritten
+	if (isMsgLvlVerbose(pa->msg_lvl)) {
+		cout << endl;
+		cout << operand_1 << endl << endl;
+	}
 
 	switch (pa->op) {
 	// assignment operators
 	case SET_ASSIGN:
-		result = operand_2;
+		operand_1 = operand_2;
 		break;
 	case SET_ASSIGN_DIFFERENCE:
-		result -= operand_2;
+		operand_1 -= operand_2;
 		break;
 	case SET_ASSIGN_INTERSECTION:
-		result &= operand_2;
+		operand_1 &= operand_2;
 		break;
 	case SET_ASSIGN_UNIQUE:
-		result ^= operand_2;
+		operand_1 ^= operand_2;
 		break;
 	case SET_ASSIGN_UNION_PLUS:
-		result += operand_2;
+		operand_1 += operand_2;
 		break;
 	case SET_ASSIGN_UNION_OR:
-		result |= operand_2;
+		operand_1 |= operand_2;
 		break;
 
 	// unsuported operator
@@ -2496,15 +2501,13 @@ Test_Results* runSetAssignmentOperationTest(struct Test_Arguments *pa) {
 	}	// switch (op)
 
 	if (isMsgLvlVerbose(pa->msg_lvl)) {
-		cout << endl;
-		cout << operand_1 << endl << endl;
 		cout << " " <<  set_operation_strings[pa->op] << " " << endl << endl;
 		cout << operand_2 << endl << endl;
 		cout << "yields" << endl << endl;
-		cout << result << endl << endl;
+		cout << operand_1 << endl << endl;
 	}
 
-	if (!verifySetResults(empty_str, result, pa->exp, pa->exp_sz, newline, pa->msg_lvl)) {
+	if (!verifySetResults(empty_str, operand_1, pa->exp, pa->exp_sz, newline, pa->msg_lvl)) {
 		test_results->outcome = failed;
 		test_results->set_strings(failed_str, op_str,  values_failed,  "", "");
 		if (isMsgLvlVerbose(pa->msg_lvl)) {
@@ -2516,8 +2519,8 @@ Test_Results* runSetAssignmentOperationTest(struct Test_Arguments *pa) {
 		//	i.e. - if there was only one element in the before set, given the
 		//	number of copy constructors/destructors that occur, it is possible
 		//	that a deleted node early in the chain would get new'd in a later set
-		if (result.size() > 3) {
-			if (!pa->rel_tst(contents_before, result, pa->msg_lvl)) {
+		if (operand_1.size() > 3) {
+			if (!pa->rel_tst(contents_before, operand_1, pa->msg_lvl)) {
 				test_results->outcome = failed;
 				test_results->set_strings(passed_str, op_str, storage_failed, "", "");
 				if (isMsgLvlVerbose(pa->msg_lvl))
@@ -2526,7 +2529,7 @@ Test_Results* runSetAssignmentOperationTest(struct Test_Arguments *pa) {
 			}
 		} else {
 			if (isMsgLvlVerbose(pa->msg_lvl)) {
-				cout << "set location test not run, result is too small: " << result.size() << endl;
+				cout << "set location test not run, result is too small: " << operand_1.size() << endl;
 			}
 		}
 	}
@@ -2545,7 +2548,7 @@ Test_Results* runTest(struct Test_Arguments *args)
 	case SET_ASSIGN_UNSIGNED_SUB:
 	case SET_UNSIGNED_ADD:
 	case SET_UNSIGNED_SUB:
-		retval = runUnsignedOperationTest(args);
+		retval = runObjectOperationTest(args);
 		break;
 	case SET_ASSIGN_DIFFERENCE:
 	case SET_ASSIGN_INTERSECTION:

@@ -760,8 +760,9 @@ bool verifyResults(	const char *before,
 
 	if (expected_count != results_count) {
 		if (isMsgLvlSummary(lvl) || isMsgLvlResults(lvl)) {
-			cout << "num expecteds " << expected_count << " != num results " << results_count << endl;
-			return false;
+			cout << "num expecteds " << expected_count << " != num results " << results_count << endl ;
+			passed = false;
+			goto VERIFY_SET_RESULT_END_OF_FUNCTION;
 		}
 	}
 
@@ -776,8 +777,9 @@ bool verifyResults(	const char *before,
 		}
 	}
 
+VERIFY_SET_RESULT_END_OF_FUNCTION:
 	if (isMsgLvlSummary(lvl)) {
-		cout << " verifyResults returning " << (passed ? "true" : "false");
+		cout << " verifyResults returning " << (passed ? "true" : "false") << endl;
 	}
 	cout << after;
 

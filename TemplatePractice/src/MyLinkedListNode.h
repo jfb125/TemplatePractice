@@ -81,9 +81,9 @@ public:
 
 	std::string toString(int width = default_data_width) const {
 		std::stringstream ret_str;
-		ret_str << "at 0x" << this
-				<< ": data: " << std::setw(width) << m_data
-				<< " next: 0x" << m_next;
+		ret_str << "at " << this
+				<< ": data " << std::setw(width) << m_data
+				<< " next: " << m_next;
 		return ret_str.str();
 	}
 

@@ -151,7 +151,7 @@ public:
 
 	std::string toString() const {
 		std::stringstream result;
-		result << "set contains a list at " << &m_list << ": m_head is " << m_list.m_head << std::endl;
+		result << "set contains a list at " << &m_list << ": m_head points to " << m_list.m_head << std::endl;
 		result << m_list;
 		return result.str();
 	}
@@ -282,19 +282,15 @@ public:
 
 	MyOrderedSet  operator& (const MyOrderedSet &other) const {
 
-		MyOrderedSet result;
+		MyOrderedSet result(*this);
 		if (this != &other) {
-			if (other.m_list.m_head) {
-			}
 			MyLinkedListNode *p = m_list.m_head;
 			while (p) {
-				if (other.isMember(p->m_data)) {
-					result.append(p->m_data);
+				if (!other.isMember(p->m_data)) {
+					result.remove(p->m_data);
 				}
 				p = p->m_next;
 			}
-		} else {
-			result = *this;
 		}
 		return result;
 	}
