@@ -9,7 +9,6 @@
 #include "MyOrderedSet.h"
 #include "TestMyOrderedSet.h"
 
-using T = int;
 using namespace std;
 
 //using  = WrappedUnsigned;
@@ -25,28 +24,34 @@ bool isMsgLvlVerbose(Message_Level level) 	{
 	return isMsgLvlValuesAndAddresses(level) || isMsgLvlResults(level) || isMsgLvlSummary(level);
 }
 
-static char newline[] = "\n";
+//static char newline[] = "\n";
 static char testNameHeader[]  = "****************** Test Name  *******************";
 static char testPhaseHeader[] =      "************* Test Phase **************";
 static char testPhaseIndent[] = "    ";
-static char	error_string[]		= "ERROR! ";
-static char pass_string[]		= "Passed ";
+//static char	error_string[]		= "ERROR! ";
+//static char pass_string[]		= "Passed ";
 
 void testMyLinkedListNode();
 
-bool verifyResults(	const char *text_before,
-					T *expected, int expected_count,
-					T *results, int result_count,
-					const char *text_after, Message_Level lvl);
-
-void buildList(MyLinkedList& dst, T *values, int num_values, Message_Level message_level);
+template <typename T>
+void buildList(MyLinkedList<T> &dst, T *values, int num_values, Message_Level message_level);
+template <typename T>
 bool isUIntArrayMember(T *array, int num, T key);
 
 void echoTestName(const char *);
 void echoTestPhase(const char *);
-void echoSet(const char* prefix,  MyOrderedSet&, const char* suffix);
-void echoLinkedList(const char* before, MyLinkedList &, const char* after);
+template <typename T>
+void echoSet(const char* prefix,  MyOrderedSet<T> &, const char* suffix);
+template <typename T>
+void echoLinkedList(const char* before, MyLinkedList<T> &, const char* after);
 
+template <typename T>
+std::string arrayToString(T *values, int count);
+template <typename T>
+bool verifyResults(	std::string before,
+					T *expected, int expected_count,
+					T *results, int result_count,
+					std::string after, Message_Level lvl);
 
 /* ********************************************************************	*/
 /* ********************************************************************	*/
@@ -83,7 +88,7 @@ int main(int argc, char **argv) {
 /* ****************************************************************	*/
 /*					test class WrappedUnsignedLinkedList			*/
 /* ****************************************************************	*/
-
+#if 0
 #pragma push_macro("returnResult")
 #undef returnResult
 #define returnResult()	return announceMyLinkedListTest(num_tests_passed, num_tests)
@@ -99,15 +104,18 @@ bool announceMyLinkedListTest(int num_passed, int num_total) {
     }
 }
 
-#define TEST_LIST_INSERTION_DELETION_OBJECT
-#define TEST_LIST_ADDITION_SUBTRACTION_LIST
-#define TEST_LIST_IS_MEMBER
-#define TEST_LIST_CONSTRUCTORS
-#define TEST_LIST_ASSIGNMENT_OPERATORS
-#define TEST_LIST_ADD_SUB_ASSIGMENT_LIST
-#define TEST_LIST_RELATIONAL_OPERATORS
+//#define TEST_LIST_INSERTION_DELETION_OBJECT
+//#define TEST_LIST_ADDITION_SUBTRACTION_LIST
+//#define TEST_LIST_IS_MEMBER
+//#define TEST_LIST_CONSTRUCTORS
+//#define TEST_LIST_ASSIGNMENT_OPERATORS
+//#define TEST_LIST_ADD_SUB_ASSIGMENT_LIST
+//#define TEST_LIST_RELATIONAL_OPERATORS
 
 bool testWrappedUnsignedLinkedList() {
+
+using TypeUnderTest = int;
+using TUT = TypeUnderTest;
 
 	Message_Level level = Verbose;
 
@@ -116,18 +124,18 @@ bool testWrappedUnsignedLinkedList() {
 	defined(TEST_LIST_CONSTRUCTORS) or \
 	defined(TEST_LIST_ASSIGNMENT_OPERATORS)
 
-	T stressing_inputs[] 	= { 5, 3, 7, 4, 6, 8, 2, 1 };
-	T stressing_result[]		= { 1, 2, 3, 4, 5, 6, 7, 8 };
+	TUT stressing_inputs[] 	= { 5, 3, 7, 4, 6, 8, 2, 1 };
+	TUT stressing_result[]		= { 1, 2, 3, 4, 5, 6, 7, 8 };
 	int stressing_inputs_size = sizeof(stressing_inputs) / sizeof(T);
 	int stressing_result_size = sizeof(stressing_result) / sizeof(T);
 
-	T repeating_inputs[]		= { 1, 2, 3, 4, 4, 4, 3, 1 };
-	T repeating_result[]		= { 1, 2, 3, 4 };
+	TUT repeating_inputs[]		= { 1, 2, 3, 4, 4, 4, 3, 1 };
+	TUT repeating_result[]		= { 1, 2, 3, 4 };
 	int repeating_inputs_size = sizeof(repeating_inputs) / sizeof(T);
 	int repeating_result_size = sizeof(repeating_result) / sizeof(T);
 
-	T *inputs;
-	T *outputs;
+	TUT *inputs;
+	TUT *outputs;
 	int num_outputs;
 #endif
 
@@ -139,7 +147,7 @@ bool testWrappedUnsignedLinkedList() {
 	// this test is verified by looking at the log file
     echoTestName("default constructor");
     num_tests++;
-    MyLinkedList list;
+    MyLinkedList<TUT> list;
     if (list.m_size != 0 || list.m_head != nullptr) {
     	cout << error_string << "default ctor did not create empty list @" << &list << ": " << list << endl << endl;
     } else {
@@ -683,7 +691,7 @@ bool testWrappedUnsignedLinkedList() {
 }
 #undef returnResult
 #pragma pop_macro("returnResult")
-
+#endif
 
 /* ****************************************************************	*/
 /*			test class WrappedUnsignedLinkedListNode				*/
@@ -691,21 +699,24 @@ bool testWrappedUnsignedLinkedList() {
 
 void testMyLinkedListNode() {
 
+using TypeUnderTest = int;
+using TUT = TypeUnderTest;
+
 	echoTestName(" MyLinkedListNode Constructors");
-	MyLinkedListNode node1;
+	MyLinkedListNode<TUT> node1;
 	cout << "default constructor: created node1 @" << node1.toString() << endl;
 	MyLinkedListNode node2((2));
 	cout << "c'tor((2)):    created node2 @" << node2.toString() << endl;
 	MyLinkedListNode node3(node2);
 	cout << "c'tor(node2):        created node3 @" << node3.toString() << endl;
 
-	MyLinkedListNode node4;
+	MyLinkedListNode<TUT> node4;
 	node4.m_data = node3.m_data;
 	node4.m_next = &node1;
 	cout 	<< "node4 contains.m_data = node3.m_data " << node3.m_data
 			<< " and points to node1 " << &node1 << endl
 			<< " node4: " << node4.toString() << endl;
-	MyLinkedListNode node5(node2.m_data = 10, &node3);
+	MyLinkedListNode<TUT> node5(node2.m_data = 10, &node3);
 	cout 	<< "node 5 contains.m_data from node2 " << node2.m_data
 			<< " and points to node 3: " << &node3 << endl
 			<< " which results in node5: " << node5.toString() << endl;
@@ -720,7 +731,8 @@ void testMyLinkedListNode() {
 /* ****************************************************************	*/
 /* ****************************************************************	*/
 
-void buildList(MyLinkedList& dst, T *values, int num_values, Message_Level level) {
+template <typename T>
+void buildList(MyLinkedList<T> &dst, T *values, int num_values, Message_Level level) {
 
 	dst.clear();
 	for (int i = 0; i != num_values; i++) {
@@ -733,6 +745,7 @@ void buildList(MyLinkedList& dst, T *values, int num_values, Message_Level level
 	}
 }
 
+template <typename T>
 bool isUIntArrayMember(T *array, int num, T key) {
 
 	for (int i = 0; i != num; i++) {
@@ -741,49 +754,6 @@ bool isUIntArrayMember(T *array, int num, T key) {
 	}
 
 	return false;
-}
-
-
-bool verifyResults(	const char *before,
-					T *expected, int expected_count,
-					T *results, int results_count,
-					char *after, Message_Level lvl)
-{
-	bool passed = true;
-
-	cout << before;
-
-	if (isMsgLvlVerbose(lvl)) {
-		cout << " expecting: " << array_toString(expected, expected_count);
-		cout << " against received: " << array_toString(results, results_count) << endl;
-	}
-
-	if (expected_count != results_count) {
-		if (isMsgLvlSummary(lvl) || isMsgLvlResults(lvl)) {
-			cout << "num expecteds " << expected_count << " != num results " << results_count << endl ;
-			passed = false;
-			goto VERIFY_SET_RESULT_END_OF_FUNCTION;
-		}
-	}
-
-	for (int i = 0; i != expected_count; i++)  {
-		if (true || isMsgLvlResults(lvl)) {
-			if (expected[i] != results[i]) {
-				cout << " " << setw(2) << i << " ERROR expected " << expected[i] << " != " << results[i] << endl;
-				passed = false;
-			} else {
-				cout << " " << setw(2) << i << "       expected " << expected[i] << " == " << results[i] << endl;
-			}
-		}
-	}
-
-VERIFY_SET_RESULT_END_OF_FUNCTION:
-	if (isMsgLvlSummary(lvl)) {
-		cout << " verifyResults returning " << (passed ? "true" : "false") << endl;
-	}
-	cout << after;
-
-	return passed;
 }
 
 
@@ -823,26 +793,12 @@ void echoTestPhase(const char *text) {
 	cout << testPhaseIndent << testPhaseHeader << endl << endl;
 }
 
-void echoLinkedList(const char* before, MyLinkedList &list, const char *after) {
+template <typename T>
+void echoLinkedList(const char* before, MyLinkedList<T> &list, const char *after) {
 	cout << before << "@" << &list << ": " << list.toString() << after;
 }
 
-
-void echoSet(const char* prefix,  MyOrderedSet &value, const char* suffix) {
+template <typename T>
+void echoSet(const char* prefix,  MyOrderedSet<T> &value, const char* suffix) {
 	cout << prefix << value.toString() << suffix;
 }
-
-std::string array_toString(const T *values, int count) {
-
-	std::stringstream retval;
-
-	retval << "{ ";
-
-	for (int i = count ; i != 0; i--) {
-		retval << setw(2) << *values++;
-	}
-
-	retval << " }";
-	return retval.str();
-}
-

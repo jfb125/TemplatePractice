@@ -23,29 +23,31 @@
 #endif
 #define default_values_width 2
 
-using T = int;
-
-//template <typename T>
+template <typename T>
 class MyLinkedList{
+public:
+	MyLinkedListNode<T> *m_head;
+	int m_size;
+
 private:
 	/*
 	 * 	the caller should ensure that the 'value'
 	 * 	is not already in the list by calling 'isMember(value)'
 	 */
 	void insert(const T &value) {
-		m_head = new MyLinkedListNode(value, m_head);
+		m_head = new MyLinkedListNode<T>(value, m_head);
 		m_size++;
 	}
 
 	void copy(const MyLinkedList &other) {
 		clear();
 		if (other.m_head) {
-			m_head = new MyLinkedListNode(other.m_head->m_data);
+			m_head = new MyLinkedListNode<T>(other.m_head->m_data);
 			m_size++;
-			MyLinkedListNode *dst = m_head;
-			MyLinkedListNode *src = other.m_head;
+			MyLinkedListNode<T> *dst = m_head;
+			MyLinkedListNode<T> *src = other.m_head;
 			while (src->m_next) {
-				dst->m_next = new MyLinkedListNode(src->m_next->m_data);
+				dst->m_next = new MyLinkedListNode<T>(src->m_next->m_data);
 				m_size++;
 				src = src->m_next;
 				dst = dst->m_next;
@@ -56,14 +58,14 @@ private:
 	void remove(const T &value) {
 		if (m_head == nullptr)
 			return;
-		MyLinkedListNode *node_to_delete;
+		MyLinkedListNode<T> *node_to_delete;
 		if (m_head->m_data == value) {
 			node_to_delete = m_head;
 			m_head = m_head->m_next;
 			delete node_to_delete;
 			m_size--;
 		} else {
-			MyLinkedListNode *p = m_head;
+			MyLinkedListNode<T> *p = m_head;
 			while (p->m_next) {
 				if (p->m_next->m_data == value) {
 					node_to_delete = p->m_next;
@@ -77,15 +79,10 @@ private:
 		}
 	}
 
-//protected:
-public:
-	MyLinkedListNode *m_head;
-	int m_size;
-
 public:
 
 	void clear(void) {
-		MyLinkedListNode *node_to_delete;
+		MyLinkedListNode<T> *node_to_delete;
 		while (m_head) {
 			node_to_delete = m_head;
 			m_head = m_head->m_next;
@@ -97,7 +94,7 @@ public:
 
 	bool isMember(const T &value) const {
 
-		MyLinkedListNode *p = m_head;
+		MyLinkedListNode<T> *p = m_head;
 		while(p) {
 			if (p->m_data == value)
 				return true;
@@ -141,7 +138,7 @@ public:
 	MyLinkedList operator+(const MyLinkedList &other) {
 		MyLinkedList result(*this);
 		if (this != &other) {
-			MyLinkedListNode *p = other.m_head;
+			MyLinkedListNode<T> *p = other.m_head;
 			while (p) {
 				if (!result.isMember(p->m_data)) {
 					result.insert(p->m_data);
@@ -157,7 +154,7 @@ public:
 		if (this == &other) {
 			result.clear();
 		} else {
-			MyLinkedListNode *p = other.m_head;
+			MyLinkedListNode<T> *p = other.m_head;
 			while (p) {
 				result.remove(p->m_data);
 				p = p->m_next;
@@ -168,7 +165,7 @@ public:
 
 	MyLinkedList& operator+=(const MyLinkedList &other) {
 		if (this != &other) {
-			MyLinkedListNode *p = other.m_head;
+			MyLinkedListNode<T> *p = other.m_head;
 			while (p) {
 				if (!isMember(p->m_data)) {
 					insert(p->m_data);
@@ -183,7 +180,7 @@ public:
 		if (this == &other) {
 			clear();
 		} else {
-			MyLinkedListNode *p = other.m_head;
+			MyLinkedListNode<T> *p = other.m_head;
 			while (p) {
 				remove(p->m_data);
 				p = p->m_next;
@@ -203,7 +200,7 @@ public:
 		if (m_size != other.m_size)
 			return false;
 
-		MyLinkedListNode *p_node;
+		MyLinkedListNode<T> *p_node;
 
 		//	check every member of other to ensure
 		//	  that every member of other is in this
@@ -234,7 +231,7 @@ public:
 		if (m_size != other.m_size)
 			return true;
 
-		MyLinkedListNode *p_node;
+		MyLinkedListNode<T> *p_node;
 
 		// go through every member of 'other' to see
 		//	if there is an element in 'other' that is not in 'this'
@@ -311,7 +308,7 @@ public:
 		std::stringstream result;
 		result << "list contains " << m_size << " elements:" << std::endl;
 		if (m_head) {
-			MyLinkedListNode *p = m_head;
+			MyLinkedListNode<T> *p = m_head;
 			while (p->m_next) {
 				result << "  " << *p << std::endl;
 				p = p->m_next;
@@ -325,7 +322,7 @@ public:
 
 	int getValues(T **p_result) const {
 		*p_result = new T[m_size];
-		MyLinkedListNode *src = m_head;
+		MyLinkedListNode<T> *src = m_head;
 		T *dst = *p_result;
 		while (src) {
 			*dst = src->m_data;
@@ -339,7 +336,7 @@ public:
 		std::stringstream result;
 		result << "{ ";
 		if (m_head) {
-			MyLinkedListNode *p = m_head;
+			MyLinkedListNode<T> *p = m_head;
 			while (p->m_next) {
 				result << std::setw(width) << p->m_data << ", ";
 				p = p->m_next;

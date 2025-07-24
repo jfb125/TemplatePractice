@@ -25,8 +25,8 @@
 #endif
 #define default_data_width 4
 
-using T = int;
-//template <Tename T>
+//using T = int;
+template <typename T>
 class MyLinkedListNode {
 public:
 	T m_data;
