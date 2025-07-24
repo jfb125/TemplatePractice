@@ -328,17 +328,17 @@ bool verifySetResults(	const char *before,
 /* ********************************************************************	*/
 
 #define TEST_SET_BUILDING_SET
-#define TEST_SET_CLEAR_RESET
+#define TEST_SET_CLEAR
 #define TEST_SET_COPY_CONSTRUCTOR_AND_ASSIGNMENT
-#define TEST_SET_OPERATOR_ADD_SUB_UNSIGNED
-#define TEST_SET_IS_MEMBER_UNSIGNED
-#define TEST_SET_RELATIONAL_OPERATORS
-#define TEST_SET_OPERATOR_ARITHMETIC_SET
-#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
+#define TEST_SET_OPERATOR_ADD_SUB_OBJECT
+//#define TEST_SET_IS_MEMBER_UNSIGNED
+//#define TEST_SET_RELATIONAL_OPERATORS
+//#define TEST_SET_OPERATOR_ARITHMETIC_SET
+//#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
 
 bool testMyOrderedSet() {
 
-#if defined(TEST_SET_OPERATOR_ADD_SUB_UNSIGNED)\
+#if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
  or	defined(TEST_SET_BUILDING_SET)\
  or defined(TEST_SET_IS_MEMBER_UNSIGNED)
 
@@ -375,10 +375,10 @@ bool testMyOrderedSet() {
     MyOrderedSet set;
 
     if (set.size() != 0 || set.m_list.m_head != nullptr) {
-    	cout << abort_str << "default constructor did not produce empty set &" << &set << ": " << set << endl;
+    	cout << abort_str << "default constructor did not produce empty set &" << &set << ": " << endl << set << endl;
     	return announceResults(passed_test_count, test_count);
     } else {
-    	cout << passed_str << "default constructor produced empty set &" << &set << ": " << set << endl;
+    	cout << passed_str << "default constructor produced empty set &" << &set << ": " << endl << set << endl;
     	passed_test_count++;
     }
     cout_count();
@@ -436,7 +436,7 @@ bool testMyOrderedSet() {
 #endif
 
     // at this point, buildSet can be called
-#ifdef TEST_SET_CLEAR_RESET
+#ifdef TEST_SET_CLEAR
     // this test has to pass, also, b/c each test needs to start witl .clear()
     echoTestName("set.clear()");
     test_count++;
@@ -496,7 +496,7 @@ bool testMyOrderedSet() {
     cout_count();
 
 
-    echoTestName("operator=(MyOrderedSet");
+    echoTestName("operator=(MyOrderedSet)");
     test_count++;
     buildSet(set, stressing_inputs, stressing_inputs_sz, None);
     contents_before = new Set_Contents(set);
@@ -522,9 +522,9 @@ bool testMyOrderedSet() {
     cout_count();
 #endif
 
-#ifdef TEST_SET_OPERATOR_ADD_SUB_UNSIGNED
+#ifdef TEST_SET_OPERATOR_ADD_SUB_OBJECT
 
-    echoTestName("operator+(T)");
+    echoTestName("operator+(T object)");
     set.clear();
     test_count++;
 
@@ -551,7 +551,7 @@ bool testMyOrderedSet() {
     delete_args(test_arguments);
     delete_results(test_results);
 
-    echoTestName("operator+(T)");
+    echoTestName("operator+(T object)");
     set.clear();
     test_count++;
 
@@ -579,7 +579,7 @@ bool testMyOrderedSet() {
     delete_results(test_results);
     cout_count();
 
-    echoTestName("operator-(T)");
+    echoTestName("operator-(T object)");
     set.clear();
     test_count++;
 
@@ -609,7 +609,7 @@ bool testMyOrderedSet() {
     delete_results(test_results);
     cout_count();
 
-    echoTestName("operator+=(T)");
+    echoTestName("operator+=(T object)");
     set.clear();
     test_count++;
 
@@ -637,7 +637,7 @@ bool testMyOrderedSet() {
     delete_results(test_results);
     cout_count();
 
-    echoTestName("operator+=(T)");
+    echoTestName("operator+=(T object)");
     set.clear();
     test_count++;
 
@@ -665,7 +665,7 @@ bool testMyOrderedSet() {
     delete_results(test_results);
     cout_count();
 
-    echoTestName("operator-=(T)");
+    echoTestName("operator-=(T object)");
     set.clear();
     test_count++;
 

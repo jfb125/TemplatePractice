@@ -321,10 +321,10 @@ public:
 		if (m_head) {
 			MyLinkedListNode *p = m_head;
 			while (p->m_next) {
-				result << "  " << p << std::endl;
+				result << "  " << *p << std::endl;
 				p = p->m_next;
 			}
-			result << "  " << p;
+			result << "  " << *p;
 		} else {
 			result << "  " << "empty list";
 		}

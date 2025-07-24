@@ -28,6 +28,8 @@ using T = int;
 class MyOrderedSet {
 private:
 	void append(T value) {
+		if (isMember(value))
+			return;
 		if (m_list.m_head == nullptr) {
 			m_list.m_head = new MyLinkedListNode(value);
 			m_list.m_size++;
@@ -37,55 +39,42 @@ private:
 				p = p->m_next;
 			}
 			p->m_next = new MyLinkedListNode(value);
+			m_list.m_size++;
 		}
 	}
 
-#if 0
-	void insertAfter(MyLinkedListNode **current, T value) {
-		MyLinkedListNode *new_node;
-		//	if *current == nullptr, it is pointing to head
-		if (*current == nullptr)
-			new_node = new MyLinkedListNode(value, nullptr);
-		else
-			new_node = new MyLinkedListNode(value, (*current)->m_next);
-		(*current)->m_next = new_node;
-		m_list.m_size++;
-	}
-
-	void deleteNext(MyLinkedListNode **current, T Value) {
-		MyLinkedListNode *node_to_delete = (*current)->m_next;
-		//	if (*current)->m_next->m_next exists, move m_next out of list
-		if ((*current)->m_next) {
-			(*current)->m_next = (*current)->m_next->m_next;
-		}
-		delete node_to_delete;
-		m_list.m_size--;
-	}
-#endif
 	void insertInOrder(T value) {
 
+		//	if the value is already in the set, return
+		if (isMember(value)) {
+			return;
+		}
+		//	if the set is empty, put the value in a node at the head
 		if (m_list.m_head == nullptr) {
 			m_list.m_head = new MyLinkedListNode(value);
 			m_list.m_size++;
 			return;
-		} else
+		}
+		//	if the value is not in the set, check head
+		//	  b/c the later checks will only look at ->next
 		if (m_list.m_head->m_data > value) {
 			m_list.m_head = new MyLinkedListNode(value, m_list.m_head);
 			m_list.m_size++;
 			return;
-		} else {
-			MyLinkedListNode *p = m_list.m_head;
-			while (p->m_next) {
-				if (p->m_next->m_data > value) {
-					p->m_next = new MyLinkedListNode(value, p->m_next->m_next);
-					m_list.m_size++;
-					break;
-				}
-			}
-			if (p->m_next == nullptr)
-				p->m_next = new MyLinkedListNode(value);
-			m_list.m_size++;
 		}
+		//	the value is after head, search through ->m_next
+		MyLinkedListNode *p = m_list.m_head;
+		while (p->m_next) {
+			if (p->m_next->m_data > value) {
+				p->m_next = new MyLinkedListNode(value, p->m_next);
+				m_list.m_size++;
+				return;
+			}
+			p = p->m_next;
+		}
+		//	the value was larger than the largest member of the list
+		p->m_next = new MyLinkedListNode(value);
+		m_list.m_size++;
 	}
 
 	void remove(const T &value) {
@@ -93,23 +82,27 @@ private:
 			return;
 
 		MyLinkedListNode *node_to_delete;
+		// check to see if value is at head b/c successive checks
+		//	will be run on head->m_next ... ->m_next->m_next
 		if (m_list.m_head->m_data == value) {
 			node_to_delete = m_list.m_head;
 			m_list.m_head = m_list.m_head->m_next;
 			delete node_to_delete;
 			m_list.m_size--;
-		} else {
-			MyLinkedListNode *p = m_list.m_head;
-			while (p->m_next) {
-				if (p->m_next->m_data == value) {
-					node_to_delete = p->m_next;
-					p->m_next = p->m_next->m_next;
-					delete node_to_delete;
-					m_list.m_size--;
-					break;
-				}
-				p = p->m_next;
+			return;
+		}
+		// check the next all successive ->m_next to see if
+		//	value is in list
+		MyLinkedListNode *p = m_list.m_head;
+		while (p->m_next) {
+			if (p->m_next->m_data == value) {
+				node_to_delete = p->m_next;
+				p->m_next = p->m_next->m_next;
+				delete node_to_delete;
+				m_list.m_size--;
+				break;
 			}
+			p = p->m_next;
 		}
 	}
 
@@ -140,7 +133,7 @@ public:
 
 	std::string toString() const {
 		std::stringstream result;
-		result << "set contains a m_list at " << &m_list << ": " << std::endl;
+		result << "set contains a m_list at " << &m_list << ": m_head is " << m_list.m_head << std::endl;
 		result << m_list;
 		return result.str();
 	}
@@ -163,8 +156,13 @@ public:
 	/*	******************************************************	*/
 
 	MyOrderedSet  operator+(const T &value) {
+		std::cout << std::endl << "operator+(" << value << ")" << std::endl;
 		MyOrderedSet result(*this);
+		std::cout << "*this:  " << std::endl << *this << std::endl;
+		std::cout << "result: " << std::endl << result << std::endl;
 		result.insertInOrder(value);
+		std::cout << "result: " << std::endl << result << std::endl;
+		std::cout << std::endl;
 		return result;
 	}
 
@@ -356,12 +354,22 @@ public:
 	~MyOrderedSet() {}
 
 	MyOrderedSet(const MyOrderedSet &other) {
-		m_list = other.m_list;
+		m_list.m_head = nullptr;
+		m_list.m_size = 0;
+		MyLinkedListNode *p = other.m_list.m_head;
+		while (p) {
+			append(p->m_data);
+		}
 	}
 
 	MyOrderedSet& operator=(const MyOrderedSet &other) {
 		if (this != &other) {
-			m_list = other.m_list;
+			m_list.m_head = nullptr;
+			m_list.m_size = 0;
+			MyLinkedListNode *p = other.m_list.m_head;
+			while (p) {
+				append(p->m_data);
+			}
 		}
 		return *this;
 	}
