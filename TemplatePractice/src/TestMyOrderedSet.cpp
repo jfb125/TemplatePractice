@@ -4,10 +4,9 @@
 #include "MyOrderedSet.h"
 #include "MyOrderedSetTestBench.h"
 
-using namespace std;
-using T = int;
+#include <string>
 
-//using T = WrappedUnsigned;
+using namespace std;
 
 #undef SET_OPERATION
 #define SET_OPERATIONS\
@@ -60,12 +59,15 @@ static const bool passed = true;
 /* ********************************************************************	*/
 /*						make a record of contents of set				*/
 /* ********************************************************************	*/
-
+template <typename T>
 class Node_Contents {
 public:
+	const MyLinkedListNode<T>   *address;
+	T							data;
+	const MyLinkedListNode<T>   *next;
 
 	Node_Contents() { address = nullptr; data = 0; next = nullptr; }
-	Node_Contents(const MyLinkedListNode *node) {
+	Node_Contents(const MyLinkedListNode<T> *node) {
 		address = node;
 		data = node->m_data;
 		next = node->m_next;
@@ -76,14 +78,17 @@ public:
 		out << obj.address << ": data " << setw(4) << obj.data << " next: " << obj.next;
 		return out;
 	}
-
-	const MyLinkedListNode   *address;
-	T				data;
-	const MyLinkedListNode   *next;
 };
 
+template <typename T>
 class Set_Contents {
 public:
+	int size;
+	const MyOrderedSet<T>  *set_address;
+	const MyLinkedList<T> *list_address;
+	const MyLinkedListNode<T> *head;
+	Node_Contents<T> **list_of_nodes;
+
 	Set_Contents() {
 		size = 0;
 		set_address = nullptr;
@@ -98,16 +103,16 @@ public:
 		head = other.head;
 		list_of_nodes = nullptr;
 		if (other.size != 0) {
-			list_of_nodes = new Node_Contents*[size];
-			Node_Contents **dst = list_of_nodes;
-			Node_Contents *src = *other.list_of_nodes;
+			list_of_nodes = new Node_Contents<T>*[size];
+			Node_Contents<T> **dst = list_of_nodes;
+			Node_Contents<T> *src = *other.list_of_nodes;
 			// deep copy the other's list of nodes
 			for (int i = 0; i != size; i++) {
-				*dst++ = new Node_Contents(*src++);
+				*dst++ = new Node_Contents<T>(*src++);
 			}
 		}
 	}
-	Set_Contents(const MyOrderedSet &set) {
+	Set_Contents(const MyOrderedSet<T> &set) {
 
 		size = set.size();
 		set_address = &set;
@@ -115,14 +120,14 @@ public:
 		head = set.m_list.m_head;
 		list_of_nodes = nullptr;
 		if (size) {
-			list_of_nodes = new Node_Contents*[size];
-			Node_Contents **dst = list_of_nodes;
-			*dst++ = new Node_Contents(set.m_list.m_head);
-			MyLinkedListNode *src = set.m_list.m_head;
+			list_of_nodes = new Node_Contents<T>*[size];
+			Node_Contents<T> **dst = list_of_nodes;
+			*dst++ = new Node_Contents<T>(set.m_list.m_head);
+			MyLinkedListNode<T> *src = set.m_list.m_head;
 			while (src->m_next) {
 				// deep copy the existing node because
 				//	it may get recycled during the operation
-				*dst = new Node_Contents(src->m_next);
+				*dst = new Node_Contents<T>(src->m_next);
 				dst++;
 				src = src->m_next;
 			}
@@ -134,7 +139,7 @@ public:
 		list_address = nullptr;
 		head = nullptr;
 		if (list_of_nodes) {
-			Node_Contents **pnode = list_of_nodes;
+			Node_Contents<T> **pnode = list_of_nodes;
 			for (int i = 0; i != size; i++) {
 				if (*pnode) {
 					delete *pnode;
@@ -153,28 +158,38 @@ public:
 //			<< " an array of nodes is stored at " << obj.list_of_nodes << ": " << endl;
 		for (int i = 0; i != obj.size; i++) {
 //			out << " [" << i << "] = " << obj.list_of_nodes[i];
-			out	<< "  at " << *obj.list_of_nodes[i] << endl; //obj.list_of_nodes[i])->data << " -> " << (obj.list_of_nodes[i])->m_next << endl;
+			out	<< "  at " << *obj.list_of_nodes[i] << endl;
+			//obj.list_of_nodes[i])->data << " -> " << (obj.list_of_nodes[i])->m_next << endl;
 		}
 		return out;
 	}
-
-	int size;
-	const MyOrderedSet  *set_address;
-	const MyLinkedList *list_address;
-	const MyLinkedListNode *head;
-	Node_Contents **list_of_nodes;
 };
 
-const MyLinkedListNode *findNode(const MyOrderedSet&, const T value_to_find);
-bool setElementsAreStoredAtSameLocation(const Set_Contents* contents_before, const MyOrderedSet& after_set, Message_Level);
-bool setElementsAreNotStoredAtSameLocation(const Set_Contents* contents_before, const MyOrderedSet& after_set, Message_Level);
-bool setsStorageLocationsDontCare(const Set_Contents* contents_before, const MyOrderedSet& after_Set, Message_Level);
-bool setContentsAreEqual(const MyOrderedSet&, const MyOrderedSet&);
+template <typename T>
+const MyLinkedListNode<T> *findNode(const MyOrderedSet<T>&, const T value_to_find);
+template <typename T>
+bool setElementsAreStoredAtSameLocation(const Set_Contents<T>* contents_before, const MyOrderedSet<T>& after_set, Message_Level);
+template <typename T>
+bool setElementsAreNotStoredAtSameLocation(const Set_Contents<T>* contents_before, const MyOrderedSet<T>& after_set, Message_Level);
+template <typename T>
+bool setsStorageLocationsDontCare(const Set_Contents<T>* contents_before, const MyOrderedSet<T>& after_Set, Message_Level);
+template <typename T>
+bool setContentsAreEqual(const MyOrderedSet<T>&, const MyOrderedSet<T>&);
 
-typedef bool (*Set_Relation_Function)(const Set_Contents* contents_before, const MyOrderedSet& after_set, Message_Level);
+template <typename T>
+using SetRelationFunction = bool (*)(const  Set_Contents<T>* contents_before, const MyOrderedSet<T>& after_set, Message_Level);
+//typedef bool (*Set_Relation_Function)(const Set_Contents<T>* contents_before, const MyOrderedSet<T>& after_set, Message_Level);
 
+template <typename T>
 class Test_Arguments {
 public:
+	T 	*in_a; 	int in_a_sz;
+	T	*in_b;	int in_b_sz;
+	T 	*exp; 	int exp_sz;
+	Set_Operations op;
+	SetRelationFunction<T> rel_tst;
+	Message_Level msg_lvl;
+
 	Test_Arguments() {
 		in_a = in_b = exp = nullptr;
 		in_a_sz = in_b_sz = exp_sz = 0;
@@ -186,20 +201,13 @@ public:
 					T *_in_b, int _in_b_sz,
 					T *_exp, int _exp_sz,
 					Set_Operations _op,
-					Set_Relation_Function _rel_tst,
+					SetRelationFunction<T> _rel_tst,
 					Message_Level _msg_lvl) :
 						in_a(_in_a), in_a_sz(_in_a_sz),
 						in_b(_in_b), in_b_sz(_in_b_sz),
 						exp(_exp), exp_sz(_exp_sz),
 						op(_op), rel_tst(_rel_tst),
-						msg_lvl(_msg_lvl) { }
-
-	T 	*in_a; 	int in_a_sz;
-	T	*in_b;	int in_b_sz;
-	T 	*exp; 	int exp_sz;
-	Set_Operations op;
-	Set_Relation_Function rel_tst;
-	Message_Level msg_lvl;
+						msg_lvl(_msg_lvl) {}
 };
 
 #pragma push_macro("NUM_TEST_RESULT_MESSAGES")
@@ -229,6 +237,9 @@ const char *test_result_position_strings[] = { TEST_RESULT_STRING_POSITIONS "" }
 
 class Test_Results {
 public:
+	bool outcome;
+	const char *messages[NUM_TEST_RESULT_MESSAGES+1];		// last object has to be nullptr
+
 	void set_strings( const char* result_str ,
 					  const char* op_str,
 					  const char *verification_str,
@@ -272,9 +283,6 @@ public:
 		}
 		return out;
 	}
-
-	bool outcome;
-	const char *messages[NUM_TEST_RESULT_MESSAGES+1];		// last object has to be nullptr
 };
 
 #pragma push_macro("delete_object")
@@ -304,20 +312,29 @@ public:
 #define delete_results(ptr)	delete_object((ptr))
 
 bool announceResults(int passed_test_count, int test_count);
-void buildSet(MyOrderedSet& dst, T *values, int num_values, Message_Level message_level);
+template <typename T>
+void buildSet(MyOrderedSet<T>& dst, T *values, int num_values, Message_Level message_level);
+template <typename T>
 bool isElement(T *p, int sz, T val);
-void echoSet(const char* before, MyOrderedSet& set, const char *after, Message_Level message_level);
-void echoSetUnsignedOperationResult(MyOrderedSet &set, Set_Operations op, T operand, Message_Level message_level);
-Test_Results* runTest(Test_Arguments*);
-Test_Results* runObjectOperationTest(Test_Arguments *pa);
-Test_Results* runSetArithmeticOperationTest(Test_Arguments *pa);
-Test_Results* runSetAssignmentOperationTest(Test_Arguments *pa);
+template <typename T>
+void echoSet(const char* before, MyOrderedSet<T> &set, const char *after, Message_Level message_level);
+template <typename T>
+void echoSetUnsignedOperationResult(MyOrderedSet<T> &set, Set_Operations op, T operand, Message_Level message_level);
+template <typename T>
+Test_Results* runTest(Test_Arguments<T>*);
+template <typename T>
+Test_Results* runObjectOperationTest(Test_Arguments<T> *pa);
+template <typename T>
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T> *pa);
+template <typename T>
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T> *pa);
+template <typename T>
 Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& test_count, int& passed_test_count);
-
-bool verifySetResults(	const char *before,
-						MyOrderedSet& set_to_verify,
+template <typename T>
+bool verifySetResults(	std::string before,
+						MyOrderedSet<T>& set_to_verify,
 						T *expected, int expected_count,
-						char *after, Message_Level level);
+						std::string after, Message_Level level);
 
 
 /* ********************************************************************	*/
@@ -337,41 +354,44 @@ bool verifySetResults(	const char *before,
 
 bool testMyOrderedSet() {
 
+using TypeUnderTest = int;
+using TUT = TypeUnderTest;
+
 #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
  or	defined(TEST_SET_BUILDING_SET)\
  or defined(TEST_SET_IS_MEMBER_UNSIGNED)
 
-	T stressing_inputs[] = { 5, 3, 7, 4, 6, 8, 2, 1 };
-	T stressing_result[]	= { 1, 2, 3, 4, 5, 6, 7, 8 };
-	int stressing_inputs_sz = sizeof(stressing_inputs) / sizeof(T);
-	int stressing_result_sz = sizeof(stressing_result) / sizeof(T);
+	TUT stressing_inputs[] = { 5, 3, 7, 4, 6, 8, 2, 1 };
+	TUT stressing_result[]	= { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int stressing_inputs_sz = sizeof(stressing_inputs) / sizeof(TUT);
+	int stressing_result_sz = sizeof(stressing_result) / sizeof(TUT);
 
-	T repeating_inputs[]		= { 1, 2, 3, 4, 4, 4, 3, 1 };
-	T repeating_result[]		= { 1, 2, 3, 4 };
-	int repeating_inputs_sz = sizeof(repeating_inputs) / sizeof(T);
-	int repeating_result_sz = sizeof(repeating_result) / sizeof(T);
+	TUT repeating_inputs[]		= { 1, 2, 3, 4, 4, 4, 3, 1 };
+	TUT repeating_result[]		= { 1, 2, 3, 4 };
+	int repeating_inputs_sz = sizeof(repeating_inputs) / sizeof(TUT);
+	int repeating_result_sz = sizeof(repeating_result) / sizeof(TUT);
 #endif
 
-	T* in_a = nullptr;
+	TUT* in_a = nullptr;
 	int in_a_sz = 0;
-	T* in_b = nullptr;
+	TUT * in_b = nullptr;
 	int in_b_sz = 0;
-	T* xpctd = nullptr;
+	TUT* xpctd = nullptr;
 	int xpctd_sz = 0;
 
 	Message_Level message_level = Verbose;
 	int test_count = 0;
 	int passed_test_count = 0;
 	Set_Operations op = SET_NOP;
-	Test_Arguments *test_arguments = nullptr;
+	Test_Arguments<TUT> *test_arguments = nullptr;
 	Test_Results *test_results = nullptr;
-	Set_Contents *contents_before = nullptr;
+	Set_Contents<TUT> *contents_before = nullptr;
 
     cout << endl;
 
     echoTestName("Default Constructor");
     test_count++;
-    MyOrderedSet set;
+    MyOrderedSet<TUT> set;
 
     if (set.size() != 0 || set.m_list.m_head != nullptr) {
     	cout << abort_str << "default constructor did not produce empty set &" << &set << ": " << endl << set << endl;
@@ -389,7 +409,7 @@ bool testMyOrderedSet() {
 	// this test has to be very verbose b/c no other test will work until this one passes
     echoTestName("operator+=(T)");
     test_count++;
-    contents_before = new Set_Contents(set);
+    contents_before = new Set_Contents<TUT>(set);
     in_a = stressing_inputs;
     for (int i = 0; i != stressing_inputs_sz; i++) {
     	set += in_a[i];
@@ -400,7 +420,8 @@ bool testMyOrderedSet() {
     	}
     }
 
-    if (!verifySetResults("Test adding stressing inputs\n", set, stressing_result, stressing_result_sz, newline, message_level)) {
+//    if (!verifySetResults(std::string("Test adding stressing inputs\n").c_str(), set, stressing_result, stressing_result_sz, newline, message_level)) {
+    if (!verifySetResults(std::string("Test adding stressing inputs\n"), set, stressing_result, stressing_result_sz, std::string("\n"), message_level)) {
     	cout << abort_str << " UNABLE TO CONTINUE TEST" << endl;
     	delete_before(contents_before);
     	return announceResults(passed_test_count, test_count);
@@ -425,7 +446,7 @@ bool testMyOrderedSet() {
     test_count++;
     buildSet(set, repeating_inputs, repeating_inputs_sz, None);
 
-    if (!verifySetResults("Test buildSet(stressing_inputs)\n", set, repeating_inputs, repeating_result_sz, newline, message_level)) {
+    if (!verifySetResults(std::string("Test buildSet(stressing_inputs)\n"), set, repeating_inputs, repeating_result_sz, std::string("\n"), message_level)) {
     	cout << abort_str << " UNABLE TO CONTINUE TEST" << endl;
     	return announceResults(passed_test_count, test_count);
     }
@@ -473,9 +494,9 @@ bool testMyOrderedSet() {
     echoTestName("copy constructor");
     test_count++;
     buildSet(set, stressing_inputs, stressing_inputs_sz, None);
-    contents_before = new Set_Contents(set);
+    contents_before = new Set_Contents<TUT>(set);
     MyOrderedSet copy_set(set);
-    if (setElementsAreStoredAtSameLocation(contents_before, copy_set, None)) {
+    if (!setElementsAreNotStoredAtSameLocation(contents_before, copy_set, message_level)) {
     	cout << error_str << " copy constructor did not copy set:" << endl
     		 << " original set was stored " << *contents_before << endl << endl
 			 << "     copy set is stored &" << &copy_set << " " << copy_set << endl;
@@ -498,10 +519,10 @@ bool testMyOrderedSet() {
     echoTestName("operator=(MyOrderedSet)");
     test_count++;
     buildSet(set, stressing_inputs, stressing_inputs_sz, None);
-    contents_before = new Set_Contents(set);
-    MyOrderedSet assigned_set;
+    contents_before = new Set_Contents<TUT>(set);
+    MyOrderedSet<TUT> assigned_set;
     assigned_set = set;
-    if (setElementsAreStoredAtSameLocation(contents_before, assigned_set, None)) {
+    if (!setElementsAreNotStoredAtSameLocation(contents_before, assigned_set, message_level)) {
     	cout << error_str << " assignment operator=(MyOrderedSet&) did not copy set:" << endl
     		 << " original set was stored " << *contents_before << endl << endl
 			 << " assigned set is stored &" << &assigned_set << " " << assigned_set << endl;
@@ -527,14 +548,14 @@ bool testMyOrderedSet() {
     set.clear();
     test_count++;
 
-    in_a = new T[] { };
+    in_a = new TUT[] { };
     in_a_sz = 0;
     in_b = stressing_inputs;
     in_b_sz = stressing_inputs_sz;
     xpctd = stressing_result;
     xpctd_sz = stressing_result_sz;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										SET_UNSIGNED_ADD, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -554,14 +575,14 @@ bool testMyOrderedSet() {
     set.clear();
     test_count++;
 
-    in_a = new T[] { };
+    in_a = new TUT[] { };
     in_a_sz = 0;
     in_b = repeating_inputs;
     in_b_sz = repeating_inputs_sz;
     xpctd = repeating_result;
     xpctd_sz = repeating_result_sz;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										SET_UNSIGNED_ADD, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -582,14 +603,14 @@ bool testMyOrderedSet() {
     set.clear();
     test_count++;
 
-    in_a = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     in_a_sz = 8;
-    in_b = new T[] { 4, 5, 1, 8, 2, 7 };
+    in_b = new TUT[] { 4, 5, 1, 8, 2, 7 };
     in_b_sz = 6;
-    xpctd = new T[] { 3, 6 };
+    xpctd = new TUT[] { 3, 6 };
     xpctd_sz = 2;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										SET_UNSIGNED_SUB, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -612,14 +633,14 @@ bool testMyOrderedSet() {
     set.clear();
     test_count++;
 
-    in_a = new T[] { };
+    in_a = new TUT[] { };
     in_a_sz = 0;
     in_b = stressing_inputs;
     in_b_sz = stressing_inputs_sz;
     xpctd = stressing_result;
     xpctd_sz = stressing_result_sz;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										SET_ASSIGN_UNSIGNED_ADD, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -640,14 +661,14 @@ bool testMyOrderedSet() {
     set.clear();
     test_count++;
 
-    in_a = new T[] { };
+    in_a = new TUT[] { };
     in_a_sz = 0;
     in_b = repeating_inputs;
     in_b_sz = repeating_inputs_sz;
     xpctd = repeating_result;
     xpctd_sz = repeating_result_sz;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										SET_ASSIGN_UNSIGNED_ADD, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -668,14 +689,14 @@ bool testMyOrderedSet() {
     set.clear();
     test_count++;
 
-    in_a = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     in_a_sz = 8;
-    in_b = new T[] { 1, 2,    8, 5,    4, 7 };
+    in_b = new TUT[] { 1, 2,    8, 5,    4, 7 };
     in_b_sz = 6;
-    xpctd = new T[] { 3, 6 };
+    xpctd = new TUT[] { 3, 6 };
     xpctd_sz = 2;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										SET_ASSIGN_UNSIGNED_SUB, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -697,9 +718,9 @@ bool testMyOrderedSet() {
 
 #ifdef TEST_SET_IS_MEMBER_UNSIGNED
     echoTestName(".isMember(T)");
-    in_a = new T[] { 1, 2, 3, 4 };
+    in_a = new TUT[] { 1, 2, 3, 4 };
     in_a_sz = 4;
-    in_b = new T[] { 1, 2, 3, 4, 5, 6 };
+    in_b = new TUT[] { 1, 2, 3, 4, 5, 6 };
     in_b_sz = 6;
     bool is_member_error = false;
     buildSet(set, in_a, in_a_sz, None);
@@ -742,7 +763,7 @@ bool testMyOrderedSet() {
 
 #ifdef TEST_SET_RELATIONAL_OPERATORS
 
-    test_results = runSetRelationalOperatorsTest(message_level, test_count, passed_test_count);
+    test_results = runSetRelationalOperatorsTest<TUT>(message_level, test_count, passed_test_count);
 
     if (test_results->outcome == failed) {
     	cout << error_str << test_results->messages[Result_Index]
@@ -773,11 +794,11 @@ bool testMyOrderedSet() {
     op = SET_UNION_PLUS;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -803,14 +824,14 @@ bool testMyOrderedSet() {
     op = SET_UNION_PLUS;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -834,14 +855,14 @@ bool testMyOrderedSet() {
     op = SET_UNION_PLUS;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     xpctd_sz = 8;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -871,14 +892,14 @@ bool testMyOrderedSet() {
     op = SET_UNION_OR;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -901,14 +922,14 @@ bool testMyOrderedSet() {
     op = SET_UNION_OR;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -931,14 +952,14 @@ bool testMyOrderedSet() {
     op = SET_UNION_OR;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     xpctd_sz = 8;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -968,14 +989,14 @@ bool testMyOrderedSet() {
     op = SET_UNIQUE;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -998,14 +1019,14 @@ bool testMyOrderedSet() {
     op = SET_UNIQUE;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1028,14 +1049,14 @@ bool testMyOrderedSet() {
     op = SET_UNIQUE;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 1, 2, 4, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 4, 6, 7, 8 };
     xpctd_sz = 6;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1065,14 +1086,14 @@ bool testMyOrderedSet() {
     op = SET_INTERSECTION;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] {};
+    xpctd = new TUT[] {};
     xpctd_sz = 0;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1095,14 +1116,14 @@ bool testMyOrderedSet() {
     op = SET_INTERSECTION;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] {};
+    xpctd = new TUT[] {};
     xpctd_sz = 0;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1125,14 +1146,14 @@ bool testMyOrderedSet() {
     op = SET_INTERSECTION;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 3, 5 };
+    xpctd = new TUT[] { 3, 5 };
     xpctd_sz = 2;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1162,14 +1183,14 @@ bool testMyOrderedSet() {
     op = SET_DIFFERENCE;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] { 1, 2, 3,    5, 6, 7 , 8 };
+    xpctd = new TUT[] { 1, 2, 3,    5, 6, 7 , 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1192,14 +1213,14 @@ bool testMyOrderedSet() {
     op = SET_DIFFERENCE;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] {};
+    xpctd = new TUT[] {};
     xpctd_sz = 0;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1222,14 +1243,14 @@ bool testMyOrderedSet() {
     op = SET_DIFFERENCE;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 1, 2, 6, 7 , 8 };
+    xpctd = new TUT[] { 1, 2, 6, 7 , 8 };
     xpctd_sz = 5;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreNotStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1262,14 +1283,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNION_PLUS;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1293,14 +1314,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNION_PLUS;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1324,14 +1345,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNION_PLUS;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     xpctd_sz = 8;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1361,14 +1382,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNION_OR;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1391,14 +1412,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNION_OR;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1421,14 +1442,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNION_OR;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3, 4, 5, 6, 7, 8 };
     xpctd_sz = 8;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1459,14 +1480,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNIQUE;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1489,14 +1510,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNIQUE;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] { 1, 2, 3,   5, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1519,11 +1540,11 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_UNIQUE;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 1, 2, 4, 6, 7, 8 };
+    xpctd = new TUT[] { 1, 2, 4, 6, 7, 8 };
     xpctd_sz = 6;
 
     test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
@@ -1556,14 +1577,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_INTERSECTION;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] {};
+    xpctd = new TUT[] {};
     xpctd_sz = 0;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1586,14 +1607,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_INTERSECTION;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] {};
+    xpctd = new TUT[] {};
     xpctd_sz = 0;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1616,14 +1637,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_INTERSECTION;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 3, 5 };
+    xpctd = new TUT[] { 3, 5 };
     xpctd_sz = 2;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1653,14 +1674,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_DIFFERENCE;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {};
+    in_b = new TUT[] {};
     in_b_sz = 0;
-    xpctd = new T[] { 1, 2, 3,    5, 6, 7 , 8 };
+    xpctd = new TUT[] { 1, 2, 3,    5, 6, 7 , 8 };
     xpctd_sz = 7;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1683,14 +1704,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_DIFFERENCE;
     test_count++;
 
-    in_a = new T[] {};
+    in_a = new TUT[] {};
     in_a_sz = 0;
-    in_b = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_b_sz = 7;
-    xpctd = new T[] {};
+    xpctd = new TUT[] {};
     xpctd_sz = 0;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1713,14 +1734,14 @@ bool testMyOrderedSet() {
     op = SET_ASSIGN_DIFFERENCE;
     test_count++;
 
-    in_a = new T[] { 1, 2, 3,    5, 6, 7, 8 };
+    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
     in_a_sz = 7;
-    in_b = new T[] {       3, 4, 5  };
+    in_b = new TUT[] {       3, 4, 5  };
     in_b_sz = 3;
-    xpctd = new T[] { 1, 2, 6, 7 , 8 };
+    xpctd = new TUT[] { 1, 2, 6, 7 , 8 };
     xpctd_sz = 5;
 
-    test_arguments = new Test_Arguments(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
+    test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
 										op, setElementsAreStoredAtSameLocation, Verbose);
 
     test_results = runTest(test_arguments);
@@ -1758,8 +1779,8 @@ bool announceResults(int passed_test_count, int test_count) {
 	cout << "Passed " << passed_test_count << " of " << test_count << " tests" << endl;
 	return passed_test_count == test_count;
 }
-
-void buildSet(MyOrderedSet& dst, T *values, int num_values, Message_Level message_level) {
+template <typename T>
+void buildSet(MyOrderedSet<T> &dst, T *values, int num_values, Message_Level message_level) {
 
 	dst.clear();
 
@@ -1771,6 +1792,7 @@ void buildSet(MyOrderedSet& dst, T *values, int num_values, Message_Level messag
 		cout << "buildSet @" << &dst << endl << dst << endl;
 }
 
+template <typename T>
 bool isElement(T *p, int sz, T val) {
 	for (int i = 0; i != sz; i++) {
 		if (p[i] == val) return true;
@@ -1782,10 +1804,10 @@ bool isElement(T *p, int sz, T val) {
 	/* ****************************************************************	*/
 	/*	determine if one set is the result of an assignment operator	*/
 	/* ****************************************************************	*/
+template <typename T>
+const MyLinkedListNode<T> *findNode(const MyOrderedSet<T> &set, const T value_to_find) {
 
-const MyLinkedListNode *findNode(const MyOrderedSet& set, const T value_to_find) {
-
-	MyLinkedListNode* src = set.m_list.m_head;
+	MyLinkedListNode<T>* src = set.m_list.m_head;
 	while (src) {
 		if (src->m_data == value_to_find) {
 			return src;
@@ -1801,7 +1823,8 @@ const MyLinkedListNode *findNode(const MyOrderedSet& set, const T value_to_find)
 //	  set address is identical before & after
 //	  set.m_list is stored at the same address
 //	  any values that are in both sets are stored in the same nodes
-bool setElementsAreStoredAtSameLocation(const Set_Contents* before_set, const MyOrderedSet& after_set, Message_Level message_level) {
+template <typename T>
+bool setElementsAreStoredAtSameLocation(const Set_Contents<T>* before_set, const MyOrderedSet<T>& after_set, Message_Level message_level) {
 
 	if (isMsgLvlVerbose(message_level)) {
 		cout << "Verifying memory relationship: \"" << __FUNCTION__ << "\"" << endl;
@@ -1837,7 +1860,7 @@ bool setElementsAreStoredAtSameLocation(const Set_Contents* before_set, const My
 
 	for (int i = 0; i != before_set->size; i++) {
 		// attempt to find values the after set that were in before set
-		const MyLinkedListNode *after_node = findNode(after_set, before_set->list_of_nodes[i]->data);
+		const MyLinkedListNode<T> *after_node = findNode(after_set, before_set->list_of_nodes[i]->data);
 		// if the value that was in the before set is in the after set
 		if (after_node != nullptr) {
 			// if the node containing the value is different that it was before
@@ -1860,9 +1883,9 @@ bool setElementsAreStoredAtSameLocation(const Set_Contents* before_set, const My
 /* ************************************************************	*/
 /*	determine if the list nodes are identical in each set		*/
 /* ************************************************************	*/
-
-bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
-									const MyOrderedSet& after_set,
+template <typename T>
+bool setElementsAreNotStoredAtSameLocation(const Set_Contents<T> *before_set,
+									const MyOrderedSet<T> &after_set,
 									Message_Level message_level) {
 
 	if (isMsgLvlVerbose(message_level)) {
@@ -1903,7 +1926,7 @@ bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
 	for (int i = 0; i != before_set->size; i++)
 	{
 		// determine if a value in the before_set is in the after_set
-		const MyLinkedListNode *after_node = findNode(after_set, before_set->list_of_nodes[i]->data);
+		const MyLinkedListNode<T> *after_node = findNode(after_set, before_set->list_of_nodes[i]->data);
 		// if a value in the before set was found in the after set
 		if (after_node != nullptr)
 		{
@@ -1950,20 +1973,22 @@ bool setElementsAreNotStoredAtSameLocation(const Set_Contents* before_set,
 	return true;
 }
 
-bool setsStorageLocationsDontCare(const Set_Contents* contents_before __attribute__((unused)), const MyOrderedSet& after_Set __attribute__((unused)), Message_Level message_level) {
+template <typename T>
+bool setsStorageLocationsDontCare(const Set_Contents<T>* contents_before __attribute__((unused)), const MyOrderedSet<T> &after_Set __attribute__((unused)), Message_Level message_level) {
 	if (isMsgLvlVerbose(message_level)) {
 		cout << "No memory relationship evaluated: " << __FUNCTION__ << " returns true " << endl;
 	}
 	return true;
 }
 
-bool setContentsAreEqual(const MyOrderedSet &seta, const MyOrderedSet &setb) {
+template <typename T>
+bool setContentsAreEqual(const MyOrderedSet<T> &seta, const MyOrderedSet<T> &setb) {
 
 	if (seta.size() != setb.size())
 		return false;
 
-	MyLinkedListNode *pa = seta.m_list.m_head;
-	MyLinkedListNode *pb = setb.m_list.m_head;
+	MyLinkedListNode<T> *pa = seta.m_list.m_head;
+	MyLinkedListNode<T> *pb = setb.m_list.m_head;
 
 	while (pa != nullptr && pb != nullptr) {
 
@@ -1987,7 +2012,7 @@ bool setContentsAreEqual(const MyOrderedSet &seta, const MyOrderedSet &setb) {
 	/*							running tests							*/
 	/* ****************************************************************	*/
 
-
+template <typename T>
 Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& test_count, int& passed_test_count)
 {
     echoTestName("relational operators");
@@ -2003,8 +2028,8 @@ Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& te
     const char* returns_false_str = " returns false";
     const char* returns_true_str = " returns false";
 
-    MyOrderedSet seta;
-    MyOrderedSet setb;
+    MyOrderedSet<T> seta;
+    MyOrderedSet<T> setb;
 
     T Ts_1_4[] = { 1, 2, 3, 4 };
     T Ts_5_8[] = { 5, 6, 7, 8 };
@@ -2259,22 +2284,22 @@ Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& te
     return retval;
 }
 
-
-Test_Results* runObjectOperationTest(struct Test_Arguments *pa) {
+template <typename T>
+Test_Results* runObjectOperationTest(struct Test_Arguments<T> *pa) {
 
 	const char *op_str = set_operation_strings[pa->op]; // improves readability
-	Set_Contents *contents_before = nullptr;
+	Set_Contents<T> *contents_before = nullptr;
 	Test_Results *test_results = new Test_Results;
 	test_results->outcome = passed;
 	test_results->set_strings(passed_str, op_str, values_passed, storage_passed, __FUNCTION__);
 
 	cout << __PRETTY_FUNCTION__ << " operator " << op_str << endl;
 
-	MyOrderedSet set_result;
+	MyOrderedSet<T> set_result;
 	buildSet(set_result, pa->in_a, pa->in_a_sz, pa->msg_lvl);
 
 	for (int i = 0; i !=pa->in_b_sz; i++) {
-		contents_before = new Set_Contents(set_result);
+		contents_before = new Set_Contents<T>(set_result);
 		switch (pa->op) {
 		case SET_ASSIGN_UNSIGNED_ADD:
 			set_result += pa->in_b[i];
@@ -2330,7 +2355,8 @@ Test_Results* runObjectOperationTest(struct Test_Arguments *pa) {
 /*		operand1 or operand2						*/
 /* ************************************************	*/
 
-Test_Results* runSetArithmeticOperationTest(struct Test_Arguments *pa) {
+template <typename T>
+Test_Results* runSetArithmeticOperationTest(struct Test_Arguments<T> *pa) {
 
 	cout << __PRETTY_FUNCTION__ << " operator " << set_operation_strings[pa->op] << endl;
 
@@ -2340,15 +2366,15 @@ Test_Results* runSetArithmeticOperationTest(struct Test_Arguments *pa) {
 	test_results->outcome = passed;
 	test_results->set_strings(passed_str, op_str, values_passed, storage_passed, __FUNCTION__);
 
-	MyOrderedSet operand_1;
+	MyOrderedSet<T> operand_1;
 	buildSet(operand_1, pa->in_a, pa->in_a_sz, Message_Level::None /*pa->msg_lvl*/);
-	MyOrderedSet operand_2;
+	MyOrderedSet<T> operand_2;
 	buildSet(operand_2, pa->in_b, pa->in_b_sz, Message_Level::None /*pa->msg_lvl*/);
 	//	place a value in result{} that will get overwritten
-	MyOrderedSet result;
+	MyOrderedSet<T> result;
 
-	Set_Contents *operand_1_before = new Set_Contents(operand_1);
-	Set_Contents *operand_2_before = new Set_Contents(operand_2);
+	Set_Contents<T> *operand_1_before = new Set_Contents<T>(operand_1);
+	Set_Contents<T> *operand_2_before = new Set_Contents<T>(operand_2);
 
 	cout << endl << endl;
 
@@ -2446,7 +2472,8 @@ Test_Results* runSetArithmeticOperationTest(struct Test_Arguments *pa) {
 /*	  verify that result is the same as operaned1	*/
 /* ************************************************	*/
 
-Test_Results* runSetAssignmentOperationTest(struct Test_Arguments *pa) {
+template <typename T>
+Test_Results* runSetAssignmentOperationTest(struct Test_Arguments<T> *pa) {
 
 	cout << __PRETTY_FUNCTION__ << " operator " << set_operation_strings[pa->op] << endl;
 
@@ -2456,13 +2483,13 @@ Test_Results* runSetAssignmentOperationTest(struct Test_Arguments *pa) {
 	test_results->outcome = passed;
 	test_results->set_strings(passed_str, op_str, values_passed, storage_passed, __FUNCTION__);
 
-	MyOrderedSet operand_1;
+	MyOrderedSet<T> operand_1;
 	buildSet(operand_1, pa->in_a, pa->in_a_sz, Message_Level::None /*pa->msg_lvl*/);
-	MyOrderedSet operand_2;
+	MyOrderedSet<T> operand_2;
 	buildSet(operand_2, pa->in_b, pa->in_b_sz, Message_Level::None /*pa->msg_lvl*/);
 	//	place a value in result{} that will get overwritten
 
-	Set_Contents *contents_before = new Set_Contents(operand_1);
+	Set_Contents<T> *contents_before = new Set_Contents<T>(operand_1);
 
 	cout << endl << endl;
 
@@ -2539,7 +2566,8 @@ Test_Results* runSetAssignmentOperationTest(struct Test_Arguments *pa) {
 	return test_results;
 }
 
-Test_Results* runTest(struct Test_Arguments *args)
+template <typename T>
+Test_Results* runTest(struct Test_Arguments<T> *args)
 {
 	Test_Results *retval;
 
@@ -2578,10 +2606,11 @@ Test_Results* runTest(struct Test_Arguments *args)
 	return retval;
 }
 
-bool verifySetResults(	const char *before,
-						MyOrderedSet& set_to_verify,
+template <typename T>
+bool verifySetResults(	std::string before,
+						MyOrderedSet<T> &set_to_verify,
 						T *expected, int expected_count,
-						char *after, Message_Level level) {
+						std::string after, Message_Level level) {
 
 	T *outputs;
 	int outputs_size = set_to_verify.getValues(&outputs);
@@ -2594,7 +2623,8 @@ bool verifySetResults(	const char *before,
 /* 						echo objects									*/
 /* ********************************************************************	*/
 
-void echoSetUnsignedOperationResult(MyOrderedSet &set, Set_Operations op, T operand, Message_Level message_level)
+template <typename T>
+void echoSetUnsignedOperationResult(MyOrderedSet<T> &set, Set_Operations op, T operand, Message_Level message_level)
 {
 	if (isMsgLvlVerbose(message_level)) {
 		cout 	<< "set " << set_operation_strings[op] << " " << operand
@@ -2603,7 +2633,8 @@ void echoSetUnsignedOperationResult(MyOrderedSet &set, Set_Operations op, T oper
 	}
 }
 
-void echoSet(const char* before, MyOrderedSet& set, const char *after, Message_Level message_level) {
+template <typename T>
+void echoSet(const char* before, MyOrderedSet<T> &set, const char *after, Message_Level message_level) {
 
 	if (isMsgLvlNone(message_level))
 		return;
@@ -2617,13 +2648,13 @@ void echoSet(const char* before, MyOrderedSet& set, const char *after, Message_L
 		cout 	<< setw(0) << after;
 	} else {
 		// create (eg): { 0, 1, 2 }
-		MyLinkedListNode *p = set.m_list.m_head;
+		MyLinkedListNode<T> *p = set.m_list.m_head;
 		cout << before << "{ ";
 		if (p == nullptr) {
 			cout << "empty }" << after;
 		}
 		else {
-			MyLinkedListNode *p = set.m_list.m_head;
+			MyLinkedListNode<T> *p = set.m_list.m_head;
 			while (p->m_next != nullptr) {
 				cout << setw(0) << p->m_data << ", ";
 				p = p->m_next;

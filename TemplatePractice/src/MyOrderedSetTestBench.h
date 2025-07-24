@@ -4,8 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstring>
-
-using T = int;
+#include <string>
 
 enum Message_Level {
 	None = 0,
@@ -30,13 +29,6 @@ bool isMsgLvlVerbose(Message_Level level);
 bool testWrappedUnsignedLinkedList();
 void testWrappedUnsigned();
 void testMyLinkedListNode();
-
-std::string array_toString(const T *values, int count);
-
-bool verifyResults(	const char *before,
-					T *expected, int expected_count,
-					T *results, int result_count,
-					char *after, Message_Level lvl);
 
 void echoTestName(const char *);
 void echoTestPhase(const char *);
