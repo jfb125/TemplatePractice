@@ -43,6 +43,24 @@ private:
 		}
 	}
 
+	void copyInOrder(const MyOrderedSet &other) {
+
+		clear();
+		if (other.m_list.m_head) {
+			m_list.m_head = new MyLinkedListNode(other.m_list.m_head->m_data);
+			m_list.m_size++;
+			MyLinkedListNode *src = other.m_list.m_head;
+			MyLinkedListNode *dst = m_list.m_head;
+			while (src->m_next) {
+				dst->m_next = new MyLinkedListNode(src->m_next->m_data);
+				m_list.m_size++;
+				src = src->m_next;
+				dst = dst->m_next;
+			}
+		}
+
+	}
+
 	void insertInOrder(T value) {
 
 		//	if the value is already in the set, return
@@ -133,7 +151,7 @@ public:
 
 	std::string toString() const {
 		std::stringstream result;
-		result << "set contains a m_list at " << &m_list << ": m_head is " << m_list.m_head << std::endl;
+		result << "set contains a list at " << &m_list << ": m_head is " << m_list.m_head << std::endl;
 		result << m_list;
 		return result.str();
 	}
@@ -156,13 +174,8 @@ public:
 	/*	******************************************************	*/
 
 	MyOrderedSet  operator+(const T &value) {
-		std::cout << std::endl << "operator+(" << value << ")" << std::endl;
 		MyOrderedSet result(*this);
-		std::cout << "*this:  " << std::endl << *this << std::endl;
-		std::cout << "result: " << std::endl << result << std::endl;
 		result.insertInOrder(value);
-		std::cout << "result: " << std::endl << result << std::endl;
-		std::cout << std::endl;
 		return result;
 	}
 
@@ -271,6 +284,8 @@ public:
 
 		MyOrderedSet result;
 		if (this != &other) {
+			if (other.m_list.m_head) {
+			}
 			MyLinkedListNode *p = m_list.m_head;
 			while (p) {
 				if (other.isMember(p->m_data)) {
@@ -278,6 +293,8 @@ public:
 				}
 				p = p->m_next;
 			}
+		} else {
+			result = *this;
 		}
 		return result;
 	}
@@ -351,31 +368,27 @@ public:
 	/*	******************************************************	*/
 
 	MyOrderedSet() {}
-	~MyOrderedSet() {}
+	~MyOrderedSet() {
+		m_list.clear();
+	}
 
 	MyOrderedSet(const MyOrderedSet &other) {
 		m_list.m_head = nullptr;
 		m_list.m_size = 0;
-		MyLinkedListNode *p = other.m_list.m_head;
-		while (p) {
-			append(p->m_data);
-		}
+		copyInOrder(other);
 	}
 
 	MyOrderedSet& operator=(const MyOrderedSet &other) {
 		if (this != &other) {
-			m_list.m_head = nullptr;
-			m_list.m_size = 0;
-			MyLinkedListNode *p = other.m_list.m_head;
-			while (p) {
-				append(p->m_data);
-			}
+			clear();
+			copyInOrder(other);
 		}
 		return *this;
 	}
 
 	MyOrderedSet(MyOrderedSet &&other) noexcept {
 		if (this != &other) {
+			clear();
 			m_list.m_head = other.m_list.m_head;
 			m_list.m_size = other.m_list.m_size;
 			other.m_list.m_head = nullptr;
@@ -385,6 +398,7 @@ public:
 
 	MyOrderedSet& operator=(MyOrderedSet &&other) noexcept {
 		if (this != &other) {
+			clear();
 			m_list.m_head = other.m_list.m_head;
 			m_list.m_size = other.m_list.m_size;
 			other.m_list.m_head = nullptr;

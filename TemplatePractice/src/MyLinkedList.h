@@ -38,12 +38,17 @@ private:
 	}
 
 	void copy(const MyLinkedList &other) {
-		if (this != &other) {
-			clear();
+		clear();
+		if (other.m_head) {
+			m_head = new MyLinkedListNode(other.m_head->m_data);
+			m_size++;
+			MyLinkedListNode *dst = m_head;
 			MyLinkedListNode *src = other.m_head;
-			while (src) {
-				insert(src->m_data);
+			while (src->m_next) {
+				dst->m_next = new MyLinkedListNode(src->m_next->m_data);
+				m_size++;
 				src = src->m_next;
+				dst = dst->m_next;
 			}
 		}
 	}
@@ -87,6 +92,7 @@ public:
 			delete node_to_delete;
 		}
 		m_size = 0;
+		m_head = nullptr;
 	}
 
 	bool isMember(const T &value) const {
@@ -262,25 +268,15 @@ public:
 	}
 
 	MyLinkedList(const MyLinkedList &other) {
-		if (this != &other) {
-			m_head = nullptr;
-			m_size = 0;
-			MyLinkedListNode *src = other.m_head;
-			while (src) {
-				insert(src->m_data);
-				src = src->m_next;
-			}
-		}
+		m_head = nullptr;
+		m_size = 0;
+		copy(other);
 	}
 
 	MyLinkedList& operator= (const MyLinkedList &other) {
 		if (this != &other) {
 			clear();
-			MyLinkedListNode *src = other.m_head;
-			while (src) {
-				insert(src->m_data);
-				src = src->m_next;
-			}
+			copy(other);
 		}
 		return *this;
 	}
@@ -288,6 +284,7 @@ public:
 	//	move constructor / assignment operator take ownership of the object's linked list
 	MyLinkedList(MyLinkedList&& other) noexcept {
 		if (this != &other) {
+			clear();
 			m_head = other.m_head;
 			m_size = other.m_size;
 			other.m_head = nullptr;
@@ -297,6 +294,7 @@ public:
 
 	MyLinkedList& operator= (MyLinkedList&&other) noexcept {
 		if (this != &other) {
+			clear();
 			m_head = other.m_head;
 			m_size = other.m_size;
 			other.m_head = nullptr;
@@ -306,13 +304,7 @@ public:
 	}
 
 	~MyLinkedList() {
-		MyLinkedListNode *node_to_remove;
-		while (m_head) {
-			node_to_remove = m_head;
-			m_head = m_head->m_next;
-			delete node_to_remove;
-		}
-		m_size = 0;
+		clear();
 	}
 
 	std::string toString() const {

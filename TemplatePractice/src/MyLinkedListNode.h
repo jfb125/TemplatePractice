@@ -62,7 +62,7 @@ public:
 		return *this;
 	}
 
-	MyLinkedListNode(MyLinkedListNode &&other) {
+	MyLinkedListNode(MyLinkedListNode &&other) noexcept {
 		if (this != &other) {
 			m_data = other.m_data;
 			m_next = other.m_next;
@@ -70,7 +70,7 @@ public:
 		}
 	}
 
-	MyLinkedListNode& operator=(MyLinkedListNode &&other) {
+	MyLinkedListNode& operator=(MyLinkedListNode &&other) noexcept {
 		if (this != &other) {
 			m_data = other.m_data;
 			m_next = other.m_next;
