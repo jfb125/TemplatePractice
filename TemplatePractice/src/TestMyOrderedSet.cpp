@@ -346,6 +346,7 @@ bool verifySetResults(	std::string before,
 #define TEST_SET_BUILDING_SET
 #define TEST_SET_CLEAR
 #define TEST_SET_COPY_CONSTRUCTOR_AND_ASSIGNMENT
+#define TEST_SET_MOVE_CONSTRUCTOR_AND_ASSIGNMENT
 #define TEST_SET_OPERATOR_ADD_SUB_OBJECT
 #define TEST_SET_IS_MEMBER_UNSIGNED
 #define TEST_SET_RELATIONAL_OPERATORS
@@ -554,18 +555,69 @@ using TUT = TypeUnderTest;
     test_count++;
     buildSet(set, disordered_inputs, disordered_inputs_size, None);
     contents_before = new Set_Contents<TUT>(set);
-    MyOrderedSet<TUT> assigned_set;
-    assigned_set = set;
-    if (!setElementsAreNotStoredAtSameLocation(contents_before, assigned_set, message_level)) {
+    MyOrderedSet<TUT> copy_assigned_set;
+    copy_assigned_set = set;
+    if (!setElementsAreNotStoredAtSameLocation(contents_before, copy_assigned_set, message_level)) {
     	cout << error_str << " assignment operator=(MyOrderedSet&) did not copy set:" << endl
-    		 << " original set was stored " << *contents_before << endl << endl
-			 << " assigned set is stored &" << &assigned_set << " " << assigned_set << endl;
+    		 << "     original set was stored &" << *contents_before << endl << endl
+			 << " copy_assigned_set is stored &" << &copy_assigned_set << " " << copy_assigned_set << endl;
     } else {
     	if (isMsgLvlVerbose(message_level)) {
-			cout 	<< "set          @" << &set << " :" << endl
+			cout 	<< "set               @" << &set << " :" << endl
 					<< set << endl << endl;
-			cout 	<< "assigned_set @" << &assigned_set << " :" << endl
+			cout 	<< "copy assigned_set @" << &copy_assigned_set << " :" << endl
 					<< copy_set << endl << endl;
+			}
+    	if (isMsgLvlResults(message_level)) {
+    		cout 	<< passed_str << endl;
+    	}
+    	passed_test_count++;
+    }
+    delete_before(contents_before);
+    cout_count();
+#endif
+
+#ifdef TEST_SET_MOVE_CONSTRUCTOR_AND_ASSIGNMENT
+    echoTestName("move constructor");
+    test_count++;
+    buildSet(set, disordered_inputs, disordered_inputs_size, None);
+    contents_before = new Set_Contents<TUT>(set);
+    MyOrderedSet move_set(std::move(set));
+    if (!setElementsAreStoredAtSameLocation(contents_before, move_set, message_level)) {
+    	cout << error_str << " move constructor did not move contents to new object:" << endl
+    		 << " original set was stored " << *contents_before << endl << endl
+			 << "     move set is stored &" << &move_set << " " << move_set << endl;
+    } else {
+    	if (isMsgLvlResults(message_level)) {
+    		cout 	<< passed_str << ": " << endl;
+    	}
+    	if (isMsgLvlVerbose(message_level)) {
+			cout 	<< "set      @" << &set << " :" << endl
+					<< set << endl << endl;
+			cout 	<< "move_set @" << &move_set << " :" << endl
+					<< move_set << endl << endl;
+			}
+    	passed_test_count++;
+    }
+    delete_before(contents_before);
+    cout_count();
+
+    echoTestName("operator=(move(MyOrderedSet))");
+    test_count++;
+    buildSet(set, disordered_inputs, disordered_inputs_size, None);
+    contents_before = new Set_Contents<TUT>(set);
+    MyOrderedSet<TUT> move_assigned_set;
+    move_assigned_set = std::move(set);
+    if (!setElementsAreStoredAtSameLocation(contents_before, move_assigned_set, message_level)) {
+    	cout << error_str << " assignment operator=(std::move(MyOrderedSet)) did not move set:" << endl
+    		 << " original set was stored     &" << *contents_before << endl << endl
+			 << " move_assigned set is stored &" << &move_assigned_set << " " << move_assigned_set << endl;
+    } else {
+    	if (isMsgLvlVerbose(message_level)) {
+			cout 	<< "set               @" << &set << " :" << endl
+					<< set << endl << endl;
+			cout 	<< "move_assigned_set @" << &move_assigned_set << " :" << endl
+					<< move_assigned_set << endl << endl;
 			}
     	if (isMsgLvlResults(message_level)) {
     		cout 	<< passed_str << endl;
