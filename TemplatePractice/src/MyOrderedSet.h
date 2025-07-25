@@ -282,14 +282,14 @@ public:
 
 	MyOrderedSet  operator& (const MyOrderedSet &other) const {
 
-		MyOrderedSet result(*this);
+		MyOrderedSet result;
 		if (this != &other) {
-			MyLinkedListNode<T> *p = m_list.m_head;
-			while (p) {
-				if (!other.isMember(p->m_data)) {
-					result.remove(p->m_data);
+			MyLinkedListNode<T> *p_local = m_list.m_head;
+			while (p_local) {
+				if (other.isMember(p_local->m_data)) {
+					result.insertInOrder(p_local->m_data);
 				}
-				p = p->m_next;
+				p_local = p_local->m_next;
 			}
 		}
 		return result;
@@ -297,12 +297,15 @@ public:
 
 	MyOrderedSet& operator &= (const MyOrderedSet &other) {
 		if (this != &other) {
-			MyLinkedListNode<T> *p = m_list.m_head;
-			while (p) {
-				if (!other.isMember(p->m_data)) {
-					remove(p->m_data);
+			MyLinkedListNode<T> *p_local_to_remove = m_list.m_head;
+			MyLinkedListNode<T> *is_next;
+			while (p_local_to_remove) {
+				// *p_local_to_remove may get deleted, corrupting m_next
+				is_next = p_local_to_remove->m_next;
+				if (!other.isMember(p_local_to_remove->m_data)) {
+					remove(p_local_to_remove->m_data);
 				}
-				p = p->m_next;
+				p_local_to_remove = is_next;
 			}
 		}
 		return *this;

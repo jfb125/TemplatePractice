@@ -1395,18 +1395,17 @@ using TUT = TypeUnderTest;
 
     echoTestName("operator|=(MyOrderedSet)");
     echoTestPhase("operator|=(MyOrderedSet) { 1-3, 5-8 } | { empty }");
-    op = SET_ASSIGN_UNION_OR;
     test_count++;
-
-    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_a_sz = 7;
-    in_b = new TUT[] {};
-    in_b_sz = 0;
-    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
-    xpctd_sz = 7;
-
+    op = SET_ASSIGN_UNION_OR;
+    in_a		= set_1_2_3_x_5_6_7_8;
+    in_a_sz 	= set_1_2_3_x_5_6_7_8_size;
+    in_b 		= empty_set;
+    in_b_sz 	= empty_set_size;
+    xpctd 		= set_1_2_3_x_5_6_7_8;
+    xpctd_sz 	= set_1_2_3_x_5_6_7_8_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1425,18 +1424,17 @@ using TUT = TypeUnderTest;
     cout_count();
 
     echoTestPhase("operator|=(MyOrderedSet) { empty } | { 1-3, 5-8 }");
-    op = SET_ASSIGN_UNION_OR;
     test_count++;
-
-    in_a = new TUT[] {};
-    in_a_sz = 0;
-    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_b_sz = 7;
-    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
-    xpctd_sz = 7;
-
+    op 			= SET_ASSIGN_UNION_OR;
+    in_a		= empty_set;
+    in_a_sz 	= empty_set_size;
+    in_b 		= set_1_2_3_x_5_6_7_8;
+    in_b_sz		= set_1_2_3_x_5_6_7_8_size;
+    xpctd 		= set_1_2_3_x_5_6_7_8;
+    xpctd_sz 	= set_1_2_3_x_5_6_7_8_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1455,18 +1453,17 @@ using TUT = TypeUnderTest;
     cout_count();
 
     echoTestPhase("operator|=(MyOrderedSet) { 1-3, 5-8 } | { 3-5 }");
-    op = SET_ASSIGN_UNION_OR;
     test_count++;
-
-    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_a_sz = 7;
-    in_b = new TUT[] {       3, 4, 5  };
-    in_b_sz = 3;
-    xpctd = new TUT[] { 1, 2, 3, 4, 5, 6, 7, 8 };
-    xpctd_sz = 8;
-
+    op 			= SET_ASSIGN_UNION_OR;
+    in_a 		= set_1_2_3_x_5_6_7_8;
+    in_a_sz 	= set_1_2_3_x_5_6_7_8_size;
+    in_b 		= set_x_x_3_4_5_x_x_x;
+    in_b_sz 	= set_x_x_3_4_5_x_x_x_size;
+    xpctd 		= set_1_2_3_4_5_6_7_8;
+    xpctd_sz 	= set_1_2_3_4_5_6_7_8_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1484,7 +1481,7 @@ using TUT = TypeUnderTest;
     delete_array(xpctd);
     cout_count();
 
-    return announceResults(passed_test_count, test_count);
+
     /* ****************************************************	*/
     /* ****************************************************	*/
     /*					SET_ASSIGN_UNIQUE							*/
@@ -1493,18 +1490,17 @@ using TUT = TypeUnderTest;
 
     echoTestName("operator^=(MyOrderedSet)");
     echoTestPhase("operator^=(MyOrderedSet) { 1-3, 5-8 } ^ { empty }");
-    op = SET_ASSIGN_UNIQUE;
     test_count++;
-
-    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_a_sz = 7;
-    in_b = new TUT[] {};
-    in_b_sz = 0;
-    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
-    xpctd_sz = 7;
-
+    op 			= SET_ASSIGN_UNIQUE;
+    in_a 		= set_1_2_3_x_5_6_7_8;
+    in_a_sz 	= set_1_2_3_x_5_6_7_8_size;
+    in_b 		= empty_set;
+    in_b_sz 	= empty_set_size;
+    xpctd 		= set_1_2_3_x_5_6_7_8;
+    xpctd_sz 	= set_1_2_3_x_5_6_7_8_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1523,18 +1519,17 @@ using TUT = TypeUnderTest;
     cout_count();
 
     echoTestPhase("operator^=(MyOrderedSet) { empty } ^ { 1-3, 5-8 }");
-    op = SET_ASSIGN_UNIQUE;
     test_count++;
-
-    in_a = new TUT[] {};
-    in_a_sz = 0;
-    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_b_sz = 7;
-    xpctd = new TUT[] { 1, 2, 3,   5, 6, 7, 8 };
-    xpctd_sz = 7;
-
+    op 			= SET_ASSIGN_UNIQUE;
+    in_a 		= empty_set;
+    in_a_sz 	= empty_set_size;
+    in_b 		= set_1_2_3_x_5_6_7_8;
+    in_b_sz 	= set_1_2_3_x_5_6_7_8_size;
+    xpctd 		= set_1_2_3_x_5_6_7_8;
+    xpctd_sz 	= set_1_2_3_x_5_6_7_8_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1553,18 +1548,17 @@ using TUT = TypeUnderTest;
     cout_count();
 
     echoTestPhase("operator^=(MyOrderedSet) { 1-3, 5-8 } ^ { 3-5 }");
-    op = SET_ASSIGN_UNIQUE;
     test_count++;
-
-    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_a_sz = 7;
-    in_b = new TUT[] {       3, 4, 5  };
-    in_b_sz = 3;
-    xpctd = new TUT[] { 1, 2, 4, 6, 7, 8 };
-    xpctd_sz = 6;
-
+    op 			= SET_ASSIGN_UNIQUE;
+    in_a 		= set_1_2_3_x_5_6_7_8;
+    in_a_sz 	= set_1_2_3_x_5_6_7_8_size;
+    in_b 		= set_x_x_3_4_5_x_x_x;
+    in_b_sz 	= set_x_x_3_4_5_x_x_x_size;
+    xpctd 		= set_1_2_x_4_x_6_7_8;
+    xpctd_sz 	= set_1_2_x_4_x_6_7_8_size;
+    location 	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1590,18 +1584,17 @@ using TUT = TypeUnderTest;
 
     echoTestName("operator&=(MyOrderedSet)");
     echoTestPhase("operator&=(MyOrderedSet) { 1-3, 5-8 } & { empty }");
-    op = SET_ASSIGN_INTERSECTION;
     test_count++;
-
-    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_a_sz = 7;
-    in_b = new TUT[] {};
-    in_b_sz = 0;
-    xpctd = new TUT[] {};
-    xpctd_sz = 0;
-
+    op 			= SET_ASSIGN_INTERSECTION;
+    in_a 		= set_1_2_3_x_5_6_7_8;
+    in_a_sz 	= set_1_2_3_x_5_6_7_8_size;
+    in_b 		= empty_set;
+    in_b_sz 	= empty_set_size;
+    xpctd 		= empty_set;
+    xpctd_sz 	= empty_set_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1620,18 +1613,17 @@ using TUT = TypeUnderTest;
     cout_count();
 
     echoTestPhase("operator&=(MyOrderedSet) { empty } & { 1-3, 5-8 }");
-    op = SET_ASSIGN_INTERSECTION;
     test_count++;
-
-    in_a = new TUT[] {};
-    in_a_sz = 0;
-    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_b_sz = 7;
-    xpctd = new TUT[] {};
-    xpctd_sz = 0;
-
+    op 			= SET_ASSIGN_INTERSECTION;
+    in_a 		= empty_set;
+    in_a_sz 	= empty_set_size;
+    in_b 		= set_1_2_3_x_5_6_7_8;
+    in_b_sz 	= set_1_2_3_x_5_6_7_8_size;
+    xpctd 		= empty_set;
+    xpctd_sz 	= empty_set_size;
+    location 	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1650,18 +1642,17 @@ using TUT = TypeUnderTest;
     cout_count();
 
     echoTestPhase("operator&=(MyOrderedSet) { 1-3, 5-8 } & { 3-5 }");
-    op = SET_ASSIGN_INTERSECTION;
     test_count++;
-
-    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_a_sz = 7;
-    in_b = new TUT[] {       3, 4, 5  };
-    in_b_sz = 3;
-    xpctd = new TUT[] { 3, 5 };
-    xpctd_sz = 2;
-
+    op 			= SET_ASSIGN_INTERSECTION;
+    in_a 		= set_1_2_3_x_5_6_7_8;
+    in_a_sz 	= set_1_2_3_x_5_6_7_8_size;
+    in_b 		= set_x_x_3_4_5_x_x_x;
+    in_b_sz 	= set_x_x_3_4_5_x_x_x_size;
+    xpctd 		= set_x_x_3_x_5_x_x_x;
+    xpctd_sz 	= set_x_x_3_x_5_x_x_x_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1687,18 +1678,17 @@ using TUT = TypeUnderTest;
 
     echoTestName("operator-=(MyOrderedSet)");
     echoTestPhase("operator-=(MyOrderedSet) { 1-3, 5-8 } - { empty }");
-    op = SET_ASSIGN_DIFFERENCE;
     test_count++;
-
-    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_a_sz = 7;
-    in_b = new TUT[] {};
-    in_b_sz = 0;
-    xpctd = new TUT[] { 1, 2, 3,    5, 6, 7 , 8 };
-    xpctd_sz = 7;
-
+    op 			= SET_ASSIGN_DIFFERENCE;
+    in_a 		= set_1_2_3_x_5_6_7_8;
+    in_a_sz 	= set_1_2_3_x_5_6_7_8_size;
+    in_b 		= empty_set;
+    in_b_sz 	= empty_set_size;
+    xpctd 		= set_1_2_3_x_5_6_7_8;
+    xpctd_sz 	= set_1_2_3_x_5_6_7_8_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1717,18 +1707,17 @@ using TUT = TypeUnderTest;
     cout_count();
 
     echoTestPhase("operator-=(MyOrderedSet) { empty } - { 1-3, 5-8 }");
-    op = SET_ASSIGN_DIFFERENCE;
     test_count++;
-
-    in_a = new TUT[] {};
-    in_a_sz = 0;
-    in_b = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_b_sz = 7;
-    xpctd = new TUT[] {};
-    xpctd_sz = 0;
-
+    op 			= SET_ASSIGN_DIFFERENCE;
+    in_a 		= empty_set;
+    in_a_sz 	= empty_set_size;
+    in_b 		= set_1_2_3_x_5_6_7_8;
+    in_b_sz 	= set_1_2_3_x_5_6_7_8_size;
+    xpctd 		= empty_set;
+    xpctd_sz 	= empty_set_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
@@ -1747,18 +1736,17 @@ using TUT = TypeUnderTest;
     cout_count();
 
     echoTestPhase("operator-=(MyOrderedSet) { 1-3, 5-8 } - { 3-5 }");
-    op = SET_ASSIGN_DIFFERENCE;
     test_count++;
-
-    in_a = new TUT[] { 1, 2, 3,    5, 6, 7, 8 };
-    in_a_sz = 7;
-    in_b = new TUT[] {       3, 4, 5  };
-    in_b_sz = 3;
-    xpctd = new TUT[] { 1, 2, 6, 7 , 8 };
-    xpctd_sz = 5;
-
+    op 			= SET_ASSIGN_DIFFERENCE;
+    in_a 		= set_1_2_3_x_5_6_7_8;
+    in_a_sz 	= set_1_2_3_x_5_6_7_8_size;
+    in_b 		= set_x_x_3_4_5_x_x_x;
+    in_b_sz 	= set_x_x_3_4_5_x_x_x_size;
+    xpctd 		= set_1_2_x_x_x_6_7_8;
+    xpctd_sz 	= set_1_2_x_x_x_6_7_8_size;
+    location	= setElementsAreStoredAtSameLocation;
     test_arguments = new Test_Arguments<TUT>(in_a, in_a_sz, in_b, in_b_sz, xpctd, xpctd_sz,
-										op, setElementsAreStoredAtSameLocation, Verbose);
+											 op, location, Verbose);
 
     test_results = runTest(test_arguments);
     if (!test_results->outcome) {
