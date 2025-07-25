@@ -1,6 +1,6 @@
 /home/joe/git/TemplatePractice/TemplatePractice/Debug/TemplatePractice
 
-JoesSetTestBench.cpp ran on: Jul 25 2025 at 14:37:43
+JoesSetTestBench.cpp ran on: Jul 25 2025 at 14:49:10
 
 
 
@@ -10,8 +10,8 @@ JoesSetTestBench.cpp ran on: Jul 25 2025 at 14:37:43
 
 ***************************** Test Name  ******************************
 
-passed default constructor produced empty set &0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0
+passed default constructor produced empty set &0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -24,73 +24,73 @@ Passed 1 of 1 tests
 
 ***************************** Test Name  ******************************
 
- .. added 5 to set produces @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c56780
+ .. added 5 to set produces @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea7780
 list contains 1 elements:
-  at 0x608660c56780: data    5 next: 0
+  at 0x568635ea7780: data    5 next: 0
 
- .. added 3 to set produces @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c56ac0
+ .. added 3 to set produces @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea7ac0
 list contains 2 elements:
-  at 0x608660c56ac0: data    3 next: 0x608660c56780
-  at 0x608660c56780: data    5 next: 0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7780
+  at 0x568635ea7780: data    5 next: 0
 
- .. added 7 to set produces @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c56ac0
+ .. added 7 to set produces @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea7ac0
 list contains 3 elements:
-  at 0x608660c56ac0: data    3 next: 0x608660c56780
-  at 0x608660c56780: data    5 next: 0x608660c56c70
-  at 0x608660c56c70: data    7 next: 0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7780
+  at 0x568635ea7780: data    5 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    7 next: 0
 
- .. added 4 to set produces @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c56ac0
+ .. added 4 to set produces @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea7ac0
 list contains 4 elements:
-  at 0x608660c56ac0: data    3 next: 0x608660c56e50
-  at 0x608660c56e50: data    4 next: 0x608660c56780
-  at 0x608660c56780: data    5 next: 0x608660c56c70
-  at 0x608660c56c70: data    7 next: 0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    4 next: 0x568635ea7780
+  at 0x568635ea7780: data    5 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    7 next: 0
 
- .. added 6 to set produces @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c56ac0
+ .. added 6 to set produces @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea7ac0
 list contains 5 elements:
-  at 0x608660c56ac0: data    3 next: 0x608660c56e50
-  at 0x608660c56e50: data    4 next: 0x608660c56780
-  at 0x608660c56780: data    5 next: 0x608660c57090
-  at 0x608660c57090: data    6 next: 0x608660c56c70
-  at 0x608660c56c70: data    7 next: 0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    4 next: 0x568635ea7780
+  at 0x568635ea7780: data    5 next: 0x568635ea8090
+  at 0x568635ea8090: data    6 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    7 next: 0
 
- .. added 8 to set produces @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c56ac0
+ .. added 8 to set produces @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea7ac0
 list contains 6 elements:
-  at 0x608660c56ac0: data    3 next: 0x608660c56e50
-  at 0x608660c56e50: data    4 next: 0x608660c56780
-  at 0x608660c56780: data    5 next: 0x608660c57090
-  at 0x608660c57090: data    6 next: 0x608660c56c70
-  at 0x608660c56c70: data    7 next: 0x608660c57330
-  at 0x608660c57330: data    8 next: 0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    4 next: 0x568635ea7780
+  at 0x568635ea7780: data    5 next: 0x568635ea8090
+  at 0x568635ea8090: data    6 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    7 next: 0x568635ea8330
+  at 0x568635ea8330: data    8 next: 0
 
- .. added 2 to set produces @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c57640
+ .. added 2 to set produces @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea8640
 list contains 7 elements:
-  at 0x608660c57640: data    2 next: 0x608660c56ac0
-  at 0x608660c56ac0: data    3 next: 0x608660c56e50
-  at 0x608660c56e50: data    4 next: 0x608660c56780
-  at 0x608660c56780: data    5 next: 0x608660c57090
-  at 0x608660c57090: data    6 next: 0x608660c56c70
-  at 0x608660c56c70: data    7 next: 0x608660c57330
-  at 0x608660c57330: data    8 next: 0
+  at 0x568635ea8640: data    2 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    4 next: 0x568635ea7780
+  at 0x568635ea7780: data    5 next: 0x568635ea8090
+  at 0x568635ea8090: data    6 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    7 next: 0x568635ea8330
+  at 0x568635ea8330: data    8 next: 0
 
- .. added 1 to set produces @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c579c0
+ .. added 1 to set produces @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea89c0
 list contains 8 elements:
-  at 0x608660c579c0: data    1 next: 0x608660c57640
-  at 0x608660c57640: data    2 next: 0x608660c56ac0
-  at 0x608660c56ac0: data    3 next: 0x608660c56e50
-  at 0x608660c56e50: data    4 next: 0x608660c56780
-  at 0x608660c56780: data    5 next: 0x608660c57090
-  at 0x608660c57090: data    6 next: 0x608660c56c70
-  at 0x608660c56c70: data    7 next: 0x608660c57330
-  at 0x608660c57330: data    8 next: 0
+  at 0x568635ea89c0: data    1 next: 0x568635ea8640
+  at 0x568635ea8640: data    2 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    4 next: 0x568635ea7780
+  at 0x568635ea7780: data    5 next: 0x568635ea8090
+  at 0x568635ea8090: data    6 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    7 next: 0x568635ea8330
+  at 0x568635ea8330: data    8 next: 0
 
 Test adding stressing inputs
  expecting: {  1 2 3 4 5 6 7 8 } against received: {  1 2 3 4 5 6 7 8 }
@@ -107,20 +107,20 @@ Test adding stressing inputs
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2e40 and contained 0 objects 
- list was at address 0x7fff13ef2e40 m_head points to 0
+set was at 0x7ffc324cd440 and contained 0 objects 
+ list was at address 0x7ffc324cd440 m_head points to 0
 
 after_set:  
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c579c0
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea89c0
 list contains 8 elements:
-  at 0x608660c579c0: data    1 next: 0x608660c57640
-  at 0x608660c57640: data    2 next: 0x608660c56ac0
-  at 0x608660c56ac0: data    3 next: 0x608660c56e50
-  at 0x608660c56e50: data    4 next: 0x608660c56780
-  at 0x608660c56780: data    5 next: 0x608660c57090
-  at 0x608660c57090: data    6 next: 0x608660c56c70
-  at 0x608660c56c70: data    7 next: 0x608660c57330
-  at 0x608660c57330: data    8 next: 0
+  at 0x568635ea89c0: data    1 next: 0x568635ea8640
+  at 0x568635ea8640: data    2 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    4 next: 0x568635ea7780
+  at 0x568635ea7780: data    5 next: 0x568635ea8090
+  at 0x568635ea8090: data    6 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    7 next: 0x568635ea8330
+  at 0x568635ea8330: data    8 next: 0
 
  returns true b/c before_set was empty
 
@@ -152,19 +152,19 @@ Passed 3 of 3 tests
 
 ***************************** Test Name  ******************************
 
-buildSet @0x7fff13ef2e40
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c57330
+buildSet @0x7ffc324cd440
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea8330
 list contains 8 elements:
-  at 0x608660c57330: data    1 next: 0x608660c579c0
-  at 0x608660c579c0: data    2 next: 0x608660c56780
-  at 0x608660c56780: data    3 next: 0x608660c56c70
-  at 0x608660c56c70: data    4 next: 0x608660c56e50
-  at 0x608660c56e50: data    5 next: 0x608660c56ac0
-  at 0x608660c56ac0: data    6 next: 0x608660c57090
-  at 0x608660c57090: data    7 next: 0x608660c57640
-  at 0x608660c57640: data    8 next: 0
-passed after set.clear()set is @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0
+  at 0x568635ea8330: data    1 next: 0x568635ea89c0
+  at 0x568635ea89c0: data    2 next: 0x568635ea7780
+  at 0x568635ea7780: data    3 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    4 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    5 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    6 next: 0x568635ea8090
+  at 0x568635ea8090: data    7 next: 0x568635ea8640
+  at 0x568635ea8640: data    8 next: 0
+passed after set.clear()set is @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -178,20 +178,20 @@ Passed 4 of 4 tests
 
 ***************************** Test Name  ******************************
 
-buildSet @0x7fff13ef2e40
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c57640
+buildSet @0x7ffc324cd440
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea8640
 list contains 8 elements:
-  at 0x608660c57640: data    1 next: 0x608660c57330
-  at 0x608660c57330: data    2 next: 0x608660c56ac0
-  at 0x608660c56ac0: data    3 next: 0x608660c56c70
-  at 0x608660c56c70: data    4 next: 0x608660c57090
-  at 0x608660c57090: data    5 next: 0x608660c56780
-  at 0x608660c56780: data    6 next: 0x608660c56e50
-  at 0x608660c56e50: data    7 next: 0x608660c579c0
-  at 0x608660c579c0: data    8 next: 0
+  at 0x568635ea8640: data    1 next: 0x568635ea8330
+  at 0x568635ea8330: data    2 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    4 next: 0x568635ea8090
+  at 0x568635ea8090: data    5 next: 0x568635ea7780
+  at 0x568635ea7780: data    6 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    7 next: 0x568635ea89c0
+  at 0x568635ea89c0: data    8 next: 0
 passed after set.reset(),
-set  @0x7fff13ef2e40: 
-set contains a list at 0x7fff13ef2e40: m_head points to 0
+set  @0x7ffc324cd440: 
+set contains a list at 0x7ffc324cd440: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -207,55 +207,55 @@ Passed 5 of 5 tests
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2e40 and contained 8 objects 
- list was at address 0x7fff13ef2e40 m_head points to 0x608660c579c0
-  at 0x608660c579c0: data    1 next: 0x608660c57640
-  at 0x608660c57640: data    2 next: 0x608660c56780
-  at 0x608660c56780: data    3 next: 0x608660c56c70
-  at 0x608660c56c70: data    4 next: 0x608660c56e50
-  at 0x608660c56e50: data    5 next: 0x608660c56ac0
-  at 0x608660c56ac0: data    6 next: 0x608660c57090
-  at 0x608660c57090: data    7 next: 0x608660c57330
-  at 0x608660c57330: data    8 next: 0
+set was at 0x7ffc324cd440 and contained 8 objects 
+ list was at address 0x7ffc324cd440 m_head points to 0x568635ea89c0
+  at 0x568635ea89c0: data    1 next: 0x568635ea8640
+  at 0x568635ea8640: data    2 next: 0x568635ea7780
+  at 0x568635ea7780: data    3 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    4 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    5 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    6 next: 0x568635ea8090
+  at 0x568635ea8090: data    7 next: 0x568635ea8330
+  at 0x568635ea8330: data    8 next: 0
 
-after_set:  @0x7fff13ef2e50
-set contains a list at 0x7fff13ef2e50: m_head points to 0x608660c57f30
+after_set:  @0x7ffc324cd450
+set contains a list at 0x7ffc324cd450: m_head points to 0x568635ea8f30
 list contains 8 elements:
-  at 0x608660c57f30: data    1 next: 0x608660c57f50
-  at 0x608660c57f50: data    2 next: 0x608660c57f70
-  at 0x608660c57f70: data    3 next: 0x608660c57f90
-  at 0x608660c57f90: data    4 next: 0x608660c57fb0
-  at 0x608660c57fb0: data    5 next: 0x608660c57fd0
-  at 0x608660c57fd0: data    6 next: 0x608660c57ff0
-  at 0x608660c57ff0: data    7 next: 0x608660c58010
-  at 0x608660c58010: data    8 next: 0
+  at 0x568635ea8f30: data    1 next: 0x568635ea8f50
+  at 0x568635ea8f50: data    2 next: 0x568635ea8f70
+  at 0x568635ea8f70: data    3 next: 0x568635ea8f90
+  at 0x568635ea8f90: data    4 next: 0x568635ea8fb0
+  at 0x568635ea8fb0: data    5 next: 0x568635ea8fd0
+  at 0x568635ea8fd0: data    6 next: 0x568635ea8ff0
+  at 0x568635ea8ff0: data    7 next: 0x568635ea9010
+  at 0x568635ea9010: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 passed : 
-set      @0x7fff13ef2e40 :
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c579c0
+set      @0x7ffc324cd440 :
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea89c0
 list contains 8 elements:
-  at 0x608660c579c0: data    1 next: 0x608660c57640
-  at 0x608660c57640: data    2 next: 0x608660c56780
-  at 0x608660c56780: data    3 next: 0x608660c56c70
-  at 0x608660c56c70: data    4 next: 0x608660c56e50
-  at 0x608660c56e50: data    5 next: 0x608660c56ac0
-  at 0x608660c56ac0: data    6 next: 0x608660c57090
-  at 0x608660c57090: data    7 next: 0x608660c57330
-  at 0x608660c57330: data    8 next: 0
+  at 0x568635ea89c0: data    1 next: 0x568635ea8640
+  at 0x568635ea8640: data    2 next: 0x568635ea7780
+  at 0x568635ea7780: data    3 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    4 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    5 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    6 next: 0x568635ea8090
+  at 0x568635ea8090: data    7 next: 0x568635ea8330
+  at 0x568635ea8330: data    8 next: 0
 
-copy_set @0x7fff13ef2e50 :
-set contains a list at 0x7fff13ef2e50: m_head points to 0x608660c57f30
+copy_set @0x7ffc324cd450 :
+set contains a list at 0x7ffc324cd450: m_head points to 0x568635ea8f30
 list contains 8 elements:
-  at 0x608660c57f30: data    1 next: 0x608660c57f50
-  at 0x608660c57f50: data    2 next: 0x608660c57f70
-  at 0x608660c57f70: data    3 next: 0x608660c57f90
-  at 0x608660c57f90: data    4 next: 0x608660c57fb0
-  at 0x608660c57fb0: data    5 next: 0x608660c57fd0
-  at 0x608660c57fd0: data    6 next: 0x608660c57ff0
-  at 0x608660c57ff0: data    7 next: 0x608660c58010
-  at 0x608660c58010: data    8 next: 0
+  at 0x568635ea8f30: data    1 next: 0x568635ea8f50
+  at 0x568635ea8f50: data    2 next: 0x568635ea8f70
+  at 0x568635ea8f70: data    3 next: 0x568635ea8f90
+  at 0x568635ea8f90: data    4 next: 0x568635ea8fb0
+  at 0x568635ea8fb0: data    5 next: 0x568635ea8fd0
+  at 0x568635ea8fd0: data    6 next: 0x568635ea8ff0
+  at 0x568635ea8ff0: data    7 next: 0x568635ea9010
+  at 0x568635ea9010: data    8 next: 0
 
 
 Passed 6 of 6 tests
@@ -269,58 +269,168 @@ Passed 6 of 6 tests
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2e40 and contained 8 objects 
- list was at address 0x7fff13ef2e40 m_head points to 0x608660c57330
-  at 0x608660c57330: data    1 next: 0x608660c57e30
-  at 0x608660c57e30: data    2 next: 0x608660c57ed0
-  at 0x608660c57ed0: data    3 next: 0x608660c57e90
-  at 0x608660c57e90: data    4 next: 0x608660c57ef0
-  at 0x608660c57ef0: data    5 next: 0x608660c57e70
-  at 0x608660c57e70: data    6 next: 0x608660c57eb0
-  at 0x608660c57eb0: data    7 next: 0x608660c57e50
-  at 0x608660c57e50: data    8 next: 0
+set was at 0x7ffc324cd440 and contained 8 objects 
+ list was at address 0x7ffc324cd440 m_head points to 0x568635ea8330
+  at 0x568635ea8330: data    1 next: 0x568635ea8e30
+  at 0x568635ea8e30: data    2 next: 0x568635ea8ed0
+  at 0x568635ea8ed0: data    3 next: 0x568635ea8e90
+  at 0x568635ea8e90: data    4 next: 0x568635ea8ef0
+  at 0x568635ea8ef0: data    5 next: 0x568635ea8e70
+  at 0x568635ea8e70: data    6 next: 0x568635ea8eb0
+  at 0x568635ea8eb0: data    7 next: 0x568635ea8e50
+  at 0x568635ea8e50: data    8 next: 0
 
-after_set:  @0x7fff13ef2e60
-set contains a list at 0x7fff13ef2e60: m_head points to 0x608660c58030
+after_set:  @0x7ffc324cd460
+set contains a list at 0x7ffc324cd460: m_head points to 0x568635ea9030
 list contains 8 elements:
-  at 0x608660c58030: data    1 next: 0x608660c58050
-  at 0x608660c58050: data    2 next: 0x608660c58070
-  at 0x608660c58070: data    3 next: 0x608660c58090
-  at 0x608660c58090: data    4 next: 0x608660c580b0
-  at 0x608660c580b0: data    5 next: 0x608660c580d0
-  at 0x608660c580d0: data    6 next: 0x608660c580f0
-  at 0x608660c580f0: data    7 next: 0x608660c58110
-  at 0x608660c58110: data    8 next: 0
+  at 0x568635ea9030: data    1 next: 0x568635ea9050
+  at 0x568635ea9050: data    2 next: 0x568635ea9070
+  at 0x568635ea9070: data    3 next: 0x568635ea9090
+  at 0x568635ea9090: data    4 next: 0x568635ea90b0
+  at 0x568635ea90b0: data    5 next: 0x568635ea90d0
+  at 0x568635ea90d0: data    6 next: 0x568635ea90f0
+  at 0x568635ea90f0: data    7 next: 0x568635ea9110
+  at 0x568635ea9110: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
-set          @0x7fff13ef2e40 :
-set contains a list at 0x7fff13ef2e40: m_head points to 0x608660c57330
+set               @0x7ffc324cd440 :
+set contains a list at 0x7ffc324cd440: m_head points to 0x568635ea8330
 list contains 8 elements:
-  at 0x608660c57330: data    1 next: 0x608660c57e30
-  at 0x608660c57e30: data    2 next: 0x608660c57ed0
-  at 0x608660c57ed0: data    3 next: 0x608660c57e90
-  at 0x608660c57e90: data    4 next: 0x608660c57ef0
-  at 0x608660c57ef0: data    5 next: 0x608660c57e70
-  at 0x608660c57e70: data    6 next: 0x608660c57eb0
-  at 0x608660c57eb0: data    7 next: 0x608660c57e50
-  at 0x608660c57e50: data    8 next: 0
+  at 0x568635ea8330: data    1 next: 0x568635ea8e30
+  at 0x568635ea8e30: data    2 next: 0x568635ea8ed0
+  at 0x568635ea8ed0: data    3 next: 0x568635ea8e90
+  at 0x568635ea8e90: data    4 next: 0x568635ea8ef0
+  at 0x568635ea8ef0: data    5 next: 0x568635ea8e70
+  at 0x568635ea8e70: data    6 next: 0x568635ea8eb0
+  at 0x568635ea8eb0: data    7 next: 0x568635ea8e50
+  at 0x568635ea8e50: data    8 next: 0
 
-assigned_set @0x7fff13ef2e60 :
-set contains a list at 0x7fff13ef2e50: m_head points to 0x608660c57f30
+copy assigned_set @0x7ffc324cd460 :
+set contains a list at 0x7ffc324cd450: m_head points to 0x568635ea8f30
 list contains 8 elements:
-  at 0x608660c57f30: data    1 next: 0x608660c57f50
-  at 0x608660c57f50: data    2 next: 0x608660c57f70
-  at 0x608660c57f70: data    3 next: 0x608660c57f90
-  at 0x608660c57f90: data    4 next: 0x608660c57fb0
-  at 0x608660c57fb0: data    5 next: 0x608660c57fd0
-  at 0x608660c57fd0: data    6 next: 0x608660c57ff0
-  at 0x608660c57ff0: data    7 next: 0x608660c58010
-  at 0x608660c58010: data    8 next: 0
+  at 0x568635ea8f30: data    1 next: 0x568635ea8f50
+  at 0x568635ea8f50: data    2 next: 0x568635ea8f70
+  at 0x568635ea8f70: data    3 next: 0x568635ea8f90
+  at 0x568635ea8f90: data    4 next: 0x568635ea8fb0
+  at 0x568635ea8fb0: data    5 next: 0x568635ea8fd0
+  at 0x568635ea8fd0: data    6 next: 0x568635ea8ff0
+  at 0x568635ea8ff0: data    7 next: 0x568635ea9010
+  at 0x568635ea9010: data    8 next: 0
 
 passed 
 
 Passed 7 of 7 tests
+
+
+***************************** Test Name  ******************************
+
+*                          move constructor                           *
+
+***************************** Test Name  ******************************
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc324cd440 and contained 8 objects 
+ list was at address 0x7ffc324cd440 m_head points to 0x568635ea8e50
+  at 0x568635ea8e50: data    1 next: 0x568635ea89c0
+  at 0x568635ea89c0: data    2 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    4 next: 0x568635ea8090
+  at 0x568635ea8090: data    5 next: 0x568635ea7780
+  at 0x568635ea7780: data    6 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    7 next: 0x568635ea8640
+  at 0x568635ea8640: data    8 next: 0
+
+after_set:  
+set contains a list at 0x7ffc324cd470: m_head points to 0x568635ea8e50
+list contains 8 elements:
+  at 0x568635ea8e50: data    1 next: 0x568635ea89c0
+  at 0x568635ea89c0: data    2 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    4 next: 0x568635ea8090
+  at 0x568635ea8090: data    5 next: 0x568635ea7780
+  at 0x568635ea7780: data    6 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    7 next: 0x568635ea8640
+  at 0x568635ea8640: data    8 next: 0
+
+ returns true 
+
+passed : 
+set      @0x7ffc324cd440 :
+set contains a list at 0x7ffc324cd440: m_head points to 0
+list contains 0 elements:
+  empty list
+
+move_set @0x7ffc324cd470 :
+set contains a list at 0x7ffc324cd470: m_head points to 0x568635ea8e50
+list contains 8 elements:
+  at 0x568635ea8e50: data    1 next: 0x568635ea89c0
+  at 0x568635ea89c0: data    2 next: 0x568635ea7ac0
+  at 0x568635ea7ac0: data    3 next: 0x568635ea7c70
+  at 0x568635ea7c70: data    4 next: 0x568635ea8090
+  at 0x568635ea8090: data    5 next: 0x568635ea7780
+  at 0x568635ea7780: data    6 next: 0x568635ea7e50
+  at 0x568635ea7e50: data    7 next: 0x568635ea8640
+  at 0x568635ea8640: data    8 next: 0
+
+
+Passed 8 of 8 tests
+
+
+***************************** Test Name  ******************************
+
+*                    operator=(move(MyOrderedSet))                    *
+
+***************************** Test Name  ******************************
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc324cd440 and contained 8 objects 
+ list was at address 0x7ffc324cd440 m_head points to 0x568635ea8f10
+  at 0x568635ea8f10: data    1 next: 0x568635ea8330
+  at 0x568635ea8330: data    2 next: 0x568635ea8e70
+  at 0x568635ea8e70: data    3 next: 0x568635ea8e90
+  at 0x568635ea8e90: data    4 next: 0x568635ea8eb0
+  at 0x568635ea8eb0: data    5 next: 0x568635ea8ed0
+  at 0x568635ea8ed0: data    6 next: 0x568635ea8ef0
+  at 0x568635ea8ef0: data    7 next: 0x568635ea8e30
+  at 0x568635ea8e30: data    8 next: 0
+
+after_set:  
+set contains a list at 0x7ffc324cd480: m_head points to 0x568635ea8f10
+list contains 8 elements:
+  at 0x568635ea8f10: data    1 next: 0x568635ea8330
+  at 0x568635ea8330: data    2 next: 0x568635ea8e70
+  at 0x568635ea8e70: data    3 next: 0x568635ea8e90
+  at 0x568635ea8e90: data    4 next: 0x568635ea8eb0
+  at 0x568635ea8eb0: data    5 next: 0x568635ea8ed0
+  at 0x568635ea8ed0: data    6 next: 0x568635ea8ef0
+  at 0x568635ea8ef0: data    7 next: 0x568635ea8e30
+  at 0x568635ea8e30: data    8 next: 0
+
+ returns true 
+
+set               @0x7ffc324cd440 :
+set contains a list at 0x7ffc324cd440: m_head points to 0
+list contains 0 elements:
+  empty list
+
+move_assigned_set @0x7ffc324cd480 :
+set contains a list at 0x7ffc324cd480: m_head points to 0x568635ea8f10
+list contains 8 elements:
+  at 0x568635ea8f10: data    1 next: 0x568635ea8330
+  at 0x568635ea8330: data    2 next: 0x568635ea8e70
+  at 0x568635ea8e70: data    3 next: 0x568635ea8e90
+  at 0x568635ea8e90: data    4 next: 0x568635ea8eb0
+  at 0x568635ea8eb0: data    5 next: 0x568635ea8ed0
+  at 0x568635ea8ed0: data    6 next: 0x568635ea8ef0
+  at 0x568635ea8ef0: data    7 next: 0x568635ea8e30
+  at 0x568635ea8e30: data    8 next: 0
+
+passed 
+
+Passed 9 of 9 tests
 
 
 ***************************** Test Name  ******************************
@@ -330,70 +440,70 @@ Passed 7 of 7 tests
 ***************************** Test Name  ******************************
 
 Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = int] operator +
-buildSet @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0
+buildSet @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0
 list contains 0 elements:
   empty list
-set + 5 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c57090
+set + 5 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea91f0
 list contains 1 elements:
-  at 0x608660c57090: data    5 next: 0
-set + 3 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c56780
+  at 0x568635ea91f0: data    5 next: 0
+set + 3 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9170
 list contains 2 elements:
-  at 0x608660c56780: data    3 next: 0x608660c56c70
-  at 0x608660c56c70: data    5 next: 0
-set + 7 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c57e50
+  at 0x568635ea9170: data    3 next: 0x568635ea9190
+  at 0x568635ea9190: data    5 next: 0
+set + 7 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9210
 list contains 3 elements:
-  at 0x608660c57e50: data    3 next: 0x608660c57330
-  at 0x608660c57330: data    5 next: 0x608660c57e30
-  at 0x608660c57e30: data    7 next: 0
-set + 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c57ef0
+  at 0x568635ea9210: data    3 next: 0x568635ea92c0
+  at 0x568635ea92c0: data    5 next: 0x568635ea92e0
+  at 0x568635ea92e0: data    7 next: 0
+set + 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9340
 list contains 4 elements:
-  at 0x608660c57ef0: data    3 next: 0x608660c57f10
-  at 0x608660c57f10: data    4 next: 0x608660c57e70
-  at 0x608660c57e70: data    5 next: 0x608660c57eb0
-  at 0x608660c57eb0: data    7 next: 0
-set + 6 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58210
+  at 0x568635ea9340: data    3 next: 0x568635ea93a0
+  at 0x568635ea93a0: data    4 next: 0x568635ea9360
+  at 0x568635ea9360: data    5 next: 0x568635ea9380
+  at 0x568635ea9380: data    7 next: 0
+set + 6 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9410
 list contains 5 elements:
-  at 0x608660c58210: data    3 next: 0x608660c58230
-  at 0x608660c58230: data    4 next: 0x608660c58250
-  at 0x608660c58250: data    5 next: 0x608660c58290
-  at 0x608660c58290: data    6 next: 0x608660c58270
-  at 0x608660c58270: data    7 next: 0
-set + 8 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58330
+  at 0x568635ea9410: data    3 next: 0x568635ea9430
+  at 0x568635ea9430: data    4 next: 0x568635ea9450
+  at 0x568635ea9450: data    5 next: 0x568635ea9490
+  at 0x568635ea9490: data    6 next: 0x568635ea9470
+  at 0x568635ea9470: data    7 next: 0
+set + 8 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9530
 list contains 6 elements:
-  at 0x608660c58330: data    3 next: 0x608660c58350
-  at 0x608660c58350: data    4 next: 0x608660c58370
-  at 0x608660c58370: data    5 next: 0x608660c58390
-  at 0x608660c58390: data    6 next: 0x608660c583b0
-  at 0x608660c583b0: data    7 next: 0x608660c583d0
-  at 0x608660c583d0: data    8 next: 0
-set + 2 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58500
+  at 0x568635ea9530: data    3 next: 0x568635ea9550
+  at 0x568635ea9550: data    4 next: 0x568635ea9570
+  at 0x568635ea9570: data    5 next: 0x568635ea9590
+  at 0x568635ea9590: data    6 next: 0x568635ea95b0
+  at 0x568635ea95b0: data    7 next: 0x568635ea95d0
+  at 0x568635ea95d0: data    8 next: 0
+set + 2 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9700
 list contains 7 elements:
-  at 0x608660c58500: data    2 next: 0x608660c58440
-  at 0x608660c58440: data    3 next: 0x608660c58460
-  at 0x608660c58460: data    4 next: 0x608660c58480
-  at 0x608660c58480: data    5 next: 0x608660c584a0
-  at 0x608660c584a0: data    6 next: 0x608660c584c0
-  at 0x608660c584c0: data    7 next: 0x608660c584e0
-  at 0x608660c584e0: data    8 next: 0
-set + 1 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58690
+  at 0x568635ea9700: data    2 next: 0x568635ea9640
+  at 0x568635ea9640: data    3 next: 0x568635ea9660
+  at 0x568635ea9660: data    4 next: 0x568635ea9680
+  at 0x568635ea9680: data    5 next: 0x568635ea96a0
+  at 0x568635ea96a0: data    6 next: 0x568635ea96c0
+  at 0x568635ea96c0: data    7 next: 0x568635ea96e0
+  at 0x568635ea96e0: data    8 next: 0
+set + 1 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9890
 list contains 8 elements:
-  at 0x608660c58690: data    1 next: 0x608660c585b0
-  at 0x608660c585b0: data    2 next: 0x608660c585d0
-  at 0x608660c585d0: data    3 next: 0x608660c585f0
-  at 0x608660c585f0: data    4 next: 0x608660c58610
-  at 0x608660c58610: data    5 next: 0x608660c58630
-  at 0x608660c58630: data    6 next: 0x608660c58650
-  at 0x608660c58650: data    7 next: 0x608660c58670
-  at 0x608660c58670: data    8 next: 0
+  at 0x568635ea9890: data    1 next: 0x568635ea97b0
+  at 0x568635ea97b0: data    2 next: 0x568635ea97d0
+  at 0x568635ea97d0: data    3 next: 0x568635ea97f0
+  at 0x568635ea97f0: data    4 next: 0x568635ea9810
+  at 0x568635ea9810: data    5 next: 0x568635ea9830
+  at 0x568635ea9830: data    6 next: 0x568635ea9850
+  at 0x568635ea9850: data    7 next: 0x568635ea9870
+  at 0x568635ea9870: data    8 next: 0
  expecting: {  1 2 3 4 5 6 7 8 } against received: {  1 2 3 4 5 6 7 8 }
   0       expected 1 == 1
   1       expected 2 == 2
@@ -407,27 +517,27 @@ list contains 8 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2ca0 and contained 7 objects 
- list was at address 0x7fff13ef2ca0 m_head points to 0x608660c58500
-  at 0x608660c58500: data    2 next: 0x608660c58440
-  at 0x608660c58440: data    3 next: 0x608660c58460
-  at 0x608660c58460: data    4 next: 0x608660c58480
-  at 0x608660c58480: data    5 next: 0x608660c584a0
-  at 0x608660c584a0: data    6 next: 0x608660c584c0
-  at 0x608660c584c0: data    7 next: 0x608660c584e0
-  at 0x608660c584e0: data    8 next: 0
+set was at 0x7ffc324cd2a0 and contained 7 objects 
+ list was at address 0x7ffc324cd2a0 m_head points to 0x568635ea9700
+  at 0x568635ea9700: data    2 next: 0x568635ea9640
+  at 0x568635ea9640: data    3 next: 0x568635ea9660
+  at 0x568635ea9660: data    4 next: 0x568635ea9680
+  at 0x568635ea9680: data    5 next: 0x568635ea96a0
+  at 0x568635ea96a0: data    6 next: 0x568635ea96c0
+  at 0x568635ea96c0: data    7 next: 0x568635ea96e0
+  at 0x568635ea96e0: data    8 next: 0
 
-after_set:  @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58690
+after_set:  @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9890
 list contains 8 elements:
-  at 0x608660c58690: data    1 next: 0x608660c585b0
-  at 0x608660c585b0: data    2 next: 0x608660c585d0
-  at 0x608660c585d0: data    3 next: 0x608660c585f0
-  at 0x608660c585f0: data    4 next: 0x608660c58610
-  at 0x608660c58610: data    5 next: 0x608660c58630
-  at 0x608660c58630: data    6 next: 0x608660c58650
-  at 0x608660c58650: data    7 next: 0x608660c58670
-  at 0x608660c58670: data    8 next: 0
+  at 0x568635ea9890: data    1 next: 0x568635ea97b0
+  at 0x568635ea97b0: data    2 next: 0x568635ea97d0
+  at 0x568635ea97d0: data    3 next: 0x568635ea97f0
+  at 0x568635ea97f0: data    4 next: 0x568635ea9810
+  at 0x568635ea9810: data    5 next: 0x568635ea9830
+  at 0x568635ea9830: data    6 next: 0x568635ea9850
+  at 0x568635ea9850: data    7 next: 0x568635ea9870
+  at 0x568635ea9870: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
@@ -440,60 +550,60 @@ passed   operation +
 ***************************** Test Name  ******************************
 
 Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = int] operator +
-buildSet @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0
+buildSet @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0
 list contains 0 elements:
   empty list
-set + 1 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c584e0
+set + 1 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea96e0
 list contains 1 elements:
-  at 0x608660c584e0: data    1 next: 0
-set + 2 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58480
+  at 0x568635ea96e0: data    1 next: 0
+set + 2 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9680
 list contains 2 elements:
-  at 0x608660c58480: data    1 next: 0x608660c58460
-  at 0x608660c58460: data    2 next: 0
-set + 3 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58670
+  at 0x568635ea9680: data    1 next: 0x568635ea9660
+  at 0x568635ea9660: data    2 next: 0
+set + 3 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9870
 list contains 3 elements:
-  at 0x608660c58670: data    1 next: 0x608660c58690
-  at 0x608660c58690: data    2 next: 0x608660c585b0
-  at 0x608660c585b0: data    3 next: 0
-set + 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58610
+  at 0x568635ea9870: data    1 next: 0x568635ea9890
+  at 0x568635ea9890: data    2 next: 0x568635ea97b0
+  at 0x568635ea97b0: data    3 next: 0
+set + 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9810
 list contains 4 elements:
-  at 0x608660c58610: data    1 next: 0x608660c58630
-  at 0x608660c58630: data    2 next: 0x608660c58650
-  at 0x608660c58650: data    3 next: 0x608660c587b0
-  at 0x608660c587b0: data    4 next: 0
-set + 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58850
+  at 0x568635ea9810: data    1 next: 0x568635ea9830
+  at 0x568635ea9830: data    2 next: 0x568635ea9850
+  at 0x568635ea9850: data    3 next: 0x568635ea99b0
+  at 0x568635ea99b0: data    4 next: 0
+set + 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9a50
 list contains 4 elements:
-  at 0x608660c58850: data    1 next: 0x608660c58870
-  at 0x608660c58870: data    2 next: 0x608660c58890
-  at 0x608660c58890: data    3 next: 0x608660c588b0
-  at 0x608660c588b0: data    4 next: 0
-set + 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58930
+  at 0x568635ea9a50: data    1 next: 0x568635ea9a70
+  at 0x568635ea9a70: data    2 next: 0x568635ea9a90
+  at 0x568635ea9a90: data    3 next: 0x568635ea9ab0
+  at 0x568635ea9ab0: data    4 next: 0
+set + 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9b30
 list contains 4 elements:
-  at 0x608660c58930: data    1 next: 0x608660c58950
-  at 0x608660c58950: data    2 next: 0x608660c58970
-  at 0x608660c58970: data    3 next: 0x608660c58990
-  at 0x608660c58990: data    4 next: 0
-set + 3 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58a10
+  at 0x568635ea9b30: data    1 next: 0x568635ea9b50
+  at 0x568635ea9b50: data    2 next: 0x568635ea9b70
+  at 0x568635ea9b70: data    3 next: 0x568635ea9b90
+  at 0x568635ea9b90: data    4 next: 0
+set + 3 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9c10
 list contains 4 elements:
-  at 0x608660c58a10: data    1 next: 0x608660c58a30
-  at 0x608660c58a30: data    2 next: 0x608660c58a50
-  at 0x608660c58a50: data    3 next: 0x608660c58a70
-  at 0x608660c58a70: data    4 next: 0
-set + 1 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58af0
+  at 0x568635ea9c10: data    1 next: 0x568635ea9c30
+  at 0x568635ea9c30: data    2 next: 0x568635ea9c50
+  at 0x568635ea9c50: data    3 next: 0x568635ea9c70
+  at 0x568635ea9c70: data    4 next: 0
+set + 1 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9cf0
 list contains 4 elements:
-  at 0x608660c58af0: data    1 next: 0x608660c58b10
-  at 0x608660c58b10: data    2 next: 0x608660c58b30
-  at 0x608660c58b30: data    3 next: 0x608660c58b50
-  at 0x608660c58b50: data    4 next: 0
+  at 0x568635ea9cf0: data    1 next: 0x568635ea9d10
+  at 0x568635ea9d10: data    2 next: 0x568635ea9d30
+  at 0x568635ea9d30: data    3 next: 0x568635ea9d50
+  at 0x568635ea9d50: data    4 next: 0
  expecting: {  1 2 3 4 } against received: {  1 2 3 4 }
   0       expected 1 == 1
   1       expected 2 == 2
@@ -503,26 +613,26 @@ list contains 4 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2ca0 and contained 4 objects 
- list was at address 0x7fff13ef2ca0 m_head points to 0x608660c58a10
-  at 0x608660c58a10: data    1 next: 0x608660c58a30
-  at 0x608660c58a30: data    2 next: 0x608660c58a50
-  at 0x608660c58a50: data    3 next: 0x608660c58a70
-  at 0x608660c58a70: data    4 next: 0
+set was at 0x7ffc324cd2a0 and contained 4 objects 
+ list was at address 0x7ffc324cd2a0 m_head points to 0x568635ea9c10
+  at 0x568635ea9c10: data    1 next: 0x568635ea9c30
+  at 0x568635ea9c30: data    2 next: 0x568635ea9c50
+  at 0x568635ea9c50: data    3 next: 0x568635ea9c70
+  at 0x568635ea9c70: data    4 next: 0
 
-after_set:  @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58af0
+after_set:  @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9cf0
 list contains 4 elements:
-  at 0x608660c58af0: data    1 next: 0x608660c58b10
-  at 0x608660c58b10: data    2 next: 0x608660c58b30
-  at 0x608660c58b30: data    3 next: 0x608660c58b50
-  at 0x608660c58b50: data    4 next: 0
+  at 0x568635ea9cf0: data    1 next: 0x568635ea9d10
+  at 0x568635ea9d10: data    2 next: 0x568635ea9d30
+  at 0x568635ea9d30: data    3 next: 0x568635ea9d50
+  at 0x568635ea9d50: data    4 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 passed   operation +
 
-Passed 9 of 9 tests
+Passed 11 of 11 tests
 
 
 ***************************** Test Name  ******************************
@@ -532,57 +642,57 @@ Passed 9 of 9 tests
 ***************************** Test Name  ******************************
 
 Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = int] operator -
-buildSet @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58b30
+buildSet @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9d30
 list contains 7 elements:
-  at 0x608660c58b30: data    1 next: 0x608660c58b10
-  at 0x608660c58b10: data    2 next: 0x608660c58af0
-  at 0x608660c58af0: data    3 next: 0x608660c58a70
-  at 0x608660c58a70: data    4 next: 0x608660c58a50
-  at 0x608660c58a50: data    5 next: 0x608660c58a30
-  at 0x608660c58a30: data    6 next: 0x608660c58a10
-  at 0x608660c58a10: data    8 next: 0
-set - 1 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58c80
+  at 0x568635ea9d30: data    1 next: 0x568635ea9d10
+  at 0x568635ea9d10: data    2 next: 0x568635ea9cf0
+  at 0x568635ea9cf0: data    3 next: 0x568635ea9c70
+  at 0x568635ea9c70: data    4 next: 0x568635ea9c50
+  at 0x568635ea9c50: data    5 next: 0x568635ea9c30
+  at 0x568635ea9c30: data    6 next: 0x568635ea9c10
+  at 0x568635ea9c10: data    8 next: 0
+set - 1 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9e80
 list contains 6 elements:
-  at 0x608660c58c80: data    2 next: 0x608660c58ca0
-  at 0x608660c58ca0: data    3 next: 0x608660c58cc0
-  at 0x608660c58cc0: data    4 next: 0x608660c58ce0
-  at 0x608660c58ce0: data    5 next: 0x608660c58d00
-  at 0x608660c58d00: data    6 next: 0x608660c58d20
-  at 0x608660c58d20: data    8 next: 0
-set - 2 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58a10
+  at 0x568635ea9e80: data    2 next: 0x568635ea9ea0
+  at 0x568635ea9ea0: data    3 next: 0x568635ea9ec0
+  at 0x568635ea9ec0: data    4 next: 0x568635ea9ee0
+  at 0x568635ea9ee0: data    5 next: 0x568635ea9f00
+  at 0x568635ea9f00: data    6 next: 0x568635ea9f20
+  at 0x568635ea9f20: data    8 next: 0
+set - 2 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9c10
 list contains 5 elements:
-  at 0x608660c58a10: data    3 next: 0x608660c58db0
-  at 0x608660c58db0: data    4 next: 0x608660c58dd0
-  at 0x608660c58dd0: data    5 next: 0x608660c58df0
-  at 0x608660c58df0: data    6 next: 0x608660c58e10
-  at 0x608660c58e10: data    8 next: 0
-set - 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58c80
+  at 0x568635ea9c10: data    3 next: 0x568635ea9fb0
+  at 0x568635ea9fb0: data    4 next: 0x568635ea9fd0
+  at 0x568635ea9fd0: data    5 next: 0x568635ea9ff0
+  at 0x568635ea9ff0: data    6 next: 0x568635eaa010
+  at 0x568635eaa010: data    8 next: 0
+set - 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9e80
 list contains 4 elements:
-  at 0x608660c58c80: data    3 next: 0x608660c58ed0
-  at 0x608660c58ed0: data    5 next: 0x608660c58ef0
-  at 0x608660c58ef0: data    6 next: 0x608660c58f10
-  at 0x608660c58f10: data    8 next: 0
-set - 5 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58a10
+  at 0x568635ea9e80: data    3 next: 0x568635eaa0d0
+  at 0x568635eaa0d0: data    5 next: 0x568635eaa0f0
+  at 0x568635eaa0f0: data    6 next: 0x568635eaa110
+  at 0x568635eaa110: data    8 next: 0
+set - 5 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9c10
 list contains 3 elements:
-  at 0x608660c58a10: data    3 next: 0x608660c58f90
-  at 0x608660c58f90: data    6 next: 0x608660c58fb0
-  at 0x608660c58fb0: data    8 next: 0
-set - 7 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c58c60
+  at 0x568635ea9c10: data    3 next: 0x568635eaa190
+  at 0x568635eaa190: data    6 next: 0x568635eaa1b0
+  at 0x568635eaa1b0: data    8 next: 0
+set - 7 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635ea9e60
 list contains 3 elements:
-  at 0x608660c58c60: data    3 next: 0x608660c59000
-  at 0x608660c59000: data    6 next: 0x608660c59020
-  at 0x608660c59020: data    8 next: 0
-set - 8 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59090
+  at 0x568635ea9e60: data    3 next: 0x568635eaa200
+  at 0x568635eaa200: data    6 next: 0x568635eaa220
+  at 0x568635eaa220: data    8 next: 0
+set - 8 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa290
 list contains 2 elements:
-  at 0x608660c59090: data    3 next: 0x608660c590b0
-  at 0x608660c590b0: data    6 next: 0
+  at 0x568635eaa290: data    3 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    6 next: 0
  expecting: {  3 6 } against received: {  3 6 }
   0       expected 3 == 3
   1       expected 6 == 6
@@ -590,7 +700,7 @@ list contains 2 elements:
 
 passed   operation -
 
-Passed 10 of 10 tests
+Passed 12 of 12 tests
 
 
 ***************************** Test Name  ******************************
@@ -600,70 +710,70 @@ Passed 10 of 10 tests
 ***************************** Test Name  ******************************
 
 Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = int] operator +=
-buildSet @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0
+buildSet @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0
 list contains 0 elements:
   empty list
-set += 5 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c590b0
+set += 5 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa2b0
 list contains 1 elements:
-  at 0x608660c590b0: data    5 next: 0
-set += 3 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59000
+  at 0x568635eaa2b0: data    5 next: 0
+set += 3 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa200
 list contains 2 elements:
-  at 0x608660c59000: data    3 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0
-set += 7 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59000
+  at 0x568635eaa200: data    3 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0
+set += 7 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa200
 list contains 3 elements:
-  at 0x608660c59000: data    3 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0x608660c591a0
-  at 0x608660c591a0: data    7 next: 0
-set += 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59000
+  at 0x568635eaa200: data    3 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    7 next: 0
+set += 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa200
 list contains 4 elements:
-  at 0x608660c59000: data    3 next: 0x608660c59270
-  at 0x608660c59270: data    4 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0x608660c591a0
-  at 0x608660c591a0: data    7 next: 0
-set += 6 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59000
+  at 0x568635eaa200: data    3 next: 0x568635eaa470
+  at 0x568635eaa470: data    4 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    7 next: 0
+set += 6 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa200
 list contains 5 elements:
-  at 0x608660c59000: data    3 next: 0x608660c59270
-  at 0x608660c59270: data    4 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0x608660c59370
-  at 0x608660c59370: data    6 next: 0x608660c591a0
-  at 0x608660c591a0: data    7 next: 0
-set += 8 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59000
+  at 0x568635eaa200: data    3 next: 0x568635eaa470
+  at 0x568635eaa470: data    4 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0x568635eaa570
+  at 0x568635eaa570: data    6 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    7 next: 0
+set += 8 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa200
 list contains 6 elements:
-  at 0x608660c59000: data    3 next: 0x608660c59270
-  at 0x608660c59270: data    4 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0x608660c59370
-  at 0x608660c59370: data    6 next: 0x608660c591a0
-  at 0x608660c591a0: data    7 next: 0x608660c59490
-  at 0x608660c59490: data    8 next: 0
-set += 2 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c595a0
+  at 0x568635eaa200: data    3 next: 0x568635eaa470
+  at 0x568635eaa470: data    4 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0x568635eaa570
+  at 0x568635eaa570: data    6 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    7 next: 0x568635eaa690
+  at 0x568635eaa690: data    8 next: 0
+set += 2 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa7a0
 list contains 7 elements:
-  at 0x608660c595a0: data    2 next: 0x608660c59000
-  at 0x608660c59000: data    3 next: 0x608660c59270
-  at 0x608660c59270: data    4 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0x608660c59370
-  at 0x608660c59370: data    6 next: 0x608660c591a0
-  at 0x608660c591a0: data    7 next: 0x608660c59490
-  at 0x608660c59490: data    8 next: 0
-set += 1 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59710
+  at 0x568635eaa7a0: data    2 next: 0x568635eaa200
+  at 0x568635eaa200: data    3 next: 0x568635eaa470
+  at 0x568635eaa470: data    4 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0x568635eaa570
+  at 0x568635eaa570: data    6 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    7 next: 0x568635eaa690
+  at 0x568635eaa690: data    8 next: 0
+set += 1 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa910
 list contains 8 elements:
-  at 0x608660c59710: data    1 next: 0x608660c595a0
-  at 0x608660c595a0: data    2 next: 0x608660c59000
-  at 0x608660c59000: data    3 next: 0x608660c59270
-  at 0x608660c59270: data    4 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0x608660c59370
-  at 0x608660c59370: data    6 next: 0x608660c591a0
-  at 0x608660c591a0: data    7 next: 0x608660c59490
-  at 0x608660c59490: data    8 next: 0
+  at 0x568635eaa910: data    1 next: 0x568635eaa7a0
+  at 0x568635eaa7a0: data    2 next: 0x568635eaa200
+  at 0x568635eaa200: data    3 next: 0x568635eaa470
+  at 0x568635eaa470: data    4 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0x568635eaa570
+  at 0x568635eaa570: data    6 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    7 next: 0x568635eaa690
+  at 0x568635eaa690: data    8 next: 0
  expecting: {  1 2 3 4 5 6 7 8 } against received: {  1 2 3 4 5 6 7 8 }
   0       expected 1 == 1
   1       expected 2 == 2
@@ -677,33 +787,33 @@ list contains 8 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2ca0 and contained 7 objects 
- list was at address 0x7fff13ef2ca0 m_head points to 0x608660c595a0
-  at 0x608660c595a0: data    2 next: 0x608660c59000
-  at 0x608660c59000: data    3 next: 0x608660c59270
-  at 0x608660c59270: data    4 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0x608660c59370
-  at 0x608660c59370: data    6 next: 0x608660c591a0
-  at 0x608660c591a0: data    7 next: 0x608660c59490
-  at 0x608660c59490: data    8 next: 0
+set was at 0x7ffc324cd2a0 and contained 7 objects 
+ list was at address 0x7ffc324cd2a0 m_head points to 0x568635eaa7a0
+  at 0x568635eaa7a0: data    2 next: 0x568635eaa200
+  at 0x568635eaa200: data    3 next: 0x568635eaa470
+  at 0x568635eaa470: data    4 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0x568635eaa570
+  at 0x568635eaa570: data    6 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    7 next: 0x568635eaa690
+  at 0x568635eaa690: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59710
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa910
 list contains 8 elements:
-  at 0x608660c59710: data    1 next: 0x608660c595a0
-  at 0x608660c595a0: data    2 next: 0x608660c59000
-  at 0x608660c59000: data    3 next: 0x608660c59270
-  at 0x608660c59270: data    4 next: 0x608660c590b0
-  at 0x608660c590b0: data    5 next: 0x608660c59370
-  at 0x608660c59370: data    6 next: 0x608660c591a0
-  at 0x608660c591a0: data    7 next: 0x608660c59490
-  at 0x608660c59490: data    8 next: 0
+  at 0x568635eaa910: data    1 next: 0x568635eaa7a0
+  at 0x568635eaa7a0: data    2 next: 0x568635eaa200
+  at 0x568635eaa200: data    3 next: 0x568635eaa470
+  at 0x568635eaa470: data    4 next: 0x568635eaa2b0
+  at 0x568635eaa2b0: data    5 next: 0x568635eaa570
+  at 0x568635eaa570: data    6 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    7 next: 0x568635eaa690
+  at 0x568635eaa690: data    8 next: 0
 
  returns true 
 
 passed   operation +=
 
-Passed 11 of 11 tests
+Passed 13 of 13 tests
 
 
 ***************************** Test Name  ******************************
@@ -713,60 +823,60 @@ Passed 11 of 11 tests
 ***************************** Test Name  ******************************
 
 Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = int] operator +=
-buildSet @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0
+buildSet @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0
 list contains 0 elements:
   empty list
-set += 1 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+set += 1 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 1 elements:
-  at 0x608660c591a0: data    1 next: 0
-set += 2 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+  at 0x568635eaa3a0: data    1 next: 0
+set += 2 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 2 elements:
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0
-set += 3 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0
+set += 3 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 3 elements:
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0x608660c59490
-  at 0x608660c59490: data    3 next: 0
-set += 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0x568635eaa690
+  at 0x568635eaa690: data    3 next: 0
+set += 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 4 elements:
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0x608660c59490
-  at 0x608660c59490: data    3 next: 0x608660c598b0
-  at 0x608660c598b0: data    4 next: 0
-set += 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0x568635eaa690
+  at 0x568635eaa690: data    3 next: 0x568635eaaab0
+  at 0x568635eaaab0: data    4 next: 0
+set += 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 4 elements:
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0x608660c59490
-  at 0x608660c59490: data    3 next: 0x608660c598b0
-  at 0x608660c598b0: data    4 next: 0
-set += 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0x568635eaa690
+  at 0x568635eaa690: data    3 next: 0x568635eaaab0
+  at 0x568635eaaab0: data    4 next: 0
+set += 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 4 elements:
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0x608660c59490
-  at 0x608660c59490: data    3 next: 0x608660c598b0
-  at 0x608660c598b0: data    4 next: 0
-set += 3 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0x568635eaa690
+  at 0x568635eaa690: data    3 next: 0x568635eaaab0
+  at 0x568635eaaab0: data    4 next: 0
+set += 3 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 4 elements:
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0x608660c59490
-  at 0x608660c59490: data    3 next: 0x608660c598b0
-  at 0x608660c598b0: data    4 next: 0
-set += 1 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0x568635eaa690
+  at 0x568635eaa690: data    3 next: 0x568635eaaab0
+  at 0x568635eaaab0: data    4 next: 0
+set += 1 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 4 elements:
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0x608660c59490
-  at 0x608660c59490: data    3 next: 0x608660c598b0
-  at 0x608660c598b0: data    4 next: 0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0x568635eaa690
+  at 0x568635eaa690: data    3 next: 0x568635eaaab0
+  at 0x568635eaaab0: data    4 next: 0
  expecting: {  1 2 3 4 } against received: {  1 2 3 4 }
   0       expected 1 == 1
   1       expected 2 == 2
@@ -776,26 +886,26 @@ list contains 4 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2ca0 and contained 4 objects 
- list was at address 0x7fff13ef2ca0 m_head points to 0x608660c591a0
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0x608660c59490
-  at 0x608660c59490: data    3 next: 0x608660c598b0
-  at 0x608660c598b0: data    4 next: 0
+set was at 0x7ffc324cd2a0 and contained 4 objects 
+ list was at address 0x7ffc324cd2a0 m_head points to 0x568635eaa3a0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0x568635eaa690
+  at 0x568635eaa690: data    3 next: 0x568635eaaab0
+  at 0x568635eaaab0: data    4 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c591a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa3a0
 list contains 4 elements:
-  at 0x608660c591a0: data    1 next: 0x608660c59270
-  at 0x608660c59270: data    2 next: 0x608660c59490
-  at 0x608660c59490: data    3 next: 0x608660c598b0
-  at 0x608660c598b0: data    4 next: 0
+  at 0x568635eaa3a0: data    1 next: 0x568635eaa470
+  at 0x568635eaa470: data    2 next: 0x568635eaa690
+  at 0x568635eaa690: data    3 next: 0x568635eaaab0
+  at 0x568635eaaab0: data    4 next: 0
 
  returns true 
 
 passed   operation +=
 
-Passed 12 of 12 tests
+Passed 14 of 14 tests
 
 
 ***************************** Test Name  ******************************
@@ -805,62 +915,62 @@ Passed 12 of 12 tests
 ***************************** Test Name  ******************************
 
 Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = int] operator -=
-buildSet @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c598b0
+buildSet @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaaab0
 list contains 8 elements:
-  at 0x608660c598b0: data    1 next: 0x608660c59490
-  at 0x608660c59490: data    2 next: 0x608660c59270
-  at 0x608660c59270: data    3 next: 0x608660c591a0
-  at 0x608660c591a0: data    4 next: 0x608660c59c80
-  at 0x608660c59c80: data    5 next: 0x608660c59ca0
-  at 0x608660c59ca0: data    6 next: 0x608660c59cc0
-  at 0x608660c59cc0: data    7 next: 0x608660c59ce0
-  at 0x608660c59ce0: data    8 next: 0
-set -= 1 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59490
+  at 0x568635eaaab0: data    1 next: 0x568635eaa690
+  at 0x568635eaa690: data    2 next: 0x568635eaa470
+  at 0x568635eaa470: data    3 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    4 next: 0x568635eaae80
+  at 0x568635eaae80: data    5 next: 0x568635eaaea0
+  at 0x568635eaaea0: data    6 next: 0x568635eaaec0
+  at 0x568635eaaec0: data    7 next: 0x568635eaaee0
+  at 0x568635eaaee0: data    8 next: 0
+set -= 1 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa690
 list contains 7 elements:
-  at 0x608660c59490: data    2 next: 0x608660c59270
-  at 0x608660c59270: data    3 next: 0x608660c591a0
-  at 0x608660c591a0: data    4 next: 0x608660c59c80
-  at 0x608660c59c80: data    5 next: 0x608660c59ca0
-  at 0x608660c59ca0: data    6 next: 0x608660c59cc0
-  at 0x608660c59cc0: data    7 next: 0x608660c59ce0
-  at 0x608660c59ce0: data    8 next: 0
-set -= 2 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59270
+  at 0x568635eaa690: data    2 next: 0x568635eaa470
+  at 0x568635eaa470: data    3 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    4 next: 0x568635eaae80
+  at 0x568635eaae80: data    5 next: 0x568635eaaea0
+  at 0x568635eaaea0: data    6 next: 0x568635eaaec0
+  at 0x568635eaaec0: data    7 next: 0x568635eaaee0
+  at 0x568635eaaee0: data    8 next: 0
+set -= 2 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa470
 list contains 6 elements:
-  at 0x608660c59270: data    3 next: 0x608660c591a0
-  at 0x608660c591a0: data    4 next: 0x608660c59c80
-  at 0x608660c59c80: data    5 next: 0x608660c59ca0
-  at 0x608660c59ca0: data    6 next: 0x608660c59cc0
-  at 0x608660c59cc0: data    7 next: 0x608660c59ce0
-  at 0x608660c59ce0: data    8 next: 0
-set -= 4 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59270
+  at 0x568635eaa470: data    3 next: 0x568635eaa3a0
+  at 0x568635eaa3a0: data    4 next: 0x568635eaae80
+  at 0x568635eaae80: data    5 next: 0x568635eaaea0
+  at 0x568635eaaea0: data    6 next: 0x568635eaaec0
+  at 0x568635eaaec0: data    7 next: 0x568635eaaee0
+  at 0x568635eaaee0: data    8 next: 0
+set -= 4 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa470
 list contains 5 elements:
-  at 0x608660c59270: data    3 next: 0x608660c59c80
-  at 0x608660c59c80: data    5 next: 0x608660c59ca0
-  at 0x608660c59ca0: data    6 next: 0x608660c59cc0
-  at 0x608660c59cc0: data    7 next: 0x608660c59ce0
-  at 0x608660c59ce0: data    8 next: 0
-set -= 5 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59270
+  at 0x568635eaa470: data    3 next: 0x568635eaae80
+  at 0x568635eaae80: data    5 next: 0x568635eaaea0
+  at 0x568635eaaea0: data    6 next: 0x568635eaaec0
+  at 0x568635eaaec0: data    7 next: 0x568635eaaee0
+  at 0x568635eaaee0: data    8 next: 0
+set -= 5 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa470
 list contains 4 elements:
-  at 0x608660c59270: data    3 next: 0x608660c59ca0
-  at 0x608660c59ca0: data    6 next: 0x608660c59cc0
-  at 0x608660c59cc0: data    7 next: 0x608660c59ce0
-  at 0x608660c59ce0: data    8 next: 0
-set -= 7 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59270
+  at 0x568635eaa470: data    3 next: 0x568635eaaea0
+  at 0x568635eaaea0: data    6 next: 0x568635eaaec0
+  at 0x568635eaaec0: data    7 next: 0x568635eaaee0
+  at 0x568635eaaee0: data    8 next: 0
+set -= 7 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa470
 list contains 3 elements:
-  at 0x608660c59270: data    3 next: 0x608660c59ca0
-  at 0x608660c59ca0: data    6 next: 0x608660c59ce0
-  at 0x608660c59ce0: data    8 next: 0
-set -= 8 results in set @0x7fff13ef2ca0
-set contains a list at 0x7fff13ef2ca0: m_head points to 0x608660c59270
+  at 0x568635eaa470: data    3 next: 0x568635eaaea0
+  at 0x568635eaaea0: data    6 next: 0x568635eaaee0
+  at 0x568635eaaee0: data    8 next: 0
+set -= 8 results in set @0x7ffc324cd2a0
+set contains a list at 0x7ffc324cd2a0: m_head points to 0x568635eaa470
 list contains 2 elements:
-  at 0x608660c59270: data    3 next: 0x608660c59ca0
-  at 0x608660c59ca0: data    6 next: 0
+  at 0x568635eaa470: data    3 next: 0x568635eaaea0
+  at 0x568635eaaea0: data    6 next: 0
  expecting: {  3 6 } against received: {  3 6 }
   0       expected 3 == 3
   1       expected 6 == 6
@@ -868,7 +978,7 @@ list contains 2 elements:
 
 passed   operation -=
 
-Passed 13 of 13 tests
+Passed 15 of 15 tests
 
 
 ***************************** Test Name  ******************************
@@ -886,7 +996,7 @@ Passed 13 of 13 tests
 .isMember(6) returns false on {  1,  2,  3, 4 }
 passed  test .isMember() passed
 
-Passed 14 of 14 tests
+Passed 16 of 16 tests
 
 
 ***************************** Test Name  ******************************
@@ -979,11 +1089,11 @@ Passed 14 of 14 tests
 
       {  5,  6,  7, 8 } != {  1,  2,  3, 4 } returns true 
 
-Passed 28 of 28 tests
+Passed 30 of 30 tests
 
 passed : relational operators == !=
 
-Passed 28 of 28 tests
+Passed 30 of 30 tests
 
 
 ***************************** Test Name  ******************************
@@ -999,19 +1109,19 @@ Passed 28 of 28 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator +
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a330
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab530
 list contains 7 elements:
-  at 0x608660c5a330: data    1 next: 0x608660c5a310
-  at 0x608660c5a310: data    2 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    3 next: 0x608660c5a370
-  at 0x608660c5a370: data    5 next: 0x608660c5a390
-  at 0x608660c5a390: data    6 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    7 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    8 next: 0
+  at 0x568635eab530: data    1 next: 0x568635eab510
+  at 0x568635eab510: data    2 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    3 next: 0x568635eab570
+  at 0x568635eab570: data    5 next: 0x568635eab590
+  at 0x568635eab590: data    6 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    7 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    8 next: 0
 
 " + "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -1027,50 +1137,50 @@ list contains 0 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 7 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0x608660c5a330
-  at 0x608660c5a330: data    1 next: 0x608660c5a310
-  at 0x608660c5a310: data    2 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    3 next: 0x608660c5a370
-  at 0x608660c5a370: data    5 next: 0x608660c5a390
-  at 0x608660c5a390: data    6 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    7 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    8 next: 0
+set was at 0x7ffc324cd250 and contained 7 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0x568635eab530
+  at 0x568635eab530: data    1 next: 0x568635eab510
+  at 0x568635eab510: data    2 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    3 next: 0x568635eab570
+  at 0x568635eab570: data    5 next: 0x568635eab590
+  at 0x568635eab590: data    6 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    7 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a4b0
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab6b0
 list contains 7 elements:
-  at 0x608660c5a4b0: data    1 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    2 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    3 next: 0x608660c5a510
-  at 0x608660c5a510: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a550
-  at 0x608660c5a550: data    7 next: 0x608660c5a570
-  at 0x608660c5a570: data    8 next: 0
+  at 0x568635eab6b0: data    1 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    2 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    3 next: 0x568635eab710
+  at 0x568635eab710: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab750
+  at 0x568635eab750: data    7 next: 0x568635eab770
+  at 0x568635eab770: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 0 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0
+set was at 0x7ffc324cd260 and contained 0 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a4b0
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab6b0
 list contains 7 elements:
-  at 0x608660c5a4b0: data    1 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    2 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    3 next: 0x608660c5a510
-  at 0x608660c5a510: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a550
-  at 0x608660c5a550: data    7 next: 0x608660c5a570
-  at 0x608660c5a570: data    8 next: 0
+  at 0x568635eab6b0: data    1 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    2 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    3 next: 0x568635eab710
+  at 0x568635eab710: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab750
+  at 0x568635eab750: data    7 next: 0x568635eab770
+  at 0x568635eab770: data    8 next: 0
 
  returns true b/c before_set was empty
 
 passed   operation +
 
-Passed 29 of 29 tests
+Passed 31 of 31 tests
 
     ************************ Test Phase *************************
     *     operator+(MyOrderedSet) { empty } + { 1-3, 5-8 }      *
@@ -1079,21 +1189,21 @@ Passed 29 of 29 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator +
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0
 list contains 0 elements:
   empty list
 
 " + "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a490
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab690
 list contains 7 elements:
-  at 0x608660c5a490: data    1 next: 0x608660c5a470
-  at 0x608660c5a470: data    2 next: 0x608660c5a450
-  at 0x608660c5a450: data    3 next: 0x608660c5a430
-  at 0x608660c5a430: data    5 next: 0x608660c5a410
-  at 0x608660c5a410: data    6 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    7 next: 0x608660c5a350
-  at 0x608660c5a350: data    8 next: 0
+  at 0x568635eab690: data    1 next: 0x568635eab670
+  at 0x568635eab670: data    2 next: 0x568635eab650
+  at 0x568635eab650: data    3 next: 0x568635eab630
+  at 0x568635eab630: data    5 next: 0x568635eab610
+  at 0x568635eab610: data    6 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    7 next: 0x568635eab550
+  at 0x568635eab550: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -1107,50 +1217,50 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 0 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0
+set was at 0x7ffc324cd250 and contained 0 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a3b0
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab5b0
 list contains 7 elements:
-  at 0x608660c5a3b0: data    1 next: 0x608660c5a550
-  at 0x608660c5a550: data    2 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    3 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    5 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    6 next: 0x608660c5a510
-  at 0x608660c5a510: data    7 next: 0x608660c5a530
-  at 0x608660c5a530: data    8 next: 0
+  at 0x568635eab5b0: data    1 next: 0x568635eab750
+  at 0x568635eab750: data    2 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    3 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    5 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    6 next: 0x568635eab710
+  at 0x568635eab710: data    7 next: 0x568635eab730
+  at 0x568635eab730: data    8 next: 0
 
  returns true b/c before_set was empty
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 7 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0x608660c5a490
-  at 0x608660c5a490: data    1 next: 0x608660c5a470
-  at 0x608660c5a470: data    2 next: 0x608660c5a450
-  at 0x608660c5a450: data    3 next: 0x608660c5a430
-  at 0x608660c5a430: data    5 next: 0x608660c5a410
-  at 0x608660c5a410: data    6 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    7 next: 0x608660c5a350
-  at 0x608660c5a350: data    8 next: 0
+set was at 0x7ffc324cd260 and contained 7 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0x568635eab690
+  at 0x568635eab690: data    1 next: 0x568635eab670
+  at 0x568635eab670: data    2 next: 0x568635eab650
+  at 0x568635eab650: data    3 next: 0x568635eab630
+  at 0x568635eab630: data    5 next: 0x568635eab610
+  at 0x568635eab610: data    6 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    7 next: 0x568635eab550
+  at 0x568635eab550: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a3b0
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab5b0
 list contains 7 elements:
-  at 0x608660c5a3b0: data    1 next: 0x608660c5a550
-  at 0x608660c5a550: data    2 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    3 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    5 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    6 next: 0x608660c5a510
-  at 0x608660c5a510: data    7 next: 0x608660c5a530
-  at 0x608660c5a530: data    8 next: 0
+  at 0x568635eab5b0: data    1 next: 0x568635eab750
+  at 0x568635eab750: data    2 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    3 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    5 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    6 next: 0x568635eab710
+  at 0x568635eab710: data    7 next: 0x568635eab730
+  at 0x568635eab730: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 passed   operation +
 
-Passed 30 of 30 tests
+Passed 32 of 32 tests
 
     ************************ Test Phase *************************
     *      operator+(MyOrderedSet) { 1-3, 5-8 } + { 3-5 }       *
@@ -1159,23 +1269,23 @@ Passed 30 of 30 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator +
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a390
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab590
 list contains 7 elements:
-  at 0x608660c5a390: data    1 next: 0x608660c5a370
-  at 0x608660c5a370: data    2 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    3 next: 0x608660c5a310
-  at 0x608660c5a310: data    5 next: 0x608660c5a330
-  at 0x608660c5a330: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    8 next: 0
+  at 0x568635eab590: data    1 next: 0x568635eab570
+  at 0x568635eab570: data    2 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    3 next: 0x568635eab510
+  at 0x568635eab510: data    5 next: 0x568635eab530
+  at 0x568635eab530: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    8 next: 0
 
 " + "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a350
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab550
 list contains 3 elements:
-  at 0x608660c5a350: data    3 next: 0x608660c5a530
-  at 0x608660c5a530: data    4 next: 0x608660c5a490
-  at 0x608660c5a490: data    5 next: 0
+  at 0x568635eab550: data    3 next: 0x568635eab730
+  at 0x568635eab730: data    4 next: 0x568635eab690
+  at 0x568635eab690: data    5 next: 0
 
  expecting: {  1 2 3 4 5 6 7 8 } against received: {  1 2 3 4 5 6 7 8 }
   0       expected 1 == 1
@@ -1190,55 +1300,55 @@ list contains 3 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 7 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0x608660c5a390
-  at 0x608660c5a390: data    1 next: 0x608660c5a370
-  at 0x608660c5a370: data    2 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    3 next: 0x608660c5a310
-  at 0x608660c5a310: data    5 next: 0x608660c5a330
-  at 0x608660c5a330: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    8 next: 0
+set was at 0x7ffc324cd250 and contained 7 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0x568635eab590
+  at 0x568635eab590: data    1 next: 0x568635eab570
+  at 0x568635eab570: data    2 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    3 next: 0x568635eab510
+  at 0x568635eab510: data    5 next: 0x568635eab530
+  at 0x568635eab530: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a630
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab830
 list contains 8 elements:
-  at 0x608660c5a630: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5a670
-  at 0x608660c5a670: data    3 next: 0x608660c5a710
-  at 0x608660c5a710: data    4 next: 0x608660c5a690
-  at 0x608660c5a690: data    5 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    8 next: 0
+  at 0x568635eab830: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eab870
+  at 0x568635eab870: data    3 next: 0x568635eab910
+  at 0x568635eab910: data    4 next: 0x568635eab890
+  at 0x568635eab890: data    5 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 3 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0x608660c5a350
-  at 0x608660c5a350: data    3 next: 0x608660c5a530
-  at 0x608660c5a530: data    4 next: 0x608660c5a490
-  at 0x608660c5a490: data    5 next: 0
+set was at 0x7ffc324cd260 and contained 3 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0x568635eab550
+  at 0x568635eab550: data    3 next: 0x568635eab730
+  at 0x568635eab730: data    4 next: 0x568635eab690
+  at 0x568635eab690: data    5 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a630
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab830
 list contains 8 elements:
-  at 0x608660c5a630: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5a670
-  at 0x608660c5a670: data    3 next: 0x608660c5a710
-  at 0x608660c5a710: data    4 next: 0x608660c5a690
-  at 0x608660c5a690: data    5 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    8 next: 0
+  at 0x568635eab830: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eab870
+  at 0x568635eab870: data    3 next: 0x568635eab910
+  at 0x568635eab910: data    4 next: 0x568635eab890
+  at 0x568635eab890: data    5 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 passed   operation +
 
-Passed 31 of 31 tests
+Passed 33 of 33 tests
 
 
 ***************************** Test Name  ******************************
@@ -1254,19 +1364,19 @@ Passed 31 of 31 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator |
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a3b0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab5b0
 list contains 7 elements:
-  at 0x608660c5a3b0: data    1 next: 0x608660c5a510
-  at 0x608660c5a510: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a410
-  at 0x608660c5a410: data    5 next: 0x608660c5a430
-  at 0x608660c5a430: data    6 next: 0x608660c5a450
-  at 0x608660c5a450: data    7 next: 0x608660c5a470
-  at 0x608660c5a470: data    8 next: 0
+  at 0x568635eab5b0: data    1 next: 0x568635eab710
+  at 0x568635eab710: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab610
+  at 0x568635eab610: data    5 next: 0x568635eab630
+  at 0x568635eab630: data    6 next: 0x568635eab650
+  at 0x568635eab650: data    7 next: 0x568635eab670
+  at 0x568635eab670: data    8 next: 0
 
 " | "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -1282,50 +1392,50 @@ list contains 0 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 7 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0x608660c5a3b0
-  at 0x608660c5a3b0: data    1 next: 0x608660c5a510
-  at 0x608660c5a510: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a410
-  at 0x608660c5a410: data    5 next: 0x608660c5a430
-  at 0x608660c5a430: data    6 next: 0x608660c5a450
-  at 0x608660c5a450: data    7 next: 0x608660c5a470
-  at 0x608660c5a470: data    8 next: 0
+set was at 0x7ffc324cd250 and contained 7 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0x568635eab5b0
+  at 0x568635eab5b0: data    1 next: 0x568635eab710
+  at 0x568635eab710: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab610
+  at 0x568635eab610: data    5 next: 0x568635eab630
+  at 0x568635eab630: data    6 next: 0x568635eab650
+  at 0x568635eab650: data    7 next: 0x568635eab670
+  at 0x568635eab670: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a570
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab770
 list contains 7 elements:
-  at 0x608660c5a570: data    1 next: 0x608660c5a530
-  at 0x608660c5a530: data    2 next: 0x608660c5a670
-  at 0x608660c5a670: data    3 next: 0x608660c5a710
-  at 0x608660c5a710: data    5 next: 0x608660c5a690
-  at 0x608660c5a690: data    6 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+  at 0x568635eab770: data    1 next: 0x568635eab730
+  at 0x568635eab730: data    2 next: 0x568635eab870
+  at 0x568635eab870: data    3 next: 0x568635eab910
+  at 0x568635eab910: data    5 next: 0x568635eab890
+  at 0x568635eab890: data    6 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 0 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0
+set was at 0x7ffc324cd260 and contained 0 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a570
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab770
 list contains 7 elements:
-  at 0x608660c5a570: data    1 next: 0x608660c5a530
-  at 0x608660c5a530: data    2 next: 0x608660c5a670
-  at 0x608660c5a670: data    3 next: 0x608660c5a710
-  at 0x608660c5a710: data    5 next: 0x608660c5a690
-  at 0x608660c5a690: data    6 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+  at 0x568635eab770: data    1 next: 0x568635eab730
+  at 0x568635eab730: data    2 next: 0x568635eab870
+  at 0x568635eab870: data    3 next: 0x568635eab910
+  at 0x568635eab910: data    5 next: 0x568635eab890
+  at 0x568635eab890: data    6 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
  returns true b/c before_set was empty
 
 passed   operation |
 
-Passed 32 of 32 tests
+Passed 34 of 34 tests
 
     ************************ Test Phase *************************
     *     operator|(MyOrderedSet) { empty } | { 1-3, 5-8 }      *
@@ -1334,21 +1444,21 @@ Passed 32 of 32 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator |
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0
 list contains 0 elements:
   empty list
 
 " | "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a2f0
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab4f0
 list contains 7 elements:
-  at 0x608660c5a2f0: data    1 next: 0x608660c5a370
-  at 0x608660c5a370: data    2 next: 0x608660c5a390
-  at 0x608660c5a390: data    3 next: 0x608660c5a490
-  at 0x608660c5a490: data    5 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    6 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    7 next: 0x608660c5a350
-  at 0x608660c5a350: data    8 next: 0
+  at 0x568635eab4f0: data    1 next: 0x568635eab570
+  at 0x568635eab570: data    2 next: 0x568635eab590
+  at 0x568635eab590: data    3 next: 0x568635eab690
+  at 0x568635eab690: data    5 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    6 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    7 next: 0x568635eab550
+  at 0x568635eab550: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -1362,50 +1472,50 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 0 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0
+set was at 0x7ffc324cd250 and contained 0 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a450
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab650
 list contains 7 elements:
-  at 0x608660c5a450: data    1 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    2 next: 0x608660c5a310
-  at 0x608660c5a310: data    3 next: 0x608660c5a330
-  at 0x608660c5a330: data    5 next: 0x608660c5a570
-  at 0x608660c5a570: data    6 next: 0x608660c5a530
-  at 0x608660c5a530: data    7 next: 0x608660c5a670
-  at 0x608660c5a670: data    8 next: 0
+  at 0x568635eab650: data    1 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    2 next: 0x568635eab510
+  at 0x568635eab510: data    3 next: 0x568635eab530
+  at 0x568635eab530: data    5 next: 0x568635eab770
+  at 0x568635eab770: data    6 next: 0x568635eab730
+  at 0x568635eab730: data    7 next: 0x568635eab870
+  at 0x568635eab870: data    8 next: 0
 
  returns true b/c before_set was empty
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 7 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0x608660c5a2f0
-  at 0x608660c5a2f0: data    1 next: 0x608660c5a370
-  at 0x608660c5a370: data    2 next: 0x608660c5a390
-  at 0x608660c5a390: data    3 next: 0x608660c5a490
-  at 0x608660c5a490: data    5 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    6 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    7 next: 0x608660c5a350
-  at 0x608660c5a350: data    8 next: 0
+set was at 0x7ffc324cd260 and contained 7 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0x568635eab4f0
+  at 0x568635eab4f0: data    1 next: 0x568635eab570
+  at 0x568635eab570: data    2 next: 0x568635eab590
+  at 0x568635eab590: data    3 next: 0x568635eab690
+  at 0x568635eab690: data    5 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    6 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    7 next: 0x568635eab550
+  at 0x568635eab550: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a450
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab650
 list contains 7 elements:
-  at 0x608660c5a450: data    1 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    2 next: 0x608660c5a310
-  at 0x608660c5a310: data    3 next: 0x608660c5a330
-  at 0x608660c5a330: data    5 next: 0x608660c5a570
-  at 0x608660c5a570: data    6 next: 0x608660c5a530
-  at 0x608660c5a530: data    7 next: 0x608660c5a670
-  at 0x608660c5a670: data    8 next: 0
+  at 0x568635eab650: data    1 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    2 next: 0x568635eab510
+  at 0x568635eab510: data    3 next: 0x568635eab530
+  at 0x568635eab530: data    5 next: 0x568635eab770
+  at 0x568635eab770: data    6 next: 0x568635eab730
+  at 0x568635eab730: data    7 next: 0x568635eab870
+  at 0x568635eab870: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 passed   operation |
 
-Passed 33 of 33 tests
+Passed 35 of 35 tests
 
     ************************ Test Phase *************************
     *      operator|(MyOrderedSet) { 1-3, 5-8 } | { 3-5 }       *
@@ -1414,23 +1524,23 @@ Passed 33 of 33 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator |
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a3f0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab5f0
 list contains 7 elements:
-  at 0x608660c5a3f0: data    1 next: 0x608660c5a510
-  at 0x608660c5a510: data    2 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    3 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    5 next: 0x608660c5a470
-  at 0x608660c5a470: data    6 next: 0x608660c5a710
-  at 0x608660c5a710: data    7 next: 0x608660c5a690
-  at 0x608660c5a690: data    8 next: 0
+  at 0x568635eab5f0: data    1 next: 0x568635eab710
+  at 0x568635eab710: data    2 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    3 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    5 next: 0x568635eab670
+  at 0x568635eab670: data    6 next: 0x568635eab910
+  at 0x568635eab910: data    7 next: 0x568635eab890
+  at 0x568635eab890: data    8 next: 0
 
 " | "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a350
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab550
 list contains 3 elements:
-  at 0x608660c5a350: data    3 next: 0x608660c5a670
-  at 0x608660c5a670: data    4 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0
+  at 0x568635eab550: data    3 next: 0x568635eab870
+  at 0x568635eab870: data    4 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0
 
  expecting: {  1 2 3 4 5 6 7 8 } against received: {  1 2 3 4 5 6 7 8 }
   0       expected 1 == 1
@@ -1445,55 +1555,55 @@ list contains 3 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 7 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0x608660c5a3f0
-  at 0x608660c5a3f0: data    1 next: 0x608660c5a510
-  at 0x608660c5a510: data    2 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    3 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    5 next: 0x608660c5a470
-  at 0x608660c5a470: data    6 next: 0x608660c5a710
-  at 0x608660c5a710: data    7 next: 0x608660c5a690
-  at 0x608660c5a690: data    8 next: 0
+set was at 0x7ffc324cd250 and contained 7 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0x568635eab5f0
+  at 0x568635eab5f0: data    1 next: 0x568635eab710
+  at 0x568635eab710: data    2 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    3 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    5 next: 0x568635eab670
+  at 0x568635eab670: data    6 next: 0x568635eab910
+  at 0x568635eab910: data    7 next: 0x568635eab890
+  at 0x568635eab890: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a330
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab530
 list contains 8 elements:
-  at 0x608660c5a330: data    1 next: 0x608660c5a570
-  at 0x608660c5a570: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a630
-  at 0x608660c5a630: data    4 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    5 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    6 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    7 next: 0x608660c5a550
-  at 0x608660c5a550: data    8 next: 0
+  at 0x568635eab530: data    1 next: 0x568635eab770
+  at 0x568635eab770: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab830
+  at 0x568635eab830: data    4 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    5 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    6 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    7 next: 0x568635eab750
+  at 0x568635eab750: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 3 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0x608660c5a350
-  at 0x608660c5a350: data    3 next: 0x608660c5a670
-  at 0x608660c5a670: data    4 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0
+set was at 0x7ffc324cd260 and contained 3 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0x568635eab550
+  at 0x568635eab550: data    3 next: 0x568635eab870
+  at 0x568635eab870: data    4 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a330
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab530
 list contains 8 elements:
-  at 0x608660c5a330: data    1 next: 0x608660c5a570
-  at 0x608660c5a570: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a630
-  at 0x608660c5a630: data    4 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    5 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    6 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    7 next: 0x608660c5a550
-  at 0x608660c5a550: data    8 next: 0
+  at 0x568635eab530: data    1 next: 0x568635eab770
+  at 0x568635eab770: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab830
+  at 0x568635eab830: data    4 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    5 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    6 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    7 next: 0x568635eab750
+  at 0x568635eab750: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 passed   operation |
 
-Passed 34 of 34 tests
+Passed 36 of 36 tests
 
 
 ***************************** Test Name  ******************************
@@ -1509,19 +1619,19 @@ Passed 34 of 34 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator ^
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a410
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab610
 list contains 7 elements:
-  at 0x608660c5a410: data    1 next: 0x608660c5a530
-  at 0x608660c5a530: data    2 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    3 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    5 next: 0x608660c5a490
-  at 0x608660c5a490: data    6 next: 0x608660c5a390
-  at 0x608660c5a390: data    7 next: 0x608660c5a370
-  at 0x608660c5a370: data    8 next: 0
+  at 0x568635eab610: data    1 next: 0x568635eab730
+  at 0x568635eab730: data    2 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    3 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    5 next: 0x568635eab690
+  at 0x568635eab690: data    6 next: 0x568635eab590
+  at 0x568635eab590: data    7 next: 0x568635eab570
+  at 0x568635eab570: data    8 next: 0
 
 " ^ "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -1537,50 +1647,50 @@ list contains 0 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 7 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0x608660c5a410
-  at 0x608660c5a410: data    1 next: 0x608660c5a530
-  at 0x608660c5a530: data    2 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    3 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    5 next: 0x608660c5a490
-  at 0x608660c5a490: data    6 next: 0x608660c5a390
-  at 0x608660c5a390: data    7 next: 0x608660c5a370
-  at 0x608660c5a370: data    8 next: 0
+set was at 0x7ffc324cd250 and contained 7 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0x568635eab610
+  at 0x568635eab610: data    1 next: 0x568635eab730
+  at 0x568635eab730: data    2 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    3 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    5 next: 0x568635eab690
+  at 0x568635eab690: data    6 next: 0x568635eab590
+  at 0x568635eab590: data    7 next: 0x568635eab570
+  at 0x568635eab570: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a710
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab910
 list contains 7 elements:
-  at 0x608660c5a710: data    1 next: 0x608660c5a670
-  at 0x608660c5a670: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a630
-  at 0x608660c5a630: data    5 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    6 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    7 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    8 next: 0
+  at 0x568635eab910: data    1 next: 0x568635eab870
+  at 0x568635eab870: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab830
+  at 0x568635eab830: data    5 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    6 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    7 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 0 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0
+set was at 0x7ffc324cd260 and contained 0 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a710
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab910
 list contains 7 elements:
-  at 0x608660c5a710: data    1 next: 0x608660c5a670
-  at 0x608660c5a670: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a630
-  at 0x608660c5a630: data    5 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    6 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    7 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    8 next: 0
+  at 0x568635eab910: data    1 next: 0x568635eab870
+  at 0x568635eab870: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab830
+  at 0x568635eab830: data    5 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    6 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    7 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    8 next: 0
 
  returns true b/c before_set was empty
 
 passed   operation ^
 
-Passed 35 of 35 tests
+Passed 37 of 37 tests
 
     ************************ Test Phase *************************
     *     operator^(MyOrderedSet) { empty } ^ { 1-3, 5-8 }      *
@@ -1589,21 +1699,21 @@ Passed 35 of 35 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator ^
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0
 list contains 0 elements:
   empty list
 
 " ^ "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a3b0
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab5b0
 list contains 7 elements:
-  at 0x608660c5a3b0: data    1 next: 0x608660c5a510
-  at 0x608660c5a510: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a690
-  at 0x608660c5a690: data    6 next: 0x608660c5a550
-  at 0x608660c5a550: data    7 next: 0x608660c5a350
-  at 0x608660c5a350: data    8 next: 0
+  at 0x568635eab5b0: data    1 next: 0x568635eab710
+  at 0x568635eab710: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab890
+  at 0x568635eab890: data    6 next: 0x568635eab750
+  at 0x568635eab750: data    7 next: 0x568635eab550
+  at 0x568635eab550: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -1617,50 +1727,50 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 0 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0
+set was at 0x7ffc324cd250 and contained 0 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a390
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab590
 list contains 7 elements:
-  at 0x608660c5a390: data    1 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    2 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a710
-  at 0x608660c5a710: data    6 next: 0x608660c5a670
-  at 0x608660c5a670: data    7 next: 0x608660c5a650
-  at 0x608660c5a650: data    8 next: 0
+  at 0x568635eab590: data    1 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    2 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eab910
+  at 0x568635eab910: data    6 next: 0x568635eab870
+  at 0x568635eab870: data    7 next: 0x568635eab850
+  at 0x568635eab850: data    8 next: 0
 
  returns true b/c before_set was empty
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 7 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0x608660c5a3b0
-  at 0x608660c5a3b0: data    1 next: 0x608660c5a510
-  at 0x608660c5a510: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a690
-  at 0x608660c5a690: data    6 next: 0x608660c5a550
-  at 0x608660c5a550: data    7 next: 0x608660c5a350
-  at 0x608660c5a350: data    8 next: 0
+set was at 0x7ffc324cd260 and contained 7 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0x568635eab5b0
+  at 0x568635eab5b0: data    1 next: 0x568635eab710
+  at 0x568635eab710: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab890
+  at 0x568635eab890: data    6 next: 0x568635eab750
+  at 0x568635eab750: data    7 next: 0x568635eab550
+  at 0x568635eab550: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a390
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab590
 list contains 7 elements:
-  at 0x608660c5a390: data    1 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    2 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a710
-  at 0x608660c5a710: data    6 next: 0x608660c5a670
-  at 0x608660c5a670: data    7 next: 0x608660c5a650
-  at 0x608660c5a650: data    8 next: 0
+  at 0x568635eab590: data    1 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    2 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eab910
+  at 0x568635eab910: data    6 next: 0x568635eab870
+  at 0x568635eab870: data    7 next: 0x568635eab850
+  at 0x568635eab850: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 passed   operation ^
 
-Passed 36 of 36 tests
+Passed 38 of 38 tests
 
     ************************ Test Phase *************************
     *      operator^(MyOrderedSet) { 1-3, 5-8 } ^ { 3-5 }       *
@@ -1669,23 +1779,23 @@ Passed 36 of 36 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator ^
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a6f0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab8f0
 list contains 7 elements:
-  at 0x608660c5a6f0: data    1 next: 0x608660c5a530
-  at 0x608660c5a530: data    2 next: 0x608660c5a410
-  at 0x608660c5a410: data    3 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    5 next: 0x608660c5a370
-  at 0x608660c5a370: data    6 next: 0x608660c5a630
-  at 0x608660c5a630: data    7 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    8 next: 0
+  at 0x568635eab8f0: data    1 next: 0x568635eab730
+  at 0x568635eab730: data    2 next: 0x568635eab610
+  at 0x568635eab610: data    3 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    5 next: 0x568635eab570
+  at 0x568635eab570: data    6 next: 0x568635eab830
+  at 0x568635eab830: data    7 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    8 next: 0
 
 " ^ "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a350
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab550
 list contains 3 elements:
-  at 0x608660c5a350: data    3 next: 0x608660c5a650
-  at 0x608660c5a650: data    4 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    5 next: 0
+  at 0x568635eab550: data    3 next: 0x568635eab850
+  at 0x568635eab850: data    4 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    5 next: 0
 
  expecting: {  1 2 4 6 7 8 } against received: {  1 2 4 6 7 8 }
   0       expected 1 == 1
@@ -1698,51 +1808,51 @@ list contains 3 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 7 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0x608660c5a6f0
-  at 0x608660c5a6f0: data    1 next: 0x608660c5a530
-  at 0x608660c5a530: data    2 next: 0x608660c5a410
-  at 0x608660c5a410: data    3 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    5 next: 0x608660c5a370
-  at 0x608660c5a370: data    6 next: 0x608660c5a630
-  at 0x608660c5a630: data    7 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    8 next: 0
+set was at 0x7ffc324cd250 and contained 7 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0x568635eab8f0
+  at 0x568635eab8f0: data    1 next: 0x568635eab730
+  at 0x568635eab730: data    2 next: 0x568635eab610
+  at 0x568635eab610: data    3 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    5 next: 0x568635eab570
+  at 0x568635eab570: data    6 next: 0x568635eab830
+  at 0x568635eab830: data    7 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a470
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab670
 list contains 6 elements:
-  at 0x608660c5a470: data    1 next: 0x608660c5a710
-  at 0x608660c5a710: data    2 next: 0x608660c5a570
-  at 0x608660c5a570: data    4 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    6 next: 0x608660c5a310
-  at 0x608660c5a310: data    7 next: 0x608660c5a430
-  at 0x608660c5a430: data    8 next: 0
+  at 0x568635eab670: data    1 next: 0x568635eab910
+  at 0x568635eab910: data    2 next: 0x568635eab770
+  at 0x568635eab770: data    4 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    6 next: 0x568635eab510
+  at 0x568635eab510: data    7 next: 0x568635eab630
+  at 0x568635eab630: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 3 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0x608660c5a350
-  at 0x608660c5a350: data    3 next: 0x608660c5a650
-  at 0x608660c5a650: data    4 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    5 next: 0
+set was at 0x7ffc324cd260 and contained 3 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0x568635eab550
+  at 0x568635eab550: data    3 next: 0x568635eab850
+  at 0x568635eab850: data    4 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    5 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a470
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab670
 list contains 6 elements:
-  at 0x608660c5a470: data    1 next: 0x608660c5a710
-  at 0x608660c5a710: data    2 next: 0x608660c5a570
-  at 0x608660c5a570: data    4 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    6 next: 0x608660c5a310
-  at 0x608660c5a310: data    7 next: 0x608660c5a430
-  at 0x608660c5a430: data    8 next: 0
+  at 0x568635eab670: data    1 next: 0x568635eab910
+  at 0x568635eab910: data    2 next: 0x568635eab770
+  at 0x568635eab770: data    4 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    6 next: 0x568635eab510
+  at 0x568635eab510: data    7 next: 0x568635eab630
+  at 0x568635eab630: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 passed   operation ^
 
-Passed 37 of 37 tests
+Passed 39 of 39 tests
 
 
 ***************************** Test Name  ******************************
@@ -1758,19 +1868,19 @@ Passed 37 of 37 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator &
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a550
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab750
 list contains 7 elements:
-  at 0x608660c5a550: data    1 next: 0x608660c5a690
-  at 0x608660c5a690: data    2 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    3 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    5 next: 0x608660c5a510
-  at 0x608660c5a510: data    6 next: 0x608660c5a450
-  at 0x608660c5a450: data    7 next: 0x608660c5a330
-  at 0x608660c5a330: data    8 next: 0
+  at 0x568635eab750: data    1 next: 0x568635eab890
+  at 0x568635eab890: data    2 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    3 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    5 next: 0x568635eab710
+  at 0x568635eab710: data    6 next: 0x568635eab650
+  at 0x568635eab650: data    7 next: 0x568635eab530
+  at 0x568635eab530: data    8 next: 0
 
 " & "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -1781,7 +1891,7 @@ INFO - Element storage location test not run,
  set size: 0
 passed   operation &
 
-Passed 38 of 38 tests
+Passed 40 of 40 tests
 
     ************************ Test Phase *************************
     *     operator&(MyOrderedSet) { empty } & { 1-3, 5-8 }      *
@@ -1790,21 +1900,21 @@ Passed 38 of 38 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator &
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0
 list contains 0 elements:
   empty list
 
 " & "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a4f0
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab6f0
 list contains 7 elements:
-  at 0x608660c5a4f0: data    1 next: 0x608660c5a410
-  at 0x608660c5a410: data    2 next: 0x608660c5a530
-  at 0x608660c5a530: data    3 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    5 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    6 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    7 next: 0x608660c5a630
-  at 0x608660c5a630: data    8 next: 0
+  at 0x568635eab6f0: data    1 next: 0x568635eab610
+  at 0x568635eab610: data    2 next: 0x568635eab730
+  at 0x568635eab730: data    3 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    5 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    6 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    7 next: 0x568635eab830
+  at 0x568635eab830: data    8 next: 0
 
  expecting: {  } against received: {  }
  verifyResults returning true
@@ -1813,7 +1923,7 @@ INFO - Element storage location test not run,
  set size: 0
 passed   operation &
 
-Passed 39 of 39 tests
+Passed 41 of 41 tests
 
     ************************ Test Phase *************************
     *      operator&(MyOrderedSet) { 1-3, 5-8 } & { 3-5 }       *
@@ -1822,23 +1932,23 @@ Passed 39 of 39 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator &
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a3f0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab5f0
 list contains 7 elements:
-  at 0x608660c5a3f0: data    1 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    2 next: 0x608660c5a690
-  at 0x608660c5a690: data    3 next: 0x608660c5a550
-  at 0x608660c5a550: data    5 next: 0x608660c5a370
-  at 0x608660c5a370: data    6 next: 0x608660c5a330
-  at 0x608660c5a330: data    7 next: 0x608660c5a450
-  at 0x608660c5a450: data    8 next: 0
+  at 0x568635eab5f0: data    1 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    2 next: 0x568635eab890
+  at 0x568635eab890: data    3 next: 0x568635eab750
+  at 0x568635eab750: data    5 next: 0x568635eab570
+  at 0x568635eab570: data    6 next: 0x568635eab530
+  at 0x568635eab530: data    7 next: 0x568635eab650
+  at 0x568635eab650: data    8 next: 0
 
 " & "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a630
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab830
 list contains 3 elements:
-  at 0x608660c5a630: data    3 next: 0x608660c5a510
-  at 0x608660c5a510: data    4 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    5 next: 0
+  at 0x568635eab830: data    3 next: 0x568635eab710
+  at 0x568635eab710: data    4 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    5 next: 0
 
  expecting: {  3 5 } against received: {  3 5 }
   0       expected 3 == 3
@@ -1849,7 +1959,7 @@ INFO - Element storage location test not run,
  set size: 2
 passed   operation &
 
-Passed 40 of 40 tests
+Passed 42 of 42 tests
 
 
 ***************************** Test Name  ******************************
@@ -1865,19 +1975,19 @@ Passed 40 of 40 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator -
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a410
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab610
 list contains 7 elements:
-  at 0x608660c5a410: data    1 next: 0x608660c5a490
-  at 0x608660c5a490: data    2 next: 0x608660c5a670
-  at 0x608660c5a670: data    3 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    5 next: 0x608660c5a390
-  at 0x608660c5a390: data    6 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+  at 0x568635eab610: data    1 next: 0x568635eab690
+  at 0x568635eab690: data    2 next: 0x568635eab870
+  at 0x568635eab870: data    3 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    5 next: 0x568635eab590
+  at 0x568635eab590: data    6 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
 " - "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -1893,50 +2003,50 @@ list contains 0 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 7 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0x608660c5a410
-  at 0x608660c5a410: data    1 next: 0x608660c5a490
-  at 0x608660c5a490: data    2 next: 0x608660c5a670
-  at 0x608660c5a670: data    3 next: 0x608660c5a3d0
-  at 0x608660c5a3d0: data    5 next: 0x608660c5a390
-  at 0x608660c5a390: data    6 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+set was at 0x7ffc324cd250 and contained 7 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0x568635eab610
+  at 0x568635eab610: data    1 next: 0x568635eab690
+  at 0x568635eab690: data    2 next: 0x568635eab870
+  at 0x568635eab870: data    3 next: 0x568635eab5d0
+  at 0x568635eab5d0: data    5 next: 0x568635eab590
+  at 0x568635eab590: data    6 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a330
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab530
 list contains 7 elements:
-  at 0x608660c5a330: data    1 next: 0x608660c5a510
-  at 0x608660c5a510: data    2 next: 0x608660c5a570
-  at 0x608660c5a570: data    3 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    5 next: 0x608660c5a310
-  at 0x608660c5a310: data    6 next: 0x608660c5a710
-  at 0x608660c5a710: data    7 next: 0x608660c5a430
-  at 0x608660c5a430: data    8 next: 0
+  at 0x568635eab530: data    1 next: 0x568635eab710
+  at 0x568635eab710: data    2 next: 0x568635eab770
+  at 0x568635eab770: data    3 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    5 next: 0x568635eab510
+  at 0x568635eab510: data    6 next: 0x568635eab910
+  at 0x568635eab910: data    7 next: 0x568635eab630
+  at 0x568635eab630: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 0 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0
+set was at 0x7ffc324cd260 and contained 0 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a330
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab530
 list contains 7 elements:
-  at 0x608660c5a330: data    1 next: 0x608660c5a510
-  at 0x608660c5a510: data    2 next: 0x608660c5a570
-  at 0x608660c5a570: data    3 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    5 next: 0x608660c5a310
-  at 0x608660c5a310: data    6 next: 0x608660c5a710
-  at 0x608660c5a710: data    7 next: 0x608660c5a430
-  at 0x608660c5a430: data    8 next: 0
+  at 0x568635eab530: data    1 next: 0x568635eab710
+  at 0x568635eab710: data    2 next: 0x568635eab770
+  at 0x568635eab770: data    3 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    5 next: 0x568635eab510
+  at 0x568635eab510: data    6 next: 0x568635eab910
+  at 0x568635eab910: data    7 next: 0x568635eab630
+  at 0x568635eab630: data    8 next: 0
 
  returns true b/c before_set was empty
 
 passed   operation -
 
-Passed 41 of 41 tests
+Passed 43 of 43 tests
 
     ************************ Test Phase *************************
     *     operator-(MyOrderedSet) { empty } - { 1-3, 5-8 }      *
@@ -1945,21 +2055,21 @@ Passed 41 of 41 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator -
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0
 list contains 0 elements:
   empty list
 
 " - "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a690
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab890
 list contains 7 elements:
-  at 0x608660c5a690: data    1 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    5 next: 0x608660c5a450
-  at 0x608660c5a450: data    6 next: 0x608660c5a350
-  at 0x608660c5a350: data    7 next: 0x608660c5a630
-  at 0x608660c5a630: data    8 next: 0
+  at 0x568635eab890: data    1 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    5 next: 0x568635eab650
+  at 0x568635eab650: data    6 next: 0x568635eab550
+  at 0x568635eab550: data    7 next: 0x568635eab830
+  at 0x568635eab830: data    8 next: 0
 
  expecting: {  } against received: {  }
  verifyResults returning true
@@ -1968,7 +2078,7 @@ INFO - Element storage location test not run,
  set size: 0
 passed   operation -
 
-Passed 42 of 42 tests
+Passed 44 of 44 tests
 
     ************************ Test Phase *************************
     *      operator-(MyOrderedSet) { 1-3, 5-8 } - { 3-5 }       *
@@ -1977,23 +2087,23 @@ Passed 42 of 42 tests
 Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = int] operator -
 
 
- operand_1: set contains a list at 0x7fff13ef2c50: m_head points to 0x608660c5a3d0
+ operand_1: set contains a list at 0x7ffc324cd250: m_head points to 0x568635eab5d0
 list contains 7 elements:
-  at 0x608660c5a3d0: data    1 next: 0x608660c5a670
-  at 0x608660c5a670: data    2 next: 0x608660c5a490
-  at 0x608660c5a490: data    3 next: 0x608660c5a410
-  at 0x608660c5a410: data    5 next: 0x608660c5a430
-  at 0x608660c5a430: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    8 next: 0
+  at 0x568635eab5d0: data    1 next: 0x568635eab870
+  at 0x568635eab870: data    2 next: 0x568635eab690
+  at 0x568635eab690: data    3 next: 0x568635eab610
+  at 0x568635eab610: data    5 next: 0x568635eab630
+  at 0x568635eab630: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    8 next: 0
 
 " - "
 
- operand_2: set contains a list at 0x7fff13ef2c60: m_head points to 0x608660c5a630
+ operand_2: set contains a list at 0x7ffc324cd260: m_head points to 0x568635eab830
 list contains 3 elements:
-  at 0x608660c5a630: data    3 next: 0x608660c5a390
-  at 0x608660c5a390: data    4 next: 0x608660c5a690
-  at 0x608660c5a690: data    5 next: 0
+  at 0x568635eab830: data    3 next: 0x568635eab590
+  at 0x568635eab590: data    4 next: 0x568635eab890
+  at 0x568635eab890: data    5 next: 0
 
  expecting: {  1 2 6 7 8 } against received: {  1 2 6 7 8 }
   0       expected 1 == 1
@@ -2005,49 +2115,49 @@ list contains 3 elements:
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c50 and contained 7 objects 
- list was at address 0x7fff13ef2c50 m_head points to 0x608660c5a3d0
-  at 0x608660c5a3d0: data    1 next: 0x608660c5a670
-  at 0x608660c5a670: data    2 next: 0x608660c5a490
-  at 0x608660c5a490: data    3 next: 0x608660c5a410
-  at 0x608660c5a410: data    5 next: 0x608660c5a430
-  at 0x608660c5a430: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5a4d0
-  at 0x608660c5a4d0: data    8 next: 0
+set was at 0x7ffc324cd250 and contained 7 objects 
+ list was at address 0x7ffc324cd250 m_head points to 0x568635eab5d0
+  at 0x568635eab5d0: data    1 next: 0x568635eab870
+  at 0x568635eab870: data    2 next: 0x568635eab690
+  at 0x568635eab690: data    3 next: 0x568635eab610
+  at 0x568635eab610: data    5 next: 0x568635eab630
+  at 0x568635eab630: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eab6d0
+  at 0x568635eab6d0: data    8 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a6b0
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab8b0
 list contains 5 elements:
-  at 0x608660c5a6b0: data    1 next: 0x608660c5a310
-  at 0x608660c5a310: data    2 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    6 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    7 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    8 next: 0
+  at 0x568635eab8b0: data    1 next: 0x568635eab510
+  at 0x568635eab510: data    2 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    6 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    7 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    8 next: 0
 
  returns true b/c a value in before_set was found in after_set but at different node address
 
 Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2c60 and contained 3 objects 
- list was at address 0x7fff13ef2c60 m_head points to 0x608660c5a630
-  at 0x608660c5a630: data    3 next: 0x608660c5a390
-  at 0x608660c5a390: data    4 next: 0x608660c5a690
-  at 0x608660c5a690: data    5 next: 0
+set was at 0x7ffc324cd260 and contained 3 objects 
+ list was at address 0x7ffc324cd260 m_head points to 0x568635eab830
+  at 0x568635eab830: data    3 next: 0x568635eab590
+  at 0x568635eab590: data    4 next: 0x568635eab890
+  at 0x568635eab890: data    5 next: 0
 
-after_set:  @0x7fff13ef2c70
-set contains a list at 0x7fff13ef2c70: m_head points to 0x608660c5a6b0
+after_set:  @0x7ffc324cd270
+set contains a list at 0x7ffc324cd270: m_head points to 0x568635eab8b0
 list contains 5 elements:
-  at 0x608660c5a6b0: data    1 next: 0x608660c5a310
-  at 0x608660c5a310: data    2 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    6 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    7 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    8 next: 0
+  at 0x568635eab8b0: data    1 next: 0x568635eab510
+  at 0x568635eab510: data    2 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    6 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    7 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    8 next: 0
 
  returns true b/c there were no values that were common to each set
 
 passed   operation -
 
-Passed 43 of 43 tests
+Passed 45 of 45 tests
 
 
 ***************************** Test Name  ******************************
@@ -2064,33 +2174,33 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a450
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab650
 list contains 7 elements:
-  at 0x608660c5a450: data    1 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5a650
-  at 0x608660c5a650: data    8 next: 0
+  at 0x568635eab650: data    1 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eab850
+  at 0x568635eab850: data    8 next: 0
 
  += 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0
 list contains 0 elements:
   empty list
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a450
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab650
 list contains 7 elements:
-  at 0x608660c5a450: data    1 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5a650
-  at 0x608660c5a650: data    8 next: 0
+  at 0x568635eab650: data    1 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eab850
+  at 0x568635eab850: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -2104,33 +2214,33 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 7 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0x608660c5a450
-  at 0x608660c5a450: data    1 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5a650
-  at 0x608660c5a650: data    8 next: 0
+set was at 0x7ffc324cd2b0 and contained 7 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0x568635eab650
+  at 0x568635eab650: data    1 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eab850
+  at 0x568635eab850: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a450
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab650
 list contains 7 elements:
-  at 0x608660c5a450: data    1 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5a650
-  at 0x608660c5a650: data    8 next: 0
+  at 0x568635eab650: data    1 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eab850
+  at 0x568635eab850: data    8 next: 0
 
  returns true 
 
 
 passed   operation +=
 
-Passed 44 of 44 tests
+Passed 46 of 46 tests
 
     ************************ Test Phase *************************
     *     operator+=(MyOrderedSet) { empty } + { 1-3, 5-8 }     *
@@ -2140,33 +2250,33 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0
 list contains 0 elements:
   empty list
 
  += 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5a470
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eab670
 list contains 7 elements:
-  at 0x608660c5a470: data    1 next: 0x608660c5a530
-  at 0x608660c5a530: data    2 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    3 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    5 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    6 next: 0x608660c5a450
-  at 0x608660c5a450: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+  at 0x568635eab670: data    1 next: 0x568635eab730
+  at 0x568635eab730: data    2 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    3 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    5 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    6 next: 0x568635eab650
+  at 0x568635eab650: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 7 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    2 next: 0x608660c5a310
-  at 0x608660c5a310: data    3 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    5 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    6 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    7 next: 0x608660c5a630
-  at 0x608660c5a630: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    2 next: 0x568635eab510
+  at 0x568635eab510: data    3 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    5 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    6 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    7 next: 0x568635eab830
+  at 0x568635eab830: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -2180,26 +2290,26 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 0 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0
+set was at 0x7ffc324cd2b0 and contained 0 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 7 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5a6b0
-  at 0x608660c5a6b0: data    2 next: 0x608660c5a310
-  at 0x608660c5a310: data    3 next: 0x608660c5a6f0
-  at 0x608660c5a6f0: data    5 next: 0x608660c5a3b0
-  at 0x608660c5a3b0: data    6 next: 0x608660c5a4b0
-  at 0x608660c5a4b0: data    7 next: 0x608660c5a630
-  at 0x608660c5a630: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eab8b0
+  at 0x568635eab8b0: data    2 next: 0x568635eab510
+  at 0x568635eab510: data    3 next: 0x568635eab8f0
+  at 0x568635eab8f0: data    5 next: 0x568635eab5b0
+  at 0x568635eab5b0: data    6 next: 0x568635eab6b0
+  at 0x568635eab6b0: data    7 next: 0x568635eab830
+  at 0x568635eab830: data    8 next: 0
 
  returns true b/c before_set was empty
 
 
 passed   operation +=
 
-Passed 45 of 45 tests
+Passed 47 of 47 tests
 
     ************************ Test Phase *************************
     *      operator+=(MyOrderedSet) { 1-3, 5-8 } + { 3-5 }      *
@@ -2209,36 +2319,36 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a450
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab650
 list contains 7 elements:
-  at 0x608660c5a450: data    1 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5a390
-  at 0x608660c5a390: data    8 next: 0
+  at 0x568635eab650: data    1 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eab590
+  at 0x568635eab590: data    8 next: 0
 
  += 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5a630
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eab830
 list contains 3 elements:
-  at 0x608660c5a630: data    3 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    4 next: 0x608660c5a650
-  at 0x608660c5a650: data    5 next: 0
+  at 0x568635eab830: data    3 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    4 next: 0x568635eab850
+  at 0x568635eab850: data    5 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a450
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab650
 list contains 8 elements:
-  at 0x608660c5a450: data    1 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a710
-  at 0x608660c5a710: data    4 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5a390
-  at 0x608660c5a390: data    8 next: 0
+  at 0x568635eab650: data    1 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab910
+  at 0x568635eab910: data    4 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eab590
+  at 0x568635eab590: data    8 next: 0
 
  expecting: {  1 2 3 4 5 6 7 8 } against received: {  1 2 3 4 5 6 7 8 }
   0       expected 1 == 1
@@ -2253,34 +2363,34 @@ list contains 8 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 7 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0x608660c5a450
-  at 0x608660c5a450: data    1 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5a390
-  at 0x608660c5a390: data    8 next: 0
+set was at 0x7ffc324cd2b0 and contained 7 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0x568635eab650
+  at 0x568635eab650: data    1 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eab590
+  at 0x568635eab590: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a450
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab650
 list contains 8 elements:
-  at 0x608660c5a450: data    1 next: 0x608660c5a4f0
-  at 0x608660c5a4f0: data    2 next: 0x608660c5a3f0
-  at 0x608660c5a3f0: data    3 next: 0x608660c5a710
-  at 0x608660c5a710: data    4 next: 0x608660c5a2f0
-  at 0x608660c5a2f0: data    5 next: 0x608660c5a530
-  at 0x608660c5a530: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5a390
-  at 0x608660c5a390: data    8 next: 0
+  at 0x568635eab650: data    1 next: 0x568635eab6f0
+  at 0x568635eab6f0: data    2 next: 0x568635eab5f0
+  at 0x568635eab5f0: data    3 next: 0x568635eab910
+  at 0x568635eab910: data    4 next: 0x568635eab4f0
+  at 0x568635eab4f0: data    5 next: 0x568635eab730
+  at 0x568635eab730: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eab590
+  at 0x568635eab590: data    8 next: 0
 
  returns true 
 
 
 passed   operation +=
 
-Passed 46 of 46 tests
+Passed 48 of 48 tests
 
 
 ***************************** Test Name  ******************************
@@ -2297,33 +2407,33 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 7 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a630
-  at 0x608660c5a630: data    3 next: 0x608660c5a550
-  at 0x608660c5a550: data    5 next: 0x608660c5a330
-  at 0x608660c5a330: data    6 next: 0x608660c5a510
-  at 0x608660c5a510: data    7 next: 0x608660c5a570
-  at 0x608660c5a570: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab830
+  at 0x568635eab830: data    3 next: 0x568635eab750
+  at 0x568635eab750: data    5 next: 0x568635eab530
+  at 0x568635eab530: data    6 next: 0x568635eab710
+  at 0x568635eab710: data    7 next: 0x568635eab770
+  at 0x568635eab770: data    8 next: 0
 
  |= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0
 list contains 0 elements:
   empty list
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 7 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a630
-  at 0x608660c5a630: data    3 next: 0x608660c5a550
-  at 0x608660c5a550: data    5 next: 0x608660c5a330
-  at 0x608660c5a330: data    6 next: 0x608660c5a510
-  at 0x608660c5a510: data    7 next: 0x608660c5a570
-  at 0x608660c5a570: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab830
+  at 0x568635eab830: data    3 next: 0x568635eab750
+  at 0x568635eab750: data    5 next: 0x568635eab530
+  at 0x568635eab530: data    6 next: 0x568635eab710
+  at 0x568635eab710: data    7 next: 0x568635eab770
+  at 0x568635eab770: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -2337,33 +2447,33 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 7 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0x608660c5a650
-  at 0x608660c5a650: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a630
-  at 0x608660c5a630: data    3 next: 0x608660c5a550
-  at 0x608660c5a550: data    5 next: 0x608660c5a330
-  at 0x608660c5a330: data    6 next: 0x608660c5a510
-  at 0x608660c5a510: data    7 next: 0x608660c5a570
-  at 0x608660c5a570: data    8 next: 0
+set was at 0x7ffc324cd2b0 and contained 7 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0x568635eab850
+  at 0x568635eab850: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab830
+  at 0x568635eab830: data    3 next: 0x568635eab750
+  at 0x568635eab750: data    5 next: 0x568635eab530
+  at 0x568635eab530: data    6 next: 0x568635eab710
+  at 0x568635eab710: data    7 next: 0x568635eab770
+  at 0x568635eab770: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 7 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a630
-  at 0x608660c5a630: data    3 next: 0x608660c5a550
-  at 0x608660c5a550: data    5 next: 0x608660c5a330
-  at 0x608660c5a330: data    6 next: 0x608660c5a510
-  at 0x608660c5a510: data    7 next: 0x608660c5a570
-  at 0x608660c5a570: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab830
+  at 0x568635eab830: data    3 next: 0x568635eab750
+  at 0x568635eab750: data    5 next: 0x568635eab530
+  at 0x568635eab530: data    6 next: 0x568635eab710
+  at 0x568635eab710: data    7 next: 0x568635eab770
+  at 0x568635eab770: data    8 next: 0
 
  returns true 
 
 
 passed   operation |=
 
-Passed 47 of 47 tests
+Passed 49 of 49 tests
 
     ************************ Test Phase *************************
     *     operator|=(MyOrderedSet) { empty } | { 1-3, 5-8 }     *
@@ -2373,33 +2483,33 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0
 list contains 0 elements:
   empty list
 
  |= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5a510
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eab710
 list contains 7 elements:
-  at 0x608660c5a510: data    1 next: 0x608660c5a330
-  at 0x608660c5a330: data    2 next: 0x608660c5a550
-  at 0x608660c5a550: data    3 next: 0x608660c5a630
-  at 0x608660c5a630: data    5 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    6 next: 0x608660c5a650
-  at 0x608660c5a650: data    7 next: 0x608660c5a470
-  at 0x608660c5a470: data    8 next: 0
+  at 0x568635eab710: data    1 next: 0x568635eab530
+  at 0x568635eab530: data    2 next: 0x568635eab750
+  at 0x568635eab750: data    3 next: 0x568635eab830
+  at 0x568635eab830: data    5 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    6 next: 0x568635eab850
+  at 0x568635eab850: data    7 next: 0x568635eab670
+  at 0x568635eab670: data    8 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a570
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab770
 list contains 7 elements:
-  at 0x608660c5a570: data    1 next: 0x608660c5a810
-  at 0x608660c5a810: data    2 next: 0x608660c5a830
-  at 0x608660c5a830: data    3 next: 0x608660c5a850
-  at 0x608660c5a850: data    5 next: 0x608660c5a870
-  at 0x608660c5a870: data    6 next: 0x608660c5a890
-  at 0x608660c5a890: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+  at 0x568635eab770: data    1 next: 0x568635eaba10
+  at 0x568635eaba10: data    2 next: 0x568635eaba30
+  at 0x568635eaba30: data    3 next: 0x568635eaba50
+  at 0x568635eaba50: data    5 next: 0x568635eaba70
+  at 0x568635eaba70: data    6 next: 0x568635eaba90
+  at 0x568635eaba90: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -2413,26 +2523,26 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 0 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0
+set was at 0x7ffc324cd2b0 and contained 0 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a570
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab770
 list contains 7 elements:
-  at 0x608660c5a570: data    1 next: 0x608660c5a810
-  at 0x608660c5a810: data    2 next: 0x608660c5a830
-  at 0x608660c5a830: data    3 next: 0x608660c5a850
-  at 0x608660c5a850: data    5 next: 0x608660c5a870
-  at 0x608660c5a870: data    6 next: 0x608660c5a890
-  at 0x608660c5a890: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+  at 0x568635eab770: data    1 next: 0x568635eaba10
+  at 0x568635eaba10: data    2 next: 0x568635eaba30
+  at 0x568635eaba30: data    3 next: 0x568635eaba50
+  at 0x568635eaba50: data    5 next: 0x568635eaba70
+  at 0x568635eaba70: data    6 next: 0x568635eaba90
+  at 0x568635eaba90: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
  returns true b/c before_set was empty
 
 
 passed   operation |=
 
-Passed 48 of 48 tests
+Passed 50 of 50 tests
 
     ************************ Test Phase *************************
     *      operator|=(MyOrderedSet) { 1-3, 5-8 } | { 3-5 }      *
@@ -2442,36 +2552,36 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a470
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab670
 list contains 7 elements:
-  at 0x608660c5a470: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    3 next: 0x608660c5a630
-  at 0x608660c5a630: data    5 next: 0x608660c5a550
-  at 0x608660c5a550: data    6 next: 0x608660c5a330
-  at 0x608660c5a330: data    7 next: 0x608660c5a510
-  at 0x608660c5a510: data    8 next: 0
+  at 0x568635eab670: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    3 next: 0x568635eab830
+  at 0x568635eab830: data    5 next: 0x568635eab750
+  at 0x568635eab750: data    6 next: 0x568635eab530
+  at 0x568635eab530: data    7 next: 0x568635eab710
+  at 0x568635eab710: data    8 next: 0
 
  |= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5a8b0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eabab0
 list contains 3 elements:
-  at 0x608660c5a8b0: data    3 next: 0x608660c5a570
-  at 0x608660c5a570: data    4 next: 0x608660c5a810
-  at 0x608660c5a810: data    5 next: 0
+  at 0x568635eabab0: data    3 next: 0x568635eab770
+  at 0x568635eab770: data    4 next: 0x568635eaba10
+  at 0x568635eaba10: data    5 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a470
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab670
 list contains 8 elements:
-  at 0x608660c5a470: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    3 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    4 next: 0x608660c5a630
-  at 0x608660c5a630: data    5 next: 0x608660c5a550
-  at 0x608660c5a550: data    6 next: 0x608660c5a330
-  at 0x608660c5a330: data    7 next: 0x608660c5a510
-  at 0x608660c5a510: data    8 next: 0
+  at 0x568635eab670: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    3 next: 0x568635eabba0
+  at 0x568635eabba0: data    4 next: 0x568635eab830
+  at 0x568635eab830: data    5 next: 0x568635eab750
+  at 0x568635eab750: data    6 next: 0x568635eab530
+  at 0x568635eab530: data    7 next: 0x568635eab710
+  at 0x568635eab710: data    8 next: 0
 
  expecting: {  1 2 3 4 5 6 7 8 } against received: {  1 2 3 4 5 6 7 8 }
   0       expected 1 == 1
@@ -2486,34 +2596,34 @@ list contains 8 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 7 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0x608660c5a470
-  at 0x608660c5a470: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    3 next: 0x608660c5a630
-  at 0x608660c5a630: data    5 next: 0x608660c5a550
-  at 0x608660c5a550: data    6 next: 0x608660c5a330
-  at 0x608660c5a330: data    7 next: 0x608660c5a510
-  at 0x608660c5a510: data    8 next: 0
+set was at 0x7ffc324cd2b0 and contained 7 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0x568635eab670
+  at 0x568635eab670: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    3 next: 0x568635eab830
+  at 0x568635eab830: data    5 next: 0x568635eab750
+  at 0x568635eab750: data    6 next: 0x568635eab530
+  at 0x568635eab530: data    7 next: 0x568635eab710
+  at 0x568635eab710: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a470
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab670
 list contains 8 elements:
-  at 0x608660c5a470: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    3 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    4 next: 0x608660c5a630
-  at 0x608660c5a630: data    5 next: 0x608660c5a550
-  at 0x608660c5a550: data    6 next: 0x608660c5a330
-  at 0x608660c5a330: data    7 next: 0x608660c5a510
-  at 0x608660c5a510: data    8 next: 0
+  at 0x568635eab670: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    3 next: 0x568635eabba0
+  at 0x568635eabba0: data    4 next: 0x568635eab830
+  at 0x568635eab830: data    5 next: 0x568635eab750
+  at 0x568635eab750: data    6 next: 0x568635eab530
+  at 0x568635eab530: data    7 next: 0x568635eab710
+  at 0x568635eab710: data    8 next: 0
 
  returns true 
 
 
 passed   operation |=
 
-Passed 49 of 49 tests
+Passed 51 of 51 tests
 
 
 ***************************** Test Name  ******************************
@@ -2530,33 +2640,33 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a9a0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabba0
 list contains 7 elements:
-  at 0x608660c5a9a0: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a810
-  at 0x608660c5a810: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+  at 0x568635eabba0: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eaba10
+  at 0x568635eaba10: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
  ^= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0
 list contains 0 elements:
   empty list
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a9a0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabba0
 list contains 7 elements:
-  at 0x608660c5a9a0: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a810
-  at 0x608660c5a810: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+  at 0x568635eabba0: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eaba10
+  at 0x568635eaba10: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -2570,33 +2680,33 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 7 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0x608660c5a9a0
-  at 0x608660c5a9a0: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a810
-  at 0x608660c5a810: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+set was at 0x7ffc324cd2b0 and contained 7 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0x568635eabba0
+  at 0x568635eabba0: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eaba10
+  at 0x568635eaba10: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a9a0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabba0
 list contains 7 elements:
-  at 0x608660c5a9a0: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a810
-  at 0x608660c5a810: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+  at 0x568635eabba0: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eaba10
+  at 0x568635eaba10: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
  returns true 
 
 
 passed   operation ^=
 
-Passed 50 of 50 tests
+Passed 52 of 52 tests
 
     ************************ Test Phase *************************
     *     operator^=(MyOrderedSet) { empty } ^ { 1-3, 5-8 }     *
@@ -2606,33 +2716,33 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0
 list contains 0 elements:
   empty list
 
  ^= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5a8b0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eabab0
 list contains 7 elements:
-  at 0x608660c5a8b0: data    1 next: 0x608660c5a570
-  at 0x608660c5a570: data    2 next: 0x608660c5a810
-  at 0x608660c5a810: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a650
-  at 0x608660c5a650: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    8 next: 0
+  at 0x568635eabab0: data    1 next: 0x568635eab770
+  at 0x568635eab770: data    2 next: 0x568635eaba10
+  at 0x568635eaba10: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eab850
+  at 0x568635eab850: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eabba0
+  at 0x568635eabba0: data    8 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5aac0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabcc0
 list contains 7 elements:
-  at 0x608660c5aac0: data    1 next: 0x608660c5aae0
-  at 0x608660c5aae0: data    2 next: 0x608660c5ab00
-  at 0x608660c5ab00: data    3 next: 0x608660c5ab20
-  at 0x608660c5ab20: data    5 next: 0x608660c5ab40
-  at 0x608660c5ab40: data    6 next: 0x608660c5ab60
-  at 0x608660c5ab60: data    7 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    8 next: 0
+  at 0x568635eabcc0: data    1 next: 0x568635eabce0
+  at 0x568635eabce0: data    2 next: 0x568635eabd00
+  at 0x568635eabd00: data    3 next: 0x568635eabd20
+  at 0x568635eabd20: data    5 next: 0x568635eabd40
+  at 0x568635eabd40: data    6 next: 0x568635eabd60
+  at 0x568635eabd60: data    7 next: 0x568635eabd80
+  at 0x568635eabd80: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -2646,26 +2756,26 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 0 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0
+set was at 0x7ffc324cd2b0 and contained 0 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5aac0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabcc0
 list contains 7 elements:
-  at 0x608660c5aac0: data    1 next: 0x608660c5aae0
-  at 0x608660c5aae0: data    2 next: 0x608660c5ab00
-  at 0x608660c5ab00: data    3 next: 0x608660c5ab20
-  at 0x608660c5ab20: data    5 next: 0x608660c5ab40
-  at 0x608660c5ab40: data    6 next: 0x608660c5ab60
-  at 0x608660c5ab60: data    7 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    8 next: 0
+  at 0x568635eabcc0: data    1 next: 0x568635eabce0
+  at 0x568635eabce0: data    2 next: 0x568635eabd00
+  at 0x568635eabd00: data    3 next: 0x568635eabd20
+  at 0x568635eabd20: data    5 next: 0x568635eabd40
+  at 0x568635eabd40: data    6 next: 0x568635eabd60
+  at 0x568635eabd60: data    7 next: 0x568635eabd80
+  at 0x568635eabd80: data    8 next: 0
 
  returns true b/c before_set was empty
 
 
 passed   operation ^=
 
-Passed 51 of 51 tests
+Passed 53 of 53 tests
 
     ************************ Test Phase *************************
     *      operator^=(MyOrderedSet) { 1-3, 5-8 } ^ { 3-5 }      *
@@ -2675,34 +2785,34 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a9a0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabba0
 list contains 7 elements:
-  at 0x608660c5a9a0: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a810
-  at 0x608660c5a810: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+  at 0x568635eabba0: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eaba10
+  at 0x568635eaba10: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
  ^= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5ab80
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eabd80
 list contains 3 elements:
-  at 0x608660c5ab80: data    3 next: 0x608660c5aac0
-  at 0x608660c5aac0: data    4 next: 0x608660c5aae0
-  at 0x608660c5aae0: data    5 next: 0
+  at 0x568635eabd80: data    3 next: 0x568635eabcc0
+  at 0x568635eabcc0: data    4 next: 0x568635eabce0
+  at 0x568635eabce0: data    5 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a9a0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabba0
 list contains 6 elements:
-  at 0x608660c5a9a0: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    4 next: 0x608660c5a810
-  at 0x608660c5a810: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+  at 0x568635eabba0: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    4 next: 0x568635eaba10
+  at 0x568635eaba10: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
  expecting: {  1 2 4 6 7 8 } against received: {  1 2 4 6 7 8 }
   0       expected 1 == 1
@@ -2715,32 +2825,32 @@ list contains 6 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 7 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0x608660c5a9a0
-  at 0x608660c5a9a0: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5a810
-  at 0x608660c5a810: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+set was at 0x7ffc324cd2b0 and contained 7 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0x568635eabba0
+  at 0x568635eabba0: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eaba10
+  at 0x568635eaba10: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a9a0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabba0
 list contains 6 elements:
-  at 0x608660c5a9a0: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a650
-  at 0x608660c5a650: data    4 next: 0x608660c5a810
-  at 0x608660c5a810: data    6 next: 0x608660c5a570
-  at 0x608660c5a570: data    7 next: 0x608660c5a8b0
-  at 0x608660c5a8b0: data    8 next: 0
+  at 0x568635eabba0: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eab850
+  at 0x568635eab850: data    4 next: 0x568635eaba10
+  at 0x568635eaba10: data    6 next: 0x568635eab770
+  at 0x568635eab770: data    7 next: 0x568635eabab0
+  at 0x568635eabab0: data    8 next: 0
 
  returns true 
 
 
 passed   operation ^=
 
-Passed 52 of 52 tests
+Passed 54 of 54 tests
 
 
 ***************************** Test Name  ******************************
@@ -2757,25 +2867,25 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 7 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    2 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    3 next: 0x608660c5aae0
-  at 0x608660c5aae0: data    5 next: 0x608660c5aac0
-  at 0x608660c5aac0: data    6 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    7 next: 0x608660c5a470
-  at 0x608660c5a470: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    2 next: 0x568635eabba0
+  at 0x568635eabba0: data    3 next: 0x568635eabce0
+  at 0x568635eabce0: data    5 next: 0x568635eabcc0
+  at 0x568635eabcc0: data    6 next: 0x568635eabd80
+  at 0x568635eabd80: data    7 next: 0x568635eab670
+  at 0x568635eab670: data    8 next: 0
 
  &= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0
 list contains 0 elements:
   empty list
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -2786,7 +2896,7 @@ set location test not run, result is too small: 0
 
 passed   operation &=
 
-Passed 53 of 53 tests
+Passed 55 of 55 tests
 
     ************************ Test Phase *************************
     *     operator&=(MyOrderedSet) { empty } & { 1-3, 5-8 }     *
@@ -2796,25 +2906,25 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0
 list contains 0 elements:
   empty list
 
  &= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5a470
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eab670
 list contains 7 elements:
-  at 0x608660c5a470: data    1 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    2 next: 0x608660c5aac0
-  at 0x608660c5aac0: data    3 next: 0x608660c5aae0
-  at 0x608660c5aae0: data    5 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5a650
-  at 0x608660c5a650: data    8 next: 0
+  at 0x568635eab670: data    1 next: 0x568635eabd80
+  at 0x568635eabd80: data    2 next: 0x568635eabcc0
+  at 0x568635eabcc0: data    3 next: 0x568635eabce0
+  at 0x568635eabce0: data    5 next: 0x568635eabba0
+  at 0x568635eabba0: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eab850
+  at 0x568635eab850: data    8 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -2825,7 +2935,7 @@ set location test not run, result is too small: 0
 
 passed   operation &=
 
-Passed 54 of 54 tests
+Passed 56 of 56 tests
 
     ************************ Test Phase *************************
     *      operator&=(MyOrderedSet) { 1-3, 5-8 } & { 3-5 }      *
@@ -2835,30 +2945,30 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a6d0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab8d0
 list contains 7 elements:
-  at 0x608660c5a6d0: data    1 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    2 next: 0x608660c5aae0
-  at 0x608660c5aae0: data    3 next: 0x608660c5aac0
-  at 0x608660c5aac0: data    5 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    6 next: 0x608660c5a470
-  at 0x608660c5a470: data    7 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    8 next: 0
+  at 0x568635eab8d0: data    1 next: 0x568635eabba0
+  at 0x568635eabba0: data    2 next: 0x568635eabce0
+  at 0x568635eabce0: data    3 next: 0x568635eabcc0
+  at 0x568635eabcc0: data    5 next: 0x568635eabd80
+  at 0x568635eabd80: data    6 next: 0x568635eab670
+  at 0x568635eab670: data    7 next: 0x568635eabf90
+  at 0x568635eabf90: data    8 next: 0
 
  &= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eab850
 list contains 3 elements:
-  at 0x608660c5a650: data    3 next: 0x608660c5adb0
-  at 0x608660c5adb0: data    4 next: 0x608660c5add0
-  at 0x608660c5add0: data    5 next: 0
+  at 0x568635eab850: data    3 next: 0x568635eabfb0
+  at 0x568635eabfb0: data    4 next: 0x568635eabfd0
+  at 0x568635eabfd0: data    5 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5aae0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabce0
 list contains 2 elements:
-  at 0x608660c5aae0: data    3 next: 0x608660c5aac0
-  at 0x608660c5aac0: data    5 next: 0
+  at 0x568635eabce0: data    3 next: 0x568635eabcc0
+  at 0x568635eabcc0: data    5 next: 0
 
  expecting: {  3 5 } against received: {  3 5 }
   0       expected 3 == 3
@@ -2869,7 +2979,7 @@ set location test not run, result is too small: 2
 
 passed   operation &=
 
-Passed 55 of 55 tests
+Passed 57 of 57 tests
 
 
 ***************************** Test Name  ******************************
@@ -2886,33 +2996,33 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5adb0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabfb0
 list contains 7 elements:
-  at 0x608660c5adb0: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    6 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+  at 0x568635eabfb0: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eabf90
+  at 0x568635eabf90: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eabd80
+  at 0x568635eabd80: data    6 next: 0x568635eabba0
+  at 0x568635eabba0: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
  -= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0
 list contains 0 elements:
   empty list
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5adb0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabfb0
 list contains 7 elements:
-  at 0x608660c5adb0: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    6 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+  at 0x568635eabfb0: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eabf90
+  at 0x568635eabf90: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eabd80
+  at 0x568635eabd80: data    6 next: 0x568635eabba0
+  at 0x568635eabba0: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
  expecting: {  1 2 3 5 6 7 8 } against received: {  1 2 3 5 6 7 8 }
   0       expected 1 == 1
@@ -2926,33 +3036,33 @@ list contains 7 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 7 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0x608660c5adb0
-  at 0x608660c5adb0: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    6 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+set was at 0x7ffc324cd2b0 and contained 7 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0x568635eabfb0
+  at 0x568635eabfb0: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eabf90
+  at 0x568635eabf90: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eabd80
+  at 0x568635eabd80: data    6 next: 0x568635eabba0
+  at 0x568635eabba0: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5adb0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eabfb0
 list contains 7 elements:
-  at 0x608660c5adb0: data    1 next: 0x608660c5a650
-  at 0x608660c5a650: data    2 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    6 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    7 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    8 next: 0
+  at 0x568635eabfb0: data    1 next: 0x568635eab850
+  at 0x568635eab850: data    2 next: 0x568635eabf90
+  at 0x568635eabf90: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eabd80
+  at 0x568635eabd80: data    6 next: 0x568635eabba0
+  at 0x568635eabba0: data    7 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    8 next: 0
 
  returns true 
 
 
 passed   operation -=
 
-Passed 56 of 56 tests
+Passed 58 of 58 tests
 
     ************************ Test Phase *************************
     *     operator-=(MyOrderedSet) { empty } - { 1-3, 5-8 }     *
@@ -2962,25 +3072,25 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0
 list contains 0 elements:
   empty list
 
  -= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5a6d0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eab8d0
 list contains 7 elements:
-  at 0x608660c5a6d0: data    1 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    2 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    3 next: 0x608660c5a470
-  at 0x608660c5a470: data    5 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    6 next: 0x608660c5a650
-  at 0x608660c5a650: data    7 next: 0x608660c5adb0
-  at 0x608660c5adb0: data    8 next: 0
+  at 0x568635eab8d0: data    1 next: 0x568635eabba0
+  at 0x568635eabba0: data    2 next: 0x568635eabd80
+  at 0x568635eabd80: data    3 next: 0x568635eab670
+  at 0x568635eab670: data    5 next: 0x568635eabf90
+  at 0x568635eabf90: data    6 next: 0x568635eab850
+  at 0x568635eab850: data    7 next: 0x568635eabfb0
+  at 0x568635eabfb0: data    8 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0
+set contains a list at 0x7ffc324cd2b0: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -2991,7 +3101,7 @@ set location test not run, result is too small: 0
 
 passed   operation -=
 
-Passed 57 of 57 tests
+Passed 59 of 59 tests
 
     ************************ Test Phase *************************
     *      operator-=(MyOrderedSet) { 1-3, 5-8 } - { 3-5 }      *
@@ -3001,33 +3111,33 @@ Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = int] o
 
 
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 7 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    2 next: 0x608660c5a470
-  at 0x608660c5a470: data    3 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    5 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5b060
-  at 0x608660c5b060: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eabf90
+  at 0x568635eabf90: data    2 next: 0x568635eab670
+  at 0x568635eab670: data    3 next: 0x568635eabd80
+  at 0x568635eabd80: data    5 next: 0x568635eabba0
+  at 0x568635eabba0: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eac260
+  at 0x568635eac260: data    8 next: 0
 
  -= 
 
-set contains a list at 0x7fff13ef2cc0: m_head points to 0x608660c5adb0
+set contains a list at 0x7ffc324cd2c0: m_head points to 0x568635eabfb0
 list contains 3 elements:
-  at 0x608660c5adb0: data    3 next: 0x608660c5b080
-  at 0x608660c5b080: data    4 next: 0x608660c5b0a0
-  at 0x608660c5b0a0: data    5 next: 0
+  at 0x568635eabfb0: data    3 next: 0x568635eac280
+  at 0x568635eac280: data    4 next: 0x568635eac2a0
+  at 0x568635eac2a0: data    5 next: 0
 
 yields
 
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 5 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    2 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5b060
-  at 0x608660c5b060: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eabf90
+  at 0x568635eabf90: data    2 next: 0x568635eabba0
+  at 0x568635eabba0: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eac260
+  at 0x568635eac260: data    8 next: 0
 
  expecting: {  1 2 6 7 8 } against received: {  1 2 6 7 8 }
   0       expected 1 == 1
@@ -3039,32 +3149,32 @@ list contains 5 elements:
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7fff13ef2cb0 and contained 7 objects 
- list was at address 0x7fff13ef2cb0 m_head points to 0x608660c5a650
-  at 0x608660c5a650: data    1 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    2 next: 0x608660c5a470
-  at 0x608660c5a470: data    3 next: 0x608660c5ab80
-  at 0x608660c5ab80: data    5 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5b060
-  at 0x608660c5b060: data    8 next: 0
+set was at 0x7ffc324cd2b0 and contained 7 objects 
+ list was at address 0x7ffc324cd2b0 m_head points to 0x568635eab850
+  at 0x568635eab850: data    1 next: 0x568635eabf90
+  at 0x568635eabf90: data    2 next: 0x568635eab670
+  at 0x568635eab670: data    3 next: 0x568635eabd80
+  at 0x568635eabd80: data    5 next: 0x568635eabba0
+  at 0x568635eabba0: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eac260
+  at 0x568635eac260: data    8 next: 0
 
 after_set:  
-set contains a list at 0x7fff13ef2cb0: m_head points to 0x608660c5a650
+set contains a list at 0x7ffc324cd2b0: m_head points to 0x568635eab850
 list contains 5 elements:
-  at 0x608660c5a650: data    1 next: 0x608660c5ad90
-  at 0x608660c5ad90: data    2 next: 0x608660c5a9a0
-  at 0x608660c5a9a0: data    6 next: 0x608660c5a6d0
-  at 0x608660c5a6d0: data    7 next: 0x608660c5b060
-  at 0x608660c5b060: data    8 next: 0
+  at 0x568635eab850: data    1 next: 0x568635eabf90
+  at 0x568635eabf90: data    2 next: 0x568635eabba0
+  at 0x568635eabba0: data    6 next: 0x568635eab8d0
+  at 0x568635eab8d0: data    7 next: 0x568635eac260
+  at 0x568635eac260: data    8 next: 0
 
  returns true 
 
 
 passed   operation -=
 
-Passed 58 of 58 tests
+Passed 60 of 60 tests
 
-testWrappedUnsignedSet(): Passed 58 of 58 tests
+testWrappedUnsignedSet(): Passed 60 of 60 tests
 
 JoesSetTestBench.cpp done
