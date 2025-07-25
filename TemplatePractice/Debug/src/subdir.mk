@@ -5,18 +5,21 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/MyOrderedSetTestBench.cpp \
-../src/TestMyOrderedSet.cpp \
-../src/WrappedUnsigned.cpp 
+../src/PlayingCard.cpp \
+../src/PlayingCard_test.cpp \
+../src/TestMyOrderedSet.cpp 
 
 CPP_DEPS += \
 ./src/MyOrderedSetTestBench.d \
-./src/TestMyOrderedSet.d \
-./src/WrappedUnsigned.d 
+./src/PlayingCard.d \
+./src/PlayingCard_test.d \
+./src/TestMyOrderedSet.d 
 
 OBJS += \
 ./src/MyOrderedSetTestBench.o \
-./src/TestMyOrderedSet.o \
-./src/WrappedUnsigned.o 
+./src/PlayingCard.o \
+./src/PlayingCard_test.o \
+./src/TestMyOrderedSet.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -31,7 +34,7 @@ src/%.o: ../src/%.cpp src/subdir.mk
 clean: clean-src
 
 clean-src:
-	-$(RM) ./src/MyOrderedSetTestBench.d ./src/MyOrderedSetTestBench.o ./src/TestMyOrderedSet.d ./src/TestMyOrderedSet.o ./src/WrappedUnsigned.d ./src/WrappedUnsigned.o
+	-$(RM) ./src/MyOrderedSetTestBench.d ./src/MyOrderedSetTestBench.o ./src/PlayingCard.d ./src/PlayingCard.o ./src/PlayingCard_test.d ./src/PlayingCard_test.o ./src/TestMyOrderedSet.d ./src/TestMyOrderedSet.o
 
 .PHONY: clean-src
 

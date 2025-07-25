@@ -1,10 +1,10 @@
-#include "WrappedUnsigned.h"
 #include "TestMyOrderedSet.h"
 
 #include "MyOrderedSet.h"
 #include "MyOrderedSetTestBench.h"
 
 #include <string>
+#include "WrappedUnsigned_h.txt"
 
 using namespace std;
 

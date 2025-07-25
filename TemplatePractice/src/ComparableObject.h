@@ -14,16 +14,20 @@
 class ComparableObject {
 public:
 
-	virtual bool operator==(const ComparableObject& other);
-	virtual bool operator!=(const ComparableObject& other);
-	virtual bool operator>(const ComparableObject& other);
-	virtual bool operator<(const ComparableObject& other);
-	virtual bool operator<=(const ComparableObject& other);
-	virtual bool operator>=(const ComparableObject& other);
-	virtual int compare(const ComparableObject& other);
+	virtual bool operator==(const ComparableObject& other) = 0;
+	virtual bool operator!=(const ComparableObject& other) = 0;
+	virtual bool operator>(const ComparableObject& other) = 0;
+	virtual bool operator<(const ComparableObject& other) = 0;
+	virtual bool operator<=(const ComparableObject& other) = 0;
+	virtual bool operator>=(const ComparableObject& other) = 0;
+	virtual int compare(const ComparableObject& other) = 0;
 
 	/*	returns 'this' as an unsigned long	*/
-	virtual std::string toString();
+	std::string toString() {
+		std::stringstream result;
+		result << "Comparable object @" << this << std::endl;
+		return result.str();
+	}
 
 	ComparableObject();
 	virtual ~ComparableObject();
