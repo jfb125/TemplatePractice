@@ -25,8 +25,8 @@ bool isMsgLvlVerbose(Message_Level level) 	{
 }
 
 //static char newline[] = "\n";
-static char testNameHeader[]  = "****************** Test Name  *******************";
-static char testPhaseHeader[] =      "************* Test Phase **************";
+static char testNameHeader[]  = "***************************** Test Name  ******************************";
+static char testPhaseHeader[] =      "************************ Test Phase *************************";
 static char testPhaseIndent[] = "    ";
 //static char	error_string[]		= "ERROR! ";
 //static char pass_string[]		= "Passed ";
