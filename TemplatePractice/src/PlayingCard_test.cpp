@@ -10,8 +10,6 @@
 bool testPlayingCard() {
 
 	PlayingCard oneCard;
-	oneCard.m_rank = PlayingCardRank::ACE;
-	oneCard.m_suit = PlayingCardSuit::SPADES;
 
 	std::cout << oneCard << std::endl;
 	return true;
