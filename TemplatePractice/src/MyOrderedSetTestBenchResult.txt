@@ -1,7 +1,7 @@
 /home/joe/git/TemplatePractice/TemplatePractice/Debug/TemplatePractice
 
-JoesSetTestBench.cpp ran on: Jul 25 2025 at 21:41:37
+JoesSetTestBench.cpp ran on: Jul 25 2025 at 22:02:15
 
-PlayingCardRank in invalid state of PlayingCardSuit in invalid state
+Invalid RANK of Invalid SUIT
 
 JoesSetTestBench.cpp done
