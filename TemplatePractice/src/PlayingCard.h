@@ -24,6 +24,7 @@ bool operator<=(PlayingCardSuit u, PlayingCardSuit v);
 bool operator> (PlayingCardSuit u, PlayingCardSuit v);
 bool operator>=(PlayingCardSuit u, PlayingCardSuit v);
 bool operator!=(PlayingCardSuit u, PlayingCardSuit v);
+PlayingCardSuit& operator++(PlayingCardSuit &u);
 std::string toString(PlayingCardSuit);
 std::ostream& operator<<(std::ostream &out, PlayingCardSuit);
 
@@ -40,6 +41,7 @@ bool operator<=(PlayingCardRank u, PlayingCardRank v);
 bool operator> (PlayingCardRank u, PlayingCardRank v);
 bool operator>=(PlayingCardRank u, PlayingCardRank v);
 bool operator!=(PlayingCardRank u, PlayingCardRank v);
+PlayingCardRank& operator++(PlayingCardRank &u);
 std::string toString(PlayingCardRank);
 std::ostream& operator<<(std::ostream &out, PlayingCardRank);
 

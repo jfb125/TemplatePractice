@@ -1,152 +1,19 @@
 /home/joe/git/TemplatePractice/TemplatePractice/Debug/TemplatePractice
 
-JoesSetTestBench.cpp ran on: Jul 26 2025 at 16:19:47
+JoesSetTestBench.cpp ran on: Jul 26 2025 at 16:46:42
 
-
-
-***************************** Test Name  ******************************
-
-*                         Default Constructor                         *
-
-***************************** Test Name  ******************************
-
-passed default constructor produced empty set &0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0
-list contains 0 elements:
-  empty list
-
-Passed 1 of 1 tests
-
-
-***************************** Test Name  ******************************
-
-*                            operator+=(T)                            *
-
-***************************** Test Name  ******************************
-
- .. added 2 of C to set produces @0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 1 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0
-
- .. added 2 of S to set produces @0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 2 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0x5a0a08d94ad0
-  at 0x5a0a08d94ad0: data 2 of S next: 0
-
- .. added 5 of D to set produces @0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 3 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0x5a0a08d94c90
-  at 0x5a0a08d94c90: data 5 of D next: 0x5a0a08d94ad0
-  at 0x5a0a08d94ad0: data 2 of S next: 0
-
- .. added 5 of C to set produces @0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 4 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0x5a0a08d94e70
-  at 0x5a0a08d94e70: data 5 of C next: 0x5a0a08d94c90
-  at 0x5a0a08d94c90: data 5 of D next: 0x5a0a08d94ad0
-  at 0x5a0a08d94ad0: data 2 of S next: 0
-
- .. added 5 of S to set produces @0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 5 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0x5a0a08d94e70
-  at 0x5a0a08d94e70: data 5 of C next: 0x5a0a08d94c90
-  at 0x5a0a08d94c90: data 5 of D next: 0x5a0a08d94ad0
-  at 0x5a0a08d94ad0: data 2 of S next: 0x5a0a08d950c0
-  at 0x5a0a08d950c0: data 5 of S next: 0
-
- .. added 5 of H to set produces @0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 6 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0x5a0a08d94e70
-  at 0x5a0a08d94e70: data 5 of C next: 0x5a0a08d94c90
-  at 0x5a0a08d94c90: data 5 of D next: 0x5a0a08d95380
-  at 0x5a0a08d95380: data 5 of H next: 0x5a0a08d94ad0
-  at 0x5a0a08d94ad0: data 2 of S next: 0x5a0a08d950c0
-  at 0x5a0a08d950c0: data 5 of S next: 0
-
- .. added 2 of H to set produces @0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 7 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0x5a0a08d94e70
-  at 0x5a0a08d94e70: data 5 of C next: 0x5a0a08d94c90
-  at 0x5a0a08d94c90: data 5 of D next: 0x5a0a08d956a0
-  at 0x5a0a08d956a0: data 2 of H next: 0x5a0a08d95380
-  at 0x5a0a08d95380: data 5 of H next: 0x5a0a08d94ad0
-  at 0x5a0a08d94ad0: data 2 of S next: 0x5a0a08d950c0
-  at 0x5a0a08d950c0: data 5 of S next: 0
-
- .. added 2 of D to set produces @0x7ffe32581bc0: 
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 8 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0x5a0a08d94e70
-  at 0x5a0a08d94e70: data 5 of C next: 0x5a0a08d95a30
-  at 0x5a0a08d95a30: data 2 of D next: 0x5a0a08d94c90
-  at 0x5a0a08d94c90: data 5 of D next: 0x5a0a08d956a0
-  at 0x5a0a08d956a0: data 2 of H next: 0x5a0a08d95380
-  at 0x5a0a08d95380: data 5 of H next: 0x5a0a08d94ad0
-  at 0x5a0a08d94ad0: data 2 of S next: 0x5a0a08d950c0
-  at 0x5a0a08d950c0: data 5 of S next: 0
-
-Test adding stressing inputs
- expecting:        { 2 of C, 5 of C, 2 of D, 5 of D, 2 of H, 5 of H, 2 of S, 5 of S }
- against received: { 2 of C, 5 of C, 2 of D, 5 of D, 2 of H, 5 of H, 2 of S, 5 of S }
-  0       expected 2 of C == 2 of C
-  1       expected 5 of C == 5 of C
-  2       expected 2 of D == 2 of D
-  3       expected 5 of D == 5 of D
-  4       expected 2 of H == 2 of H
-  5       expected 5 of H == 5 of H
-  6       expected 2 of S == 2 of S
-  7       expected 5 of S == 5 of S
- verifyResults returning true
-
-
-Verifying memory relationship: "setElementsAreStoredAtSameLocation"
-before_set: 
-set was at 0x7ffe32581bc0 and contained 0 objects 
- list was at address 0x7ffe32581bc0 m_head points to 0
-
-after_set:  
-set contains a list at 0x7ffe32581bc0: m_head points to 0x5a0a08d94780
-list contains 8 elements:
-  at 0x5a0a08d94780: data 2 of C next: 0x5a0a08d94e70
-  at 0x5a0a08d94e70: data 5 of C next: 0x5a0a08d95a30
-  at 0x5a0a08d95a30: data 2 of D next: 0x5a0a08d94c90
-  at 0x5a0a08d94c90: data 5 of D next: 0x5a0a08d956a0
-  at 0x5a0a08d956a0: data 2 of H next: 0x5a0a08d95380
-  at 0x5a0a08d95380: data 5 of H next: 0x5a0a08d94ad0
-  at 0x5a0a08d94ad0: data 2 of S next: 0x5a0a08d950c0
-  at 0x5a0a08d950c0: data 5 of S next: 0
-
- returns true b/c before_set was empty
-
-
-Passed 2 of 2 tests
-
-
-***************************** Test Name  ******************************
-
-*                             buildSet()                              *
-
-***************************** Test Name  ******************************
-
-Test buildSet(stressing_inputs)
- expecting:        { 5 of C, 4 of D, 3 of H, 2 of S }
- against received: { 5 of C, 4 of D, 3 of H, 2 of S }
-  0       expected 5 of C == 5 of C
-  1       expected 4 of D == 4 of D
-  2       expected 3 of H == 3 of H
-  3       expected 2 of S == 2 of S
- verifyResults returning true
-
-
-Passed 3 of 3 tests
-
-testWrappedUnsignedSet(): Passed 3 of 3 tests
+(0, 0): 2 of C, (1, 0): 2 of D, (2, 0): 2 of H, (3, 0): 2 of S, 
+(0, 1): 3 of C, (1, 1): 3 of D, (2, 1): 3 of H, (3, 1): 3 of S, 
+(0, 2): 4 of C, (1, 2): 4 of D, (2, 2): 4 of H, (3, 2): 4 of S, 
+(0, 3): 5 of C, (1, 3): 5 of D, (2, 3): 5 of H, (3, 3): 5 of S, 
+(0, 4): 6 of C, (1, 4): 6 of D, (2, 4): 6 of H, (3, 4): 6 of S, 
+(0, 5): 7 of C, (1, 5): 7 of D, (2, 5): 7 of H, (3, 5): 7 of S, 
+(0, 6): 8 of C, (1, 6): 8 of D, (2, 6): 8 of H, (3, 6): 8 of S, 
+(0, 7): 9 of C, (1, 7): 9 of D, (2, 7): 9 of H, (3, 7): 9 of S, 
+(0, 8): T of C, (1, 8): T of D, (2, 8): T of H, (3, 8): T of S, 
+(0, 9): J of C, (1, 9): J of D, (2, 9): J of H, (3, 9): J of S, 
+(0, 10): Q of C, (1, 10): Q of D, (2, 10): Q of H, (3, 10): Q of S, 
+(0, 11): K of C, (1, 11): K of D, (2, 11): K of H, (3, 11): K of S, 
+(0, 12): A of C, (1, 12): A of D, (2, 12): A of H, (3, 12): A of S, 
 
 JoesSetTestBench.cpp done

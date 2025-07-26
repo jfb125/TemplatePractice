@@ -60,6 +60,30 @@ bool operator>=(PlayingCardSuit u, PlayingCardSuit v) {
 bool operator!=(PlayingCardSuit u, PlayingCardSuit v) {
 	return !(u == v);
 }
+PlayingCardSuit& operator++(PlayingCardSuit &suit) {
+	if (isValid(suit)) {
+		switch(suit) {
+		case PlayingCardSuit::CLUBS:
+			suit = PlayingCardSuit::DIAMONDS;
+			break;
+		case PlayingCardSuit::DIAMONDS:
+			suit = PlayingCardSuit::HEARTS;
+			break;
+		case PlayingCardSuit::HEARTS:
+			suit = PlayingCardSuit::SPADES;
+			break;
+		case PlayingCardSuit::SPADES:
+			suit = PlayingCardSuit::CLUBS;
+			break;
+		case PlayingCardSuit::INVALID:
+		default:
+			suit = PlayingCardSuit::INVALID;
+		}
+	} else {
+		suit = PlayingCardSuit::INVALID;
+	}
+	return suit;
+}
 std::string toString(PlayingCardSuit suit) {
 	if (isValid(suit)) {
 		switch(suit) {
@@ -149,6 +173,58 @@ bool operator>=(PlayingCardRank u, PlayingCardRank v) {
 }
 bool operator!=(PlayingCardRank u, PlayingCardRank v) {
 	return !(u == v);
+}
+PlayingCardRank& operator++(PlayingCardRank &rank) {
+	using _Rank = PlayingCardRank;
+	if (isValid(rank)) {
+		switch(rank) {
+		case PlayingCardRank::TWO:
+			rank = _Rank::THREE;
+			break;
+		case PlayingCardRank::THREE:
+			rank = _Rank::FOUR;
+			break;
+		case PlayingCardRank::FOUR:
+			rank = _Rank::FIVE;
+			break;
+		case PlayingCardRank::FIVE:
+			rank = _Rank::SIX;
+			break;
+		case PlayingCardRank::SIX:
+			rank = _Rank::SEVEN;
+			break;
+		case PlayingCardRank::SEVEN:
+			rank = _Rank::EIGHT;
+			break;
+		case PlayingCardRank::EIGHT:
+			rank = _Rank::NINE;
+			break;
+		case PlayingCardRank::NINE:
+			rank = _Rank::TEN;
+			break;
+		case PlayingCardRank::TEN:
+			rank = _Rank::JACK;
+			break;
+		case PlayingCardRank::JACK:
+			rank = _Rank::QUEEN;
+			break;
+		case PlayingCardRank::QUEEN:
+			rank = _Rank::KING;
+			break;
+		case PlayingCardRank::KING:
+			rank = _Rank::ACE;
+			break;
+		case PlayingCardRank::ACE:
+			rank = _Rank::TWO;
+			break;
+		default:
+			rank = _Rank::INVALID;
+			break;
+		}
+	} else {
+		rank = PlayingCardRank::INVALID;
+	}
+	return rank;
 }
 std::string toString(PlayingCardRank rank) {
 	if (isValid(rank)) {

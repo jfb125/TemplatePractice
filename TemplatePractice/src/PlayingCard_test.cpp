@@ -9,14 +9,25 @@
 
 bool testPlayingCard() {
 
-	PlayingCardSuit suit = PlayingCardSuit::CLUBS;
-	PlayingCardRank rank = PlayingCardRank::TWO;
-	PlayingCard card(suit, rank);
-	if (isValid(suit))
-		std::cout << "suit is valid: " << suit << std::endl;
-	if (isValid(rank))
-		std::cout << "rank is valid: " << rank << std::endl;
-	if (card.isValid())
-		std::cout << "card is valid: " << card << std::endl;
+
+	PlayingCard *deck[52];
+	int i = 0;
+	for (PlayingCardSuit suit = PlayingCardSuit::CLUBS;  ; ++suit) {
+		for (PlayingCardRank rank = PlayingCardRank::TWO; ; ++rank) {
+			deck[i++] = new PlayingCard(suit, rank);
+			if (rank == PlayingCardRank::ACE)
+				break;
+		}
+		if (suit == PlayingCardSuit::SPADES)
+			break;
+	}
+
+
+	for (int j = 0; j != 13; j++) {
+		for (int k = 0; k != 4; k++) {
+			std::cout << "(" << k << ", " << j << "): " << deck[13*k+j]->toString() << ", ";
+		}
+		std::cout << std::endl;
+	}
 	return true;
 }

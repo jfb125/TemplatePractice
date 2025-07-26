@@ -74,8 +74,8 @@ int main(int argc, char **argv) {
 //    testWrappedUnsigned();
 //    testWrappedUnsignedLinkedListNode();
 //    testWrappedUnsignedLinkedList();
-    testMyOrderedSet();
-//    testPlayingCard();
+//    testMyOrderedSet();
+    testPlayingCard();
 
     cout << endl << "JoesSetTestBench.cpp done" << endl;
     return EXIT_SUCCESS;
