@@ -178,7 +178,7 @@ std::ostream& operator<<(std::ostream &out, PlayingCardRank rank) {
 	return out;
 }
 
-//	this is necessary to fix a namespace collision with 'isValid'
+//	this is necessary to fix a namespace collision with 'PlayingCard::isValid(void)'
 bool isCardValid(PlayingCard card) {
 	return isValid(card.m_rank) && isValid(card.m_suit);
 }
@@ -206,7 +206,7 @@ std::string PlayingCard::toString() const {
 	return result.str();
 }
 
-bool PlayingCard::isValid() const {
+bool PlayingCard::isValid(void) const {
 	return isCardValid(*this);
 }
 
@@ -241,12 +241,12 @@ bool PlayingCard::operator<=(const PlayingCard &other) const {
 	return (*this < other) || (*this == other);
 }
 bool PlayingCard::operator!=(const PlayingCard &other) const {
-	return *this != other;
+	return !(*this == other);
 }
 
 //PlayingCard::PlayingCard() {}
 PlayingCard::~PlayingCard() {}
-
+PlayingCard::PlayingCard() : m_suit(PlayingCardSuit::INVALID), m_rank(PlayingCardRank::INVALID) {}
 PlayingCard::PlayingCard(const PlayingCard &other) : m_suit(other.m_suit), m_rank(other.m_rank) {}
 PlayingCard::PlayingCard(const PlayingCardSuit &suit, const PlayingCardRank &rank) : m_suit(suit), m_rank(rank) {}
 PlayingCard::PlayingCard(const PlayingCardRank &rank, const PlayingCardSuit &suit) : m_suit(suit), m_rank(rank) {}

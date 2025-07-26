@@ -15,7 +15,7 @@
 #include <cstring>
 
 constexpr int INVALID_PLAYING_CARD_SUIT_VALUE = -1;
-enum class PlayingCardSuit { CLUBS, DIAMONDS, HEARTS, SPADES };
+enum class PlayingCardSuit { CLUBS, DIAMONDS, HEARTS, SPADES, INVALID };
 bool isValid(PlayingCardSuit);
 int toInt(PlayingCardSuit);
 bool operator< (PlayingCardSuit u, PlayingCardSuit v);
@@ -30,7 +30,7 @@ std::ostream& operator<<(std::ostream &out, PlayingCardSuit);
 constexpr int INVALID_PLAYING_CARD_RANK_VALUE = -1;
 enum class PlayingCardRank {
 		TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT,
-		NINE, TEN, JACK, QUEEN, KING, ACE
+		NINE, TEN, JACK, QUEEN, KING, ACE, INVALID
 };
 bool isValid(PlayingCardRank);
 int toInt(PlayingCardRank);
@@ -46,7 +46,6 @@ std::ostream& operator<<(std::ostream &out, PlayingCardRank);
 // suit has priority over rank in the colating sequence
 class PlayingCard {
 private:
-	PlayingCard();
 public:
 	PlayingCardSuit m_suit;
 	PlayingCardRank m_rank;
@@ -59,10 +58,11 @@ public:
 	bool operator!=(const PlayingCard &other) const;
 
 	int compare(const PlayingCard &other) const;
-	bool isValid() const;
-	std::string toString() const;
+	bool isValid(void) const;
+	std::string toString(void) const;
 
 	virtual ~PlayingCard();
+	PlayingCard();
 	PlayingCard(const PlayingCard &other);
 	PlayingCard(const PlayingCardSuit &suit, const PlayingCardRank &rank);
 	PlayingCard(const PlayingCardRank &rank, const PlayingCardSuit &suit);
@@ -74,6 +74,7 @@ public:
 	}
 };
 
+bool isCardValid(PlayingCard card);
 void sort(PlayingCard **, int size);
 void shuffle(PlayingCard **, int size);
 

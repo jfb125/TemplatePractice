@@ -4,7 +4,9 @@
 #include "MyOrderedSetTestBench.h"
 
 #include <string>
-#include "WrappedUnsigned_h.txt"
+#include <type_traits>
+
+//#include "WrappedUnsigned_h.txt"
 
 using namespace std;
 
@@ -344,67 +346,160 @@ bool verifySetResults(	std::string before,
 /* ********************************************************************	*/
 
 #define TEST_SET_BUILDING_SET
-#define TEST_SET_CLEAR
-#define TEST_SET_COPY_CONSTRUCTOR_AND_ASSIGNMENT
-#define TEST_SET_MOVE_CONSTRUCTOR_AND_ASSIGNMENT
-#define TEST_SET_OPERATOR_ADD_SUB_OBJECT
-#define TEST_SET_IS_MEMBER_UNSIGNED
-#define TEST_SET_RELATIONAL_OPERATORS
-#define TEST_SET_OPERATOR_ARITHMETIC_SET
-#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
+//#define TEST_SET_CLEAR
+//#define TEST_SET_COPY_CONSTRUCTOR_AND_ASSIGNMENT
+//#define TEST_SET_MOVE_CONSTRUCTOR_AND_ASSIGNMENT
+//#define TEST_SET_OPERATOR_ADD_SUB_OBJECT
+//#define TEST_SET_IS_MEMBER_UNSIGNED
+//#define TEST_SET_RELATIONAL_OPERATORS
+//#define TEST_SET_OPERATOR_ARITHMETIC_SET
+//#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
 
 
 bool testMyOrderedSet() {
 
-using TypeUnderTest = int;
-using TUT = TypeUnderTest;
 
-#if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
- or	defined(TEST_SET_BUILDING_SET)\
- or defined(TEST_SET_IS_MEMBER_UNSIGNED)
+//#define TYPE_UNDER_TEST INTEGER
+#define INTEGER 0
+#define PLAYING_CARD 1
+#define TYPE_UNDER_TEST PLAYING_CARD
 
-	TUT empty_set[]								= {                        };
-    TUT set_1_2_3_4_x_x_x_x[] 					= { 1, 2, 3, 4             };
-    TUT set_1_2_3_4_5_6_x_x[]					= { 1, 2, 3, 4, 5, 6       };
-	TUT set_1_2_3_4_5_6_7_8[] 					= { 1, 2, 3, 4, 5, 6, 7, 8 };
-	TUT set_1_2_3_4_5_6_x_8[] 					= { 1, 2, 3, 4, 5, 6,    8 };
-    TUT set_1_2_x_4_5_x_7_8[] 					= { 1, 2,    4, 5,    7, 8 };
-    TUT set_1_2_3_x_5_6_7_8[] 					= { 1, 2, 3,    5, 6, 7, 8 };
-    TUT set_x_x_x_x_5_6_7_8[]					= {             5, 6, 7    };
-    TUT set_x_x_3_4_5_x_x_x[]					= {       3, 4, 5,         };
-    TUT set_1_2_x_4_x_6_x_8[]					= { 1, 2,    4,    6,    8 };
-    TUT set_x_x_3_x_5_x_x_x[]					= {       3,    5          };
-    TUT set_x_x_3_x_x_6_7_x[]					= {       3,       6, 7    };
-    TUT set_x_x_3_x_x_6_x_x[]					= {       3,       6,      };
-    TUT set_1_2_x_4_x_6_7_8[]					= { 1, 2,    4,    6, 7, 8 };
-    TUT set_1_2_x_x_x_6_7_8[]					= { 1, 2,          6, 7, 8 };
+#if TYPE_UNDER_TEST == INTEGER
+	using TUT = int;
 
-	int empty_set_size							= sizeof(empty_set) / sizeof(TUT);
-    int set_1_2_3_4_x_x_x_x_size 				= sizeof(set_1_2_3_4_x_x_x_x) / sizeof(TUT);
-    int set_1_2_3_4_5_6_x_x_size				= sizeof(set_1_2_3_4_5_6_x_x) / sizeof(TUT);
-	int set_1_2_3_4_5_6_7_8_size				= sizeof(set_1_2_3_4_5_6_7_8) / sizeof(TUT);
-    int set_1_2_3_4_5_6_x_8_size 				= sizeof(set_1_2_3_4_5_6_x_8) / sizeof(TUT);
-    int set_1_2_x_4_5_x_7_8_size 				= sizeof(set_1_2_x_4_5_x_7_8) / sizeof(TUT);
-    int set_1_2_3_x_5_6_7_8_size 				= sizeof(set_1_2_3_x_5_6_7_8) / sizeof(TUT);
-    int set_x_x_x_x_5_6_7_8_size				= sizeof(set_x_x_x_x_5_6_7_8) / sizeof(TUT);
-    int set_x_x_3_4_5_x_x_x_size				= sizeof(set_x_x_3_4_5_x_x_x) / sizeof(TUT);
-    int set_1_2_x_4_x_6_x_8_size				= sizeof(set_1_2_x_4_x_6_x_8) / sizeof(TUT);
-    int set_x_x_3_x_5_x_x_x_size				= sizeof(set_x_x_3_x_5_x_x_x) / sizeof(TUT);
-    int set_x_x_3_x_x_6_7_x_size				= sizeof(set_x_x_3_x_x_6_7_x) / sizeof(TUT);
-    int set_x_x_3_x_x_6_x_x_size				= sizeof(set_x_x_3_x_x_6_x_x) / sizeof(TUT);
-    int set_1_2_x_4_x_6_7_8_size				= sizeof(set_1_2_x_4_x_6_7_8) / sizeof(TUT);
-    int set_1_2_x_x_x_6_7_8_size 				= sizeof(set_1_2_x_x_x_6_7_8) / sizeof(TUT);
+	#if defined(TEST_SET_BUILDING_SET)
+		TUT disordered_inputs[] 					= { 5, 3, 7, 4, 6, 8, 2, 1 };
+		TUT disordered_result[]						= { 1, 2, 3, 4, 5, 6, 7, 8 };
+		int disordered_inputs_size 					= sizeof(disordered_inputs) / sizeof(TUT);
+		int disordered_result_size 					= sizeof(disordered_result) / sizeof(TUT);
 
-	TUT disordered_inputs[] 					= { 5, 3, 7, 4, 6, 8, 2, 1 };
-	TUT disordered_result[]						= { 1, 2, 3, 4, 5, 6, 7, 8 };
-	int disordered_inputs_size 					= sizeof(disordered_inputs) / sizeof(TUT);
-	int disordered_result_size 					= sizeof(disordered_result) / sizeof(TUT);
+		TUT repeating_inputs[]						= { 1, 2, 3, 4, 4, 4, 3, 1 };
+		TUT repeating_result[]						= { 1, 2, 3, 4 };
+		int repeating_inputs_sz 					= sizeof(repeating_inputs) / sizeof(TUT);
+		int repeating_result_sz 					= sizeof(repeating_result) / sizeof(TUT);
+	#endif	// #if defined(TEST_SET_BUILDING_SET)
 
-	TUT repeating_inputs[]						= { 1, 2, 3, 4, 4, 4, 3, 1 };
-	TUT repeating_result[]						= { 1, 2, 3, 4 };
-	int repeating_inputs_sz 					= sizeof(repeating_inputs) / sizeof(TUT);
-	int repeating_result_sz 					= sizeof(repeating_result) / sizeof(TUT);
-#endif
+	#if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
+	 or defined(TEST_SET_IS_MEMBER_UNSIGNED)
+
+		TUT empty_set[]								= {                        };
+		TUT set_1_2_3_4_x_x_x_x[] 					= { 1, 2, 3, 4             };
+		TUT set_1_2_3_4_5_6_x_x[]					= { 1, 2, 3, 4, 5, 6       };
+		TUT set_1_2_3_4_5_6_7_8[] 					= { 1, 2, 3, 4, 5, 6, 7, 8 };
+		TUT set_1_2_3_4_5_6_x_8[] 					= { 1, 2, 3, 4, 5, 6,    8 };
+		TUT set_1_2_x_4_5_x_7_8[] 					= { 1, 2,    4, 5,    7, 8 };
+		TUT set_1_2_3_x_5_6_7_8[] 					= { 1, 2, 3,    5, 6, 7, 8 };
+		TUT set_x_x_x_x_5_6_7_8[]					= {             5, 6, 7    };
+		TUT set_x_x_3_4_5_x_x_x[]					= {       3, 4, 5,         };
+		TUT set_1_2_x_4_x_6_x_8[]					= { 1, 2,    4,    6,    8 };
+		TUT set_x_x_3_x_5_x_x_x[]					= {       3,    5          };
+		TUT set_x_x_3_x_x_6_7_x[]					= {       3,       6, 7    };
+		TUT set_x_x_3_x_x_6_x_x[]					= {       3,       6,      };
+		TUT set_1_2_x_4_x_6_7_8[]					= { 1, 2,    4,    6, 7, 8 };
+		TUT set_1_2_x_x_x_6_7_8[]					= { 1, 2,          6, 7, 8 };
+
+		int empty_set_size							= sizeof(empty_set) / sizeof(TUT);
+		int set_1_2_3_4_x_x_x_x_size 				= sizeof(set_1_2_3_4_x_x_x_x) / sizeof(TUT);
+		int set_1_2_3_4_5_6_x_x_size				= sizeof(set_1_2_3_4_5_6_x_x) / sizeof(TUT);
+		int set_1_2_3_4_5_6_7_8_size				= sizeof(set_1_2_3_4_5_6_7_8) / sizeof(TUT);
+		int set_1_2_3_4_5_6_x_8_size 				= sizeof(set_1_2_3_4_5_6_x_8) / sizeof(TUT);
+		int set_1_2_x_4_5_x_7_8_size 				= sizeof(set_1_2_x_4_5_x_7_8) / sizeof(TUT);
+		int set_1_2_3_x_5_6_7_8_size 				= sizeof(set_1_2_3_x_5_6_7_8) / sizeof(TUT);
+		int set_x_x_x_x_5_6_7_8_size				= sizeof(set_x_x_x_x_5_6_7_8) / sizeof(TUT);
+		int set_x_x_3_4_5_x_x_x_size				= sizeof(set_x_x_3_4_5_x_x_x) / sizeof(TUT);
+		int set_1_2_x_4_x_6_x_8_size				= sizeof(set_1_2_x_4_x_6_x_8) / sizeof(TUT);
+		int set_x_x_3_x_5_x_x_x_size				= sizeof(set_x_x_3_x_5_x_x_x) / sizeof(TUT);
+		int set_x_x_3_x_x_6_7_x_size				= sizeof(set_x_x_3_x_x_6_7_x) / sizeof(TUT);
+		int set_x_x_3_x_x_6_x_x_size				= sizeof(set_x_x_3_x_x_6_x_x) / sizeof(TUT);
+		int set_1_2_x_4_x_6_7_8_size				= sizeof(set_1_2_x_4_x_6_7_8) / sizeof(TUT);
+		int set_1_2_x_x_x_6_7_8_size 				= sizeof(set_1_2_x_x_x_6_7_8) / sizeof(TUT);
+	#endif	// #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT) or defined(TEST_SET_IS_MEMBER_UNSIGNED)
+#endif	// #if TYPE_UNDER_TEST == INTEGER
+
+#if TYPE_UNDER_TEST == PLAYING_CARD
+	using TUT = PlayingCard;
+	using Rank = PlayingCardRank;
+	using Suit = PlayingCardSuit;
+	#if defined(TEST_SET_BUILDING_SET)
+		TUT disordered_inputs[] = {
+				PlayingCard(Suit::CLUBS, 	Rank::TWO),
+				PlayingCard(Suit::SPADES, 	Rank::TWO),
+				PlayingCard(Suit::DIAMONDS, Rank::FIVE),
+				PlayingCard(Suit::CLUBS, 	Rank::FIVE),
+				PlayingCard(Suit::SPADES, 	Rank::FIVE),
+				PlayingCard(Suit::HEARTS, 	Rank::FIVE),
+				PlayingCard(Suit::HEARTS, 	Rank::TWO),
+				PlayingCard(Suit::DIAMONDS, Rank::TWO),
+		};
+		TUT disordered_result[] = {
+				PlayingCard(Suit::CLUBS, 	Rank::TWO),
+				PlayingCard(Suit::CLUBS, 	Rank::FIVE),
+				PlayingCard(Suit::DIAMONDS, Rank::TWO),
+				PlayingCard(Suit::DIAMONDS, Rank::FIVE),
+				PlayingCard(Suit::HEARTS, 	Rank::TWO),
+				PlayingCard(Suit::HEARTS, 	Rank::FIVE),
+				PlayingCard(Suit::SPADES, 	Rank::TWO),
+				PlayingCard(Suit::SPADES, 	Rank::FIVE),
+		};
+		int disordered_inputs_size = sizeof(disordered_inputs) / sizeof(TUT);
+		int disordered_result_size = sizeof(disordered_result) / sizeof(TUT);
+
+		TUT repeating_inputs[]	= {
+				PlayingCard(Suit::CLUBS, 	Rank::FIVE),
+				PlayingCard(Suit::DIAMONDS, Rank::FOUR),
+				PlayingCard(Suit::HEARTS, 	Rank::THREE),
+				PlayingCard(Suit::SPADES, 	Rank::TWO),
+				PlayingCard(Suit::SPADES, 	Rank::TWO),
+				PlayingCard(Suit::HEARTS, 	Rank::THREE),
+				PlayingCard(Suit::DIAMONDS, Rank::FOUR),
+				PlayingCard(Suit::CLUBS, 	Rank::FIVE),
+		};
+		TUT repeating_result[]	= {
+				PlayingCard(Suit::CLUBS, 	Rank::TWO),
+				PlayingCard(Suit::DIAMONDS, Rank::THREE),
+				PlayingCard(Suit::HEARTS, 	Rank::FOUR),
+				PlayingCard(Suit::SPADES, 	Rank::FIVE),
+		};
+		int repeating_inputs_sz = sizeof(repeating_inputs) / sizeof(TUT);
+		int repeating_result_sz = sizeof(repeating_result) / sizeof(TUT);
+	#endif	// #if defined(TEST_SET_BUILDING_SET)
+
+	#if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
+	 or defined(TEST_SET_IS_MEMBER_UNSIGNED)
+
+		TUT empty_set[]								= {                        };
+		TUT set_1_2_3_4_x_x_x_x[] 					= { 1, 2, 3, 4             };
+		TUT set_1_2_3_4_5_6_x_x[]					= { 1, 2, 3, 4, 5, 6       };
+		TUT set_1_2_3_4_5_6_7_8[] 					= { 1, 2, 3, 4, 5, 6, 7, 8 };
+		TUT set_1_2_3_4_5_6_x_8[] 					= { 1, 2, 3, 4, 5, 6,    8 };
+		TUT set_1_2_x_4_5_x_7_8[] 					= { 1, 2,    4, 5,    7, 8 };
+		TUT set_1_2_3_x_5_6_7_8[] 					= { 1, 2, 3,    5, 6, 7, 8 };
+		TUT set_x_x_x_x_5_6_7_8[]					= {             5, 6, 7    };
+		TUT set_x_x_3_4_5_x_x_x[]					= {       3, 4, 5,         };
+		TUT set_1_2_x_4_x_6_x_8[]					= { 1, 2,    4,    6,    8 };
+		TUT set_x_x_3_x_5_x_x_x[]					= {       3,    5          };
+		TUT set_x_x_3_x_x_6_7_x[]					= {       3,       6, 7    };
+		TUT set_x_x_3_x_x_6_x_x[]					= {       3,       6,      };
+		TUT set_1_2_x_4_x_6_7_8[]					= { 1, 2,    4,    6, 7, 8 };
+		TUT set_1_2_x_x_x_6_7_8[]					= { 1, 2,          6, 7, 8 };
+
+		int empty_set_size							= sizeof(empty_set) / sizeof(TUT);
+		int set_1_2_3_4_x_x_x_x_size 				= sizeof(set_1_2_3_4_x_x_x_x) / sizeof(TUT);
+		int set_1_2_3_4_5_6_x_x_size				= sizeof(set_1_2_3_4_5_6_x_x) / sizeof(TUT);
+		int set_1_2_3_4_5_6_7_8_size				= sizeof(set_1_2_3_4_5_6_7_8) / sizeof(TUT);
+		int set_1_2_3_4_5_6_x_8_size 				= sizeof(set_1_2_3_4_5_6_x_8) / sizeof(TUT);
+		int set_1_2_x_4_5_x_7_8_size 				= sizeof(set_1_2_x_4_5_x_7_8) / sizeof(TUT);
+		int set_1_2_3_x_5_6_7_8_size 				= sizeof(set_1_2_3_x_5_6_7_8) / sizeof(TUT);
+		int set_x_x_x_x_5_6_7_8_size				= sizeof(set_x_x_x_x_5_6_7_8) / sizeof(TUT);
+		int set_x_x_3_4_5_x_x_x_size				= sizeof(set_x_x_3_4_5_x_x_x) / sizeof(TUT);
+		int set_1_2_x_4_x_6_x_8_size				= sizeof(set_1_2_x_4_x_6_x_8) / sizeof(TUT);
+		int set_x_x_3_x_5_x_x_x_size				= sizeof(set_x_x_3_x_5_x_x_x) / sizeof(TUT);
+		int set_x_x_3_x_x_6_7_x_size				= sizeof(set_x_x_3_x_x_6_7_x) / sizeof(TUT);
+		int set_x_x_3_x_x_6_x_x_size				= sizeof(set_x_x_3_x_x_6_x_x) / sizeof(TUT);
+		int set_1_2_x_4_x_6_7_8_size				= sizeof(set_1_2_x_4_x_6_7_8) / sizeof(TUT);
+		int set_1_2_x_x_x_6_7_8_size 				= sizeof(set_1_2_x_x_x_6_7_8) / sizeof(TUT);
+	#endif	// #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT) or defined(TEST_SET_IS_MEMBER_UNSIGNED)
+#endif	// #if TYPE_UNDER_TEST == PLAYING_CARD
 
 	TUT* in_a 		= nullptr;
 	int in_a_sz 	= 0;
