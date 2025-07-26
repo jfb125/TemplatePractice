@@ -7,6 +7,188 @@
 
 #include "PlayingCard.h"
 
+/*	******************************************************************	*/
+/*	******************************************************************	*/
+/*						enum class PlayingCardSuit						*/
+/*	******************************************************************	*/
+/*	******************************************************************	*/
+
+//enum class PlayingCardSuit { CLUBS, DIAMONDS, HEARTS, SPADES };
+//constexpr int INVALID_PLAYING_CARD_SUIT_VALUE = -1;
+bool isValid(PlayingCardSuit suit) {
+	switch(suit) {
+	case PlayingCardSuit::CLUBS:
+	case PlayingCardSuit::DIAMONDS:
+	case PlayingCardSuit::HEARTS:
+	case PlayingCardSuit::SPADES:
+		return true;
+	default:
+		return false;
+	}
+}
+int toInt(PlayingCardSuit suit) {
+	if (isValid(suit)) {
+		return static_cast<int>(suit);
+	} else {
+		return INVALID_PLAYING_CARD_SUIT_VALUE;
+	}
+}
+//	fundamental relational operators
+bool operator< (PlayingCardSuit u, PlayingCardSuit v) {
+	if (isValid(u) && isValid(v)) {
+		return static_cast<int>(u) < static_cast<int>(v);
+	} else {
+		return false;
+	}
+}
+bool operator==(PlayingCardSuit u, PlayingCardSuit v) {
+	if (isValid(u) && isValid(v)) {
+		return static_cast<int>(u) == static_cast<int>(v);
+	} else {
+		return false;
+	}
+}
+bool operator<=(PlayingCardSuit u, PlayingCardSuit v) {
+	return u < v || u == v;
+}
+bool operator> (PlayingCardSuit u, PlayingCardSuit v) {
+	return !(u < v || u == v);
+}
+bool operator>=(PlayingCardSuit u, PlayingCardSuit v) {
+	return !(u < v);
+}
+bool operator!=(PlayingCardSuit u, PlayingCardSuit v) {
+	return !(u == v);
+}
+std::string toString(PlayingCardSuit suit) {
+	if (isValid(suit)) {
+		switch(suit) {
+		case PlayingCardSuit::CLUBS:
+			return std::string("C");
+		case PlayingCardSuit::HEARTS:
+			return std::string("H");
+		case PlayingCardSuit::DIAMONDS:
+			return std::string("D");
+		case PlayingCardSuit::SPADES:
+			return std::string("S");
+		default:
+			break;
+		}
+	}
+	return std::string("toString(PlayingCardSuit) returns Invalid PlayingCardSuit");
+}
+std::ostream& operator<<(std::ostream &out, PlayingCardSuit suit) {
+	out << toString(suit);
+	return out;
+}
+
+
+/*	******************************************************************	*/
+/*	******************************************************************	*/
+/*						enum class PlayingCardRank						*/
+/*	******************************************************************	*/
+/*	******************************************************************	*/
+
+//constexpr int INVALID_PLAYING_CARD_SUIT_VALUE = -1;
+//enum class PlayingCardRank {
+//		TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT,
+//		NINE, TEN, JACK, QUEEN, KING, ACE
+//};
+bool isValid(PlayingCardRank rank) {
+	switch(rank) {
+	case PlayingCardRank::TWO:
+	case PlayingCardRank::THREE:
+	case PlayingCardRank::FOUR:
+	case PlayingCardRank::FIVE:
+	case PlayingCardRank::SIX:
+	case PlayingCardRank::SEVEN:
+	case PlayingCardRank::EIGHT:
+	case PlayingCardRank::NINE:
+	case PlayingCardRank::TEN:
+	case PlayingCardRank::JACK:
+	case PlayingCardRank::QUEEN:
+	case PlayingCardRank::KING:
+	case PlayingCardRank::ACE:
+		return true;
+	default:
+		break;
+	}
+	return false;
+}
+int toInt(PlayingCardRank rank) {
+	if (isValid(rank)) {
+		return static_cast<int>(rank);
+	} else {
+		return INVALID_PLAYING_CARD_RANK_VALUE;
+	}
+}
+//	fundamental relational operators
+bool operator< (PlayingCardRank u, PlayingCardRank v) {
+	if (isValid(u) && isValid(v)) {
+		return static_cast<int>(u) < static_cast<int>(v);
+	} else {
+		return false;
+	}
+}
+bool operator==(PlayingCardRank u, PlayingCardRank v) {
+	if (isValid(u) && isValid(v)) {
+		return static_cast<int>(u) == static_cast<int>(v);
+	} else {
+		return false;
+	}
+}
+//	derived relational operators
+bool operator<=(PlayingCardRank u, PlayingCardRank v) {
+	return u < v || u == v;
+}
+bool operator> (PlayingCardRank u, PlayingCardRank v) {
+	return !(u < v) && !(u == v);
+}
+bool operator>=(PlayingCardRank u, PlayingCardRank v) {
+	return !(u < v);
+}
+bool operator!=(PlayingCardRank u, PlayingCardRank v) {
+	return !(u == v);
+}
+std::string toString(PlayingCardRank rank) {
+	if (isValid(rank)) {
+		switch(rank)
+		{
+		case PlayingCardRank::TWO:		return std::string("2");
+		case PlayingCardRank::THREE:	return std::string("3");
+		case PlayingCardRank::FOUR:		return std::string("4");
+		case PlayingCardRank::FIVE:		return std::string("5");
+		case PlayingCardRank::SIX:		return std::string("6");
+		case PlayingCardRank::SEVEN:	return std::string("7");
+		case PlayingCardRank::EIGHT:	return std::string("8");
+		case PlayingCardRank::NINE:		return std::string("9");
+		case PlayingCardRank::TEN:		return std::string("T");
+		case PlayingCardRank::JACK:		return std::string("J");
+		case PlayingCardRank::QUEEN:	return std::string("Q");
+		case PlayingCardRank::KING:		return std::string("K");
+		case PlayingCardRank::ACE:		return std::string("A");
+		default:
+			break;
+		}
+	}
+	return std::string("toString(PlayingCardRank) returns Invalid PlayingCardRank");
+}
+std::ostream& operator<<(std::ostream &out, PlayingCardRank rank) {
+	out << toString(rank);
+	return out;
+}
+
+//	this is necessary to fix a namespace collision with 'isValid'
+bool isCardValid(PlayingCard card) {
+	return isValid(card.m_rank) && isValid(card.m_suit);
+}
+
+/*	******************************************************************	*/
+/*	******************************************************************	*/
+/*							class PlayingCard							*/
+/*	******************************************************************	*/
+/*	******************************************************************	*/
+
 //	TODO - throw on either one being in invalid state
 int PlayingCard::compare(const PlayingCard &other) const {
 	if (isValid() && other.isValid()) {
@@ -20,12 +202,12 @@ int PlayingCard::compare(const PlayingCard &other) const {
 
 std::string PlayingCard::toString() const {
 	std::stringstream result;
-	result << std::setw(2) << m_rank << " of " << std::setw(6) << std::left << m_suit;
+	result << m_rank << " of " << m_suit;
 	return result.str();
 }
 
 bool PlayingCard::isValid() const {
-	return m_rank.isValid() && m_suit.isValid();
+	return isCardValid(*this);
 }
 
 //	fundamental relational operators
@@ -62,12 +244,12 @@ bool PlayingCard::operator!=(const PlayingCard &other) const {
 	return *this != other;
 }
 
-PlayingCard::PlayingCard() {}
+//PlayingCard::PlayingCard() {}
 PlayingCard::~PlayingCard() {}
 
-PlayingCard::PlayingCard(const PlayingCardRank &rank, const PlayingCardSuit &suit) : m_suit(suit), m_rank(rank) {}
 PlayingCard::PlayingCard(const PlayingCard &other) : m_suit(other.m_suit), m_rank(other.m_rank) {}
-
+PlayingCard::PlayingCard(const PlayingCardSuit &suit, const PlayingCardRank &rank) : m_suit(suit), m_rank(rank) {}
+PlayingCard::PlayingCard(const PlayingCardRank &rank, const PlayingCardSuit &suit) : m_suit(suit), m_rank(rank) {}
 // this is so trivial that I won't implement the self copy check
 PlayingCard& PlayingCard::operator=(const PlayingCard &other) {
 	m_suit = other.m_suit;
@@ -75,3 +257,9 @@ PlayingCard& PlayingCard::operator=(const PlayingCard &other) {
 	return *this;
 }
 
+void sort(PlayingCard **array, int size) {
+	return;
+}
+void shuffle(PlayingCard **array, int size) {
+	return;
+}

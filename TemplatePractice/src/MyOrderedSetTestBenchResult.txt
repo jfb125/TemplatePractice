@@ -1,7 +1,9 @@
 /home/joe/git/TemplatePractice/TemplatePractice/Debug/TemplatePractice
 
-JoesSetTestBench.cpp ran on: Jul 25 2025 at 22:02:15
+JoesSetTestBench.cpp ran on: Jul 26 2025 at 15:14:48
 
-Invalid RANK of Invalid SUIT
+suit is valid: C
+rank is valid: 2
+card is valid: 2 of C
 
 JoesSetTestBench.cpp done
