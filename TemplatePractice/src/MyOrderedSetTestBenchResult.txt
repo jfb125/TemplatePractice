@@ -1,24 +1,192 @@
 /home/joe/git/TemplatePractice/TemplatePractice/Debug/TemplatePractice
 
-JoesSetTestBench.cpp ran on: Jul 27 2025 at 07:52:27
+JoesSetTestBench.cpp ran on: Jul 27 2025 at 16:23:37
 
- **** PRIOR TO SHUFFLING ****, deck is sorted
-2 of C  3 of C  4 of C  5 of C  6 of C  7 of C  8 of C  9 of C  T of C  J of C  Q of C  K of C  A of C  
-2 of D  3 of D  4 of D  5 of D  6 of D  7 of D  8 of D  9 of D  T of D  J of D  Q of D  K of D  A of D  
-2 of H  3 of H  4 of H  5 of H  6 of H  7 of H  8 of H  9 of H  T of H  J of H  Q of H  K of H  A of H  
-2 of S  3 of S  4 of S  5 of S  6 of S  7 of S  8 of S  9 of S  T of S  J of S  Q of S  K of S  A of S  
+Entered generateTestVector With size: 8
+0 5 6 of H 6 of H
+1 3 4 of D 4 of D
+2 7 8 of S 8 of S
+3 4 5 of D 5 of D
+4 6 7 of H 7 of H
+5 8 9 of S 9 of S
+6 2 3 of C 3 of C
+7 1 2 of C 2 of C
+Entered generateTestVector With size: 8
+0 1 2 of C 2 of C
+1 2 3 of C 3 of C
+2 3 4 of D 4 of D
+3 4 5 of D 5 of D
+4 5 6 of H 6 of H
+5 6 7 of H 7 of H
+6 7 8 of S 8 of S
+7 8 9 of S 9 of S
+Entered generateTestVector With size: 8
+0 1 2 of C 2 of C
+1 2 3 of C 3 of C
+2 3 4 of D 4 of D
+3 4 5 of D 5 of D
+4 4 5 of D 5 of D
+5 4 5 of D 5 of D
+6 3 4 of D 4 of D
+7 1 2 of C 2 of C
+Entered generateTestVector With size: 4
+0 1 2 of C 2 of C
+1 2 3 of C 3 of C
+2 3 4 of D 4 of D
+3 4 5 of D 5 of D
+0: 5 maps to 6 of H which became test_vector 6 of H
+1: 3 maps to 4 of D which became test_vector 4 of D
+2: 7 maps to 8 of S which became test_vector 8 of S
+3: 4 maps to 5 of D which became test_vector 5 of D
+4: 6 maps to 7 of H which became test_vector 7 of H
+5: 8 maps to 9 of S which became test_vector 9 of S
+6: 2 maps to 3 of C which became test_vector 3 of C
+7: 1 maps to 2 of C which became test_vector 2 of C
 
- ****  AFTER SHUFFLING   ****, deck is not sorted
-A of C  5 of S  A of H  9 of C  K of C  8 of D  4 of D  Q of D  9 of H  4 of C  2 of D  3 of S  7 of D  
-4 of H  K of D  A of S  Q of S  2 of C  A of D  6 of C  8 of S  3 of D  8 of H  J of D  9 of D  3 of C  
-J of C  K of S  Q of C  6 of S  7 of S  J of H  K of H  T of H  5 of H  7 of H  8 of C  T of D  T of C  
-T of S  5 of C  6 of H  6 of D  2 of H  5 of D  Q of H  J of S  7 of C  3 of H  2 of S  4 of S  9 of S  
 
- ****   AFTER SORTING   **** , deck is sorted
-2 of C  3 of C  4 of C  5 of C  6 of C  7 of C  8 of C  9 of C  T of C  J of C  Q of C  K of C  A of C  
-2 of D  3 of D  4 of D  5 of D  6 of D  7 of D  8 of D  9 of D  T of D  J of D  Q of D  K of D  A of D  
-2 of H  3 of H  4 of H  5 of H  6 of H  7 of H  8 of H  9 of H  T of H  J of H  Q of H  K of H  A of H  
-2 of S  3 of S  4 of S  5 of S  6 of S  7 of S  8 of S  9 of S  T of S  J of S  Q of S  K of S  A of S  
+***************************** Test Name  ******************************
 
+*                         Default Constructor                         *
+
+***************************** Test Name  ******************************
+
+passed default constructor produced empty set &0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0
+list contains 0 elements:
+  empty list
+
+Passed 1 of 1 tests
+
+
+***************************** Test Name  ******************************
+
+*                            operator+=(T)                            *
+
+***************************** Test Name  ******************************
+
+ .. added 6 of H to set produces @0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2b80
+list contains 1 elements:
+  at 0x57f2ac5b2b80: data 6 of H next: 0
+
+ .. added 4 of D to set produces @0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+list contains 2 elements:
+  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b2b80
+  at 0x57f2ac5b2b80: data 6 of H next: 0
+
+ .. added 8 of S to set produces @0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+list contains 3 elements:
+  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b2b80
+  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b3090
+  at 0x57f2ac5b3090: data 8 of S next: 0
+
+ .. added 5 of D to set produces @0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+list contains 4 elements:
+  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
+  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
+  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b3090
+  at 0x57f2ac5b3090: data 8 of S next: 0
+
+ .. added 7 of H to set produces @0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+list contains 5 elements:
+  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
+  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
+  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
+  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
+  at 0x57f2ac5b3090: data 8 of S next: 0
+
+ .. added 9 of S to set produces @0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+list contains 6 elements:
+  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
+  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
+  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
+  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
+  at 0x57f2ac5b3090: data 8 of S next: 0x57f2ac5b3780
+  at 0x57f2ac5b3780: data 9 of S next: 0
+
+ .. added 3 of C to set produces @0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b3aa0
+list contains 7 elements:
+  at 0x57f2ac5b3aa0: data 3 of C next: 0x57f2ac5b2ed0
+  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
+  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
+  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
+  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
+  at 0x57f2ac5b3090: data 8 of S next: 0x57f2ac5b3780
+  at 0x57f2ac5b3780: data 9 of S next: 0
+
+ .. added 2 of C to set produces @0x7ffcd6fc2e50: 
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b3e30
+list contains 8 elements:
+  at 0x57f2ac5b3e30: data 2 of C next: 0x57f2ac5b3aa0
+  at 0x57f2ac5b3aa0: data 3 of C next: 0x57f2ac5b2ed0
+  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
+  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
+  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
+  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
+  at 0x57f2ac5b3090: data 8 of S next: 0x57f2ac5b3780
+  at 0x57f2ac5b3780: data 9 of S next: 0
+
+Test adding stressing inputs
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+  4       expected 6 of H == 6 of H
+  5       expected 7 of H == 7 of H
+  6       expected 8 of S == 8 of S
+  7       expected 9 of S == 9 of S
+ verifyResults returning true
+
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffcd6fc2e50 and contained 0 objects 
+ list was at address 0x7ffcd6fc2e50 m_head points to 0
+
+after_set:  
+set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b3e30
+list contains 8 elements:
+  at 0x57f2ac5b3e30: data 2 of C next: 0x57f2ac5b3aa0
+  at 0x57f2ac5b3aa0: data 3 of C next: 0x57f2ac5b2ed0
+  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
+  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
+  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
+  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
+  at 0x57f2ac5b3090: data 8 of S next: 0x57f2ac5b3780
+  at 0x57f2ac5b3780: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+
+Passed 2 of 2 tests
+
+
+***************************** Test Name  ******************************
+
+*                             buildSet()                              *
+
+***************************** Test Name  ******************************
+
+Test buildSet(stressing_inputs)
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+ verifyResults returning true
+
+
+Passed 3 of 3 tests
+
+testWrappedUnsignedSet(): Passed 3 of 3 tests
 
 JoesSetTestBench.cpp done
