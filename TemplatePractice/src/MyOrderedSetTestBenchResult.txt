@@ -1,47 +1,7 @@
 /home/joe/git/TemplatePractice/TemplatePractice/Debug/TemplatePractice
 
-JoesSetTestBench.cpp ran on: Jul 27 2025 at 16:23:37
+JoesSetTestBench.cpp ran on: Jul 27 2025 at 18:31:37
 
-Entered generateTestVector With size: 8
-0 5 6 of H 6 of H
-1 3 4 of D 4 of D
-2 7 8 of S 8 of S
-3 4 5 of D 5 of D
-4 6 7 of H 7 of H
-5 8 9 of S 9 of S
-6 2 3 of C 3 of C
-7 1 2 of C 2 of C
-Entered generateTestVector With size: 8
-0 1 2 of C 2 of C
-1 2 3 of C 3 of C
-2 3 4 of D 4 of D
-3 4 5 of D 5 of D
-4 5 6 of H 6 of H
-5 6 7 of H 7 of H
-6 7 8 of S 8 of S
-7 8 9 of S 9 of S
-Entered generateTestVector With size: 8
-0 1 2 of C 2 of C
-1 2 3 of C 3 of C
-2 3 4 of D 4 of D
-3 4 5 of D 5 of D
-4 4 5 of D 5 of D
-5 4 5 of D 5 of D
-6 3 4 of D 4 of D
-7 1 2 of C 2 of C
-Entered generateTestVector With size: 4
-0 1 2 of C 2 of C
-1 2 3 of C 3 of C
-2 3 4 of D 4 of D
-3 4 5 of D 5 of D
-0: 5 maps to 6 of H which became test_vector 6 of H
-1: 3 maps to 4 of D which became test_vector 4 of D
-2: 7 maps to 8 of S which became test_vector 8 of S
-3: 4 maps to 5 of D which became test_vector 5 of D
-4: 6 maps to 7 of H which became test_vector 7 of H
-5: 8 maps to 9 of S which became test_vector 9 of S
-6: 2 maps to 3 of C which became test_vector 3 of C
-7: 1 maps to 2 of C which became test_vector 2 of C
 
 
 ***************************** Test Name  ******************************
@@ -50,8 +10,8 @@ Entered generateTestVector With size: 4
 
 ***************************** Test Name  ******************************
 
-passed default constructor produced empty set &0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0
+passed default constructor produced empty set &0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0
 list contains 0 elements:
   empty list
 
@@ -64,73 +24,73 @@ Passed 1 of 1 tests
 
 ***************************** Test Name  ******************************
 
- .. added 6 of H to set produces @0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2b80
+ .. added 6 of H to set produces @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b6090
 list contains 1 elements:
-  at 0x57f2ac5b2b80: data 6 of H next: 0
+  at 0x60379d4b6090: data 6 of H next: 0
 
- .. added 4 of D to set produces @0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+ .. added 4 of D to set produces @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b63e0
 list contains 2 elements:
-  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b2b80
-  at 0x57f2ac5b2b80: data 6 of H next: 0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b6090
+  at 0x60379d4b6090: data 6 of H next: 0
 
- .. added 8 of S to set produces @0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+ .. added 8 of S to set produces @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b63e0
 list contains 3 elements:
-  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b2b80
-  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b3090
-  at 0x57f2ac5b3090: data 8 of S next: 0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b6090
+  at 0x60379d4b6090: data 6 of H next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 8 of S next: 0
 
- .. added 5 of D to set produces @0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+ .. added 5 of D to set produces @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b63e0
 list contains 4 elements:
-  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
-  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
-  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b3090
-  at 0x57f2ac5b3090: data 8 of S next: 0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 5 of D next: 0x60379d4b6090
+  at 0x60379d4b6090: data 6 of H next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 8 of S next: 0
 
- .. added 7 of H to set produces @0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+ .. added 7 of H to set produces @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b63e0
 list contains 5 elements:
-  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
-  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
-  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
-  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
-  at 0x57f2ac5b3090: data 8 of S next: 0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 5 of D next: 0x60379d4b6090
+  at 0x60379d4b6090: data 6 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 7 of H next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 8 of S next: 0
 
- .. added 9 of S to set produces @0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b2ed0
+ .. added 9 of S to set produces @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b63e0
 list contains 6 elements:
-  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
-  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
-  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
-  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
-  at 0x57f2ac5b3090: data 8 of S next: 0x57f2ac5b3780
-  at 0x57f2ac5b3780: data 9 of S next: 0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 5 of D next: 0x60379d4b6090
+  at 0x60379d4b6090: data 6 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 7 of H next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 8 of S next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 9 of S next: 0
 
- .. added 3 of C to set produces @0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b3aa0
+ .. added 3 of C to set produces @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b6fb0
 list contains 7 elements:
-  at 0x57f2ac5b3aa0: data 3 of C next: 0x57f2ac5b2ed0
-  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
-  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
-  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
-  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
-  at 0x57f2ac5b3090: data 8 of S next: 0x57f2ac5b3780
-  at 0x57f2ac5b3780: data 9 of S next: 0
+  at 0x60379d4b6fb0: data 3 of C next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 5 of D next: 0x60379d4b6090
+  at 0x60379d4b6090: data 6 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 7 of H next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 8 of S next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 9 of S next: 0
 
- .. added 2 of C to set produces @0x7ffcd6fc2e50: 
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b3e30
+ .. added 2 of C to set produces @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b7340
 list contains 8 elements:
-  at 0x57f2ac5b3e30: data 2 of C next: 0x57f2ac5b3aa0
-  at 0x57f2ac5b3aa0: data 3 of C next: 0x57f2ac5b2ed0
-  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
-  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
-  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
-  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
-  at 0x57f2ac5b3090: data 8 of S next: 0x57f2ac5b3780
-  at 0x57f2ac5b3780: data 9 of S next: 0
+  at 0x60379d4b7340: data 2 of C next: 0x60379d4b6fb0
+  at 0x60379d4b6fb0: data 3 of C next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 5 of D next: 0x60379d4b6090
+  at 0x60379d4b6090: data 6 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 7 of H next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 8 of S next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 9 of S next: 0
 
 Test adding stressing inputs
  expecting:        { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
@@ -148,20 +108,20 @@ Test adding stressing inputs
 
 Verifying memory relationship: "setElementsAreStoredAtSameLocation"
 before_set: 
-set was at 0x7ffcd6fc2e50 and contained 0 objects 
- list was at address 0x7ffcd6fc2e50 m_head points to 0
+set was at 0x7ffc2bdec330 and contained 0 objects 
+ list was at address 0x7ffc2bdec330 m_head points to 0
 
 after_set:  
-set contains a list at 0x7ffcd6fc2e50: m_head points to 0x57f2ac5b3e30
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b7340
 list contains 8 elements:
-  at 0x57f2ac5b3e30: data 2 of C next: 0x57f2ac5b3aa0
-  at 0x57f2ac5b3aa0: data 3 of C next: 0x57f2ac5b2ed0
-  at 0x57f2ac5b2ed0: data 4 of D next: 0x57f2ac5b3270
-  at 0x57f2ac5b3270: data 5 of D next: 0x57f2ac5b2b80
-  at 0x57f2ac5b2b80: data 6 of H next: 0x57f2ac5b34c0
-  at 0x57f2ac5b34c0: data 7 of H next: 0x57f2ac5b3090
-  at 0x57f2ac5b3090: data 8 of S next: 0x57f2ac5b3780
-  at 0x57f2ac5b3780: data 9 of S next: 0
+  at 0x60379d4b7340: data 2 of C next: 0x60379d4b6fb0
+  at 0x60379d4b6fb0: data 3 of C next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 5 of D next: 0x60379d4b6090
+  at 0x60379d4b6090: data 6 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 7 of H next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 8 of S next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 9 of S next: 0
 
  returns true b/c before_set was empty
 
@@ -187,6 +147,3072 @@ Test buildSet(stressing_inputs)
 
 Passed 3 of 3 tests
 
-testWrappedUnsignedSet(): Passed 3 of 3 tests
+
+***************************** Test Name  ******************************
+
+*                             set.clear()                             *
+
+***************************** Test Name  ******************************
+
+buildSet @0x7ffc2bdec330
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b6c90
+list contains 8 elements:
+  at 0x60379d4b6c90: data 2 of C next: 0x60379d4b7340
+  at 0x60379d4b7340: data 3 of C next: 0x60379d4b6090
+  at 0x60379d4b6090: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 6 of H next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 7 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 8 of S next: 0x60379d4b6fb0
+  at 0x60379d4b6fb0: data 9 of S next: 0
+passed after set.clear()set is @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0
+list contains 0 elements:
+  empty list
+
+
+Passed 4 of 4 tests
+
+
+***************************** Test Name  ******************************
+
+*                             set.reset()                             *
+
+***************************** Test Name  ******************************
+
+buildSet @0x7ffc2bdec330
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b6fb0
+list contains 8 elements:
+  at 0x60379d4b6fb0: data 2 of C next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 3 of C next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 6 of H next: 0x60379d4b6090
+  at 0x60379d4b6090: data 7 of H next: 0x60379d4b6780
+  at 0x60379d4b6780: data 8 of S next: 0x60379d4b7340
+  at 0x60379d4b7340: data 9 of S next: 0
+passed after set.reset(),
+set  @0x7ffc2bdec330: 
+set contains a list at 0x7ffc2bdec330: m_head points to 0
+list contains 0 elements:
+  empty list
+
+
+Passed 5 of 5 tests
+
+
+***************************** Test Name  ******************************
+
+*                          copy constructor                           *
+
+***************************** Test Name  ******************************
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec330 and contained 8 objects 
+ list was at address 0x7ffc2bdec330 m_head points to 0x60379d4b7340
+  at 0x60379d4b7340: data 2 of C next: 0x60379d4b6fb0
+  at 0x60379d4b6fb0: data 3 of C next: 0x60379d4b6090
+  at 0x60379d4b6090: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 6 of H next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 7 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 8 of S next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec340
+set contains a list at 0x7ffc2bdec340: m_head points to 0x60379d4b7a90
+list contains 8 elements:
+  at 0x60379d4b7a90: data 2 of C next: 0x60379d4b7ab0
+  at 0x60379d4b7ab0: data 3 of C next: 0x60379d4b7ad0
+  at 0x60379d4b7ad0: data 4 of D next: 0x60379d4b7af0
+  at 0x60379d4b7af0: data 5 of D next: 0x60379d4b7b10
+  at 0x60379d4b7b10: data 6 of H next: 0x60379d4b7b30
+  at 0x60379d4b7b30: data 7 of H next: 0x60379d4b7b50
+  at 0x60379d4b7b50: data 8 of S next: 0x60379d4b7b70
+  at 0x60379d4b7b70: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed : 
+set      @0x7ffc2bdec330 :
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b7340
+list contains 8 elements:
+  at 0x60379d4b7340: data 2 of C next: 0x60379d4b6fb0
+  at 0x60379d4b6fb0: data 3 of C next: 0x60379d4b6090
+  at 0x60379d4b6090: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 6 of H next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 7 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 8 of S next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 9 of S next: 0
+
+copy_set @0x7ffc2bdec340 :
+set contains a list at 0x7ffc2bdec340: m_head points to 0x60379d4b7a90
+list contains 8 elements:
+  at 0x60379d4b7a90: data 2 of C next: 0x60379d4b7ab0
+  at 0x60379d4b7ab0: data 3 of C next: 0x60379d4b7ad0
+  at 0x60379d4b7ad0: data 4 of D next: 0x60379d4b7af0
+  at 0x60379d4b7af0: data 5 of D next: 0x60379d4b7b10
+  at 0x60379d4b7b10: data 6 of H next: 0x60379d4b7b30
+  at 0x60379d4b7b30: data 7 of H next: 0x60379d4b7b50
+  at 0x60379d4b7b50: data 8 of S next: 0x60379d4b7b70
+  at 0x60379d4b7b70: data 9 of S next: 0
+
+
+Passed 6 of 6 tests
+
+
+***************************** Test Name  ******************************
+
+*                       operator=(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec330 and contained 8 objects 
+ list was at address 0x7ffc2bdec330 m_head points to 0x60379d4b6c90
+  at 0x60379d4b6c90: data 2 of C next: 0x60379d4b7340
+  at 0x60379d4b7340: data 3 of C next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 6 of H next: 0x60379d4b6090
+  at 0x60379d4b6090: data 7 of H next: 0x60379d4b6780
+  at 0x60379d4b6780: data 8 of S next: 0x60379d4b6fb0
+  at 0x60379d4b6fb0: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec350
+set contains a list at 0x7ffc2bdec350: m_head points to 0x60379d4b7bc0
+list contains 8 elements:
+  at 0x60379d4b7bc0: data 2 of C next: 0x60379d4b7be0
+  at 0x60379d4b7be0: data 3 of C next: 0x60379d4b7c00
+  at 0x60379d4b7c00: data 4 of D next: 0x60379d4b7c20
+  at 0x60379d4b7c20: data 5 of D next: 0x60379d4b7c40
+  at 0x60379d4b7c40: data 6 of H next: 0x60379d4b7c60
+  at 0x60379d4b7c60: data 7 of H next: 0x60379d4b7c80
+  at 0x60379d4b7c80: data 8 of S next: 0x60379d4b7ca0
+  at 0x60379d4b7ca0: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+set               @0x7ffc2bdec330 :
+set contains a list at 0x7ffc2bdec330: m_head points to 0x60379d4b6c90
+list contains 8 elements:
+  at 0x60379d4b6c90: data 2 of C next: 0x60379d4b7340
+  at 0x60379d4b7340: data 3 of C next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 6 of H next: 0x60379d4b6090
+  at 0x60379d4b6090: data 7 of H next: 0x60379d4b6780
+  at 0x60379d4b6780: data 8 of S next: 0x60379d4b6fb0
+  at 0x60379d4b6fb0: data 9 of S next: 0
+
+copy assigned_set @0x7ffc2bdec350 :
+set contains a list at 0x7ffc2bdec340: m_head points to 0x60379d4b7a90
+list contains 8 elements:
+  at 0x60379d4b7a90: data 2 of C next: 0x60379d4b7ab0
+  at 0x60379d4b7ab0: data 3 of C next: 0x60379d4b7ad0
+  at 0x60379d4b7ad0: data 4 of D next: 0x60379d4b7af0
+  at 0x60379d4b7af0: data 5 of D next: 0x60379d4b7b10
+  at 0x60379d4b7b10: data 6 of H next: 0x60379d4b7b30
+  at 0x60379d4b7b30: data 7 of H next: 0x60379d4b7b50
+  at 0x60379d4b7b50: data 8 of S next: 0x60379d4b7b70
+  at 0x60379d4b7b70: data 9 of S next: 0
+
+passed 
+
+Passed 7 of 7 tests
+
+
+***************************** Test Name  ******************************
+
+*                          move constructor                           *
+
+***************************** Test Name  ******************************
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec330 and contained 8 objects 
+ list was at address 0x7ffc2bdec330 m_head points to 0x60379d4b6fb0
+  at 0x60379d4b6fb0: data 2 of C next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 3 of C next: 0x60379d4b6090
+  at 0x60379d4b6090: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 6 of H next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 7 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 8 of S next: 0x60379d4b7340
+  at 0x60379d4b7340: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec360: m_head points to 0x60379d4b6fb0
+list contains 8 elements:
+  at 0x60379d4b6fb0: data 2 of C next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 3 of C next: 0x60379d4b6090
+  at 0x60379d4b6090: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 6 of H next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 7 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 8 of S next: 0x60379d4b7340
+  at 0x60379d4b7340: data 9 of S next: 0
+
+ returns true 
+
+passed : 
+set      @0x7ffc2bdec330 :
+set contains a list at 0x7ffc2bdec330: m_head points to 0
+list contains 0 elements:
+  empty list
+
+move_set @0x7ffc2bdec360 :
+set contains a list at 0x7ffc2bdec360: m_head points to 0x60379d4b6fb0
+list contains 8 elements:
+  at 0x60379d4b6fb0: data 2 of C next: 0x60379d4b6c90
+  at 0x60379d4b6c90: data 3 of C next: 0x60379d4b6090
+  at 0x60379d4b6090: data 4 of D next: 0x60379d4b65a0
+  at 0x60379d4b65a0: data 5 of D next: 0x60379d4b6780
+  at 0x60379d4b6780: data 6 of H next: 0x60379d4b63e0
+  at 0x60379d4b63e0: data 7 of H next: 0x60379d4b69d0
+  at 0x60379d4b69d0: data 8 of S next: 0x60379d4b7340
+  at 0x60379d4b7340: data 9 of S next: 0
+
+
+Passed 8 of 8 tests
+
+
+***************************** Test Name  ******************************
+
+*                    operator=(move(MyOrderedSet))                    *
+
+***************************** Test Name  ******************************
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec330 and contained 8 objects 
+ list was at address 0x7ffc2bdec330 m_head points to 0x60379d4b7da0
+  at 0x60379d4b7da0: data 2 of C next: 0x60379d4b7d80
+  at 0x60379d4b7d80: data 3 of C next: 0x60379d4b7ce0
+  at 0x60379d4b7ce0: data 4 of D next: 0x60379d4b7d20
+  at 0x60379d4b7d20: data 5 of D next: 0x60379d4b7cc0
+  at 0x60379d4b7cc0: data 6 of H next: 0x60379d4b7d40
+  at 0x60379d4b7d40: data 7 of H next: 0x60379d4b7d00
+  at 0x60379d4b7d00: data 8 of S next: 0x60379d4b7d60
+  at 0x60379d4b7d60: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec370: m_head points to 0x60379d4b7da0
+list contains 8 elements:
+  at 0x60379d4b7da0: data 2 of C next: 0x60379d4b7d80
+  at 0x60379d4b7d80: data 3 of C next: 0x60379d4b7ce0
+  at 0x60379d4b7ce0: data 4 of D next: 0x60379d4b7d20
+  at 0x60379d4b7d20: data 5 of D next: 0x60379d4b7cc0
+  at 0x60379d4b7cc0: data 6 of H next: 0x60379d4b7d40
+  at 0x60379d4b7d40: data 7 of H next: 0x60379d4b7d00
+  at 0x60379d4b7d00: data 8 of S next: 0x60379d4b7d60
+  at 0x60379d4b7d60: data 9 of S next: 0
+
+ returns true 
+
+set               @0x7ffc2bdec330 :
+set contains a list at 0x7ffc2bdec330: m_head points to 0
+list contains 0 elements:
+  empty list
+
+move_assigned_set @0x7ffc2bdec370 :
+set contains a list at 0x7ffc2bdec370: m_head points to 0x60379d4b7da0
+list contains 8 elements:
+  at 0x60379d4b7da0: data 2 of C next: 0x60379d4b7d80
+  at 0x60379d4b7d80: data 3 of C next: 0x60379d4b7ce0
+  at 0x60379d4b7ce0: data 4 of D next: 0x60379d4b7d20
+  at 0x60379d4b7d20: data 5 of D next: 0x60379d4b7cc0
+  at 0x60379d4b7cc0: data 6 of H next: 0x60379d4b7d40
+  at 0x60379d4b7d40: data 7 of H next: 0x60379d4b7d00
+  at 0x60379d4b7d00: data 8 of S next: 0x60379d4b7d60
+  at 0x60379d4b7d60: data 9 of S next: 0
+
+passed 
+
+Passed 9 of 9 tests
+
+
+***************************** Test Name  ******************************
+
+*                         operator+(T object)                         *
+
+***************************** Test Name  ******************************
+
+Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +
+buildSet @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0
+list contains 0 elements:
+  empty list
+set + 6 of H results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7dc0
+list contains 1 elements:
+  at 0x60379d4b7dc0: data 6 of H next: 0
+set + 4 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7e70
+list contains 2 elements:
+  at 0x60379d4b7e70: data 4 of D next: 0x60379d4b7e50
+  at 0x60379d4b7e50: data 6 of H next: 0
+set + 8 of S results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7ed0
+list contains 3 elements:
+  at 0x60379d4b7ed0: data 4 of D next: 0x60379d4b7ef0
+  at 0x60379d4b7ef0: data 6 of H next: 0x60379d4b7f10
+  at 0x60379d4b7f10: data 8 of S next: 0
+set + 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7e70
+list contains 4 elements:
+  at 0x60379d4b7e70: data 4 of D next: 0x60379d4b7f70
+  at 0x60379d4b7f70: data 5 of D next: 0x60379d4b7f30
+  at 0x60379d4b7f30: data 6 of H next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 8 of S next: 0
+set + 7 of H results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7f10
+list contains 5 elements:
+  at 0x60379d4b7f10: data 4 of D next: 0x60379d4b7ef0
+  at 0x60379d4b7ef0: data 5 of D next: 0x60379d4b7ed0
+  at 0x60379d4b7ed0: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4b80b0
+  at 0x60379d4b80b0: data 8 of S next: 0
+set + 9 of S results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7f50
+list contains 6 elements:
+  at 0x60379d4b7f50: data 4 of D next: 0x60379d4b7f30
+  at 0x60379d4b7f30: data 5 of D next: 0x60379d4b7f70
+  at 0x60379d4b7f70: data 6 of H next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 7 of H next: 0x60379d4b8240
+  at 0x60379d4b8240: data 8 of S next: 0x60379d4b8260
+  at 0x60379d4b8260: data 9 of S next: 0
+set + 3 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b83f0
+list contains 7 elements:
+  at 0x60379d4b83f0: data 3 of C next: 0x60379d4b80b0
+  at 0x60379d4b80b0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 5 of D next: 0x60379d4b7ed0
+  at 0x60379d4b7ed0: data 6 of H next: 0x60379d4b7ef0
+  at 0x60379d4b7ef0: data 7 of H next: 0x60379d4b7f10
+  at 0x60379d4b7f10: data 8 of S next: 0x60379d4b83d0
+  at 0x60379d4b83d0: data 9 of S next: 0
+set + 2 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b85f0
+list contains 8 elements:
+  at 0x60379d4b85f0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8240
+  at 0x60379d4b8240: data 4 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 5 of D next: 0x60379d4b7f70
+  at 0x60379d4b7f70: data 6 of H next: 0x60379d4b7f30
+  at 0x60379d4b7f30: data 7 of H next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 8 of S next: 0x60379d4b85d0
+  at 0x60379d4b85d0: data 9 of S next: 0
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+  4       expected 6 of H == 6 of H
+  5       expected 7 of H == 7 of H
+  6       expected 8 of S == 8 of S
+  7       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec100 and contained 7 objects 
+ list was at address 0x7ffc2bdec100 m_head points to 0x60379d4b83f0
+  at 0x60379d4b83f0: data 3 of C next: 0x60379d4b80b0
+  at 0x60379d4b80b0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 5 of D next: 0x60379d4b7ed0
+  at 0x60379d4b7ed0: data 6 of H next: 0x60379d4b7ef0
+  at 0x60379d4b7ef0: data 7 of H next: 0x60379d4b7f10
+  at 0x60379d4b7f10: data 8 of S next: 0x60379d4b83d0
+  at 0x60379d4b83d0: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b85f0
+list contains 8 elements:
+  at 0x60379d4b85f0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8240
+  at 0x60379d4b8240: data 4 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 5 of D next: 0x60379d4b7f70
+  at 0x60379d4b7f70: data 6 of H next: 0x60379d4b7f30
+  at 0x60379d4b7f30: data 7 of H next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 8 of S next: 0x60379d4b85d0
+  at 0x60379d4b85d0: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed   operation +
+
+***************************** Test Name  ******************************
+
+*                         operator+(T object)                         *
+
+***************************** Test Name  ******************************
+
+Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +
+buildSet @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0
+list contains 0 elements:
+  empty list
+set + 2 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b83d0
+list contains 1 elements:
+  at 0x60379d4b83d0: data 2 of C next: 0
+set + 3 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7ef0
+list contains 2 elements:
+  at 0x60379d4b7ef0: data 2 of C next: 0x60379d4b7ed0
+  at 0x60379d4b7ed0: data 3 of C next: 0
+set + 4 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 3 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b80b0
+  at 0x60379d4b80b0: data 3 of C next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 4 of D next: 0
+set + 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7ef0
+list contains 4 elements:
+  at 0x60379d4b7ef0: data 2 of C next: 0x60379d4b85d0
+  at 0x60379d4b85d0: data 3 of C next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0
+set + 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80b0
+list contains 4 elements:
+  at 0x60379d4b80b0: data 2 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 3 of C next: 0x60379d4b8240
+  at 0x60379d4b8240: data 4 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 5 of D next: 0
+set + 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8260
+list contains 4 elements:
+  at 0x60379d4b8260: data 2 of C next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 3 of C next: 0x60379d4b85d0
+  at 0x60379d4b85d0: data 4 of D next: 0x60379d4b7ef0
+  at 0x60379d4b7ef0: data 5 of D next: 0
+set + 4 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7e70
+list contains 4 elements:
+  at 0x60379d4b7e70: data 2 of C next: 0x60379d4b8240
+  at 0x60379d4b8240: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4b80b0
+  at 0x60379d4b80b0: data 5 of D next: 0
+set + 2 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7ef0
+list contains 4 elements:
+  at 0x60379d4b7ef0: data 2 of C next: 0x60379d4b85d0
+  at 0x60379d4b85d0: data 3 of C next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec100 and contained 4 objects 
+ list was at address 0x7ffc2bdec100 m_head points to 0x60379d4b7e70
+  at 0x60379d4b7e70: data 2 of C next: 0x60379d4b8240
+  at 0x60379d4b8240: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4b80b0
+  at 0x60379d4b80b0: data 5 of D next: 0
+
+after_set:  @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7ef0
+list contains 4 elements:
+  at 0x60379d4b7ef0: data 2 of C next: 0x60379d4b85d0
+  at 0x60379d4b85d0: data 3 of C next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed   operation +
+
+Passed 11 of 11 tests
+
+
+***************************** Test Name  ******************************
+
+*                         operator-(T object)                         *
+
+***************************** Test Name  ******************************
+
+Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator -
+buildSet @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80b0
+list contains 7 elements:
+  at 0x60379d4b80b0: data 2 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 3 of C next: 0x60379d4b8240
+  at 0x60379d4b8240: data 4 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 5 of D next: 0x60379d4b7f70
+  at 0x60379d4b7f70: data 6 of H next: 0x60379d4b7f30
+  at 0x60379d4b7f30: data 7 of H next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 9 of S next: 0
+set - 2 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b83f0
+list contains 6 elements:
+  at 0x60379d4b83f0: data 3 of C next: 0x60379d4b7ef0
+  at 0x60379d4b7ef0: data 4 of D next: 0x60379d4b85d0
+  at 0x60379d4b85d0: data 5 of D next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 6 of H next: 0x60379d4b8e30
+  at 0x60379d4b8e30: data 7 of H next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 9 of S next: 0
+set - 3 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7f70
+list contains 5 elements:
+  at 0x60379d4b7f70: data 4 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 5 of D next: 0x60379d4b8240
+  at 0x60379d4b8240: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4b80b0
+  at 0x60379d4b80b0: data 9 of S next: 0
+set - 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8e30
+list contains 4 elements:
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b85d0
+  at 0x60379d4b85d0: data 6 of H next: 0x60379d4b7ef0
+  at 0x60379d4b7ef0: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 9 of S next: 0
+set - 6 of H results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 3 elements:
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 7 of H next: 0x60379d4b7f70
+  at 0x60379d4b7f70: data 9 of S next: 0
+set - 8 of S results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b85d0
+list contains 3 elements:
+  at 0x60379d4b85d0: data 4 of D next: 0x60379d4b8e30
+  at 0x60379d4b8e30: data 7 of H next: 0x60379d4b8240
+  at 0x60379d4b8240: data 9 of S next: 0
+set - 9 of S results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7e70
+list contains 2 elements:
+  at 0x60379d4b7e70: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0
+ expecting:        { 4 of D, 7 of H }
+ against received: { 4 of D, 7 of H }
+  0       expected 4 of D == 4 of D
+  1       expected 7 of H == 7 of H
+ verifyResults returning true
+
+passed   operation -
+
+Passed 12 of 12 tests
+
+
+***************************** Test Name  ******************************
+
+*                        operator+=(T object)                         *
+
+***************************** Test Name  ******************************
+
+Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +=
+buildSet @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0
+list contains 0 elements:
+  empty list
+set += 6 of H results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b7e70
+list contains 1 elements:
+  at 0x60379d4b7e70: data 6 of H next: 0
+set += 4 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8e30
+list contains 2 elements:
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0
+set += 8 of S results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8e30
+list contains 3 elements:
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 8 of S next: 0
+set += 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8e30
+list contains 4 elements:
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 8 of S next: 0
+set += 7 of H results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8e30
+list contains 5 elements:
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 8 of S next: 0
+set += 9 of S results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8e30
+list contains 6 elements:
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 8 of S next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 9 of S next: 0
+set += 3 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8e50
+list contains 7 elements:
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4b8e30
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 8 of S next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 9 of S next: 0
+set += 2 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80b0
+list contains 8 elements:
+  at 0x60379d4b80b0: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4b8e30
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 8 of S next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 9 of S next: 0
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+  4       expected 6 of H == 6 of H
+  5       expected 7 of H == 7 of H
+  6       expected 8 of S == 8 of S
+  7       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec100 and contained 7 objects 
+ list was at address 0x7ffc2bdec100 m_head points to 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4b8e30
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 8 of S next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80b0
+list contains 8 elements:
+  at 0x60379d4b80b0: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4b8e30
+  at 0x60379d4b8e30: data 4 of D next: 0x60379d4b8260
+  at 0x60379d4b8260: data 5 of D next: 0x60379d4b7e70
+  at 0x60379d4b7e70: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 8 of S next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 9 of S next: 0
+
+ returns true 
+
+passed   operation +=
+
+Passed 13 of 13 tests
+
+
+***************************** Test Name  ******************************
+
+*                        operator+=(T object)                         *
+
+***************************** Test Name  ******************************
+
+Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +=
+buildSet @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0
+list contains 0 elements:
+  empty list
+set += 2 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 1 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0
+set += 3 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 2 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0
+set += 4 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 3 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0
+set += 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 4 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 5 of D next: 0
+set += 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 4 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 5 of D next: 0
+set += 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 4 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 5 of D next: 0
+set += 4 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 4 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 5 of D next: 0
+set += 2 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 4 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 5 of D next: 0
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec100 and contained 4 objects 
+ list was at address 0x7ffc2bdec100 m_head points to 0x60379d4b80d0
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 5 of D next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b80d0
+list contains 4 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 5 of D next: 0
+
+ returns true 
+
+passed   operation +=
+
+Passed 14 of 14 tests
+
+
+***************************** Test Name  ******************************
+
+*                        operator-=(T object)                         *
+
+***************************** Test Name  ******************************
+
+Test_Results* runObjectOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator -=
+buildSet @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b83f0
+list contains 8 elements:
+  at 0x60379d4b83f0: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 5 of D next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 6 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 7 of H next: 0x60379d4ba260
+  at 0x60379d4ba260: data 8 of S next: 0x60379d4ba280
+  at 0x60379d4ba280: data 9 of S next: 0
+set -= 2 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8e50
+list contains 7 elements:
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4b8260
+  at 0x60379d4b8260: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 5 of D next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 6 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 7 of H next: 0x60379d4ba260
+  at 0x60379d4ba260: data 8 of S next: 0x60379d4ba280
+  at 0x60379d4ba280: data 9 of S next: 0
+set -= 3 of C results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8260
+list contains 6 elements:
+  at 0x60379d4b8260: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 5 of D next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 6 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 7 of H next: 0x60379d4ba260
+  at 0x60379d4ba260: data 8 of S next: 0x60379d4ba280
+  at 0x60379d4ba280: data 9 of S next: 0
+set -= 5 of D results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8260
+list contains 5 elements:
+  at 0x60379d4b8260: data 4 of D next: 0x60379d4b7f50
+  at 0x60379d4b7f50: data 6 of H next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 7 of H next: 0x60379d4ba260
+  at 0x60379d4ba260: data 8 of S next: 0x60379d4ba280
+  at 0x60379d4ba280: data 9 of S next: 0
+set -= 6 of H results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8260
+list contains 4 elements:
+  at 0x60379d4b8260: data 4 of D next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 7 of H next: 0x60379d4ba260
+  at 0x60379d4ba260: data 8 of S next: 0x60379d4ba280
+  at 0x60379d4ba280: data 9 of S next: 0
+set -= 8 of S results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8260
+list contains 3 elements:
+  at 0x60379d4b8260: data 4 of D next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 7 of H next: 0x60379d4ba280
+  at 0x60379d4ba280: data 9 of S next: 0
+set -= 9 of S results in set @0x7ffc2bdec100
+set contains a list at 0x7ffc2bdec100: m_head points to 0x60379d4b8260
+list contains 2 elements:
+  at 0x60379d4b8260: data 4 of D next: 0x60379d4b85f0
+  at 0x60379d4b85f0: data 7 of H next: 0
+ expecting:        { 4 of D, 7 of H }
+ against received: { 4 of D, 7 of H }
+  0       expected 4 of D == 4 of D
+  1       expected 7 of H == 7 of H
+ verifyResults returning true
+
+passed   operation -=
+
+Passed 15 of 15 tests
+
+
+***************************** Test Name  ******************************
+
+*                            .isMember(T)                             *
+
+***************************** Test Name  ******************************
+
+
+.isMember(2 of C) returns true on { 2 of C, 3 of C, 4 of D, 5 of D }
+.isMember(3 of C) returns true on { 2 of C, 3 of C, 4 of D, 5 of D }
+.isMember(4 of D) returns true on { 2 of C, 3 of C, 4 of D, 5 of D }
+.isMember(5 of D) returns true on { 2 of C, 3 of C, 4 of D, 5 of D }
+.isMember(6 of H) returns false on { 2 of C, 3 of C, 4 of D, 5 of D }
+.isMember(7 of H) returns false on { 2 of C, 3 of C, 4 of D, 5 of D }
+passed  test .isMember() passed
+
+Passed 16 of 16 tests
+
+
+***************************** Test Name  ******************************
+
+*                        relational operators                         *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *              { empty }.operator==({ empty })              *
+    ************************ Test Phase *************************
+
+      { <empty list> } == { <empty list> } returns true 
+
+    ************************ Test Phase *************************
+    *              { empty }.operator!=({ empty })              *
+    ************************ Test Phase *************************
+
+      { <empty list> } != { <empty list> } returns false
+
+    ************************ Test Phase *************************
+    *               { 1-4 }.operator==({ empty })               *
+    ************************ Test Phase *************************
+
+      { 2 of C, 3 of C, 4 of D, 5 of D } == { <empty list> } returns false
+
+    ************************ Test Phase *************************
+    *               { 1-4 }.operator!=({ empty })               *
+    ************************ Test Phase *************************
+
+      { 2 of C, 3 of C, 4 of D, 5 of D } != { <empty list> } returns true 
+
+    ************************ Test Phase *************************
+    *               { empty }.operator==({ 1-4 })               *
+    ************************ Test Phase *************************
+
+      { <empty list> } == { 2 of C, 3 of C, 4 of D, 5 of D } returns false
+
+    ************************ Test Phase *************************
+    *               { empty }.operator!=({ 1-4 })               *
+    ************************ Test Phase *************************
+
+      { <empty list> } != { 2 of C, 3 of C, 4 of D, 5 of D } returns true 
+
+    ************************ Test Phase *************************
+    *                { 1-4 }.operator==({ 1-4 })                *
+    ************************ Test Phase *************************
+
+      { 2 of C, 3 of C, 4 of D, 5 of D } == { 2 of C, 3 of C, 4 of D, 5 of D } returns true 
+
+    ************************ Test Phase *************************
+    *                { 1-4 }.operator!=({ 1-4 })                *
+    ************************ Test Phase *************************
+
+      { 2 of C, 3 of C, 4 of D, 5 of D } != { 2 of C, 3 of C, 4 of D, 5 of D } returns false
+
+    ************************ Test Phase *************************
+    *                { 1-4 }.operator==({ 1-4 })                *
+    ************************ Test Phase *************************
+
+      { 2 of C, 3 of C, 4 of D, 5 of D } == { 2 of C, 3 of C, 4 of D, 5 of D } returns true 
+
+    ************************ Test Phase *************************
+    *                { 1-4 }.operator!=({ 1-4 })                *
+    ************************ Test Phase *************************
+
+      { 2 of C, 3 of C, 4 of D, 5 of D } != { 2 of C, 3 of C, 4 of D, 5 of D } returns false
+
+    ************************ Test Phase *************************
+    *                { 1-4 }.operator==({ 5-8 })                *
+    ************************ Test Phase *************************
+
+      { 2 of C, 3 of C, 4 of D, 5 of D } == { 6 of H, 7 of H, 8 of S, 9 of S } returns false
+
+    ************************ Test Phase *************************
+    *                { 1-4 }.operator!=({ 5-8 })                *
+    ************************ Test Phase *************************
+
+      { 2 of C, 3 of C, 4 of D, 5 of D } != { 6 of H, 7 of H, 8 of S, 9 of S } returns true 
+
+    ************************ Test Phase *************************
+    *                { 5-8 }.operator==({ 1-4 })                *
+    ************************ Test Phase *************************
+
+      { 6 of H, 7 of H, 8 of S, 9 of S } == { 2 of C, 3 of C, 4 of D, 5 of D } returns false
+
+    ************************ Test Phase *************************
+    *                { 5-8 }.operator!=({ 1-4 })                *
+    ************************ Test Phase *************************
+
+      { 6 of H, 7 of H, 8 of S, 9 of S } != { 2 of C, 3 of C, 4 of D, 5 of D } returns true 
+
+Passed 30 of 30 tests
+
+passed : relational operators == !=
+
+Passed 30 of 30 tests
+
+
+***************************** Test Name  ******************************
+
+*                       operator+(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator+(MyOrderedSet) { 1-3, 5-8 } + { empty }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4b83f0
+list contains 7 elements:
+  at 0x60379d4b83f0: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4bab70
+  at 0x60379d4bab70: data 6 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 7 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+" + "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0x60379d4b83f0
+  at 0x60379d4b83f0: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4bab70
+  at 0x60379d4bab70: data 6 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 7 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4bab50
+list contains 7 elements:
+  at 0x60379d4bab50: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4badd0
+  at 0x60379d4badd0: data 6 of H next: 0x60379d4badf0
+  at 0x60379d4badf0: data 7 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 0 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4bab50
+list contains 7 elements:
+  at 0x60379d4bab50: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4badd0
+  at 0x60379d4badd0: data 6 of H next: 0x60379d4badf0
+  at 0x60379d4badf0: data 7 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+passed   operation +
+
+Passed 31 of 31 tests
+
+    ************************ Test Phase *************************
+    *     operator+(MyOrderedSet) { empty } + { 1-3, 5-8 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+" + "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4bae30
+list contains 7 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4badf0
+  at 0x60379d4badf0: data 4 of D next: 0x60379d4badd0
+  at 0x60379d4badd0: data 6 of H next: 0x60379d4badb0
+  at 0x60379d4badb0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4bab50
+  at 0x60379d4bab50: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 0 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4babd0
+list contains 7 elements:
+  at 0x60379d4babd0: data 2 of C next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 8 of S next: 0x60379d4babb0
+  at 0x60379d4babb0: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0x60379d4bae30
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4badf0
+  at 0x60379d4badf0: data 4 of D next: 0x60379d4badd0
+  at 0x60379d4badd0: data 6 of H next: 0x60379d4badb0
+  at 0x60379d4badb0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4bab50
+  at 0x60379d4bab50: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4babd0
+list contains 7 elements:
+  at 0x60379d4babd0: data 2 of C next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 3 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 8 of S next: 0x60379d4babb0
+  at 0x60379d4babb0: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed   operation +
+
+Passed 32 of 32 tests
+
+    ************************ Test Phase *************************
+    *      operator+(MyOrderedSet) { 1-3, 5-8 } + { 3-5 }       *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4babb0
+list contains 7 elements:
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+" + "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4bab50
+list contains 3 elements:
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bae30
+  at 0x60379d4bae30: data 5 of D next: 0x60379d4bae10
+  at 0x60379d4bae10: data 6 of H next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+  4       expected 6 of H == 6 of H
+  5       expected 7 of H == 7 of H
+  6       expected 8 of S == 8 of S
+  7       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0x60379d4babb0
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badd0
+list contains 8 elements:
+  at 0x60379d4badd0: data 2 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 3 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 5 of D next: 0x60379d4baff0
+  at 0x60379d4baff0: data 6 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 7 of H next: 0x60379d4bb030
+  at 0x60379d4bb030: data 8 of S next: 0x60379d4bb050
+  at 0x60379d4bb050: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 3 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bae30
+  at 0x60379d4bae30: data 5 of D next: 0x60379d4bae10
+  at 0x60379d4bae10: data 6 of H next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badd0
+list contains 8 elements:
+  at 0x60379d4badd0: data 2 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 3 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 5 of D next: 0x60379d4baff0
+  at 0x60379d4baff0: data 6 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 7 of H next: 0x60379d4bb030
+  at 0x60379d4bb030: data 8 of S next: 0x60379d4bb050
+  at 0x60379d4bb050: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed   operation +
+
+Passed 33 of 33 tests
+
+
+***************************** Test Name  ******************************
+
+*                       operator|(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator|(MyOrderedSet) { 1-3, 5-8 } | { empty }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator |
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4bb010
+list contains 7 elements:
+  at 0x60379d4bb010: data 2 of C next: 0x60379d4baff0
+  at 0x60379d4baff0: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 6 of H next: 0x60379d4badb0
+  at 0x60379d4badb0: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+" | "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0x60379d4bb010
+  at 0x60379d4bb010: data 2 of C next: 0x60379d4baff0
+  at 0x60379d4baff0: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 6 of H next: 0x60379d4badb0
+  at 0x60379d4badb0: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4babd0
+list contains 7 elements:
+  at 0x60379d4babd0: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 4 of D next: 0x60379d4bab90
+  at 0x60379d4bab90: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 8 of S next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 0 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4babd0
+list contains 7 elements:
+  at 0x60379d4babd0: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 4 of D next: 0x60379d4bab90
+  at 0x60379d4bab90: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 8 of S next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+passed   operation |
+
+Passed 34 of 34 tests
+
+    ************************ Test Phase *************************
+    *     operator|(MyOrderedSet) { empty } | { 1-3, 5-8 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator |
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+" | "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4b80d0
+list contains 7 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 3 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 4 of D next: 0x60379d4babb0
+  at 0x60379d4babb0: data 6 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 7 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 8 of S next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 0 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badf0
+list contains 7 elements:
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 4 of D next: 0x60379d4baff0
+  at 0x60379d4baff0: data 6 of H next: 0x60379d4bb070
+  at 0x60379d4bb070: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4badb0
+  at 0x60379d4badb0: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0x60379d4b80d0
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 3 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 4 of D next: 0x60379d4babb0
+  at 0x60379d4babb0: data 6 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 7 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 8 of S next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badf0
+list contains 7 elements:
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 4 of D next: 0x60379d4baff0
+  at 0x60379d4baff0: data 6 of H next: 0x60379d4bb070
+  at 0x60379d4bb070: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4badb0
+  at 0x60379d4badb0: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed   operation |
+
+Passed 35 of 35 tests
+
+    ************************ Test Phase *************************
+    *      operator|(MyOrderedSet) { 1-3, 5-8 } | { 3-5 }       *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator |
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4bad90
+list contains 7 elements:
+  at 0x60379d4bad90: data 2 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 3 of C next: 0x60379d4baff0
+  at 0x60379d4baff0: data 4 of D next: 0x60379d4bb010
+  at 0x60379d4bb010: data 6 of H next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 7 of H next: 0x60379d4badf0
+  at 0x60379d4badf0: data 8 of S next: 0x60379d4badd0
+  at 0x60379d4badd0: data 9 of S next: 0
+
+" | "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4b83f0
+list contains 3 elements:
+  at 0x60379d4b83f0: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 5 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+  4       expected 6 of H == 6 of H
+  5       expected 7 of H == 7 of H
+  6       expected 8 of S == 8 of S
+  7       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0x60379d4bad90
+  at 0x60379d4bad90: data 2 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 3 of C next: 0x60379d4baff0
+  at 0x60379d4baff0: data 4 of D next: 0x60379d4bb010
+  at 0x60379d4bb010: data 6 of H next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 7 of H next: 0x60379d4badf0
+  at 0x60379d4badf0: data 8 of S next: 0x60379d4badd0
+  at 0x60379d4badd0: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4bab90
+list contains 8 elements:
+  at 0x60379d4bab90: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 4 of D next: 0x60379d4bab50
+  at 0x60379d4bab50: data 5 of D next: 0x60379d4babd0
+  at 0x60379d4babd0: data 6 of H next: 0x60379d4bae30
+  at 0x60379d4bae30: data 7 of H next: 0x60379d4bb030
+  at 0x60379d4bb030: data 8 of S next: 0x60379d4bb050
+  at 0x60379d4bb050: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 3 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0x60379d4b83f0
+  at 0x60379d4b83f0: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 5 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4bab90
+list contains 8 elements:
+  at 0x60379d4bab90: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 4 of D next: 0x60379d4bab50
+  at 0x60379d4bab50: data 5 of D next: 0x60379d4babd0
+  at 0x60379d4babd0: data 6 of H next: 0x60379d4bae30
+  at 0x60379d4bae30: data 7 of H next: 0x60379d4bb030
+  at 0x60379d4bb030: data 8 of S next: 0x60379d4bb050
+  at 0x60379d4bb050: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed   operation |
+
+Passed 36 of 36 tests
+
+
+***************************** Test Name  ******************************
+
+*                       operator^(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator^(MyOrderedSet) { 1-3, 5-8 } ^ { empty }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator ^
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4bae30
+list contains 7 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4babd0
+  at 0x60379d4babd0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bae10
+  at 0x60379d4bae10: data 6 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 7 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 8 of S next: 0x60379d4bab70
+  at 0x60379d4bab70: data 9 of S next: 0
+
+" ^ "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0x60379d4bae30
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4babd0
+  at 0x60379d4babd0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bae10
+  at 0x60379d4bae10: data 6 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 7 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 8 of S next: 0x60379d4bab70
+  at 0x60379d4bab70: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badd0
+list contains 7 elements:
+  at 0x60379d4badd0: data 2 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 3 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4baff0
+  at 0x60379d4baff0: data 7 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 8 of S next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 0 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badd0
+list contains 7 elements:
+  at 0x60379d4badd0: data 2 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 3 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4baff0
+  at 0x60379d4baff0: data 7 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 8 of S next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+passed   operation ^
+
+Passed 37 of 37 tests
+
+    ************************ Test Phase *************************
+    *     operator^(MyOrderedSet) { empty } ^ { 1-3, 5-8 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator ^
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+" ^ "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4bb010
+list contains 7 elements:
+  at 0x60379d4bb010: data 2 of C next: 0x60379d4baff0
+  at 0x60379d4baff0: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 0 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4bab70
+list contains 7 elements:
+  at 0x60379d4bab70: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4bae30
+  at 0x60379d4bae30: data 4 of D next: 0x60379d4babd0
+  at 0x60379d4babd0: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 8 of S next: 0x60379d4babb0
+  at 0x60379d4babb0: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0x60379d4bb010
+  at 0x60379d4bb010: data 2 of C next: 0x60379d4baff0
+  at 0x60379d4baff0: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4bab70
+list contains 7 elements:
+  at 0x60379d4bab70: data 2 of C next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 3 of C next: 0x60379d4bae30
+  at 0x60379d4bae30: data 4 of D next: 0x60379d4babd0
+  at 0x60379d4babd0: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 8 of S next: 0x60379d4babb0
+  at 0x60379d4babb0: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed   operation ^
+
+Passed 38 of 38 tests
+
+    ************************ Test Phase *************************
+    *      operator^(MyOrderedSet) { 1-3, 5-8 } ^ { 3-5 }       *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator ^
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4bae10
+list contains 7 elements:
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 3 of C next: 0x60379d4babd0
+  at 0x60379d4babd0: data 4 of D next: 0x60379d4bae30
+  at 0x60379d4bae30: data 6 of H next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 7 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 8 of S next: 0x60379d4bab90
+  at 0x60379d4bab90: data 9 of S next: 0
+
+" ^ "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4badf0
+list contains 3 elements:
+  at 0x60379d4badf0: data 4 of D next: 0x60379d4babb0
+  at 0x60379d4babb0: data 5 of D next: 0x60379d4bb010
+  at 0x60379d4bb010: data 6 of H next: 0
+
+ expecting:        { 2 of C, 3 of C, 5 of D, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 5 of D, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 5 of D == 5 of D
+  3       expected 7 of H == 7 of H
+  4       expected 8 of S == 8 of S
+  5       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0x60379d4bae10
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 3 of C next: 0x60379d4babd0
+  at 0x60379d4babd0: data 4 of D next: 0x60379d4bae30
+  at 0x60379d4bae30: data 6 of H next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 7 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 8 of S next: 0x60379d4bab90
+  at 0x60379d4bab90: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4bb070
+list contains 6 elements:
+  at 0x60379d4bb070: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 5 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 7 of H next: 0x60379d4bb030
+  at 0x60379d4bb030: data 8 of S next: 0x60379d4bb050
+  at 0x60379d4bb050: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 3 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0x60379d4badf0
+  at 0x60379d4badf0: data 4 of D next: 0x60379d4babb0
+  at 0x60379d4babb0: data 5 of D next: 0x60379d4bb010
+  at 0x60379d4bb010: data 6 of H next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4bb070
+list contains 6 elements:
+  at 0x60379d4bb070: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 5 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 7 of H next: 0x60379d4bb030
+  at 0x60379d4bb030: data 8 of S next: 0x60379d4bb050
+  at 0x60379d4bb050: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+passed   operation ^
+
+Passed 39 of 39 tests
+
+
+***************************** Test Name  ******************************
+
+*                       operator&(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator&(MyOrderedSet) { 1-3, 5-8 } & { empty }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator &
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4badb0
+list contains 7 elements:
+  at 0x60379d4badb0: data 2 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 3 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4baff0
+  at 0x60379d4baff0: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 9 of S next: 0
+
+" & "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ expecting:        { empty }
+ against received: { empty }
+ verifyResults returning true
+
+INFO - Element storage location test not run,
+ set size: 0
+passed   operation &
+
+Passed 40 of 40 tests
+
+    ************************ Test Phase *************************
+    *     operator&(MyOrderedSet) { empty } & { 1-3, 5-8 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator &
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+" & "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4bb010
+list contains 7 elements:
+  at 0x60379d4bb010: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4babd0
+  at 0x60379d4babd0: data 6 of H next: 0x60379d4bae30
+  at 0x60379d4bae30: data 7 of H next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 8 of S next: 0x60379d4bab70
+  at 0x60379d4bab70: data 9 of S next: 0
+
+ expecting:        { empty }
+ against received: { empty }
+ verifyResults returning true
+
+INFO - Element storage location test not run,
+ set size: 0
+passed   operation &
+
+Passed 41 of 41 tests
+
+    ************************ Test Phase *************************
+    *      operator&(MyOrderedSet) { 1-3, 5-8 } & { 3-5 }       *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator &
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4bab90
+list contains 7 elements:
+  at 0x60379d4bab90: data 2 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 6 of H next: 0x60379d4bb070
+  at 0x60379d4bb070: data 7 of H next: 0x60379d4baff0
+  at 0x60379d4baff0: data 8 of S next: 0x60379d4badd0
+  at 0x60379d4badd0: data 9 of S next: 0
+
+" & "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4bab70
+list contains 3 elements:
+  at 0x60379d4bab70: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 5 of D next: 0x60379d4bb010
+  at 0x60379d4bb010: data 6 of H next: 0
+
+ expecting:        { 4 of D, 6 of H }
+ against received: { 4 of D, 6 of H }
+  0       expected 4 of D == 4 of D
+  1       expected 6 of H == 6 of H
+ verifyResults returning true
+
+INFO - Element storage location test not run,
+ set size: 2
+passed   operation &
+
+Passed 42 of 42 tests
+
+
+***************************** Test Name  ******************************
+
+*                       operator-(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator-(MyOrderedSet) { 1-3, 5-8 } - { empty }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator -
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4b83f0
+list contains 7 elements:
+  at 0x60379d4b83f0: data 2 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 3 of C next: 0x60379d4babd0
+  at 0x60379d4babd0: data 4 of D next: 0x60379d4bab50
+  at 0x60379d4bab50: data 6 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 7 of H next: 0x60379d4bae30
+  at 0x60379d4bae30: data 8 of S next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 9 of S next: 0
+
+" - "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0x60379d4b83f0
+  at 0x60379d4b83f0: data 2 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 3 of C next: 0x60379d4babd0
+  at 0x60379d4babd0: data 4 of D next: 0x60379d4bab50
+  at 0x60379d4bab50: data 6 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 7 of H next: 0x60379d4bae30
+  at 0x60379d4bae30: data 8 of S next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badd0
+list contains 7 elements:
+  at 0x60379d4badd0: data 2 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 3 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4bb070
+  at 0x60379d4bb070: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 0 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badd0
+list contains 7 elements:
+  at 0x60379d4badd0: data 2 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 3 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4bb070
+  at 0x60379d4bb070: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+passed   operation -
+
+Passed 43 of 43 tests
+
+    ************************ Test Phase *************************
+    *     operator-(MyOrderedSet) { empty } - { 1-3, 5-8 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator -
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0
+list contains 0 elements:
+  empty list
+
+" - "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4bad90
+list contains 7 elements:
+  at 0x60379d4bad90: data 2 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4bab90
+  at 0x60379d4bab90: data 6 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4baff0
+  at 0x60379d4baff0: data 9 of S next: 0
+
+ expecting:        { empty }
+ against received: { empty }
+ verifyResults returning true
+
+INFO - Element storage location test not run,
+ set size: 0
+passed   operation -
+
+Passed 44 of 44 tests
+
+    ************************ Test Phase *************************
+    *      operator-(MyOrderedSet) { 1-3, 5-8 } - { 3-5 }       *
+    ************************ Test Phase *************************
+
+Test_Results* runSetArithmeticOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator -
+
+
+ operand_1: set contains a list at 0x7ffc2bdec0b0: m_head points to 0x60379d4bb070
+list contains 7 elements:
+  at 0x60379d4bb070: data 2 of C next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 3 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 4 of D next: 0x60379d4babd0
+  at 0x60379d4babd0: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+" - "
+
+ operand_2: set contains a list at 0x7ffc2bdec0c0: m_head points to 0x60379d4baff0
+list contains 3 elements:
+  at 0x60379d4baff0: data 4 of D next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 5 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 6 of H next: 0
+
+ expecting:        { 2 of C, 3 of C, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 7 of H == 7 of H
+  3       expected 8 of S == 8 of S
+  4       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0b0 and contained 7 objects 
+ list was at address 0x7ffc2bdec0b0 m_head points to 0x60379d4bb070
+  at 0x60379d4bb070: data 2 of C next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 3 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 4 of D next: 0x60379d4babd0
+  at 0x60379d4babd0: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badb0
+list contains 5 elements:
+  at 0x60379d4badb0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 7 of H next: 0x60379d4bb030
+  at 0x60379d4bb030: data 8 of S next: 0x60379d4bb050
+  at 0x60379d4bb050: data 9 of S next: 0
+
+ returns true b/c a value in before_set was found in after_set but at different node address
+
+Verifying memory relationship: "setElementsAreNotStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec0c0 and contained 3 objects 
+ list was at address 0x7ffc2bdec0c0 m_head points to 0x60379d4baff0
+  at 0x60379d4baff0: data 4 of D next: 0x60379d4b8e50
+  at 0x60379d4b8e50: data 5 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 6 of H next: 0
+
+after_set:  @0x7ffc2bdec0d0
+set contains a list at 0x7ffc2bdec0d0: m_head points to 0x60379d4badb0
+list contains 5 elements:
+  at 0x60379d4badb0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 7 of H next: 0x60379d4bb030
+  at 0x60379d4bb030: data 8 of S next: 0x60379d4bb050
+  at 0x60379d4bb050: data 9 of S next: 0
+
+ returns true b/c there were no values that were common to each set
+
+passed   operation -
+
+Passed 45 of 45 tests
+
+
+***************************** Test Name  ******************************
+
+*                      operator+=(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator+=(MyOrderedSet) { 1-3, 5-8 } + { empty }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4babb0
+list contains 7 elements:
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 7 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+ += 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0
+list contains 0 elements:
+  empty list
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4babb0
+list contains 7 elements:
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 7 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 7 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0x60379d4babb0
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 7 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4babb0
+list contains 7 elements:
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 7 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+ returns true 
+
+
+passed   operation +=
+
+Passed 46 of 46 tests
+
+    ************************ Test Phase *************************
+    *     operator+=(MyOrderedSet) { empty } + { 1-3, 5-8 }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ += 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4badf0
+list contains 7 elements:
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 3 of C next: 0x60379d4badd0
+  at 0x60379d4badd0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4badb0
+  at 0x60379d4badb0: data 7 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 8 of S next: 0x60379d4babb0
+  at 0x60379d4babb0: data 9 of S next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 7 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 8 of S next: 0x60379d4bab50
+  at 0x60379d4bab50: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 0 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 7 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 8 of S next: 0x60379d4bab50
+  at 0x60379d4bab50: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+
+passed   operation +=
+
+Passed 47 of 47 tests
+
+    ************************ Test Phase *************************
+    *      operator+=(MyOrderedSet) { 1-3, 5-8 } + { 3-5 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator +=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bab90
+list contains 7 elements:
+  at 0x60379d4bab90: data 2 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4badd0
+  at 0x60379d4badd0: data 6 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 7 of H next: 0x60379d4badf0
+  at 0x60379d4badf0: data 8 of S next: 0x60379d4bae10
+  at 0x60379d4bae10: data 9 of S next: 0
+
+ += 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4bab50
+list contains 3 elements:
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4babb0
+  at 0x60379d4babb0: data 5 of D next: 0x60379d4bae30
+  at 0x60379d4bae30: data 6 of H next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bab90
+list contains 8 elements:
+  at 0x60379d4bab90: data 2 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 5 of D next: 0x60379d4badd0
+  at 0x60379d4badd0: data 6 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 7 of H next: 0x60379d4badf0
+  at 0x60379d4badf0: data 8 of S next: 0x60379d4bae10
+  at 0x60379d4bae10: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+  4       expected 6 of H == 6 of H
+  5       expected 7 of H == 7 of H
+  6       expected 8 of S == 8 of S
+  7       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 7 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0x60379d4bab90
+  at 0x60379d4bab90: data 2 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4badd0
+  at 0x60379d4badd0: data 6 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 7 of H next: 0x60379d4badf0
+  at 0x60379d4badf0: data 8 of S next: 0x60379d4bae10
+  at 0x60379d4bae10: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bab90
+list contains 8 elements:
+  at 0x60379d4bab90: data 2 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 5 of D next: 0x60379d4badd0
+  at 0x60379d4badd0: data 6 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 7 of H next: 0x60379d4badf0
+  at 0x60379d4badf0: data 8 of S next: 0x60379d4bae10
+  at 0x60379d4bae10: data 9 of S next: 0
+
+ returns true 
+
+
+passed   operation +=
+
+Passed 48 of 48 tests
+
+
+***************************** Test Name  ******************************
+
+*                      operator|=(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator|=(MyOrderedSet) { 1-3, 5-8 } | { empty }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator |=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 7 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 7 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+ |= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0
+list contains 0 elements:
+  empty list
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 7 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 7 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 7 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0x60379d4bae30
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 7 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 7 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 7 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+ returns true 
+
+
+passed   operation |=
+
+Passed 49 of 49 tests
+
+    ************************ Test Phase *************************
+    *     operator|=(MyOrderedSet) { empty } | { 1-3, 5-8 }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator |=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ |= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4babd0
+list contains 7 elements:
+  at 0x60379d4babd0: data 2 of C next: 0x60379d4bab70
+  at 0x60379d4bab70: data 3 of C next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae10
+list contains 7 elements:
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4bb010
+  at 0x60379d4bb010: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 0 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae10
+list contains 7 elements:
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4bb010
+  at 0x60379d4bb010: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+
+passed   operation |=
+
+Passed 50 of 50 tests
+
+    ************************ Test Phase *************************
+    *      operator|=(MyOrderedSet) { 1-3, 5-8 } | { 3-5 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator |=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4babb0
+list contains 7 elements:
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+ |= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4bb010
+list contains 3 elements:
+  at 0x60379d4bb010: data 4 of D next: 0x60379d4bae30
+  at 0x60379d4bae30: data 5 of D next: 0x60379d4bae10
+  at 0x60379d4bae10: data 6 of H next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4babb0
+list contains 8 elements:
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4bab90
+  at 0x60379d4bab90: data 5 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 5 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 5 of D == 5 of D
+  4       expected 6 of H == 6 of H
+  5       expected 7 of H == 7 of H
+  6       expected 8 of S == 8 of S
+  7       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 7 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0x60379d4babb0
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4babb0
+list contains 8 elements:
+  at 0x60379d4babb0: data 2 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4bab90
+  at 0x60379d4bab90: data 5 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 6 of H next: 0x60379d4bab70
+  at 0x60379d4bab70: data 7 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+ returns true 
+
+
+passed   operation |=
+
+Passed 51 of 51 tests
+
+
+***************************** Test Name  ******************************
+
+*                      operator^=(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator^=(MyOrderedSet) { 1-3, 5-8 } ^ { empty }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator ^=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae10
+list contains 7 elements:
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4bae30
+  at 0x60379d4bae30: data 3 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4badd0
+  at 0x60379d4badd0: data 9 of S next: 0
+
+ ^= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0
+list contains 0 elements:
+  empty list
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae10
+list contains 7 elements:
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4bae30
+  at 0x60379d4bae30: data 3 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4badd0
+  at 0x60379d4badd0: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 7 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0x60379d4bae10
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4bae30
+  at 0x60379d4bae30: data 3 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4badd0
+  at 0x60379d4badd0: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae10
+list contains 7 elements:
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4bae30
+  at 0x60379d4bae30: data 3 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 6 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4badd0
+  at 0x60379d4badd0: data 9 of S next: 0
+
+ returns true 
+
+
+passed   operation ^=
+
+Passed 52 of 52 tests
+
+    ************************ Test Phase *************************
+    *     operator^=(MyOrderedSet) { empty } ^ { 1-3, 5-8 }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator ^=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ ^= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4badd0
+list contains 7 elements:
+  at 0x60379d4badd0: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 4 of D next: 0x60379d4badb0
+  at 0x60379d4badb0: data 6 of H next: 0x60379d4bb010
+  at 0x60379d4bb010: data 7 of H next: 0x60379d4bae30
+  at 0x60379d4bae30: data 8 of S next: 0x60379d4bae10
+  at 0x60379d4bae10: data 9 of S next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4badf0
+list contains 7 elements:
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 8 of S next: 0x60379d4bab70
+  at 0x60379d4bab70: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 0 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4badf0
+list contains 7 elements:
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 8 of S next: 0x60379d4bab70
+  at 0x60379d4bab70: data 9 of S next: 0
+
+ returns true b/c before_set was empty
+
+
+passed   operation ^=
+
+Passed 53 of 53 tests
+
+    ************************ Test Phase *************************
+    *      operator^=(MyOrderedSet) { 1-3, 5-8 } ^ { 3-5 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator ^=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 7 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+ ^= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4bab70
+list contains 3 elements:
+  at 0x60379d4bab70: data 4 of D next: 0x60379d4bae10
+  at 0x60379d4bae10: data 5 of D next: 0x60379d4badf0
+  at 0x60379d4badf0: data 6 of H next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 6 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 5 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 5 of D, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 5 of D, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 5 of D == 5 of D
+  3       expected 7 of H == 7 of H
+  4       expected 8 of S == 8 of S
+  5       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 7 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0x60379d4bae30
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 4 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 6 elements:
+  at 0x60379d4bae30: data 2 of C next: 0x60379d4bb010
+  at 0x60379d4bb010: data 3 of C next: 0x60379d4badb0
+  at 0x60379d4badb0: data 5 of D next: 0x60379d4bad90
+  at 0x60379d4bad90: data 7 of H next: 0x60379d4badd0
+  at 0x60379d4badd0: data 8 of S next: 0x60379d4babd0
+  at 0x60379d4babd0: data 9 of S next: 0
+
+ returns true 
+
+
+passed   operation ^=
+
+Passed 54 of 54 tests
+
+
+***************************** Test Name  ******************************
+
+*                      operator&=(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator&=(MyOrderedSet) { 1-3, 5-8 } & { empty }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator &=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bab70
+list contains 7 elements:
+  at 0x60379d4bab70: data 2 of C next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 3 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 4 of D next: 0x60379d4bab50
+  at 0x60379d4bab50: data 6 of H next: 0x60379d4bb070
+  at 0x60379d4bb070: data 7 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 8 of S next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 9 of S next: 0
+
+ &= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0
+list contains 0 elements:
+  empty list
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ expecting:        { empty }
+ against received: { empty }
+ verifyResults returning true
+
+set location test not run, result is too small: 0
+
+passed   operation &=
+
+Passed 55 of 55 tests
+
+    ************************ Test Phase *************************
+    *     operator&=(MyOrderedSet) { empty } & { 1-3, 5-8 }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator &=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ &= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4b83f0
+list contains 7 elements:
+  at 0x60379d4b83f0: data 2 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 3 of C next: 0x60379d4bb070
+  at 0x60379d4bb070: data 4 of D next: 0x60379d4bab50
+  at 0x60379d4bab50: data 6 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 7 of H next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 8 of S next: 0x60379d4bab70
+  at 0x60379d4bab70: data 9 of S next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ expecting:        { empty }
+ against received: { empty }
+ verifyResults returning true
+
+set location test not run, result is too small: 0
+
+passed   operation &=
+
+Passed 56 of 56 tests
+
+    ************************ Test Phase *************************
+    *      operator&=(MyOrderedSet) { 1-3, 5-8 } & { 3-5 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator &=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae10
+list contains 7 elements:
+  at 0x60379d4bae10: data 2 of C next: 0x60379d4badf0
+  at 0x60379d4badf0: data 3 of C next: 0x60379d4bae30
+  at 0x60379d4bae30: data 4 of D next: 0x60379d4bb010
+  at 0x60379d4bb010: data 6 of H next: 0x60379d4badb0
+  at 0x60379d4badb0: data 7 of H next: 0x60379d4bad90
+  at 0x60379d4bad90: data 8 of S next: 0x60379d4badd0
+  at 0x60379d4badd0: data 9 of S next: 0
+
+ &= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4bab70
+list contains 3 elements:
+  at 0x60379d4bab70: data 4 of D next: 0x60379d4babd0
+  at 0x60379d4babd0: data 5 of D next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 6 of H next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4bae30
+list contains 2 elements:
+  at 0x60379d4bae30: data 4 of D next: 0x60379d4bb010
+  at 0x60379d4bb010: data 6 of H next: 0
+
+ expecting:        { 4 of D, 6 of H }
+ against received: { 4 of D, 6 of H }
+  0       expected 4 of D == 4 of D
+  1       expected 6 of H == 6 of H
+ verifyResults returning true
+
+set location test not run, result is too small: 2
+
+passed   operation &=
+
+Passed 57 of 57 tests
+
+
+***************************** Test Name  ******************************
+
+*                      operator-=(MyOrderedSet)                       *
+
+***************************** Test Name  ******************************
+
+    ************************ Test Phase *************************
+    *     operator-=(MyOrderedSet) { 1-3, 5-8 } - { empty }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator -=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4badf0
+list contains 7 elements:
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 8 of S next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 9 of S next: 0
+
+ -= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0
+list contains 0 elements:
+  empty list
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4badf0
+list contains 7 elements:
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 8 of S next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 4 of D, 6 of H, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 4 of D == 4 of D
+  3       expected 6 of H == 6 of H
+  4       expected 7 of H == 7 of H
+  5       expected 8 of S == 8 of S
+  6       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 7 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0x60379d4badf0
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 8 of S next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4badf0
+list contains 7 elements:
+  at 0x60379d4badf0: data 2 of C next: 0x60379d4bae10
+  at 0x60379d4bae10: data 3 of C next: 0x60379d4bab90
+  at 0x60379d4bab90: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4bab50
+  at 0x60379d4bab50: data 7 of H next: 0x60379d4babb0
+  at 0x60379d4babb0: data 8 of S next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 9 of S next: 0
+
+ returns true 
+
+
+passed   operation -=
+
+Passed 58 of 58 tests
+
+    ************************ Test Phase *************************
+    *     operator-=(MyOrderedSet) { empty } - { 1-3, 5-8 }     *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator -=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ -= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4b80d0
+list contains 7 elements:
+  at 0x60379d4b80d0: data 2 of C next: 0x60379d4babb0
+  at 0x60379d4babb0: data 3 of C next: 0x60379d4bab50
+  at 0x60379d4bab50: data 4 of D next: 0x60379d4bb070
+  at 0x60379d4bb070: data 6 of H next: 0x60379d4bab90
+  at 0x60379d4bab90: data 7 of H next: 0x60379d4bae10
+  at 0x60379d4bae10: data 8 of S next: 0x60379d4badf0
+  at 0x60379d4badf0: data 9 of S next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0
+list contains 0 elements:
+  empty list
+
+ expecting:        { empty }
+ against received: { empty }
+ verifyResults returning true
+
+set location test not run, result is too small: 0
+
+passed   operation -=
+
+Passed 59 of 59 tests
+
+    ************************ Test Phase *************************
+    *      operator-=(MyOrderedSet) { 1-3, 5-8 } - { 3-5 }      *
+    ************************ Test Phase *************************
+
+Test_Results* runSetAssignmentOperationTest(Test_Arguments<T>*) [with T = PlayingCard] operator -=
+
+
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4badb0
+list contains 7 elements:
+  at 0x60379d4badb0: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4badd0
+  at 0x60379d4badd0: data 4 of D next: 0x60379d4bab70
+  at 0x60379d4bab70: data 6 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+ -= 
+
+set contains a list at 0x7ffc2bdec120: m_head points to 0x60379d4badf0
+list contains 3 elements:
+  at 0x60379d4badf0: data 4 of D next: 0x60379d4bb010
+  at 0x60379d4bb010: data 5 of D next: 0x60379d4b80d0
+  at 0x60379d4b80d0: data 6 of H next: 0
+
+yields
+
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4badb0
+list contains 5 elements:
+  at 0x60379d4badb0: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4babd0
+  at 0x60379d4babd0: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+ expecting:        { 2 of C, 3 of C, 7 of H, 8 of S, 9 of S }
+ against received: { 2 of C, 3 of C, 7 of H, 8 of S, 9 of S }
+  0       expected 2 of C == 2 of C
+  1       expected 3 of C == 3 of C
+  2       expected 7 of H == 7 of H
+  3       expected 8 of S == 8 of S
+  4       expected 9 of S == 9 of S
+ verifyResults returning true
+
+Verifying memory relationship: "setElementsAreStoredAtSameLocation"
+before_set: 
+set was at 0x7ffc2bdec110 and contained 7 objects 
+ list was at address 0x7ffc2bdec110 m_head points to 0x60379d4badb0
+  at 0x60379d4badb0: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4badd0
+  at 0x60379d4badd0: data 4 of D next: 0x60379d4bab70
+  at 0x60379d4bab70: data 6 of H next: 0x60379d4babd0
+  at 0x60379d4babd0: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+after_set:  
+set contains a list at 0x7ffc2bdec110: m_head points to 0x60379d4badb0
+list contains 5 elements:
+  at 0x60379d4badb0: data 2 of C next: 0x60379d4bad90
+  at 0x60379d4bad90: data 3 of C next: 0x60379d4babd0
+  at 0x60379d4babd0: data 7 of H next: 0x60379d4b83f0
+  at 0x60379d4b83f0: data 8 of S next: 0x60379d4bae30
+  at 0x60379d4bae30: data 9 of S next: 0
+
+ returns true 
+
+
+passed   operation -=
+
+Passed 60 of 60 tests
+
+testMyOrderedSet(): Passed 60 of 60 tests
 
 JoesSetTestBench.cpp done

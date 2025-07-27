@@ -8,8 +8,6 @@
 #include <string>
 #include <type_traits>
 
-//#include "WrappedUnsigned_h.txt"
-
 using namespace std;
 
 #undef SET_OPERATION
@@ -311,9 +309,10 @@ public:
         }\
     } while (false)
 */
-#define delete_args(ptr)    delete_object((ptr))
-#define    delete_before(ptr)    delete_object((ptr))
-#define delete_results(ptr)    delete_object((ptr))
+#define delete_args(ptr)    	delete_object((ptr))
+#define delete_before(ptr)    	delete_object((ptr))
+#define delete_results(ptr)    	delete_object((ptr))
+#define delete_test_vector(ptr)	delete_object((ptr))
 
 bool announceResults(int passed_test_count, int test_count);
 template <typename T>
@@ -340,59 +339,52 @@ bool verifySetResults(  std::string before,
                         T *expected, int expected_count,
                         std::string after, Message_Level level);
 template <typename T>
-T* generateTestVector(int *prototype, int size, std::map<int, T> &map);
+T* generateTestVector(int *prototype, int size, std::map<int, T> &prototype_to_vector_map);
 
 
 /* ********************************************************************    */
 /* ********************************************************************    */
-/*                    test class WrappedUnsignedSet                        */
+/*                    test class MyOrderedSet								*/
 /* ********************************************************************    */
 /* ********************************************************************    */
+
+#define INTEGER 0
+#define PLAYING_CARD 1
+#define TYPE_UNDER_TEST PLAYING_CARD
+
+
+#if TYPE_UNDER_TEST == PLAYING_CARD
+using TUT = PlayingCard;
+using Rank = PlayingCardRank;
+using Suit = PlayingCardSuit;
+std::map<int, TUT> prototype_map = {
+{1, PlayingCard(Suit::CLUBS, 	Rank::TWO) },
+{2, PlayingCard(Suit::CLUBS, 	Rank::THREE) },
+{3, PlayingCard(Suit::DIAMONDS,	Rank::FOUR) },
+{4, PlayingCard(Suit::DIAMONDS,	Rank::FIVE) },
+{5, PlayingCard(Suit::HEARTS,	Rank::SIX) },
+{6, PlayingCard(Suit::HEARTS,	Rank::SEVEN) },
+{7, PlayingCard(Suit::SPADES,	Rank::EIGHT) },
+{8, PlayingCard(Suit::SPADES,	Rank::NINE) } };
+#endif
+
+#if TYPE_UNDER_TEST == INTEGER
+    using TUT = int;
+    std::map<int, TUT> prototype_map = { {1,1,}, {2,2}, {3,3}, {4,4}, {5,5}, {6,6}, {7,7}, {8,8} };
+#endif
 
 #define TEST_SET_BUILDING_SET
-//#define TEST_SET_CLEAR
-//#define TEST_SET_COPY_CONSTRUCTOR_AND_ASSIGNMENT
-//#define TEST_SET_MOVE_CONSTRUCTOR_AND_ASSIGNMENT
-//#define TEST_SET_OPERATOR_ADD_SUB_OBJECT
-//#define TEST_SET_IS_MEMBER_UNSIGNED
-//#define TEST_SET_RELATIONAL_OPERATORS
-//#define TEST_SET_OPERATOR_ARITHMETIC_SET
-//#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
+#define TEST_SET_CLEAR
+#define TEST_SET_COPY_CONSTRUCTOR_AND_ASSIGNMENT
+#define TEST_SET_MOVE_CONSTRUCTOR_AND_ASSIGNMENT
+#define TEST_SET_OPERATOR_ADD_SUB_OBJECT
+#define TEST_SET_IS_MEMBER_UNSIGNED
+#define TEST_SET_RELATIONAL_OPERATORS
+#define TEST_SET_OPERATOR_ARITHMETIC_SET
+#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
 
 
 bool testMyOrderedSet() {
-
-//#define TYPE_UNDER_TEST INTEGER
-#define INTEGER 0
-#define PLAYING_CARD 1
-#define TYPE_UNDER_TEST INTEGER
-
-#if TYPE_UNDER_TEST == PLAYING_CARD
-    using TUT = PlayingCard;
-    using Rank = PlayingCardRank;
-    using Suit = PlayingCardSuit;
-    std::map<int, TUT> prototype_map;
-    prototype_map[1] = PlayingCard(Suit::CLUBS, 	Rank::TWO);
-    prototype_map[2] = PlayingCard(Suit::CLUBS, 	Rank::THREE);
-	prototype_map[3] = PlayingCard(Suit::DIAMONDS, 	Rank::FOUR);
-	prototype_map[4] = PlayingCard(Suit::DIAMONDS, 	Rank::FIVE);
-	prototype_map[5] = PlayingCard(Suit::HEARTS,	Rank::SIX);
-	prototype_map[6] = PlayingCard(Suit::HEARTS,	Rank::SEVEN);
-	prototype_map[7] = PlayingCard(Suit::SPADES,	Rank::EIGHT);
-	prototype_map[8] = PlayingCard(Suit::SPADES,	Rank::NINE);
-#endif
-#if TYPE_UNDER_TEST == INTEGER
-    using TUT = int;
-    std::map<int, TUT> prototype_map;
-    prototype_map[1] = 1;
-    prototype_map[2] = 2;
-	prototype_map[3] = 3;
-	prototype_map[4] = 4;
-	prototype_map[5] = 5;
-	prototype_map[6] = 6;
-	prototype_map[7] = 7;
-	prototype_map[8] = 8;
-#endif
 
 #if defined(TEST_SET_BUILDING_SET)
     int proto_disordered_inputs[]     = { 5, 3, 7, 4, 6, 8, 2, 1 };
@@ -405,6 +397,10 @@ bool testMyOrderedSet() {
     int repeating_inputs_size         = sizeof(proto_repeating_inputs) / sizeof(int);
     int repeating_result_size         = sizeof(proto_repeating_result) / sizeof(int);
 
+    TUT* disordered_inputs 	= generateTestVector(proto_disordered_inputs, disordered_inputs_size, prototype_map);
+	TUT* disordered_result 	= generateTestVector(proto_disordered_result, disordered_result_size, prototype_map);
+	TUT* repeating_inputs	= generateTestVector(proto_repeating_inputs, repeating_inputs_size, prototype_map);
+	TUT* repeating_result	= generateTestVector(proto_repeating_result, repeating_result_size, prototype_map);
 #endif    // #if defined(TEST_SET_BUILDING_SET)
 
 #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
@@ -440,110 +436,30 @@ bool testMyOrderedSet() {
     int set_x_x_3_x_x_6_x_x_size      = sizeof(proto_set_x_x_3_x_x_6_x_x) / sizeof(int);
     int set_1_2_x_4_x_6_7_8_size      = sizeof(proto_set_1_2_x_4_x_6_7_8) / sizeof(int);
     int set_1_2_x_x_x_6_7_8_size      = sizeof(proto_set_1_2_x_x_x_6_7_8) / sizeof(int);
+
+    TUT empty_set[]          	= {                        };
+    TUT* set_1_2_3_4_x_x_x_x 	= generateTestVector(proto_set_1_2_3_4_x_x_x_x, set_1_2_3_4_x_x_x_x_size, prototype_map);
+    TUT* set_1_2_3_4_5_6_x_x   	= generateTestVector(proto_set_1_2_3_4_5_6_x_x, set_1_2_3_4_5_6_x_x_size, prototype_map);
+    TUT* set_1_2_3_4_5_6_7_8   	= generateTestVector(proto_set_1_2_3_4_5_6_7_8, set_1_2_3_4_5_6_7_8_size, prototype_map);
+    TUT* set_1_2_3_4_5_6_x_8   	= generateTestVector(proto_set_1_2_3_4_5_6_x_8, set_1_2_3_4_5_6_x_8_size, prototype_map);
+    TUT* set_1_2_x_4_5_x_7_8    = generateTestVector(proto_set_1_2_x_4_5_x_7_8, set_1_2_x_4_5_x_7_8_size, prototype_map);
+    TUT* set_1_2_3_x_5_6_7_8   	= generateTestVector(proto_set_1_2_3_x_5_6_7_8, set_1_2_3_x_5_6_7_8_size, prototype_map);
+    TUT* set_x_x_x_x_5_6_7_8    = generateTestVector(proto_set_x_x_x_x_5_6_7_8, set_x_x_x_x_5_6_7_8_size, prototype_map);
+    TUT* set_x_x_3_4_5_x_x_x   	= generateTestVector(proto_set_x_x_3_4_5_x_x_x, set_x_x_3_4_5_x_x_x_size, prototype_map);
+    TUT* set_1_2_x_4_x_6_x_8   	= generateTestVector(proto_set_1_2_x_4_x_6_x_8, set_1_2_x_4_x_6_x_8_size, prototype_map);
+    TUT* set_x_x_3_x_5_x_x_x   	= generateTestVector(proto_set_x_x_3_x_5_x_x_x, set_x_x_3_x_5_x_x_x_size, prototype_map);
+    TUT* set_x_x_3_x_x_6_7_x   	= generateTestVector(proto_set_x_x_3_x_x_6_7_x, set_x_x_3_x_x_6_7_x_size, prototype_map);
+    TUT* set_x_x_3_x_x_6_x_x   	= generateTestVector(proto_set_x_x_3_x_x_6_x_x, set_x_x_3_x_x_6_x_x_size, prototype_map);
+    TUT* set_1_2_x_4_x_6_7_8   	= generateTestVector(proto_set_1_2_x_4_x_6_7_8, set_1_2_x_4_x_6_7_8_size, prototype_map);
+    TUT* set_1_2_x_x_x_6_7_8   	= generateTestVector(proto_set_1_2_x_x_x_6_7_8, set_1_2_x_x_x_6_7_8_size, prototype_map);
 #endif    // #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT) or defined(TEST_SET_IS_MEMBER_UNSIGNED)
 
-#if false
-#if 0TYPE_UNDER_TEST == INTEGER
-    using TUT = int;
-
-    #if defined(TEST_SET_BUILDING_SET)
-        TUT disordered_inputs[]                     = { 5, 3, 7, 4, 6, 8, 2, 1 };
-        TUT disordered_result[]                     = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        int disordered_inputs_size                  = sizeof(disordered_inputs) / sizeof(TUT);
-        int disordered_result_size                  = sizeof(disordered_result) / sizeof(TUT);
-
-        TUT repeating_inputs[]                        = { 1, 2, 3, 4, 4, 4, 3, 1 };
-        TUT repeating_result[]                        = { 1, 2, 3, 4 };
-        int repeating_inputs_size                     = sizeof(repeating_inputs) / sizeof(TUT);
-        int repeating_result_size                     = sizeof(repeating_result) / sizeof(TUT);
-    #endif    // #if defined(TEST_SET_BUILDING_SET)
-
-    #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
-     or defined(TEST_SET_IS_MEMBER_UNSIGNED)
-
-        TUT empty_set[]                                = {                        };
-        TUT set_1_2_3_4_x_x_x_x[]                     = { 1, 2, 3, 4             };
-        TUT set_1_2_3_4_5_6_x_x[]                    = { 1, 2, 3, 4, 5, 6       };
-        TUT set_1_2_3_4_5_6_7_8[]                     = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        TUT set_1_2_3_4_5_6_x_8[]                     = { 1, 2, 3, 4, 5, 6,    8 };
-        TUT set_1_2_x_4_5_x_7_8[]                     = { 1, 2,    4, 5,    7, 8 };
-        TUT set_1_2_3_x_5_6_7_8[]                     = { 1, 2, 3,    5, 6, 7, 8 };
-        TUT set_x_x_x_x_5_6_7_8[]                    = {             5, 6, 7    };
-        TUT set_x_x_3_4_5_x_x_x[]                    = {       3, 4, 5,         };
-        TUT set_1_2_x_4_x_6_x_8[]                    = { 1, 2,    4,    6,    8 };
-        TUT set_x_x_3_x_5_x_x_x[]                    = {       3,    5          };
-        TUT set_x_x_3_x_x_6_7_x[]                    = {       3,       6, 7    };
-        TUT set_x_x_3_x_x_6_x_x[]                    = {       3,       6,      };
-        TUT set_1_2_x_4_x_6_7_8[]                    = { 1, 2,    4,    6, 7, 8 };
-        TUT set_1_2_x_x_x_6_7_8[]                    = { 1, 2,          6, 7, 8 };
-
-        int empty_set_size                            = sizeof(empty_set) / sizeof(TUT);
-        int set_1_2_3_4_x_x_x_x_size                 = sizeof(set_1_2_3_4_x_x_x_x) / sizeof(TUT);
-        int set_1_2_3_4_5_6_x_x_size                = sizeof(set_1_2_3_4_5_6_x_x) / sizeof(TUT);
-        int set_1_2_3_4_5_6_7_8_size                = sizeof(set_1_2_3_4_5_6_7_8) / sizeof(TUT);
-        int set_1_2_3_4_5_6_x_8_size                 = sizeof(set_1_2_3_4_5_6_x_8) / sizeof(TUT);
-        int set_1_2_x_4_5_x_7_8_size                 = sizeof(set_1_2_x_4_5_x_7_8) / sizeof(TUT);
-        int set_1_2_3_x_5_6_7_8_size                 = sizeof(set_1_2_3_x_5_6_7_8) / sizeof(TUT);
-        int set_x_x_x_x_5_6_7_8_size                = sizeof(set_x_x_x_x_5_6_7_8) / sizeof(TUT);
-        int set_x_x_3_4_5_x_x_x_size                = sizeof(set_x_x_3_4_5_x_x_x) / sizeof(TUT);
-        int set_1_2_x_4_x_6_x_8_size                = sizeof(set_1_2_x_4_x_6_x_8) / sizeof(TUT);
-        int set_x_x_3_x_5_x_x_x_size                = sizeof(set_x_x_3_x_5_x_x_x) / sizeof(TUT);
-        int set_x_x_3_x_x_6_7_x_size                = sizeof(set_x_x_3_x_x_6_7_x) / sizeof(TUT);
-        int set_x_x_3_x_x_6_x_x_size                = sizeof(set_x_x_3_x_x_6_x_x) / sizeof(TUT);
-        int set_1_2_x_4_x_6_7_8_size                = sizeof(set_1_2_x_4_x_6_7_8) / sizeof(TUT);
-        int set_1_2_x_x_x_6_7_8_size                 = sizeof(set_1_2_x_x_x_6_7_8) / sizeof(TUT);
-    #endif    // #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT) or defined(TEST_SET_IS_MEMBER_UNSIGNED)
-#endif    // #if TYPE_UNDER_TEST == INTEGER
-
-#if defined(TEST_SET_BUILDING_SET)
-		TUT* disordered_inputs 	= generateTestVector(proto_disordered_inputs, disordered_inputs_size, prototype_map);
-		TUT* disordered_result 	= generateTestVector(proto_disordered_result, disordered_result_size, prototype_map);
-		TUT* repeating_inputs	= generateTestVector(proto_repeating_inputs, repeating_inputs_size, prototype_map);
-		TUT* repeating_result	= generateTestVector(proto_repeating_result, repeating_result_size, prototype_map);
- #endif    // #if defined(TEST_SET_BUILDING_SET)
-
-    #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
-     or defined(TEST_SET_IS_MEMBER_UNSIGNED)
-
-        TUT empty_set[]                                = {                        };
-        TUT set_1_2_3_4_x_x_x_x[]                     = { 1, 2, 3, 4             };
-        TUT set_1_2_3_4_5_6_x_x[]                    = { 1, 2, 3, 4, 5, 6       };
-        TUT set_1_2_3_4_5_6_7_8[]                     = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        TUT set_1_2_3_4_5_6_x_8[]                     = { 1, 2, 3, 4, 5, 6,    8 };
-        TUT set_1_2_x_4_5_x_7_8[]                     = { 1, 2,    4, 5,    7, 8 };
-        TUT set_1_2_3_x_5_6_7_8[]                     = { 1, 2, 3,    5, 6, 7, 8 };
-        TUT set_x_x_x_x_5_6_7_8[]                    = {             5, 6, 7    };
-        TUT set_x_x_3_4_5_x_x_x[]                    = {       3, 4, 5,         };
-        TUT set_1_2_x_4_x_6_x_8[]                    = { 1, 2,    4,    6,    8 };
-        TUT set_x_x_3_x_5_x_x_x[]                    = {       3,    5          };
-        TUT set_x_x_3_x_x_6_7_x[]                    = {       3,       6, 7    };
-        TUT set_x_x_3_x_x_6_x_x[]                    = {       3,       6,      };
-        TUT set_1_2_x_4_x_6_7_8[]                    = { 1, 2,    4,    6, 7, 8 };
-        TUT set_1_2_x_x_x_6_7_8[]                    = { 1, 2,          6, 7, 8 };
-
-        int empty_set_size                            = sizeof(empty_set) / sizeof(TUT);
-        int set_1_2_3_4_x_x_x_x_size                 = sizeof(set_1_2_3_4_x_x_x_x) / sizeof(TUT);
-        int set_1_2_3_4_5_6_x_x_size                = sizeof(set_1_2_3_4_5_6_x_x) / sizeof(TUT);
-        int set_1_2_3_4_5_6_7_8_size                = sizeof(set_1_2_3_4_5_6_7_8) / sizeof(TUT);
-        int set_1_2_3_4_5_6_x_8_size                 = sizeof(set_1_2_3_4_5_6_x_8) / sizeof(TUT);
-        int set_1_2_x_4_5_x_7_8_size                 = sizeof(set_1_2_x_4_5_x_7_8) / sizeof(TUT);
-        int set_1_2_3_x_5_6_7_8_size                 = sizeof(set_1_2_3_x_5_6_7_8) / sizeof(TUT);
-        int set_x_x_x_x_5_6_7_8_size                = sizeof(set_x_x_x_x_5_6_7_8) / sizeof(TUT);
-        int set_x_x_3_4_5_x_x_x_size                = sizeof(set_x_x_3_4_5_x_x_x) / sizeof(TUT);
-        int set_1_2_x_4_x_6_x_8_size                = sizeof(set_1_2_x_4_x_6_x_8) / sizeof(TUT);
-        int set_x_x_3_x_5_x_x_x_size                = sizeof(set_x_x_3_x_5_x_x_x) / sizeof(TUT);
-        int set_x_x_3_x_x_6_7_x_size                = sizeof(set_x_x_3_x_x_6_7_x) / sizeof(TUT);
-        int set_x_x_3_x_x_6_x_x_size                = sizeof(set_x_x_3_x_x_6_x_x) / sizeof(TUT);
-        int set_1_2_x_4_x_6_7_8_size                = sizeof(set_1_2_x_4_x_6_7_8) / sizeof(TUT);
-        int set_1_2_x_x_x_6_7_8_size                 = sizeof(set_1_2_x_x_x_6_7_8) / sizeof(TUT);
-    #endif    // #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT) or defined(TEST_SET_IS_MEMBER_UNSIGNED)
-
-    TUT* in_a         = nullptr;
+    TUT* in_a		= nullptr;
     int in_a_sz     = 0;
-    TUT * in_b         = nullptr;
+    TUT * in_b 		= nullptr;
     int in_b_sz     = 0;
-    TUT* xpctd         = nullptr;
-    int xpctd_sz     = 0;
+    TUT* xpctd  	= nullptr;
+    int xpctd_sz 	= 0;
 
     Message_Level message_level             = Verbose;
     int test_count                             = 0;
@@ -1950,8 +1866,7 @@ bool testMyOrderedSet() {
 
 #endif
 
-    //#define TEST_SET_OPERATOR_ARITHMETIC_ASSIGN_SET
-    cout << "testWrappedUnsignedSet(): ";
+    cout << __FUNCTION__ << "(): ";
     return announceResults(passed_test_count, test_count);
 }
 
@@ -1981,6 +1896,7 @@ void buildSet(MyOrderedSet<T> &dst, T *values, int num_values, Message_Level mes
 }
 
 template <typename T>
+
 bool isElement(T *p, int sz, T val) {
     for (int i = 0; i != sz; i++) {
         if (p[i] == val) return true;
@@ -2198,7 +2114,7 @@ bool setContentsAreEqual(const MyOrderedSet<T> &seta, const MyOrderedSet<T> &set
 template <typename T>
 T*	generateTestVector(int *prototype, int size, std::map<int, T> &map) {
 
-	std::cout << "Entered generateTestVector With size: " << size << std::endl;
+//	std::cout << "Entered generateTestVector With size: " << size << std::endl;
 	T* result = new T[size];
 	for (int i = 0; i != size; i++) {
 		if (map.contains(prototype[i])) {
@@ -2206,7 +2122,7 @@ T*	generateTestVector(int *prototype, int size, std::map<int, T> &map) {
 		} else {
 			std::cout << "ERROR - generateTestVector passed a map that does not contain key: " << prototype[i] << std::endl;
 		}
-		std::cout << i << " " << prototype[i] << " " << map[prototype[i]] << " " << result[i] << std::endl;
+//		std::cout << i << " " << prototype[i] << " " << map[prototype[i]] << " " << result[i] << std::endl;
 	}
 	return result;
 }
@@ -2234,10 +2150,12 @@ Test_Results* runSetRelationalOperatorsTest(Message_Level message_level, int& te
     MyOrderedSet<T> seta;
     MyOrderedSet<T> setb;
 
-    T Ts_1_4[] = { 1, 2, 3, 4 };
-    T Ts_5_8[] = { 5, 6, 7, 8 };
-    int num_Ts_1_4 = sizeof(Ts_1_4)/sizeof(T);
-    int num_Ts_5_8 = sizeof(Ts_5_8)/sizeof(T);
+    int proto_Ts_1_4[] = { 1, 2, 3, 4 };
+    int proto_Ts_5_8[] = { 5, 6, 7, 8 };
+    int num_Ts_1_4 = sizeof(proto_Ts_1_4)/sizeof(int);
+    int num_Ts_5_8 = sizeof(proto_Ts_5_8)/sizeof(int);
+    T* Ts_1_4 = generateTestVector(proto_Ts_1_4, num_Ts_1_4, prototype_map);
+    T* Ts_5_8 = generateTestVector(proto_Ts_5_8, num_Ts_5_8, prototype_map);
 
     echoTestPhase("{ empty }.operator==({ empty })");
     test_count++;

@@ -20,10 +20,14 @@ std::string arrayToString(T *values, int count) {
 
 	retval << "{ ";
 
-	for (int i = count ; i != 1; i--) {
-		retval << std::setw(2) << *values++ << ", ";
+	if (count > 0) {
+		for (int i = count ; i != 1; i--) {
+			retval << std::setw(2) << *values++ << ", ";
+		}
+		retval << std::setw(2) << *values;
+	} else {
+		retval << "empty";
 	}
-	retval << std::setw(2) << *values;
 	retval << " }";
 	return retval.str();
 }
