@@ -73,7 +73,8 @@ public:
 	PlayingCard(const PlayingCardSuit &suit, const PlayingCardRank &rank);
 	PlayingCard(const PlayingCardRank &rank, const PlayingCardSuit &suit);
 	PlayingCard& operator=(const PlayingCard &other);
-
+	PlayingCard(PlayingCard &&other) noexcept;
+	PlayingCard& operator=(PlayingCard &&other) noexcept;
 	friend std::ostream& operator<<(std::ostream& out, const PlayingCard &object) {
 		out << object.toString();
 		return out;

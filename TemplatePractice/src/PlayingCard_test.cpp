@@ -7,11 +7,25 @@
 
 #include "PlayingCard.h"
 
-void displayDeck(PlayingCard deck[]) {
+bool isSorted(PlayingCard *deck, int size) {
+
+	for (int i = 1; i != size; i++) {
+		if (deck[i] < deck[i-1])
+			return false;
+	}
+	return true;
+}
+
+void displayDeck(PlayingCard *deck, int size) {
+
+	constexpr int suits_in_deck = 4;
+	constexpr int ranks_in_suit = 13;
 	int i = 0;
-	for (int row = 0; row != 4; row++) {
-		for (int col = 0; col != 13; col++) {
+	for (int row = 0; row != suits_in_deck; row++) {
+		for (int col = 0; col != ranks_in_suit; col++) {
 			std::cout << deck[i++] << "  ";
+			if (i == size)
+				break;
 		}
 		std::cout << std::endl;
 	}
@@ -19,13 +33,16 @@ void displayDeck(PlayingCard deck[]) {
 
 bool testPlayingCard() {
 
-	PlayingCard deck[52];
+	constexpr int cards_in_deck = 52;
+	PlayingCard deck[cards_in_deck];
+
 	int i = 0;
 	PlayingCardSuit suit = PlayingCardSuit::CLUBS;
 	do {
 		PlayingCardRank rank = PlayingCardRank::TWO;
 		do {
-			deck[i++] = *(new PlayingCard(suit, rank));
+			deck[i++] = std::move(PlayingCard(suit, rank));
+//			deck[i++](suit,rank); // = PlayingCard(suit, rank);
 			if (rank == PlayingCardRank::ACE)
 				break;
 			++rank;
@@ -35,16 +52,19 @@ bool testPlayingCard() {
 		++suit;
 	} while (1);
 
-	std::cout << " **** PRIOR TO SHUFFLING **** " << std::endl;
-	displayDeck(deck);
+	std::cout << " **** PRIOR TO SHUFFLING ****, deck is "
+			  << (isSorted(deck, cards_in_deck) ? "sorted" : "not sorted") << std::endl;
+	displayDeck(deck, cards_in_deck);
 	std::cout << std::endl;
-	shuffle(deck, 52);
-	std::cout << " **** AFTER SHUFFLING **** " << std::endl;
-	displayDeck(deck);
+	shuffle(deck, cards_in_deck);
+	std::cout << " ****  AFTER SHUFFLING   ****, deck is "
+			  << (isSorted(deck, cards_in_deck) ? "sorted" : "not sorted") << std::endl;
+	displayDeck(deck, cards_in_deck);
 	std::cout << std::endl;
-	sort(deck, 52);
-	std::cout << " **** AFTER SORTING ****" << std::endl;
-	displayDeck(deck);
+	sort(deck, cards_in_deck);
+	std::cout << " ****   AFTER SORTING   **** , deck is "
+			  << (isSorted(deck, cards_in_deck) ? "sorted" : "not sorted") << std::endl;
+	displayDeck(deck, cards_in_deck);
 	std::cout << std::endl;
 	return true;
 }

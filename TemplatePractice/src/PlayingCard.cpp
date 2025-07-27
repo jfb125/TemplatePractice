@@ -336,15 +336,21 @@ PlayingCard& PlayingCard::operator=(const PlayingCard &other) {
 	m_rank = other.m_rank;
 	return *this;
 }
+PlayingCard::PlayingCard(PlayingCard &&other) noexcept : m_suit(other.m_suit), m_rank(other.m_rank) {}
+PlayingCard& PlayingCard::operator=(PlayingCard &&other) noexcept {
+	m_suit = other.m_suit;
+	m_rank = other.m_rank;
+	return *this;
+}
 
-void sort(PlayingCard *array, int size) {
+void sort(PlayingCard *deck, int size) {
 
 	for (int i = 1; i != size; i++) {
 		for (int j = i; j != 0; j--) {
-			if (array[j-1] > array[j]) {
-				PlayingCard tmp = array[j-1];
-				array[j-1] = array[j];
-				array[j] = tmp;
+			if (deck[j-1] > deck[j]) {
+				PlayingCard tmp = deck[j-1];
+				deck[j-1] = deck[j];
+				deck[j] = tmp;
 			} else {
 				break;
 			}
@@ -353,7 +359,7 @@ void sort(PlayingCard *array, int size) {
 	return;
 }
 
-void shuffle(PlayingCard *array, int size) {
+void shuffle(PlayingCard *deck, int size) {
 
     // Define the desired range
     int min_val = 0;
@@ -371,12 +377,9 @@ void shuffle(PlayingCard *array, int size) {
 
     for (int i = 0; i != size; i++) {
     	int r = distrib(gen) % (size-i) + i;
-//    	std::cout << "[" << std::setw(2) << i << "] " << array[i] << " : [" << std::setw(2) << r << "] : " << array[r] << " ";
-    	PlayingCard tmp = array[r];
-    	array[r] = array[i];
-    	array[i] = tmp;
-//    	std::cout << "[" << std::setw(2) << i << "] " << array[i] << " : [" << std::setw(2) << r << "] : " << array[r] << " ";
-//   		std::cout << std::endl;
+    	PlayingCard tmp = deck[r];
+    	deck[r] = deck[i];
+    	deck[i] = tmp;
     }
 	return;
 }

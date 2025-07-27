@@ -1,20 +1,20 @@
 /home/joe/git/TemplatePractice/TemplatePractice/Debug/TemplatePractice
 
-JoesSetTestBench.cpp ran on: Jul 26 2025 at 21:24:49
+JoesSetTestBench.cpp ran on: Jul 27 2025 at 07:52:27
 
- **** PRIOR TO SHUFFLING **** 
+ **** PRIOR TO SHUFFLING ****, deck is sorted
 2 of C  3 of C  4 of C  5 of C  6 of C  7 of C  8 of C  9 of C  T of C  J of C  Q of C  K of C  A of C  
 2 of D  3 of D  4 of D  5 of D  6 of D  7 of D  8 of D  9 of D  T of D  J of D  Q of D  K of D  A of D  
 2 of H  3 of H  4 of H  5 of H  6 of H  7 of H  8 of H  9 of H  T of H  J of H  Q of H  K of H  A of H  
 2 of S  3 of S  4 of S  5 of S  6 of S  7 of S  8 of S  9 of S  T of S  J of S  Q of S  K of S  A of S  
 
- **** AFTER SHUFFLING **** 
-A of S  J of D  8 of S  5 of H  7 of H  Q of C  5 of C  Q of D  T of S  T of C  9 of C  4 of C  7 of C  
-9 of H  A of D  A of H  T of D  3 of D  4 of H  T of H  4 of D  6 of H  7 of S  K of D  J of C  4 of S  
-8 of C  5 of S  2 of S  K of C  6 of S  9 of D  7 of D  3 of C  J of S  2 of C  6 of C  A of C  J of H  
-3 of S  6 of D  8 of D  2 of D  5 of D  K of S  2 of H  Q of S  8 of H  Q of H  K of H  9 of S  3 of H  
+ ****  AFTER SHUFFLING   ****, deck is not sorted
+A of C  5 of S  A of H  9 of C  K of C  8 of D  4 of D  Q of D  9 of H  4 of C  2 of D  3 of S  7 of D  
+4 of H  K of D  A of S  Q of S  2 of C  A of D  6 of C  8 of S  3 of D  8 of H  J of D  9 of D  3 of C  
+J of C  K of S  Q of C  6 of S  7 of S  J of H  K of H  T of H  5 of H  7 of H  8 of C  T of D  T of C  
+T of S  5 of C  6 of H  6 of D  2 of H  5 of D  Q of H  J of S  7 of C  3 of H  2 of S  4 of S  9 of S  
 
- **** AFTER SORTING ****
+ ****   AFTER SORTING   **** , deck is sorted
 2 of C  3 of C  4 of C  5 of C  6 of C  7 of C  8 of C  9 of C  T of C  J of C  Q of C  K of C  A of C  
 2 of D  3 of D  4 of D  5 of D  6 of D  7 of D  8 of D  9 of D  T of D  J of D  Q of D  K of D  A of D  
 2 of H  3 of H  4 of H  5 of H  6 of H  7 of H  8 of H  9 of H  T of H  J of H  Q of H  K of H  A of H  
