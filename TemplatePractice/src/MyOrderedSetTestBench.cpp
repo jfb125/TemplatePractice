@@ -5,9 +5,10 @@
 #include <string>
 #include <cstring>
 
-#include "WrappedUnsigned.h"
 #include "MyOrderedSet.h"
 #include "TestMyOrderedSet.h"
+#include "WrappedUnsigned_h.txt"
+#include "PlayingCard.h"
 
 using namespace std;
 
@@ -58,6 +59,7 @@ bool verifyResults(	std::string before,
 /*								main()									*/
 /* ********************************************************************	*/
 /* ********************************************************************	*/
+bool testPlayingCard();
 
 int main(int argc, char **argv) {
 
@@ -72,7 +74,8 @@ int main(int argc, char **argv) {
 //    testWrappedUnsigned();
 //    testWrappedUnsignedLinkedListNode();
 //    testWrappedUnsignedLinkedList();
-    testMyOrderedSet();
+//    testMyOrderedSet();
+    testPlayingCard();
 
     cout << endl << "JoesSetTestBench.cpp done" << endl;
     return EXIT_SUCCESS;

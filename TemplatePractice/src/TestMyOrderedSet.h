@@ -6,6 +6,7 @@
 #include <string>
 #include <cstring>
 
+#include "PlayingCard.h"
 #include "MyOrderedSet.h"
 #include "MyOrderedSetTestBench.h"
 
@@ -19,10 +20,10 @@ std::string arrayToString(T *values, int count) {
 
 	retval << "{ ";
 
-	for (int i = count ; i != 0; i--) {
-		retval << std::setw(2) << *values++;
+	for (int i = count ; i != 1; i--) {
+		retval << std::setw(2) << *values++ << ", ";
 	}
-
+	retval << std::setw(2) << *values;
 	retval << " }";
 	return retval.str();
 }
@@ -37,7 +38,7 @@ bool verifyResults(	std::string before,
 	std::cout << before;
 
 	if (isMsgLvlVerbose(lvl)) {
-		std::cout << " expecting: " << arrayToString(expected, expected_count);
+		std::cout << " expecting:        " << arrayToString(expected, expected_count) << std::endl;
 		std::cout << " against received: " << arrayToString(results, result_count) << std::endl;
 	}
 

@@ -5,8 +5,8 @@
  *      Author: joe
  */
 
-#ifndef WRAPPEDUNSIGNED_H_
-#define WRAPPEDUNSIGNED_H_
+#ifndef WRAPPEDUNSIGNED_H_TXT_
+#define WRAPPEDUNSIGNED_H_TXT_
 
 #include <iostream>
 #include <iomanip>
@@ -58,4 +58,4 @@ private:
 	unsigned x;
 };
 
-#endif /* WRAPPEDUNSIGNED_H_	*/
+#endif /* WRAPPEDUNSIGNED_H_TXT_	*/
