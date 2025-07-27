@@ -1,19 +1,24 @@
 /home/joe/git/TemplatePractice/TemplatePractice/Debug/TemplatePractice
 
-JoesSetTestBench.cpp ran on: Jul 26 2025 at 16:46:42
+JoesSetTestBench.cpp ran on: Jul 26 2025 at 21:24:49
 
-(0, 0): 2 of C, (1, 0): 2 of D, (2, 0): 2 of H, (3, 0): 2 of S, 
-(0, 1): 3 of C, (1, 1): 3 of D, (2, 1): 3 of H, (3, 1): 3 of S, 
-(0, 2): 4 of C, (1, 2): 4 of D, (2, 2): 4 of H, (3, 2): 4 of S, 
-(0, 3): 5 of C, (1, 3): 5 of D, (2, 3): 5 of H, (3, 3): 5 of S, 
-(0, 4): 6 of C, (1, 4): 6 of D, (2, 4): 6 of H, (3, 4): 6 of S, 
-(0, 5): 7 of C, (1, 5): 7 of D, (2, 5): 7 of H, (3, 5): 7 of S, 
-(0, 6): 8 of C, (1, 6): 8 of D, (2, 6): 8 of H, (3, 6): 8 of S, 
-(0, 7): 9 of C, (1, 7): 9 of D, (2, 7): 9 of H, (3, 7): 9 of S, 
-(0, 8): T of C, (1, 8): T of D, (2, 8): T of H, (3, 8): T of S, 
-(0, 9): J of C, (1, 9): J of D, (2, 9): J of H, (3, 9): J of S, 
-(0, 10): Q of C, (1, 10): Q of D, (2, 10): Q of H, (3, 10): Q of S, 
-(0, 11): K of C, (1, 11): K of D, (2, 11): K of H, (3, 11): K of S, 
-(0, 12): A of C, (1, 12): A of D, (2, 12): A of H, (3, 12): A of S, 
+ **** PRIOR TO SHUFFLING **** 
+2 of C  3 of C  4 of C  5 of C  6 of C  7 of C  8 of C  9 of C  T of C  J of C  Q of C  K of C  A of C  
+2 of D  3 of D  4 of D  5 of D  6 of D  7 of D  8 of D  9 of D  T of D  J of D  Q of D  K of D  A of D  
+2 of H  3 of H  4 of H  5 of H  6 of H  7 of H  8 of H  9 of H  T of H  J of H  Q of H  K of H  A of H  
+2 of S  3 of S  4 of S  5 of S  6 of S  7 of S  8 of S  9 of S  T of S  J of S  Q of S  K of S  A of S  
+
+ **** AFTER SHUFFLING **** 
+A of S  J of D  8 of S  5 of H  7 of H  Q of C  5 of C  Q of D  T of S  T of C  9 of C  4 of C  7 of C  
+9 of H  A of D  A of H  T of D  3 of D  4 of H  T of H  4 of D  6 of H  7 of S  K of D  J of C  4 of S  
+8 of C  5 of S  2 of S  K of C  6 of S  9 of D  7 of D  3 of C  J of S  2 of C  6 of C  A of C  J of H  
+3 of S  6 of D  8 of D  2 of D  5 of D  K of S  2 of H  Q of S  8 of H  Q of H  K of H  9 of S  3 of H  
+
+ **** AFTER SORTING ****
+2 of C  3 of C  4 of C  5 of C  6 of C  7 of C  8 of C  9 of C  T of C  J of C  Q of C  K of C  A of C  
+2 of D  3 of D  4 of D  5 of D  6 of D  7 of D  8 of D  9 of D  T of D  J of D  Q of D  K of D  A of D  
+2 of H  3 of H  4 of H  5 of H  6 of H  7 of H  8 of H  9 of H  T of H  J of H  Q of H  K of H  A of H  
+2 of S  3 of S  4 of S  5 of S  6 of S  7 of S  8 of S  9 of S  T of S  J of S  Q of S  K of S  A of S  
+
 
 JoesSetTestBench.cpp done

@@ -13,6 +13,8 @@
 #include <iomanip>
 #include <string>
 #include <cstring>
+#include <random>
+#include <climits>
 
 constexpr int INVALID_PLAYING_CARD_SUIT_VALUE = -1;
 enum class PlayingCardSuit { CLUBS, DIAMONDS, HEARTS, SPADES, INVALID };
@@ -63,6 +65,8 @@ public:
 	bool isValid(void) const;
 	std::string toString(void) const;
 
+	int toInt();	// returns 0-51
+
 	virtual ~PlayingCard();
 	PlayingCard();
 	PlayingCard(const PlayingCard &other);
@@ -77,7 +81,7 @@ public:
 };
 
 bool isCardValid(PlayingCard card);
-void sort(PlayingCard **, int size);
-void shuffle(PlayingCard **, int size);
+void sort(PlayingCard* deck, int size);
+void shuffle(PlayingCard* deck, int size);
 
 #endif /* PLAYINGCARD_H_ */

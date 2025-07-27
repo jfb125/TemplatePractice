@@ -320,6 +320,10 @@ bool PlayingCard::operator!=(const PlayingCard &other) const {
 	return !(*this == other);
 }
 
+int PlayingCard::toInt() {
+	return static_cast<int>(m_suit) * 13 + static_cast<int>(m_rank);
+}
+
 //PlayingCard::PlayingCard() {}
 PlayingCard::~PlayingCard() {}
 PlayingCard::PlayingCard() : m_suit(PlayingCardSuit::INVALID), m_rank(PlayingCardRank::INVALID) {}
@@ -333,9 +337,46 @@ PlayingCard& PlayingCard::operator=(const PlayingCard &other) {
 	return *this;
 }
 
-void sort(PlayingCard **array, int size) {
+void sort(PlayingCard *array, int size) {
+
+	for (int i = 1; i != size; i++) {
+		for (int j = i; j != 0; j--) {
+			if (array[j-1] > array[j]) {
+				PlayingCard tmp = array[j-1];
+				array[j-1] = array[j];
+				array[j] = tmp;
+			} else {
+				break;
+			}
+		}
+	}
 	return;
 }
-void shuffle(PlayingCard **array, int size) {
+
+void shuffle(PlayingCard *array, int size) {
+
+    // Define the desired range
+    int min_val = 0;
+    int max_val = INT_MAX;
+
+    // 1. Initialize a random number generator engine
+    //    random_device provides a non-deterministic seed (if available)
+    std::random_device rd;
+
+    //    mt19937 is a Mersenne Twister engine, a good general-purpose PRNG
+    std::mt19937 gen(rd());
+
+    // 2. Define a uniform integer distribution for the desired range
+    std::uniform_int_distribution<> distrib(min_val, max_val);
+
+    for (int i = 0; i != size; i++) {
+    	int r = distrib(gen) % (size-i) + i;
+//    	std::cout << "[" << std::setw(2) << i << "] " << array[i] << " : [" << std::setw(2) << r << "] : " << array[r] << " ";
+    	PlayingCard tmp = array[r];
+    	array[r] = array[i];
+    	array[i] = tmp;
+//    	std::cout << "[" << std::setw(2) << i << "] " << array[i] << " : [" << std::setw(2) << r << "] : " << array[r] << " ";
+//   		std::cout << std::endl;
+    }
 	return;
 }

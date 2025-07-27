@@ -7,27 +7,44 @@
 
 #include "PlayingCard.h"
 
-bool testPlayingCard() {
-
-
-	PlayingCard *deck[52];
+void displayDeck(PlayingCard deck[]) {
 	int i = 0;
-	for (PlayingCardSuit suit = PlayingCardSuit::CLUBS;  ; ++suit) {
-		for (PlayingCardRank rank = PlayingCardRank::TWO; ; ++rank) {
-			deck[i++] = new PlayingCard(suit, rank);
-			if (rank == PlayingCardRank::ACE)
-				break;
-		}
-		if (suit == PlayingCardSuit::SPADES)
-			break;
-	}
-
-
-	for (int j = 0; j != 13; j++) {
-		for (int k = 0; k != 4; k++) {
-			std::cout << "(" << k << ", " << j << "): " << deck[13*k+j]->toString() << ", ";
+	for (int row = 0; row != 4; row++) {
+		for (int col = 0; col != 13; col++) {
+			std::cout << deck[i++] << "  ";
 		}
 		std::cout << std::endl;
 	}
+}
+
+bool testPlayingCard() {
+
+	PlayingCard deck[52];
+	int i = 0;
+	PlayingCardSuit suit = PlayingCardSuit::CLUBS;
+	do {
+		PlayingCardRank rank = PlayingCardRank::TWO;
+		do {
+			deck[i++] = *(new PlayingCard(suit, rank));
+			if (rank == PlayingCardRank::ACE)
+				break;
+			++rank;
+		} while(1);
+		if (suit == PlayingCardSuit::SPADES)
+			break;
+		++suit;
+	} while (1);
+
+	std::cout << " **** PRIOR TO SHUFFLING **** " << std::endl;
+	displayDeck(deck);
+	std::cout << std::endl;
+	shuffle(deck, 52);
+	std::cout << " **** AFTER SHUFFLING **** " << std::endl;
+	displayDeck(deck);
+	std::cout << std::endl;
+	sort(deck, 52);
+	std::cout << " **** AFTER SORTING ****" << std::endl;
+	displayDeck(deck);
+	std::cout << std::endl;
 	return true;
 }
