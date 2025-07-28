@@ -312,7 +312,7 @@ public:
 #define delete_args(ptr)    	delete_object((ptr))
 #define delete_before(ptr)    	delete_object((ptr))
 #define delete_results(ptr)    	delete_object((ptr))
-#define delete_test_vector(ptr)	delete_object((ptr))
+#define deleteTestVector(ptr)	delete_object((ptr))
 
 bool announceResults(int passed_test_count, int test_count);
 template <typename T>
@@ -350,7 +350,7 @@ T* generateTestVector(int *prototype, int size, std::map<int, T> &prototype_to_v
 
 #define INTEGER 0
 #define PLAYING_CARD 1
-#define TYPE_UNDER_TEST PLAYING_CARD
+#define TYPE_UNDER_TEST INTEGER
 
 
 #if TYPE_UNDER_TEST == PLAYING_CARD
@@ -386,7 +386,6 @@ std::map<int, TUT> prototype_map = {
 
 bool testMyOrderedSet() {
 
-#if defined(TEST_SET_BUILDING_SET)
     int proto_disordered_inputs[]     = { 5, 3, 7, 4, 6, 8, 2, 1 };
     int proto_disordered_result[]     = { 1, 2, 3, 4, 5, 6, 7, 8 };
     int disordered_inputs_size        = sizeof(proto_disordered_inputs) / sizeof(int);
@@ -397,14 +396,6 @@ bool testMyOrderedSet() {
     int repeating_inputs_size         = sizeof(proto_repeating_inputs) / sizeof(int);
     int repeating_result_size         = sizeof(proto_repeating_result) / sizeof(int);
 
-    TUT* disordered_inputs 	= generateTestVector(proto_disordered_inputs, disordered_inputs_size, prototype_map);
-	TUT* disordered_result 	= generateTestVector(proto_disordered_result, disordered_result_size, prototype_map);
-	TUT* repeating_inputs	= generateTestVector(proto_repeating_inputs, repeating_inputs_size, prototype_map);
-	TUT* repeating_result	= generateTestVector(proto_repeating_result, repeating_result_size, prototype_map);
-#endif    // #if defined(TEST_SET_BUILDING_SET)
-
-#if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT)\
- or defined(TEST_SET_IS_MEMBER_UNSIGNED)
     int proto_empty_set[]             = {                        };
     int proto_set_1_2_3_4_x_x_x_x[]   = { 1, 2, 3, 4             };
     int proto_set_1_2_3_4_5_6_x_x[]   = { 1, 2, 3, 4, 5, 6       };
@@ -438,6 +429,10 @@ bool testMyOrderedSet() {
     int set_1_2_x_x_x_6_7_8_size      = sizeof(proto_set_1_2_x_x_x_6_7_8) / sizeof(int);
 
     TUT empty_set[]          	= {                        };
+    TUT* disordered_inputs 	= generateTestVector(proto_disordered_inputs, disordered_inputs_size, prototype_map);
+	TUT* disordered_result 	= generateTestVector(proto_disordered_result, disordered_result_size, prototype_map);
+	TUT* repeating_inputs	= generateTestVector(proto_repeating_inputs, repeating_inputs_size, prototype_map);
+	TUT* repeating_result	= generateTestVector(proto_repeating_result, repeating_result_size, prototype_map);
     TUT* set_1_2_3_4_x_x_x_x 	= generateTestVector(proto_set_1_2_3_4_x_x_x_x, set_1_2_3_4_x_x_x_x_size, prototype_map);
     TUT* set_1_2_3_4_5_6_x_x   	= generateTestVector(proto_set_1_2_3_4_5_6_x_x, set_1_2_3_4_5_6_x_x_size, prototype_map);
     TUT* set_1_2_3_4_5_6_7_8   	= generateTestVector(proto_set_1_2_3_4_5_6_7_8, set_1_2_3_4_5_6_7_8_size, prototype_map);
@@ -452,7 +447,6 @@ bool testMyOrderedSet() {
     TUT* set_x_x_3_x_x_6_x_x   	= generateTestVector(proto_set_x_x_3_x_x_6_x_x, set_x_x_3_x_x_6_x_x_size, prototype_map);
     TUT* set_1_2_x_4_x_6_7_8   	= generateTestVector(proto_set_1_2_x_4_x_6_7_8, set_1_2_x_4_x_6_7_8_size, prototype_map);
     TUT* set_1_2_x_x_x_6_7_8   	= generateTestVector(proto_set_1_2_x_x_x_6_7_8, set_1_2_x_x_x_6_7_8_size, prototype_map);
-#endif    // #if defined(TEST_SET_OPERATOR_ADD_SUB_OBJECT) or defined(TEST_SET_IS_MEMBER_UNSIGNED)
 
     TUT* in_a		= nullptr;
     int in_a_sz     = 0;
@@ -1863,8 +1857,26 @@ bool testMyOrderedSet() {
     delete_array(in_b);
     delete_array(xpctd);
     cout_count();
-
 #endif
+
+    deleteTestVector(disordered_inputs);	// 	= generateTestVector(proto_disordered_inputs, disordered_inputs_size, prototype_map);
+	deleteTestVector(disordered_result);	// 	= generateTestVector(proto_disordered_result, disordered_result_size, prototype_map);
+	deleteTestVector(repeating_inputs);		//	= generateTestVector(proto_repeating_inputs, repeating_inputs_size, prototype_map);
+	deleteTestVector(repeating_result);		//	= generateTestVector(proto_repeating_result, repeating_result_size, prototype_map);
+    deleteTestVector(set_1_2_3_4_x_x_x_x);	//	= generateTestVector(proto_set_1_2_3_4_x_x_x_x, set_1_2_3_4_x_x_x_x_size, prototype_map);
+    deleteTestVector(set_1_2_3_4_5_6_x_x);	//  = generateTestVector(proto_set_1_2_3_4_5_6_x_x, set_1_2_3_4_5_6_x_x_size, prototype_map);
+    deleteTestVector(set_1_2_3_4_5_6_7_8);	//  = generateTestVector(proto_set_1_2_3_4_5_6_7_8, set_1_2_3_4_5_6_7_8_size, prototype_map);
+    deleteTestVector(set_1_2_3_4_5_6_x_8);	//  = generateTestVector(proto_set_1_2_3_4_5_6_x_8, set_1_2_3_4_5_6_x_8_size, prototype_map);
+    deleteTestVector(set_1_2_x_4_5_x_7_8);	//  = generateTestVector(proto_set_1_2_x_4_5_x_7_8, set_1_2_x_4_5_x_7_8_size, prototype_map);
+    deleteTestVector(set_1_2_3_x_5_6_7_8);	//  = generateTestVector(proto_set_1_2_3_x_5_6_7_8, set_1_2_3_x_5_6_7_8_size, prototype_map);
+    deleteTestVector(set_x_x_x_x_5_6_7_8);	//  = generateTestVector(proto_set_x_x_x_x_5_6_7_8, set_x_x_x_x_5_6_7_8_size, prototype_map);
+    deleteTestVector(set_x_x_3_4_5_x_x_x);	//  = generateTestVector(proto_set_x_x_3_4_5_x_x_x, set_x_x_3_4_5_x_x_x_size, prototype_map);
+    deleteTestVector(set_1_2_x_4_x_6_x_8);	//  = generateTestVector(proto_set_1_2_x_4_x_6_x_8, set_1_2_x_4_x_6_x_8_size, prototype_map);
+    deleteTestVector(set_x_x_3_x_5_x_x_x);	//  = generateTestVector(proto_set_x_x_3_x_5_x_x_x, set_x_x_3_x_5_x_x_x_size, prototype_map);
+    deleteTestVector(set_x_x_3_x_x_6_7_x);	//  = generateTestVector(proto_set_x_x_3_x_x_6_7_x, set_x_x_3_x_x_6_7_x_size, prototype_map);
+    deleteTestVector(set_x_x_3_x_x_6_x_x);	//  = generateTestVector(proto_set_x_x_3_x_x_6_x_x, set_x_x_3_x_x_6_x_x_size, prototype_map);
+    deleteTestVector(set_1_2_x_4_x_6_7_8);	//  = generateTestVector(proto_set_1_2_x_4_x_6_7_8, set_1_2_x_4_x_6_7_8_size, prototype_map);
+    deleteTestVector(set_1_2_x_x_x_6_7_8);	// 	= generateTestVector(proto_set_1_2_x_x_x_6_7_8, set_1_2_x_x_x_6_7_8_size, prototype_map);
 
     cout << __FUNCTION__ << "(): ";
     return announceResults(passed_test_count, test_count);
