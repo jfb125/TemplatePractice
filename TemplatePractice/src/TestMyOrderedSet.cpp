@@ -312,7 +312,7 @@ public:
 #define delete_args(ptr)    	delete_object((ptr))
 #define delete_before(ptr)    	delete_object((ptr))
 #define delete_results(ptr)    	delete_object((ptr))
-#define deleteTestVector(ptr)	delete_object((ptr))
+#define deleteTestVector(ptr)	do { if(ptr) { delete[] ptr; ptr = nullptr; } } while(false)
 
 bool announceResults(int passed_test_count, int test_count);
 template <typename T>
